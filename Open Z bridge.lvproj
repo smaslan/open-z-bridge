@@ -15,6 +15,7 @@
 			<Item Name="TWM client" Type="Folder">
 				<Property Name="NI.SortType" Type="Int">3</Property>
 				<Item Name="TWM Mode.ctl" Type="VI" URL="../drivers/TWM client/TWM Mode.ctl"/>
+				<Item Name="TWM parameters.ctl" Type="VI" URL="../drivers/TWM client/TWM parameters.ctl"/>
 				<Item Name="TWM Session.ctl" Type="VI" URL="../drivers/TWM client/TWM Session.ctl"/>
 				<Item Name="TWM client.lvlibp" Type="LVLibp" URL="../drivers/TWM client.lvlibp">
 					<Item Name="TWM Client Processing Setup.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Processing Setup.ctl"/>
@@ -192,6 +193,8 @@
 			<Item Name="Meas Results Sweep Data.ctl" Type="VI" URL="../measure/Meas Results Sweep Data.ctl"/>
 			<Item Name="Meas Result Major Format.ctl" Type="VI" URL="../measure/Meas Result Major Format.ctl"/>
 			<Item Name="Meas Result Deviation Format.ctl" Type="VI" URL="../measure/Meas Result Deviation Format.ctl"/>
+			<Item Name="Meas Quantity Names.ctl" Type="VI" URL="../measure/Meas Quantity Names.ctl"/>
+			<Item Name="Meas Result Freq Format.ctl" Type="VI" URL="../measure/Meas Result Freq Format.ctl"/>
 			<Item Name="Meas Panel.vi" Type="VI" URL="../measure/Meas Panel.vi"/>
 			<Item Name="Meas Gen Sequence.vi" Type="VI" URL="../measure/Meas Gen Sequence.vi"/>
 			<Item Name="Meas Gen Path.vi" Type="VI" URL="../measure/Meas Gen Path.vi"/>
@@ -204,7 +207,7 @@
 			<Item Name="Meas Result Get Sweep Data.vi" Type="VI" URL="../measure/Meas Result Get Sweep Data.vi"/>
 			<Item Name="Meas Result Add Reading.vi" Type="VI" URL="../measure/Meas Result Add Reading.vi"/>
 			<Item Name="Meas Result Update View.vi" Type="VI" URL="../measure/Meas Result Update View.vi"/>
-			<Item Name="Meas Result Freq Format.ctl" Type="VI" URL="../measure/Meas Result Freq Format.ctl"/>
+			<Item Name="Meas Result Export.vi" Type="VI" URL="../measure/Meas Result Export.vi"/>
 		</Item>
 		<Item Name="ini" Type="Folder">
 			<Item Name="ini_auto" Type="Folder">
@@ -276,7 +279,6 @@
 			<Item Name="varilib.lvlib" Type="Library" URL="../varilib/varilib.lvlib"/>
 		</Item>
 		<Item Name="main.vi" Type="VI" URL="../main.vi"/>
-		<Item Name="TWM parameters.ctl" Type="VI" URL="../drivers/TWM client/TWM parameters.ctl"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="instr.lib" Type="Folder">
 				<Item Name="niScope Acquisition Status.vi" Type="VI" URL="/&lt;instrlib&gt;/niScope/Acquire/Fetch/niScope Acquisition Status.vi"/>
@@ -459,6 +461,7 @@
 				<Item Name="Write To Spreadsheet File (I64).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Write To Spreadsheet File (I64).vi"/>
 				<Item Name="Write To Spreadsheet File (string).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Write To Spreadsheet File (string).vi"/>
 				<Item Name="Write To Spreadsheet File.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Write To Spreadsheet File.vi"/>
+				<Item Name="LVRowAndColumnTypeDef.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVRowAndColumnTypeDef.ctl"/>
 			</Item>
 			<Item Name="Advapi32.dll" Type="Document" URL="Advapi32.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
