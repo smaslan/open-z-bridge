@@ -1,0 +1,78 @@
+* Z-bridge components library
+.LIB ZbrgLib
+
+* Coax cable with choke having real component
+.SUBCKT COAXCAB LA LB RA RB Rs=0.05 Ls=250e-9 RsG=0.05 LsG=250e-9 k=0.9 Cp=105e-12 Rp=1e9 Rch=1e-9
+* high wire
+R1 LA n001 {Rs}
+L1 n001 n002 {Ls} $ <L> - high side tag for inductor for parasitic coupling simulation
+L2 n002 n003 {Ls}
+R2 n003 n007 {Rs}
+K1 L1 L3 {k}
+* low wire
+R3 RA n004 {RsG}
+L3 n004 n005 {LsG} $ <Lg> - low side tag for inductor for parasitic coupling simulation
+L4 n005 n006 {LsG}
+R4 n006 n009 {RsG}
+K2 L2 L4 {k}
+* shunting Y
+C1 n002 n005 {Cp} $ <C> - node tag for capacitor for parasitic coupling simulation
+R5 n002 n005 {Rp}
+* choke real component simulated
+R6 n007 n008 {Rch}
+E1 n009 n010 n007 n008 1
+R7 n010 RB {Rch}
+E2 n008 LB n010 RB 1
+.ENDS COAXCAB
+
+* Coax cable
+.SUBCKT COAXCAB2 LA LB RA RB Rs=0.05 Ls=250e-9 RsG=0.05 LsG=250e-9 k=0.9 Cp=105e-12 Rp=1e9
+R1 LA n001 {Rs}
+L1 n001 n002 {Ls}
+L2 n002 n003 {Ls}
+R2 n003 LB {Rs}
+R3 RA n004 {RsG}
+L3 n004 n005 {LsG}
+L4 n005 n006 {LsG}
+R4 n006 RB {RsG}
+C1 n002 n005 {Cp}
+R5 n002 n005 {Rp}
+K1 L1 L3 {k}
+K2 L2 L4 {k}
+.ENDS COAXCAB2
+
+* Ground lug
+.SUBCKT GNDLUG LA LB Rs=0.05 Ls=250e-9
+R1 LA n001 {Rs}
+L1 n001 LB {Ls} $ <L> - high side tag for inductor for parasitic coupling simulation
+.ENDS GNDLUG
+
+* 4TP standard
+.SUBCKT STD4TP Hp HpG Lp LpG Hc HcG Lc LcG GND Rp=0.01 Lp=20e-9 Rpg=0.005 Lpg=15e-9 kp=0.7 Cps=5e-12 Rps=1e9 Rc=0.01 Lc=20e-9 Rcg=0.005 Lcg=15e-9 kc=0.7 Ccs=5e-12 Rcs=1e9 Rs=100 Ls=0
+R1 high n001 {Rs}
+L1 n001 low {Ls}
+Xhpot Hp high HpG GND COAXCAB Rs={Rp} Ls={Lp} RsG={Rpg} LsG={Lpg} k={kp} Cp={Cps} Rp={Rps}
+Xlpot Lp low LpG GND COAXCAB Rs={Rp} Ls={Lp} RsG={Rpg} LsG={Lpg} k={kp} Cp={Cps} Rp={Rps}
+Xhcur Hc high HcG GND COAXCAB Rs={Rc} Ls={Lc} RsG={Rcg} LsG={Lcg} k={kc} Cp={Ccs} Rp={Rcs}
+Xlcur Lc low LcG GND COAXCAB Rs={Rc} Ls={Lc} RsG={Rcg} LsG={Lcg} k={kc} Cp={Ccs} Rp={Rcs}
+.ENDS STD4TP
+
+* 4TP standard with split grounds
+.SUBCKT STD4TP2 Hp HpG Lp LpG Hc HcG Lc LcG Gp Gc Rp=0.01 Lp=20e-9 Rpg=0.005 Lpg=15e-9 kp=0.7 Cps=5e-12 Rps=1e9 Rc=0.01 Lc=20e-9 Rcg=0.005 Lcg=15e-9 kc=0.7 Ccs=5e-12 Rcs=1e9 Rs=100 Ls=0
+R1 high n001 {Rs}
+L1 n001 low {Ls}
+Xhpot Hp high HpG Gp COAXCAB Rs={Rp} Ls={Lp} RsG={Rpg} LsG={Lpg} k={kp} Cp={Cps} Rp={Rps}
+Xlpot Lp low LpG Gp COAXCAB Rs={Rp} Ls={Lp} RsG={Rpg} LsG={Lpg} k={kp} Cp={Cps} Rp={Rps}
+Xhcur Hc high HcG Gc COAXCAB Rs={Rc} Ls={Lc} RsG={Rcg} LsG={Lcg} k={kc} Cp={Ccs} Rp={Rcs}
+Xlcur Lc low LcG Gc COAXCAB Rs={Rc} Ls={Lc} RsG={Rcg} LsG={Lcg} k={kc} Cp={Ccs} Rp={Rcs}
+.ENDS STD4TP2
+
+* Coaxial standard
+.SUBCKT STDCOAX Ch Cl Ph Pl Rp=0.01 Lp=20e-9 Rpg=0.005 Lpg=15e-9 kp=0.7 Cps=5e-12 Rps=1e9 Rc=0.01 Lc=20e-9 Rcg=0.005 Lcg=15e-9 kc=0.7 Ccs=5e-12 Rcs=1e9 Rs=1 Ls=0
+R1 high n001 {Rs}
+L1 n001 low {Ls}
+Xcur Ch high Cl low COAXCAB Rs={Rc} Ls={Lc} RsG={Rcg} LsG={Lcg} k={kc} Cp={Ccs} Rp={Rcs}
+Xpot Ph high Pl low COAXCAB Rs={Rp} Ls={Lp} RsG={Rpg} LsG={Lpg} k={kp} Cp={Cps} Rp={Rps}
+.ENDS STDCOAX
+
+.ENDL
