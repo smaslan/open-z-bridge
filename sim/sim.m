@@ -133,6 +133,8 @@ for rep = 1:RPC
         par.stray = stray;
     endif
     
+    return
+    
     % make job file
     jobz{rep}.swp = swp;    
     jobz{rep}.par = par;

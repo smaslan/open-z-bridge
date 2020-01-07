@@ -1,0 +1,81 @@
+Version 4
+SymbolType CELL
+LINE Normal -128 0 -128 0
+LINE Normal -128 0 -128 0
+LINE Normal -56 0 -128 0
+LINE Normal -128 -48 -56 -48
+LINE Normal 80 48 96 48
+LINE Normal -72 -36 -72 -48
+LINE Normal -72 0 -72 -12
+LINE Normal -68 -36 -76 -36
+LINE Normal -68 -12 -76 -12
+LINE Normal -76 -12 -76 -36
+LINE Normal -68 -12 -68 -36
+LINE Normal -32 -40 -48 -24
+LINE Normal 8 -40 -32 -40
+LINE Normal 8 -8 8 -40
+LINE Normal -32 -8 8 -8
+LINE Normal -48 -24 -32 -8
+LINE Normal -56 -48 -40 -32
+LINE Normal -40 -16 -56 0
+LINE Normal -72 12 -72 0
+LINE Normal -72 48 -72 36
+LINE Normal -68 12 -76 12
+LINE Normal -68 36 -76 36
+LINE Normal -76 36 -76 12
+LINE Normal -68 36 -68 12
+LINE Normal -96 48 32 48 2
+LINE Normal -96 5 -96 48 2
+LINE Normal -96 -80 -96 -53 2
+LINE Normal 32 -80 -96 -80 2
+LINE Normal 32 48 32 -80 2
+LINE Normal 44 48 32 48
+LINE Normal 80 48 68 48
+LINE Normal 44 44 44 52
+LINE Normal 68 44 68 52
+LINE Normal 68 52 44 52
+LINE Normal 68 44 44 44
+LINE Normal -96 48 -128 48
+LINE Normal -96 -5 -96 -43 2
+LINE Normal 24 -24 8 -24
+LINE Normal 96 -48 80 -48
+LINE Normal 80 0 96 0
+RECTANGLE Normal 80 64 -112 -96
+TEXT -15 -24 Center 1 ADC
+TEXT -116 -9 Right 1 Lo
+TEXT -116 -58 Right 1 Hi
+TEXT -116 39 Right 1 Grd
+TEXT 85 38 Left 1 GND
+TEXT -63 24 Left 1 Zlg
+TEXT 55 32 Center 1 Zgs
+TEXT -72 -59 Center 1 Zin
+TEXT 85 -57 Left 1 OUT+
+TEXT 85 -10 Left 1 OUT-
+WINDOW 0 -15 -112 Center 2
+WINDOW 3 -14 -184 Center 2
+WINDOW 123 -14 -162 Center 2
+WINDOW 39 -14 -141 Center 2
+SYMATTR Value Ci=? Ri=?
+SYMATTR Value2 Clg=? Rlg=?
+SYMATTR SpiceLine Cgs=? Rgs=?
+SYMATTR Prefix X
+SYMATTR ModelFile ZbrgLib.cir ZbrgLib
+SYMATTR SpiceModel DIG3458
+PIN -128 -48 NONE 8
+PINATTR PinName HI
+PINATTR SpiceOrder 1
+PIN -128 0 NONE 8
+PINATTR PinName LO
+PINATTR SpiceOrder 2
+PIN -128 48 NONE 8
+PINATTR PinName GRD
+PINATTR SpiceOrder 3
+PIN 96 48 NONE 8
+PINATTR PinName GND
+PINATTR SpiceOrder 4
+PIN 96 -48 NONE 8
+PINATTR PinName OUTP
+PINATTR SpiceOrder 5
+PIN 96 0 NONE 8
+PINATTR PinName OUTN
+PINATTR SpiceOrder 6

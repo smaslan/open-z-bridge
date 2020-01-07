@@ -21,7 +21,7 @@ function [md,stray] = z_sim_prep_spice(md,stray)
         net = strrep(net,'.backanno','');
         
         % expand given libs to main *.NET
-        [net,spec] = spice_expand_libs(net_file,net,{'COAXCAB','GNDLUG'});
+        [net,spec] = spice_expand_libs(net_file,net,{'COAXCAB','GNDLUG','TWAXSH'});
         
         % generate stray elements (mutual couplings and capacitances)
         [net,stray] = z_sim_generate_model_strays(net, spec, stray);
@@ -60,7 +60,7 @@ function [str] = str_get_line(str)
 endfunction
 
 
-% expand fiven LIB models to NET
+% expand given LIB models to NET
 function [net,items] = spice_expand_libs(net_path,net,list)
     
     % list of special data for particular lib models
@@ -134,8 +134,7 @@ function [net,items] = spice_expand_libs(net_path,net,list)
                     for p = 1:numel(e)
                         nodes{p} = e{p}{1};
                     endfor
-                    N = numel(nodes);
-                    
+                    N = numel(nodes);                   
                     
                     % build search pattern for SUBCKT in NET
                     regs = 'X([^\s]+)\s+';
@@ -163,8 +162,11 @@ function [net,items] = spice_expand_libs(net_path,net,list)
                             params_rep{p} = sckt_net{n}{N + 2*pid + 1};
                         endfor
                         
+                        % sort params from longest to shortest (needed for simpler strrep() in further code)
+                        [params,params_rep] = sort_params(params,params_rep);
+                        
                         % -- parse SUBCKT line by line
-                        item = struct();
+                        item = struct('name','','C_name',{{}},'L_name',{{}},'L_val',{{}});
                         temp = sdata;                        
                         while true
                             [tok,temp] = strtok(temp, "\n");
@@ -173,15 +175,18 @@ function [net,items] = spice_expand_libs(net_path,net,list)
                             endif
                             
                             % parse/replace line
-                            [cmd, spec] = spice_expand_command(tok, n, subckt, nodes, nodes_rep, params, params_rep);
+                            [cmd, spec, params, params_rep] = spice_expand_command(tok, n, subckt, nodes, nodes_rep, params, params_rep);
                             
                             if ~isempty(spec)
+                                % some coupling tag found - process
                                 item.name = sckt_net{n}{1};
                                 if spec.is_node
-                                    item = setfield(item, spec.tag, spec.node);
+                                    % node - for capacitive coupling
+                                    item.C_name{end+1} = spec.node;
                                 else
-                                    item = setfield(item, spec.tag, spec.id);
-                                    item = setfield(item, [spec.tag '_val'], spec.value);
+                                    % component - inductive coupling
+                                    item.L_name{end+1} = spec.id;
+                                    item.L_val{end+1}  = spec.value;
                                 endif                                                                
                             endif
                             
@@ -193,9 +198,8 @@ function [net,items] = spice_expand_libs(net_path,net,list)
                         endwhile
                         
                         % add special data to list
-                        if ~isempty(item)                            
-                            item.is_coax = isfield(item,'L') && isfield(item,'Lg');
-                            item.is_lug = isfield(item,'L');                            
+                        if ~isempty(item)
+                            % some tag found - process                            
                             items{end+1,1} = item; 
                         endif
                     
@@ -216,8 +220,16 @@ function [net,items] = spice_expand_libs(net_path,net,list)
 
 endfunction
 
+% this is helper function that keeps parameter strings sorted by size from longest so simple strrep() can be used to replace them
+function [params,params_rep] = sort_params(params,params_rep)
+    lenz = cellfun(@length,params,'UniformOutput',true);
+    [v,id] = sort(lenz,'descend');
+    params = params(id);
+    params_rep = params_rep(id);    
+endfunction
+
 % replace command line of LIB model by NET nodes and parameters
-function [cmd,item] = spice_expand_command(cmd, sck_id, subckt, nodes, nodes_rep, params, params_rep)
+function [cmd,item, params,params_rep] = spice_expand_command(cmd, sck_id, subckt, nodes, nodes_rep, params, params_rep)
 
     % no special item to return yet
     item = [];
@@ -225,11 +237,65 @@ function [cmd,item] = spice_expand_command(cmd, sck_id, subckt, nodes, nodes_rep
     % unique subcircuit tag 
     sck_id = sprintf('%s%02d',subckt,sck_id);
     
+    % check if is .param <definitions>
+    [a,b,c,d,e] = regexp(cmd,'\s*.param\s+([^\n\$]+)');
+    
+    if ~isempty(a)
+        % --- .param <definition(s)>
+        
+        cmd = '.param ';
+        
+        % globalize local parameters so it can be pasted to global NET 
+        cpar = e{1}{1};
+        while true
+            [par,cpar] = strtok(cpar, " \t");
+            if isempty(par)
+                break;
+            endif
+            [a,b,c,d,e] = regexp(par,'\s*([^=]+)=([^\n\r]+)');
+            
+            % local name of parameter
+            params{end+1} = e{1}{1};
+            % globalized name of local parameter
+            param_glob = [e{1}{1} '_' sck_id];
+            params_rep{end+1}  = ['{' param_glob '}'];                     
+            
+            % replace local .SUBCKT params by globals
+            rep_keys = {}; 
+            rep_rep = {};
+            value = e{1}{2};                        
+            for p = 1:numel(params) % first pass - replace to temp keys 
+                rep = params_rep{p};
+                [a,b,c,d,e] = regexp(rep,'\{([^}]+)\}');
+                if ~isempty(a)
+                    rep = e{1}{1};
+                endif
+                rep_keys{p} = ['spice_rep_key_' int2str(rand*1e8)];
+                rep_reps{p} = rep;
+                value = strrep(value,params{p},rep_keys{p});
+            endfor
+            for p = 1:numel(params) % second pass - final replace
+                value = strrep(value,rep_keys{p},rep_reps{p});
+            endfor 
+            
+            % build new .param command with globalized paramters 
+            cmd = [cmd param_glob '=' value ' '];
+            
+            % sort parameters
+            [params,params_rep] = sort_params(params,params_rep);
+                        
+        endwhile        
+        cmd = [cmd sprintf("\n")];
+        
+        return
+                
+    endif
+    
     % try parse command
     [a,b,c,d,e] = regexp(cmd,'\s*([A-Z])([^\s]+)\s+([^\n]+)');
     
     if isempty(a)
-        % no command
+        % no command, but it may be something else
         cmd = '';
     else
         % --- some command detected
@@ -243,7 +309,7 @@ function [cmd,item] = spice_expand_command(cmd, sck_id, subckt, nodes, nodes_rep
         % component parameters
         cpar = e{1}{3};
                 
-        % identify command
+        % identify command type so we know node counts
         switch ctype
             case {'R', 'L', 'C', 'K'}
                 cN = 2;
@@ -260,13 +326,11 @@ function [cmd,item] = spice_expand_command(cmd, sck_id, subckt, nodes, nodes_rep
         
         % build command string 
         cmd = [element_name ' '];
-        
-        % first node name (not yet defined)
-        first_node = '';
-        
+               
         % parse and replace nodes and parameters
         is_node = 1;
         node = cN;
+        glob_nodes = {};
         while true
             [par,cpar] = strtok(cpar, " \t");
             if isempty(par)
@@ -285,10 +349,8 @@ function [cmd,item] = spice_expand_command(cmd, sck_id, subckt, nodes, nodes_rep
                     node_name = nodes_rep{nid};
                 endif
                 
-                % store first node name
-                if isempty(first_node)
-                    first_node = node_name;
-                endif
+                % store globalized node name
+                glob_nodes{end+1} = node_name;
                 
                 % add new node to command
                 cmd = [cmd node_name ' '];
@@ -308,7 +370,7 @@ function [cmd,item] = spice_expand_command(cmd, sck_id, subckt, nodes, nodes_rep
                     % parameter is external - replace by external
                     pid = find(strcmp(params,e{1}{1}));
                     if isempty(pid)
-                        error(sprintf('Expanding Spice libs: command ''%s'' in SUBCKT ''%s'' not contains reference to unknown parameter ''%s''.',ctype,subckt,par));
+                        error(sprintf('Expanding Spice libs: command ''%s'' in SUBCKT ''%s'' contains reference to unknown parameter ''%s''.',ctype,subckt,par));
                     endif
                     par_value = params_rep{pid};
                 endif
@@ -322,18 +384,26 @@ function [cmd,item] = spice_expand_command(cmd, sck_id, subckt, nodes, nodes_rep
                 endif
             endif
             
-            % pasrsing comment (if exist)
+            % parsing comment (if exist)
             if is_node < 0
-                [a,b,c,d,e] = regexp(cpar,'\s*\$\s+<([\D]+)>');
+                [a,b,c,d,e] = regexp(cpar,'\s*\$\s+<([^>]+)>');
                 if ~isempty(a)
                     % found special tag <tag> in comment - this marks injection point for parasitic coupling
                     item.tag = e{1}{1};
                     
+                    % related node
+                    [a,b,c,d,e] = regexp(item.tag,'([^:]+):(.+)');
+                    if ~isempty(a)
+                        % explicitly defined <C:node_id> where 'node_id' is one-based index 
+                        item.tag = e{1}{1}; 
+                        item.node = glob_nodes{str2num(e{1}{2})};
+                    else
+                        % implicitly defined (first node)
+                        item.node = glob_nodes{1};
+                    endif                     
+                    
                     % item type (node or inductor)
                     item.is_node = strcmpi(item.tag,'C');
-                    
-                    % related node
-                    item.node = first_node;
                     
                     % command code (like inductor Lxxx or whatever)
                     item.id = element_name;
