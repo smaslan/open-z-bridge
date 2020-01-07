@@ -1,0 +1,83 @@
+Version 4
+SymbolType CELL
+LINE Normal -80 -16 -96 -16
+LINE Normal -128 0 -128 0
+LINE Normal -128 0 -128 0
+LINE Normal 0 0 -128 0
+LINE Normal 128 0 0 0
+LINE Normal -112 16 -128 16
+LINE Normal -48 16 -112 16
+LINE Normal -96 -32 96 -32
+LINE Normal 128 -48 128 -48
+LINE Normal 128 -48 128 -48
+LINE Normal 0 -48 128 -48
+LINE Normal -128 -48 0 -48
+LINE Normal -112 -64 -128 -64
+LINE Normal -48 -96 48 -96
+LINE Normal -112 -64 -48 -64
+LINE Normal 16 8 -16 8
+LINE Normal 0 40 16 8
+LINE Normal -16 8 0 40
+LINE Normal 0 8 0 0
+LINE Normal 0 48 0 40
+LINE Normal -48 48 0 48
+LINE Normal -48 16 -48 48
+LINE Normal 48 48 0 48
+LINE Normal 48 16 48 48
+LINE Normal 128 16 48 16
+LINE Normal 80 -16 96 -16
+LINE Normal 80 -16 -80 -16
+LINE Normal 48 -64 48 -96
+LINE Normal 128 -64 48 -64
+LINE Normal -48 -96 -48 -64
+LINE Normal 16 -56 -16 -56
+LINE Normal 0 -88 -16 -56
+LINE Normal 16 -56 0 -88
+LINE Normal 0 -48 0 -56
+LINE Normal 0 -96 0 -88
+LINE Normal 0 64 0 80
+RECTANGLE Normal 80 64 -80 -112
+CIRCLE Normal -80 16 -112 -16
+CIRCLE Normal 112 16 80 -16
+CIRCLE Normal 80 -64 112 -32
+CIRCLE Normal -112 -64 -80 -32
+TEXT -1 57 Center 0 GND
+WINDOW 0 -1 -124 Center 2
+WINDOW 3 -6 -212 Center 2
+WINDOW 123 -5 -188 Center 2
+WINDOW 39 -5 -167 Center 2
+WINDOW 40 -5 -147 Center 2
+SYMATTR Value CgA=? RgA=?
+SYMATTR Value2 CgB=? RgB=?
+SYMATTR Prefix X
+SYMATTR ModelFile ZbrgLib.cir ZbrgLib
+SYMATTR SpiceModel DUAL_EPBUF
+SYMATTR SpiceLine LoA=? RoA=?
+SYMATTR SpiceLine2 LoB=? RoB=?
+PIN -128 -48 NONE 8
+PINATTR PinName AL1
+PINATTR SpiceOrder 1
+PIN -128 -64 NONE 8
+PINATTR PinName AG1
+PINATTR SpiceOrder 2
+PIN -128 0 NONE 8
+PINATTR PinName BL1
+PINATTR SpiceOrder 3
+PIN -128 16 NONE 8
+PINATTR PinName BG1
+PINATTR SpiceOrder 4
+PIN 128 -48 NONE 8
+PINATTR PinName BL1
+PINATTR SpiceOrder 5
+PIN 128 -64 NONE 8
+PINATTR PinName BG1
+PINATTR SpiceOrder 6
+PIN 128 0 NONE 8
+PINATTR PinName BL2
+PINATTR SpiceOrder 7
+PIN 128 16 NONE 8
+PINATTR PinName BG2
+PINATTR SpiceOrder 8
+PIN 0 80 NONE 8
+PINATTR PinName GND
+PINATTR SpiceOrder 9

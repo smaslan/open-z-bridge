@@ -1,0 +1,180 @@
+* Z-bridge components library
+.LIB ZbrgLib
+
+* Twinax cable (two separately shielded cores and one shiled around both)
+.SUBCKT TWAXSH AL1 AG1 BL1 BG1 SH1 AL2 AG2 BL2 BG2 SH2 Rs=0.07 Ls=1.1e-6 RsG=0.03 LsG=800e-9 Mlg=790e-9 Cp=95e-12 Rp=1e9 RsS=0.007 LsS=560e-9 Mls=560e-9 Mgs=560e-9 CpS=37e-12 RpS=1e9 Mll=190e-9 Mgg=530e-9 Mlg2=530e-9 CpGG=60e-12 RpGG=1e9
+.param Rs2={0.5*Rs} Ls2={0.5*Ls} RsG2={0.5*RsG} LsG2={0.5*LsG} RsS2={0.5*RsS} LsS2={0.5*LsS}
+.param Rnull=1G $ safety shunts at ends of cables to prevent div by zero when not connected
+.param k_lg={Mlg/sqrt(Ls*LsG)} k_ls={Mls/sqrt(Ls*LsS)} k_gs={Mgs/sqrt(LsG*LsS)} k_gg={Mgg/sqrt(LsG*LsG)} k_ll={Mll/sqrt(Ls*Ls)} k_lg2={Mlg2/sqrt(Ls*LsG)}
+L1 N003 P001 {LsG2} $ <Lbr> - Cable B return (stray coupling injection point)
+L2 N004 P002 {Ls2} $ <Lb> - Cable B live (stray coupling injection point)
+L3 P003 N003 {LsG2}
+L4 P004 N004 {Ls2}
+C1 N003 N004 {Cp}
+R1 N003 N004 {Rp}
+R2 P001 BG1 {RsG2}
+R3 P002 BL1 {Rs2}
+R4 BL2 P004 {Rs2}
+R5 BG2 P003 {RsG2}
+L5 N001 P005 {Ls2} $ <La> - Cable A live (stray coupling injection point)
+L6 N002 P006 {LsG2} $ <Lar> - Cable A return (stray coupling injection point)
+L7 P007 N001 {Ls2}
+L8 P008 N002 {LsG2}
+C2 N001 N002 {Cp}
+R6 N001 N002 {Rp}
+R7 P005 AL1 {Rs2}
+R8 P006 AG1 {RsG2}
+R9 AG2 P008 {RsG2}
+R10 AL2 P007 {Rs2}
+L9 CAP P009 {LsS2} $ <Lsh> - Outer shield (stray coupling injection point)
+L10 P010 CAP {LsS2}
+R11 P009 SH1 {RsS2}
+R12 SH2 P010 {RsS2}
+C3 N002 CAP {CpS} $ <C:2> - Stray capacitive coupling injection point (format <C:node_id_one_based>)
+C4 CAP N003 {CpS}
+R13 CAP N003 {RpS}
+R14 N002 CAP {RpS}
+C5 N002 N003 {CpGG}
+R15 N002 N003 {RpGG}
+R16 AL1 AG1 {Rnull}
+R17 AG1 SH1 {Rnull}
+R18 SH1 BG1 {Rnull}
+R19 BG1 BL1 {Rnull}
+R20 BG2 BL2 {Rnull}
+R21 SH2 BG2 {Rnull}
+R22 AG2 SH2 {Rnull}
+R23 AL2 AG2 {Rnull}
+Kla L5 L6 {k_lg}
+Kra L7 L8 {k_lg}
+Klb L1 L2 {k_lg}
+Krb L3 L4 {k_lg}
+Kllsa L5 L9 {k_ls}
+Klgsa L6 L9 {k_gs}
+Klgsb L1 L9 {k_gs}
+Kllsb L2 L9 {k_ls}
+Klgg L6 L1 {k_gg}
+Klll L5 L2 {k_ll}
+Klgl L6 L2 {k_lg2}
+Klgl L5 L1 {k_lg2}
+Krlsa L7 L10 {k_ls}
+Krgsa L8 L10 {k_gs}
+Krgsb L3 L10 {k_gs}
+Krlsb L4 L10 {k_ls}
+Krgg L8 L3 {k_gg}
+Krll L7 L4 {k_ll}
+Krgl L8 L4 {k_lg2}
+Krgl L7 L3 {k_lg2}
+.ENDS TWAXSH
+
+* Pair of guard buffers for coax-shields of two cables (twinax cable guard)
+.SUBCKT DUAL_EPBUF AL1 AG1 BL1 BG1 AL2 AG2 BL2 BG2 GND CgA=1e-15 RgA=1e9 CgB=1e-15 RgB=1e9 LoA=1e-12 RoA=1e-6 LoB=1e-12 RoB=1e-6
+* cable A
+R1 AL1 ep_in_A 1e-3
+R2 AL2 ep_in_A 1e-3
+R3 AG1 ep_out_A 1e-3
+R4 AG2 ep_out_A 1e-3
+* buffer A
+R11 ep_in_A GND {RgA}
+C1 ep_in_A GND {CgA}
+E1 ep_in_A GND ep_A1 GND 1
+R5 ep_A1 ep_A2 {RoA}
+L1 ep_A2 ep_out_A {LoA}
+* cable B
+R6 BL1 ep_in_B 1e-3
+R7 BL2 ep_in_B 1e-3
+R8 BG1 ep_out_B 1e-3
+R9 BG2 ep_out_B 1e-3
+* buffer B
+R12 ep_in_B GND {RgB}
+C2 ep_in_B GND {CgB}
+E2 ep_in_B GND ep_B1 GND 1
+R10 ep_B1 ep_B2 {RoB}
+L2 ep_B2 ep_out_B {LoB}
+.ENDS DUAL_EPBUF
+
+* digitizer 3458A with buffered isolated output and internal strays
+.SUBCKT DIG3458 HI LO GRD GND OUTP OUTN Ci=270e-12 Ri=1e9 Clg=1e-9 Rlg=1e9 Cgs=1e-9 Rgs=1e9
+R1 HI LO {Ri}
+C1 HI LO {Ci}
+E1 HI LO OUTP OUTN 1
+R4 LO GRD {Rlg}
+C2 LO GRD {Clg}
+R5 GRD GND {Rgs}
+C3 GRD GND {Cgs}
+.ENDS DIG3458
+
+* Coax cable with choke having real component
+.SUBCKT COAXCAB LA LB RA RB Rs=0.05 Ls=250e-9 RsG=0.05 LsG=250e-9 k=0.9 Cp=105e-12 Rp=1e9 Rch=1e-9
+* high wire
+R1 LA n001 {Rs}
+L1 n001 n002 {Ls} $ <L> - high side tag for inductor for parasitic coupling simulation
+L2 n002 n003 {Ls}
+R2 n003 n007 {Rs}
+K1 L1 L3 {k}
+* low wire
+R3 RA n004 {RsG}
+L3 n004 n005 {LsG} $ <Lg> - low side tag for inductor for parasitic coupling simulation
+L4 n005 n006 {LsG}
+R4 n006 n009 {RsG}
+K2 L2 L4 {k}
+* shunting Y
+C1 n002 n005 {Cp} $ <C> - node tag for capacitor for parasitic coupling simulation
+R5 n002 n005 {Rp}
+* choke real component simulated
+R6 n007 n008 {Rch}
+E1 n009 n010 n007 n008 1
+R7 n010 RB {Rch}
+E2 n008 LB n010 RB 1
+.ENDS COAXCAB
+
+* Coax cable
+.SUBCKT COAXCAB2 LA LB RA RB Rs=0.05 Ls=250e-9 RsG=0.05 LsG=250e-9 k=0.9 Cp=105e-12 Rp=1e9
+R1 LA n001 {Rs}
+L1 n001 n002 {Ls}
+L2 n002 n003 {Ls}
+R2 n003 LB {Rs}
+R3 RA n004 {RsG}
+L3 n004 n005 {LsG}
+L4 n005 n006 {LsG}
+R4 n006 RB {RsG}
+C1 n002 n005 {Cp}
+R5 n002 n005 {Rp}
+K1 L1 L3 {k}
+K2 L2 L4 {k}
+.ENDS COAXCAB2
+
+* Ground lug
+.SUBCKT GNDLUG LA LB Rs=0.05 Ls=250e-9
+R1 LA n001 {Rs}
+L1 n001 LB {Ls} $ <L> - high side tag for inductor for parasitic coupling simulation
+.ENDS GNDLUG
+
+* 4TP standard
+.SUBCKT STD4TP Hp HpG Lp LpG Hc HcG Lc LcG GND Rp=0.01 Lp=20e-9 Rpg=0.005 Lpg=15e-9 kp=0.7 Cps=5e-12 Rps=1e9 Rc=0.01 Lc=20e-9 Rcg=0.005 Lcg=15e-9 kc=0.7 Ccs=5e-12 Rcs=1e9 Rs=100 Ls=0
+R1 high n001 {Rs}
+L1 n001 low {Ls}
+Xhpot Hp high HpG GND COAXCAB Rs={Rp} Ls={Lp} RsG={Rpg} LsG={Lpg} k={kp} Cp={Cps} Rp={Rps}
+Xlpot Lp low LpG GND COAXCAB Rs={Rp} Ls={Lp} RsG={Rpg} LsG={Lpg} k={kp} Cp={Cps} Rp={Rps}
+Xhcur Hc high HcG GND COAXCAB Rs={Rc} Ls={Lc} RsG={Rcg} LsG={Lcg} k={kc} Cp={Ccs} Rp={Rcs}
+Xlcur Lc low LcG GND COAXCAB Rs={Rc} Ls={Lc} RsG={Rcg} LsG={Lcg} k={kc} Cp={Ccs} Rp={Rcs}
+.ENDS STD4TP
+
+* 4TP standard with split grounds
+.SUBCKT STD4TP2 Hp HpG Lp LpG Hc HcG Lc LcG Gp Gc Rp=0.01 Lp=20e-9 Rpg=0.005 Lpg=15e-9 kp=0.7 Cps=5e-12 Rps=1e9 Rc=0.01 Lc=20e-9 Rcg=0.005 Lcg=15e-9 kc=0.7 Ccs=5e-12 Rcs=1e9 Rs=100 Ls=0
+R1 high n001 {Rs}
+L1 n001 low {Ls}
+Xhpot Hp high HpG Gp COAXCAB Rs={Rp} Ls={Lp} RsG={Rpg} LsG={Lpg} k={kp} Cp={Cps} Rp={Rps}
+Xlpot Lp low LpG Gp COAXCAB Rs={Rp} Ls={Lp} RsG={Rpg} LsG={Lpg} k={kp} Cp={Cps} Rp={Rps}
+Xhcur Hc high HcG Gc COAXCAB Rs={Rc} Ls={Lc} RsG={Rcg} LsG={Lcg} k={kc} Cp={Ccs} Rp={Rcs}
+Xlcur Lc low LcG Gc COAXCAB Rs={Rc} Ls={Lc} RsG={Rcg} LsG={Lcg} k={kc} Cp={Ccs} Rp={Rcs}
+.ENDS STD4TP2
+
+* Coaxial standard
+.SUBCKT STDCOAX Ch Cl Ph Pl Rp=0.01 Lp=20e-9 Rpg=0.005 Lpg=15e-9 kp=0.7 Cps=5e-12 Rps=1e9 Rc=0.01 Lc=20e-9 Rcg=0.005 Lcg=15e-9 kc=0.7 Ccs=5e-12 Rcs=1e9 Rs=1 Ls=0
+R1 high n001 {Rs}
+L1 n001 low {Ls}
+Xcur Ch high Cl low COAXCAB Rs={Rc} Ls={Lc} RsG={Rcg} LsG={Lcg} k={kc} Cp={Ccs} Rp={Rcs}
+Xpot Ph high Pl low COAXCAB Rs={Rp} Ls={Lp} RsG={Rpg} LsG={Lpg} k={kp} Cp={Cps} Rp={Rps}
+.ENDS STDCOAX
+
+.ENDL
