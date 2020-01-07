@@ -69,14 +69,24 @@ function [Z2,d_Z,d_ph,d_Rs,d_Xs] = z_brg_sim(model, par, f, swp)
     p.Lpc2 = par.Lpc2;    
     % make Z2 cable
     [p.Rc2h,p.Rc2g,p.Lc2h,p.Lc2g,p.Cc2sh,p.Rc2sh,p.kc2,p.Rc2ch] = gen_cable(par.ca_Z2, f);
+         
+    % make buffer for Hpot
+    p = z_sim_template_assign(p, par.templates, 'buf_hpot', par.buf_hpot);
     
+    % make buffer for Lpot
+    p = z_sim_template_assign(p, par.templates, 'buf_lpot', par.buf_lpot);
+        
     % make ADC 1
     p.C1in = par.adc1.Cin(fid);
     p.R1in = par.adc1.Rin(fid);
     p.C1sh = par.adc1.Csh(fid);
     p.R1sh = par.adc1.Rsh(fid);
+    p.C1gnd = par.adc1.Csg(fid);
+    p.R1gnd = par.adc1.Rsg(fid);
     p.Rgnd1 = par.adc1.Rgnd;
     p.Lgnd1 = par.adc1.Lgnd;
+    p.Rgrd1 = par.adc1.Rgrd;
+    p.Lgrd1 = par.adc1.Lgrd;
     
     % make ADC 2
     p.C2in = par.adc2.Cin(fid);
@@ -85,8 +95,6 @@ function [Z2,d_Z,d_ph,d_Rs,d_Xs] = z_brg_sim(model, par, f, swp)
     p.R2sh = par.adc2.Rsh(fid);
     p.C2gnd = par.adc2.Csg(fid);
     p.R2gnd = par.adc2.Rsg(fid);
-    p.C2buf = par.adc2.Cbuf(fid);
-    p.R2buf = par.adc2.Rbuf(fid);
     p.Rgnd2 = par.adc2.Rgnd;
     p.Lgnd2 = par.adc2.Lgnd;
     p.Rgrd2 = par.adc2.Rgrd;
@@ -99,12 +107,13 @@ function [Z2,d_Z,d_ph,d_Rs,d_Xs] = z_brg_sim(model, par, f, swp)
     p.R3sh = par.adc3.Rsh(fid);
     p.C3gnd = par.adc3.Csg(fid);
     p.R3gnd = par.adc3.Rsg(fid);
-    p.C3buf = par.adc3.Cbuf(fid);
-    p.R3buf = par.adc3.Rbuf(fid);
     p.Rgnd3 = par.adc3.Rgnd;
     p.Lgnd3 = par.adc3.Lgnd;
     p.Rgrd3 = par.adc3.Rgrd;
     p.Lgrd3 = par.adc3.Lgrd;
+    
+    
+    
     
     % generate stray coupling data
     % ###todo: optimize
@@ -126,18 +135,17 @@ function [Z2,d_Z,d_ph,d_Rs,d_Xs] = z_brg_sim(model, par, f, swp)
     spice_write_params(file,model.name,p,f,res_pth);
         
     % simulate:    
-    cmd = ['cmd /Q /C "' model.spice_fld model.spice ' -b ' file '" 2> nul'];    
-    %cmd = ['cmd /Q /C "' model.spice_fld model.spice ' -b ' file '" '];    
+    %cmd = ['cmd /Q /C "' model.spice_fld model.spice ' -b ' file '" 2> nul'];    
+    cmd = ['cmd /Q /C "' model.spice_fld model.spice ' -b ' file '" '];    
     [eid,str] = system(cmd,true);
     % remove parameters file       
+    unlink(file);
     
     % detect error
     if ~isempty(strfind(str,'Error'))
         error(sprintf('\nSPICE reports error:\n--------------------\n%s',str));                    
     end
-    
-    unlink(file);
-    
+        
     % try to read output and remove result file
     [data,names] = spice_readfile_fast(res_pth,'array');
     unlink(res_pth);

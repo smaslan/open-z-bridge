@@ -1,0 +1,28 @@
+* E:\smaslan\LV_prog\open-z-bridge-master\sim\LiB_brg_4TP_twax.asc
+XZ1 N036 N039 N037 N040 STDCOAX Rp={Rp1} Lp={Lp1} Rpg={Rp1r} Lpg={Lp1r} kp={kpo1} Cps={Cp1s} Rps={Rp1s} Rc={Rc1} Lc={Lc1} Rcg={Rc1r} Lcg={Lc1r} kc={kco1} Ccs={Cc1s} Rcs={Rc1s} Rs={R1} Ls={L1}
+Xcoax_joint N028 N036 N023 N039 COAXCAB Rs={Rc3h} Ls={Lc3h} RsG={Rc3g} LsG={Lc3g} k={kc3} Rch={Rc3ch} Cp={Cc3sh} Rp={Rc3sh}
+Xcoax_sup N003 N004 N018 N009 COAXCAB Rs={Rc4h} Ls={Lc4h} RsG={Rc4g} LsG={Lc4g} k={kc4} Rch={Rc4ch} Cp={Cc4sh} Rp={Rc4sh}
+I1 N003 N018 {Idc} AC {Iac} 0
+Xcoax_Z1 N037 N038 N040 N041 COAXCAB Rs={Rc1h} Ls={Lc1h} RsG={Rc1g} LsG={Lc1g} k={kc1} Rch={Rc1ch} Cp={Cc1sh} Rp={Rc1sh}
+XU2 N015 N017 GNDLUG Rs={Rgrd3} Ls={Lgrd3}
+XU1 N042 0 GNDLUG Rs={Rgnd1} Ls={Lgnd1}
+XU5 N018 0 GNDLUG Rs={Rsrc} Ls={Lsrc}
+XZ2 N005 N010 N029 N024 N004 N009 N028 N023 N035 N035 STD4TP2 Rp={Rp2} Lp={Lp2} Rpg={Rp2r} Lpg={Lp2r} kp={kpo2} Cps={Cp2s} Rps={Rp2s} Rc={Rc2} Lc={Lc2} Rcg={Rc2r} Lcg={Lc2r} kc={kco2} Ccs={Cc2s} Rcs={Rc2s} Rs={R2} Ls={L2}
+XU6 N016 0 GNDLUG Rs={Rgnd3} Ls={Lgnd3}
+XU3 N019 N020 GNDLUG Rs={Rgrd2} Ls={Lgrd2}
+XU4 N021 0 GNDLUG Rs={Rgnd2} Ls={Lgnd2}
+XHpot_A N011 N014 N006 N001 0 N010 NC_01 N005 NC_02 NC_03 TWAXSH <template=twax>
+XLpot_A N024 NC_04 N029 NC_05 NC_06 N025 N022 N030 N033 0 TWAXSH <template=twax>
+Xbuf_hpot N006 N001 N011 N014 N007 N002 N012 N015 0 DUAL_EPBUF <template=epbuf>
+Xbuf_lpot N031 N034 N026 N019 N030 N033 N025 N022 0 DUAL_EPBUF <template=epbuf>
+XHpot_B N013 NC_07 N008 NC_08 NC_09 N012 N015 N007 N002 0 TWAXSH <template=twax>
+XLpot_B N026 N019 N031 N034 0 N027 NC_10 N032 NC_11 NC_12 TWAXSH <template=twax>
+XADC3 N008 N013 N017 N016 U3_adc_high U3_adc_low DIG3458 Ci={C3in} Ri={R3in} Clg={C3sh} Rlg={R3sh} Cgs={C3gnd} Rgs={R3gnd}
+XADC2 N032 N027 N020 N021 U2_adc_high U2_adc_low DIG3458 Ci={C2in} Ri={R2in} Clg={C2sh} Rlg={R2sh} Cgs={C2gnd} Rgs={R2gnd}
+XADC1 N038 N041 N043 N042 U1_adc_high U1_adc_low DIG3458 Ci={C1in} Ri={R1in} Clg={C1sh} Rlg={R1sh} Cgs={C1gnd} Rgs={R1gnd}
+XU13 N039 N043 GNDLUG Rs={Rgrd2} Ls={Lgrd2}
+* <twax>\n  Rs={Rs%} Ls={Ls%} RsG={RsG%} LsG={LsG%} Mlg={Mlg%} Cp={Cp%} Rp={Rp%}\n  RsS={RsS%} LsS={LsS%} Mls={Mls%} Mgs={Mgs%} CpS={CpS%} RpS={RpS%}\n  Mll={Mll%} Mgg={Mgg%} Mlg2={Mlg2%} CpGG={CpGG%} RpGG={RpGG%}\n</twax>
+* <epbuf>\n  CgA={CgA_%} RgA={RgA_%} CgB={CgB_%} RgB={RgB_%}\n  LoA={LoA_%} RoA={RoA_%} LoB={LoB_%} RoB={RoB_%}\n</epbuf>
+.lib ZbrgLib.cir ZbrgLib
+.backanno
+.end

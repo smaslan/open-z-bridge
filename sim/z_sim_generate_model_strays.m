@@ -50,7 +50,7 @@ function [net,strays] = z_sim_generate_model_strays(net, spec, strays);
         Cval_id = 1;
         
         % stray coupling NET data
-        str = [];
+        str = '';
         
         % for each stray group
         for s = 1:numel(strays)
@@ -93,7 +93,7 @@ function [net,strays] = z_sim_generate_model_strays(net, spec, strays);
                 for m = 1:numel(ia.L_name)
                     for n = 1:numel(ib.L_name)
                         % -- for each combination of element A and B
-                        mut_param = sprintf('k_stray%03d',k_id);
+                        mut_param = sprintf('k_stray%03d',k_id);                        
                         str = [str sprintf(k_templ, mut_param,mut_name,ia.L_val{m},ib.L_val{n},s,mut_name)];
                         str = [str sprintf('Kstray%04d %s %s {%s}\n', k_id, ia.L_name{m},  ib.L_name{n},  mut_param)]; k_id++;                                            
                     endfor
@@ -123,10 +123,10 @@ function [net,strays] = z_sim_generate_model_strays(net, spec, strays);
         endfor % for each stray group
         
         % append to NET
-        net = strrep(net,'.end',[sprintf('\* Automatically generated stray couplings\n%s\n.end\n',str)]);
+        net = strrep(net,'.end',[sprintf('* Automatically generated stray couplings\n%s\n.end\n',str)]);
     
     endif
     
-    strays
+    %strays
 
 endfunction

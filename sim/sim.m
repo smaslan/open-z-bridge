@@ -9,6 +9,7 @@ if(sum((version-'3.4.3').*10.^(length(version):-1:1))>=0)
   graphics_toolkit('gnuplot');
 end
 
+pkg load multicore;
 
 % this path
 mfld = fileparts(mfilename('fullpath'));
@@ -46,7 +47,7 @@ else
     mc_setup.max_chunk_count = 500;
 endif
 % multicore method {'for','cellfun','parcellfun','multicore'}:       
-mc_setup.method = 'multicore';
+mc_setup.method = 'for';
 
 
 
@@ -55,7 +56,7 @@ mc_setup.method = 'multicore';
 md.spice_fld = 'c:\sw\Spice64\bin\';
 md.spice = 'ngspice_con';
 md.mod_fld = mfld;
-md.name = 'LiB_brg2';
+md.name = 'LiB_brg_4TP_twax';
 md.force_reload = 1;
 
 % frequency sweep 
@@ -64,7 +65,7 @@ swp.Iac = 1.0;
 swp.Idc = 0.0;
 
 % set non-zero to enable monte carlo with given cycles count
-mcc = 20;
+mcc = 0;
 
 % -- sensitivity analysis
 % enable sensitivity analysis
@@ -127,13 +128,13 @@ for rep = 1:RPC
     
     % prepare Spice model
     if rep == 1
-        [md, par.stray] = z_sim_prep_spice(md, par.stray);
+        [md, par.stray, par.templates] = z_sim_prep_spice(md, par.stray);
         stray = par.stray;
     else
         par.stray = stray;
+        par.templates = templates;
     endif
     
-    return
     
     % make job file
     jobz{rep}.swp = swp;    

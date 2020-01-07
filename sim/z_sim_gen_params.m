@@ -58,13 +58,37 @@ function [par] = z_sim_gen_params(f, Z1, Z2, is_mcc)
     ca_Z2.ch_R = 1e-6;
     ca_Z2.ch_len = 0;
     
+    % Hpot buffer
+    buf_hpot.CgA = repmat(10e-12 + 10e-12*randn*is_mcc,[F 1]);
+    buf_hpot.CgB = repmat(10e-12 + 10e-12*randn*is_mcc,[F 1]);
+    buf_hpot.RgA = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
+    buf_hpot.RgB = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
+    buf_hpot.LoA = repmat(1e-6 + 1e6*randr*is_mcc,[F 1]);
+    buf_hpot.LoB = repmat(1e-6 + 1e6*randr*is_mcc,[F 1]);
+    buf_hpot.RoA = repmat(0.01 + 0.005*randr*is_mcc,[F 1]);
+    buf_hpot.RoB = repmat(0.01 + 0.005*randr*is_mcc,[F 1]);       
+    
+    % Lpot buffer
+    buf_lpot.CgA = repmat(10e-12 + 10e-12*randn*is_mcc,[F 1]);
+    buf_lpot.CgB = repmat(10e-12 + 10e-12*randn*is_mcc,[F 1]);
+    buf_lpot.RgA = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
+    buf_lpot.RgB = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
+    buf_lpot.LoA = repmat(1e-6 + 1e6*randr*is_mcc,[F 1]);
+    buf_lpot.LoB = repmat(1e-6 + 1e6*randr*is_mcc,[F 1]);
+    buf_lpot.RoA = repmat(0.01 + 0.005*randr*is_mcc,[F 1]);
+    buf_lpot.RoB = repmat(0.01 + 0.005*randr*is_mcc,[F 1]);
+    
     % digitizer 1
     adc1.Cin = repmat(270e-12 + 50e-12*randn*is_mcc,[F 1]); 
     adc1.Rin = repmat(1e9     + 5e8*randr*is_mcc,[F 1]);
     adc1.Csh = repmat(1e-9 + 0.5e-9*randn*is_mcc,[F 1]); 
     adc1.Rsh = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
+    adc1.Csg = repmat(1e-9 + 0.1e-9*randn*is_mcc,[F 1]); 
+    adc1.Rsg = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
     adc1.Rgnd = 0.5 + 0.5*randn*is_mcc;
     adc1.Lgnd = 1e-6 + 1e-6*randn*is_mcc;
+    adc1.Rgrd = 0.01 + 0.01*randn*is_mcc;
+    adc1.Lgrd = 0.1e-6 + 0.1e-6*randn*is_mcc;
     
     % digitizer 2
     adc2.Cin = repmat(270e-12 + 10e-12*randn*is_mcc,[F 1]); 
@@ -73,8 +97,8 @@ function [par] = z_sim_gen_params(f, Z1, Z2, is_mcc)
     adc2.Rsh = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);    
     adc2.Csg = repmat(1e-9 + 0.1e-9*randn*is_mcc,[F 1]); 
     adc2.Rsg = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
-    adc2.Cbuf = repmat(10e-12 + 10e-12*randn*is_mcc,[F 1]); 
-    adc2.Rbuf = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);    
+    %adc2.Cbuf = repmat(10e-12 + 10e-12*randn*is_mcc,[F 1]); 
+    %adc2.Rbuf = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);    
     adc2.Rgnd = 0.5 + 0.5*randn*is_mcc;
     adc2.Lgnd = 1e-6 + 1e-6*randn*is_mcc;
     adc2.Rgrd = 0.01 + 0.01*randn*is_mcc;
@@ -87,8 +111,8 @@ function [par] = z_sim_gen_params(f, Z1, Z2, is_mcc)
     adc3.Rsh = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);    
     adc3.Csg = repmat(1e-9 + 0.1e-9*randn*is_mcc,[F 1]); 
     adc3.Rsg = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
-    adc3.Cbuf = repmat(10e-12 + 10e-12*randn*is_mcc,[F 1]); 
-    adc3.Rbuf = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);    
+    %adc3.Cbuf = repmat(10e-12 + 10e-12*randn*is_mcc,[F 1]); 
+    %adc3.Rbuf = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);    
     adc3.Rgnd = 0.5 + 0.5*randn*is_mcc;
     adc3.Lgnd = 1e-6 + 1e-6*randn*is_mcc;
     adc3.Rgrd = 0.01 + 0.01*randn*is_mcc;
@@ -171,7 +195,8 @@ function [par] = z_sim_gen_params(f, Z1, Z2, is_mcc)
     
     
     % define stray groups
-     par.stray{end+1} = z_sim_gen_stray({'coax_Z1','coax_Z2'}, 1e-9, 0, is_mcc);
+     par.stray = {};
+     %par.stray{end+1} = z_sim_gen_stray({'coax_Z1','U7'}, 1e-9, 0, is_mcc);
 %     par.stray{end+1} = z_sim_gen_stray({'U3','U4'}, 100e-9, 0, is_mcc);
 %     par.stray{end+1} = z_sim_gen_stray({'coax_sup','coax_joint'}, 100e-9, 0, is_mcc);
     %par.stray{end+1} = z_sim_gen_stray({'U2','coax_Z1'}, 100e-9, 0, is_mcc);
@@ -189,6 +214,8 @@ function [par] = z_sim_gen_params(f, Z1, Z2, is_mcc)
     par.ca_joint = ca_joint;
     par.ca_Z1 = ca_Z1;
     par.ca_Z2 = ca_Z2;
+    par.buf_hpot = buf_hpot;
+    par.buf_lpot = buf_lpot;
     par.adc1 = adc1;
     par.adc2 = adc2;
     par.adc3 = adc3;
