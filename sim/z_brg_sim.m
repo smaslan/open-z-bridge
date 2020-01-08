@@ -63,12 +63,19 @@ function [Z2,d_Z,d_ph,d_Rs,d_Xs] = z_brg_sim(model, par, f, swp)
     
     
     % make Z2 potential lugs
-    p.Rpc1 = par.Rpc1;
-    p.Lpc1 = par.Lpc1;
-    p.Rpc2 = par.Rpc2;
-    p.Lpc2 = par.Lpc2;    
+    %p.Rpc1 = par.Rpc1;
+    %p.Lpc1 = par.Lpc1;
+    %p.Rpc2 = par.Rpc2;
+    %p.Lpc2 = par.Lpc2;    
     % make Z2 cable
-    [p.Rc2h,p.Rc2g,p.Lc2h,p.Lc2g,p.Cc2sh,p.Rc2sh,p.kc2,p.Rc2ch] = gen_cable(par.ca_Z2, f);
+    %[p.Rc2h,p.Rc2g,p.Lc2h,p.Lc2g,p.Cc2sh,p.Rc2sh,p.kc2,p.Rc2ch] = gen_cable(par.ca_Z2, f);
+    
+    % make Z2 potential cables (4TP twinax mode)
+    p = z_sim_template_assign(p, par.templates, 'Hpot_A', par.ca_HpotA);
+    p = z_sim_template_assign(p, par.templates, 'Hpot_B', par.ca_HpotB);
+    p = z_sim_template_assign(p, par.templates, 'Lpot_A', par.ca_LpotA);
+    p = z_sim_template_assign(p, par.templates, 'Lpot_B', par.ca_LpotB);
+    
          
     % make buffer for Hpot
     p = z_sim_template_assign(p, par.templates, 'buf_hpot', par.buf_hpot);

@@ -4,7 +4,7 @@
 * Twinax cable (two separately shielded cores and one shiled around both)
 .SUBCKT TWAXSH AL1 AG1 BL1 BG1 SH1 AL2 AG2 BL2 BG2 SH2 Rs=0.07 Ls=1.1e-6 RsG=0.03 LsG=800e-9 Mlg=790e-9 Cp=95e-12 Rp=1e9 RsS=0.007 LsS=560e-9 Mls=560e-9 Mgs=560e-9 CpS=37e-12 RpS=1e9 Mll=190e-9 Mgg=530e-9 Mlg2=530e-9 CpGG=60e-12 RpGG=1e9
 .param Rs2={0.5*Rs} Ls2={0.5*Ls} RsG2={0.5*RsG} LsG2={0.5*LsG} RsS2={0.5*RsS} LsS2={0.5*LsS}
-.param Rnull=1G $ safety shunts at ends of cables to prevent div by zero when not connected
+.param Rnull=1e9 $ safety shunts at ends of cables to prevent div by zero when not connected
 .param k_lg={Mlg/sqrt(Ls*LsG)} k_ls={Mls/sqrt(Ls*LsS)} k_gs={Mgs/sqrt(LsG*LsS)} k_gg={Mgg/sqrt(LsG*LsG)} k_ll={Mll/sqrt(Ls*Ls)} k_lg2={Mlg2/sqrt(Ls*LsG)}
 L1 N003 P001 {LsG2} $ <Lbr> - Cable B return (stray coupling injection point)
 L2 N004 P002 {Ls2} $ <Lb> - Cable B live (stray coupling injection point)
@@ -55,7 +55,7 @@ Kllsb L2 L9 {k_ls}
 Klgg L6 L1 {k_gg}
 Klll L5 L2 {k_ll}
 Klgl L6 L2 {k_lg2}
-Klgl L5 L1 {k_lg2}
+Klgl2 L5 L1 {k_lg2}
 Krlsa L7 L10 {k_ls}
 Krgsa L8 L10 {k_gs}
 Krgsb L3 L10 {k_gs}
@@ -63,7 +63,7 @@ Krlsb L4 L10 {k_ls}
 Krgg L8 L3 {k_gg}
 Krll L7 L4 {k_ll}
 Krgl L8 L4 {k_lg2}
-Krgl L7 L3 {k_lg2}
+Krgl2 L7 L3 {k_lg2}
 .ENDS TWAXSH
 
 * Pair of guard buffers for coax-shields of two cables (twinax cable guard)
@@ -101,6 +101,7 @@ R4 LO GRD {Rlg}
 C2 LO GRD {Clg}
 R5 GRD GND {Rgs}
 C3 GRD GND {Cgs}
+R6 OUTP OUTN 1e6
 .ENDS DIG3458
 
 * Coax cable with choke having real component

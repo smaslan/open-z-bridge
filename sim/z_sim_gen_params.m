@@ -2,6 +2,7 @@ function [par] = z_sim_gen_params(f, Z1, Z2, is_mcc)
 % This generates Spice model parameters for each frequency of the sweep
 
     % sweep freq. count
+    f = f(:);
     F = numel(f);
 
     % define nominal cable parameters:
@@ -18,6 +19,32 @@ function [par] = z_sim_gen_params(f, Z1, Z2, is_mcc)
     rg58.hlr   = 0.7; % live to return path ratio
     rg58.u_hlr = 0.2; % live to return path ratio
     
+    % load twinax model
+    persistent twax = [];
+    if isempty(twax) 
+        twax = load('femm\tasker_C121_shield.mat');
+        twax = twax.cab;
+        
+        twax.u_Ls = 0.2*twax.Ls;
+        twax.u_Rs = 0.2*twax.Rs;
+        twax.u_LsG = 0.2*twax.LsG;
+        twax.u_RsG = 0.2*twax.RsG;
+        twax.u_LsS = 0.2*twax.LsG;
+        twax.u_RsS = 0.2*twax.RsG;
+        twax.u_Mlg = 0.2*twax.Mlg;
+        twax.u_Mll = 0.2*twax.Mll;
+        twax.u_Mgg = 0.2*twax.Mgg;
+        twax.u_Mls = 0.2*twax.Mls;
+        twax.u_Mgs = 0.2*twax.Mgs;
+        twax.u_Mlg2 = 0.2*twax.Mlg2;
+        twax.u_Cp = 0.2*twax.Cp;
+        twax.u_Dp = 0.2*twax.Dp;
+        twax.u_CpS = 0.2*twax.CpS;
+        twax.u_DpS = 0.2*twax.DpS;
+        twax.u_CpGG = 0.2*twax.CpGG;
+        twax.u_DpGG = 0.2*twax.DpGG;        
+    endif
+
     % source ground lug
     src.Rsrc = 0.5  + 0.5*randn*is_mcc;
     src.Lsrc = 1e-6 + 1e-6*randn*is_mcc;
@@ -57,6 +84,12 @@ function [par] = z_sim_gen_params(f, Z1, Z2, is_mcc)
     ca_Z2.ch_L = 0;
     ca_Z2.ch_R = 1e-6;
     ca_Z2.ch_len = 0;
+    
+    % Z2 potential cables (4TP twinax mode) 
+    ca_HpotA = z_sim_rand_twinax(twax, 0.5, f, is_mcc);    
+    ca_HpotB = z_sim_rand_twinax(twax, 0.5, f, is_mcc);
+    ca_LpotA = z_sim_rand_twinax(twax, 0.3, f, is_mcc);    
+    ca_LpotB = z_sim_rand_twinax(twax, 0.3, f, is_mcc);  
     
     % Hpot buffer
     buf_hpot.CgA = repmat(10e-12 + 10e-12*randn*is_mcc,[F 1]);
@@ -216,12 +249,103 @@ function [par] = z_sim_gen_params(f, Z1, Z2, is_mcc)
     par.ca_Z2 = ca_Z2;
     par.buf_hpot = buf_hpot;
     par.buf_lpot = buf_lpot;
+    par.ca_HpotA = ca_HpotA;
+    par.ca_HpotB = ca_HpotB;
+    par.ca_LpotA = ca_LpotA;
+    par.ca_LpotB = ca_LpotB;
     par.adc1 = adc1;
     par.adc2 = adc2;
     par.adc3 = adc3;
     par.Z1 = Z1;
     par.Z2 = Z2;
     
+endfunction
+
+
+function [cab] = z_sim_rand_twinax(twax, len, f, is_mcc)
+% randomize twinax cable parameters   
+
+    F = numel(f);    
+    w = 2*pi*f;
+    
+    % to repmat all elements to vectors
+    E = ones(size(f));
+    len = len.*E;
+
+    % trye wiggle the constants a little so coupling system is positively definite
+    for n = 1:10
+    
+        Ls = (twax.Ls + twax.u_Ls*randn()*is_mcc)*len;
+        LsG = (twax.LsG + twax.u_LsG*randn()*is_mcc)*len; 
+        LsS = (twax.LsS + twax.u_LsS*randn()*is_mcc)*len;
+        Mlg = (twax.Mlg + twax.u_Mlg*randn()*is_mcc)*len;
+        Mll = (twax.Mll + twax.u_Mll*randn()*is_mcc)*len;
+        Mgg = (twax.Mgg + twax.u_Mgg*randn()*is_mcc)*len;
+        Mls = (twax.Mls + twax.u_Mls*randn()*is_mcc)*len;
+        Mgs = (twax.Mgs + twax.u_Mgs*randn()*is_mcc)*len;
+        Mlg2 = (twax.Mlg2 + twax.u_Mlg2*randn()*is_mcc)*len;       
+        
+        rnd_noise = 0.05;
+        
+        for m = 1:100
+        
+            k1 = (Mlg./sqrt(Ls.*LsG))(1);
+            k2 = (Mll./sqrt(Ls.*Ls))(1);
+            k3 = (Mgg./sqrt(LsG.*LsG))(1);
+            k4 = (Mls./sqrt(Ls.*LsS))(1)-rand*rnd_noise*(m > 1);
+            k5 = (Mgs./sqrt(LsS.*LsG))(1)-rand*rnd_noise*(m > 1);
+            k6 = (Mlg2./sqrt(Ls.*LsG))(1)-rand*rnd_noise*(m > 1);
+            
+            %    l1   g1   l2   g2   s
+            M = [1    k1   k2   k6   k4;
+                 k1   1    k6   k3   k5;
+                 k2   k6   1    k1   k4;
+                 k6   k3   k1   1    k5;
+                 k4   k5   k4   k5   1];
+            
+            is_pd = all(eig(M) > 0.01);
+            if is_pd
+                break;
+            endif
+        
+        endfor
+        
+        if is_pd
+            break;
+        else
+            % small randomization faild - enable bigger one
+            rnd_noise = 0.1;        
+        endif
+    
+    endfor
+    
+    Mlg = k1.*sqrt(Ls.*LsG);
+    Mll = k2.*sqrt(Ls.*Ls);
+    Mgg = k3.*sqrt(LsG.*LsG);
+    Mls = k4.*sqrt(Ls.*LsS);
+    Mgs = k5.*sqrt(LsG.*LsS);
+    Mlg2 = k6.*sqrt(Ls.*LsG);
+    
+    cab.Ls = Ls;
+    cab.Rs = (twax.Rs + twax.u_Rs*randn()*is_mcc)*len;
+    cab.LsG = LsG;
+    cab.RsG = (twax.RsG + twax.u_RsG*randn()*is_mcc)*len;
+    cab.LsS = LsS;
+    cab.RsS = (twax.RsG + twax.u_RsS*randn()*is_mcc)*len;
+    cab.Mlg = Mlg;
+    cab.Mll = Mll;
+    cab.Mgg = Mgg;
+    cab.Mls = Mls;
+    cab.Mgs = Mgs;
+    cab.Mlg2 = Mlg2;
+    cab.Cp = (twax.Cp + twax.u_Cp*randn()*is_mcc)*len;
+    cab.Rp = 1./(w.*cab.Cp.*(twax.Dp + twax.u_Dp*randn()*is_mcc));
+    cab.CpS = (twax.CpS + twax.u_CpS*randn()*is_mcc)*len;
+    cab.RpS = 1./(w.*cab.CpS.*(twax.DpS + twax.u_DpS*randn()*is_mcc));
+    cab.CpGG = (twax.CpGG + twax.u_CpGG*randn()*is_mcc)*len;
+    cab.RpGG = 1./(w.*cab.CpGG.*(twax.DpGG + twax.u_DpGG*randn()*is_mcc)); 
+    
+    %error('stop')
 endfunction
 
 

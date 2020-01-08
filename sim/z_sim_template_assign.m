@@ -1,7 +1,7 @@
 function [par] = z_sim_template_assign(par=[], templates, component_name, values, fid=1)
     
     % find template from the list
-    template = z_sim_template_find(templates, component_name);
+    template = z_sim_template_find(templates, component_name);    
     
     % sort source and destination
     [snames, sid] = sort(fieldnames(values));        
