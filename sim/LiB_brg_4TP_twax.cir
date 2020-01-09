@@ -1,11 +1,11 @@
-* F:\Data\LVprog\Open_Z_bridge\sim\LiB_brg_4TP_twax.asc
-XZ1 N036 N039 N037 N040 STDCOAX Rp={Rp1} Lp={Lp1} Rpg={Rp1r} Lpg={Lp1r} kp={kpo1} Cps={Cp1s} Rps={Rp1s} Rc={Rc1} Lc={Lc1} Rcg={Rc1r} Lcg={Lc1r} kc={kco1} Ccs={Cc1s} Rcs={Rc1s} Rs={R1} Ls={L1}
-R1COAXCAB01 N028 n001COAXCAB01 {Rc3h} 
+* E:\smaslan\LV_prog\open-z-bridge-master\sim\LiB_brg_4TP_twax.asc
+XZ1 N034 N037 N035 N038 STDCOAX Rp={Rp1} Lp={Lp1} Rpg={Rp1r} Lpg={Lp1r} kp={kpo1} Cps={Cp1s} Rps={Rp1s} Rc={Rc1} Lc={Lc1} Rcg={Rc1r} Lcg={Lc1r} kc={kco1} Ccs={Cc1s} Rcs={Rc1s} Rs={R1} Ls={L1}
+R1COAXCAB01 N027 n001COAXCAB01 {Rc3h} 
 L1COAXCAB01 n001COAXCAB01 n002COAXCAB01 {Lc3h} 
 L2COAXCAB01 n002COAXCAB01 n003COAXCAB01 {Lc3h} 
 R2COAXCAB01 n003COAXCAB01 n007COAXCAB01 {Rc3h} 
 K1COAXCAB01 L1COAXCAB01 L3COAXCAB01 {kc3} 
-R3COAXCAB01 N023 n004COAXCAB01 {Rc3g} 
+R3COAXCAB01 N022 n004COAXCAB01 {Rc3g} 
 L3COAXCAB01 n004COAXCAB01 n005COAXCAB01 {Lc3g} 
 L4COAXCAB01 n005COAXCAB01 n006COAXCAB01 {Lc3g} 
 R4COAXCAB01 n006COAXCAB01 n009COAXCAB01 {Rc3g} 
@@ -14,14 +14,14 @@ C1COAXCAB01 n002COAXCAB01 n005COAXCAB01 {Cc3sh}
 R5COAXCAB01 n002COAXCAB01 n005COAXCAB01 {Rc3sh} 
 R6COAXCAB01 n007COAXCAB01 n008COAXCAB01 {Rc3ch} 
 E1COAXCAB01 n009COAXCAB01 n010COAXCAB01 n007COAXCAB01 n008COAXCAB01 1 
-R7COAXCAB01 n010COAXCAB01 N039 {Rc3ch} 
-E2COAXCAB01 n008COAXCAB01 N036 n010COAXCAB01 N039 1 
+R7COAXCAB01 n010COAXCAB01 N037 {Rc3ch} 
+E2COAXCAB01 n008COAXCAB01 N034 n010COAXCAB01 N037 1 
 R1COAXCAB02 N003 n001COAXCAB02 {Rc4h} 
 L1COAXCAB02 n001COAXCAB02 n002COAXCAB02 {Lc4h} 
 L2COAXCAB02 n002COAXCAB02 n003COAXCAB02 {Lc4h} 
 R2COAXCAB02 n003COAXCAB02 n007COAXCAB02 {Rc4h} 
 K1COAXCAB02 L1COAXCAB02 L3COAXCAB02 {kc4} 
-R3COAXCAB02 N018 n004COAXCAB02 {Rc4g} 
+R3COAXCAB02 N017 n004COAXCAB02 {Rc4g} 
 L3COAXCAB02 n004COAXCAB02 n005COAXCAB02 {Lc4g} 
 L4COAXCAB02 n005COAXCAB02 n006COAXCAB02 {Lc4g} 
 R4COAXCAB02 n006COAXCAB02 n009COAXCAB02 {Rc4g} 
@@ -30,15 +30,15 @@ C1COAXCAB02 n002COAXCAB02 n005COAXCAB02 {Cc4sh}
 R5COAXCAB02 n002COAXCAB02 n005COAXCAB02 {Rc4sh} 
 R6COAXCAB02 n007COAXCAB02 n008COAXCAB02 {Rc4ch} 
 E1COAXCAB02 n009COAXCAB02 n010COAXCAB02 n007COAXCAB02 n008COAXCAB02 1 
-R7COAXCAB02 n010COAXCAB02 N009 {Rc4ch} 
-E2COAXCAB02 n008COAXCAB02 N004 n010COAXCAB02 N009 1 
-I1 N003 N018 {Idc} AC {Iac} 0
-R1COAXCAB03 N037 n001COAXCAB03 {Rc1h} 
+R7COAXCAB02 n010COAXCAB02 N008 {Rc4ch} 
+E2COAXCAB02 n008COAXCAB02 N004 n010COAXCAB02 N008 1 
+I1 N003 N017 {Idc} AC {Iac} 0
+R1COAXCAB03 N035 n001COAXCAB03 {Rc1h} 
 L1COAXCAB03 n001COAXCAB03 n002COAXCAB03 {Lc1h} 
 L2COAXCAB03 n002COAXCAB03 n003COAXCAB03 {Lc1h} 
 R2COAXCAB03 n003COAXCAB03 n007COAXCAB03 {Rc1h} 
 K1COAXCAB03 L1COAXCAB03 L3COAXCAB03 {kc1} 
-R3COAXCAB03 N040 n004COAXCAB03 {Rc1g} 
+R3COAXCAB03 N038 n004COAXCAB03 {Rc1g} 
 L3COAXCAB03 n004COAXCAB03 n005COAXCAB03 {Lc1g} 
 L4COAXCAB03 n005COAXCAB03 n006COAXCAB03 {Lc1g} 
 R4COAXCAB03 n006COAXCAB03 n009COAXCAB03 {Rc1g} 
@@ -47,20 +47,20 @@ C1COAXCAB03 n002COAXCAB03 n005COAXCAB03 {Cc1sh}
 R5COAXCAB03 n002COAXCAB03 n005COAXCAB03 {Rc1sh} 
 R6COAXCAB03 n007COAXCAB03 n008COAXCAB03 {Rc1ch} 
 E1COAXCAB03 n009COAXCAB03 n010COAXCAB03 n007COAXCAB03 n008COAXCAB03 1 
-R7COAXCAB03 n010COAXCAB03 N041 {Rc1ch} 
-E2COAXCAB03 n008COAXCAB03 N038 n010COAXCAB03 N041 1 
-R1GNDLUG01 N015 n001GNDLUG01 {Rgrd3} 
-L1GNDLUG01 n001GNDLUG01 N017 {Lgrd3} 
-R1GNDLUG02 N042 n001GNDLUG02 {Rgnd1} 
+R7COAXCAB03 n010COAXCAB03 N039 {Rc1ch} 
+E2COAXCAB03 n008COAXCAB03 N036 n010COAXCAB03 N039 1 
+R1GNDLUG01 N014 n001GNDLUG01 {Rgrd3} 
+L1GNDLUG01 n001GNDLUG01 N016 {Lgrd3} 
+R1GNDLUG02 N040 n001GNDLUG02 {Rgnd1} 
 L1GNDLUG02 n001GNDLUG02 0 {Lgnd1} 
-R1GNDLUG03 N018 n001GNDLUG03 {Rsrc} 
+R1GNDLUG03 N017 n001GNDLUG03 {Rsrc} 
 L1GNDLUG03 n001GNDLUG03 0 {Lsrc} 
-XZ2 N005 N010 N029 N024 N004 N009 N028 N023 N035 N035 STD4TP2 Rp={Rp2} Lp={Lp2} Rpg={Rp2r} Lpg={Lp2r} kp={kpo2} Cps={Cp2s} Rps={Rp2s} Rc={Rc2} Lc={Lc2} Rcg={Rc2r} Lcg={Lc2r} kc={kco2} Ccs={Cc2s} Rcs={Rc2s} Rs={R2} Ls={L2}
-R1GNDLUG04 N016 n001GNDLUG04 {Rgnd3} 
+XZ2 N005 N009 N028 N023 N004 N008 N027 N022 N033 N033 STD4TP2 Rp={Rp2} Lp={Lp2} Rpg={Rp2r} Lpg={Lp2r} kp={kpo2} Cps={Cp2s} Rps={Rp2s} Rc={Rc2} Lc={Lc2} Rcg={Rc2r} Lcg={Lc2r} kc={kco2} Ccs={Cc2s} Rcs={Rc2s} Rs={R2} Ls={L2}
+R1GNDLUG04 N015 n001GNDLUG04 {Rgnd3} 
 L1GNDLUG04 n001GNDLUG04 0 {Lgnd3} 
-R1GNDLUG05 N019 n001GNDLUG05 {Rgrd2} 
-L1GNDLUG05 n001GNDLUG05 N020 {Lgrd2} 
-R1GNDLUG06 N021 n001GNDLUG06 {Rgnd2} 
+R1GNDLUG05 N018 n001GNDLUG05 {Rgrd2} 
+L1GNDLUG05 n001GNDLUG05 N019 {Lgrd2} 
+R1GNDLUG06 N020 n001GNDLUG06 {Rgnd2} 
 L1GNDLUG06 n001GNDLUG06 0 {Lgnd2} 
 * <component=Hpot_A>Rs=RsHpot_A Ls=LsHpot_A RsG=RsGHpot_A LsG=LsGHpot_A Mlg=MlgHpot_A Cp=CpHpot_A Rp=RpHpot_A RsS=RsSHpot_A LsS=LsSHpot_A Mls=MlsHpot_A Mgs=MgsHpot_A CpS=CpSHpot_A RpS=RpSHpot_A Mll=MllHpot_A Mgg=MggHpot_A Mlg2=Mlg2Hpot_A CpGG=CpGGHpot_A RpGG=RpGGHpot_A </component>
 .param Rs2_TWAXSH01={0.5*RsHpot_A} Ls2_TWAXSH01={0.5*LsHpot_A} RsG2_TWAXSH01={0.5*RsGHpot_A} LsG2_TWAXSH01={0.5*LsGHpot_A} RsS2_TWAXSH01={0.5*RsSHpot_A} LsS2_TWAXSH01={0.5*LsSHpot_A} 
@@ -82,10 +82,10 @@ L7TWAXSH01 P007TWAXSH01 N001TWAXSH01 {Ls2_TWAXSH01}
 L8TWAXSH01 P008TWAXSH01 N002TWAXSH01 {LsG2_TWAXSH01} 
 C2TWAXSH01 N001TWAXSH01 N002TWAXSH01 {CpHpot_A} 
 R6TWAXSH01 N001TWAXSH01 N002TWAXSH01 {RpHpot_A} 
-R7TWAXSH01 P005TWAXSH01 N011 {Rs2_TWAXSH01} 
-R8TWAXSH01 P006TWAXSH01 N014 {RsG2_TWAXSH01} 
+R7TWAXSH01 P005TWAXSH01 N010 {Rs2_TWAXSH01} 
+R8TWAXSH01 P006TWAXSH01 N013 {RsG2_TWAXSH01} 
 R9TWAXSH01 NC_01 P008TWAXSH01 {RsG2_TWAXSH01} 
-R10TWAXSH01 N010 P007TWAXSH01 {Rs2_TWAXSH01} 
+R10TWAXSH01 N009 P007TWAXSH01 {Rs2_TWAXSH01} 
 L9TWAXSH01 CAPTWAXSH01 P009TWAXSH01 {LsS2_TWAXSH01} 
 L10TWAXSH01 P010TWAXSH01 CAPTWAXSH01 {LsS2_TWAXSH01} 
 R11TWAXSH01 P009TWAXSH01 0 {RsS2_TWAXSH01} 
@@ -96,14 +96,14 @@ R13TWAXSH01 CAPTWAXSH01 N003TWAXSH01 {RpSHpot_A}
 R14TWAXSH01 N002TWAXSH01 CAPTWAXSH01 {RpSHpot_A} 
 C5TWAXSH01 N002TWAXSH01 N003TWAXSH01 {CpGGHpot_A} 
 R15TWAXSH01 N002TWAXSH01 N003TWAXSH01 {RpGGHpot_A} 
-R16TWAXSH01 N011 N014 {Rnull_TWAXSH01} 
-R17TWAXSH01 N014 0 {Rnull_TWAXSH01} 
+R16TWAXSH01 N010 N013 {Rnull_TWAXSH01} 
+R17TWAXSH01 N013 0 {Rnull_TWAXSH01} 
 R18TWAXSH01 0 N001 {Rnull_TWAXSH01} 
 R19TWAXSH01 N001 N006 {Rnull_TWAXSH01} 
 R20TWAXSH01 NC_02 N005 {Rnull_TWAXSH01} 
 R21TWAXSH01 NC_03 NC_02 {Rnull_TWAXSH01} 
 R22TWAXSH01 NC_01 NC_03 {Rnull_TWAXSH01} 
-R23TWAXSH01 N010 NC_01 {Rnull_TWAXSH01} 
+R23TWAXSH01 N009 NC_01 {Rnull_TWAXSH01} 
 KlaTWAXSH01 L5TWAXSH01 L6TWAXSH01 {k_lg_TWAXSH01} 
 KraTWAXSH01 L7TWAXSH01 L8TWAXSH01 {k_lg_TWAXSH01} 
 KlbTWAXSH01 L1TWAXSH01 L2TWAXSH01 {k_lg_TWAXSH01} 
@@ -135,19 +135,19 @@ L4TWAXSH02 P004TWAXSH02 N004TWAXSH02 {Ls2_TWAXSH02}
 C1TWAXSH02 N003TWAXSH02 N004TWAXSH02 {CpLpot_A} 
 R1TWAXSH02 N003TWAXSH02 N004TWAXSH02 {RpLpot_A} 
 R2TWAXSH02 P001TWAXSH02 NC_05 {RsG2_TWAXSH02} 
-R3TWAXSH02 P002TWAXSH02 N029 {Rs2_TWAXSH02} 
-R4TWAXSH02 N030 P004TWAXSH02 {Rs2_TWAXSH02} 
-R5TWAXSH02 N033 P003TWAXSH02 {RsG2_TWAXSH02} 
+R3TWAXSH02 P002TWAXSH02 N028 {Rs2_TWAXSH02} 
+R4TWAXSH02 N029 P004TWAXSH02 {Rs2_TWAXSH02} 
+R5TWAXSH02 N031 P003TWAXSH02 {RsG2_TWAXSH02} 
 L5TWAXSH02 N001TWAXSH02 P005TWAXSH02 {Ls2_TWAXSH02} 
 L6TWAXSH02 N002TWAXSH02 P006TWAXSH02 {LsG2_TWAXSH02} 
 L7TWAXSH02 P007TWAXSH02 N001TWAXSH02 {Ls2_TWAXSH02} 
 L8TWAXSH02 P008TWAXSH02 N002TWAXSH02 {LsG2_TWAXSH02} 
 C2TWAXSH02 N001TWAXSH02 N002TWAXSH02 {CpLpot_A} 
 R6TWAXSH02 N001TWAXSH02 N002TWAXSH02 {RpLpot_A} 
-R7TWAXSH02 P005TWAXSH02 N024 {Rs2_TWAXSH02} 
+R7TWAXSH02 P005TWAXSH02 N023 {Rs2_TWAXSH02} 
 R8TWAXSH02 P006TWAXSH02 NC_04 {RsG2_TWAXSH02} 
-R9TWAXSH02 N022 P008TWAXSH02 {RsG2_TWAXSH02} 
-R10TWAXSH02 N025 P007TWAXSH02 {Rs2_TWAXSH02} 
+R9TWAXSH02 N021 P008TWAXSH02 {RsG2_TWAXSH02} 
+R10TWAXSH02 N024 P007TWAXSH02 {Rs2_TWAXSH02} 
 L9TWAXSH02 CAPTWAXSH02 P009TWAXSH02 {LsS2_TWAXSH02} 
 L10TWAXSH02 P010TWAXSH02 CAPTWAXSH02 {LsS2_TWAXSH02} 
 R11TWAXSH02 P009TWAXSH02 NC_06 {RsS2_TWAXSH02} 
@@ -158,14 +158,14 @@ R13TWAXSH02 CAPTWAXSH02 N003TWAXSH02 {RpSLpot_A}
 R14TWAXSH02 N002TWAXSH02 CAPTWAXSH02 {RpSLpot_A} 
 C5TWAXSH02 N002TWAXSH02 N003TWAXSH02 {CpGGLpot_A} 
 R15TWAXSH02 N002TWAXSH02 N003TWAXSH02 {RpGGLpot_A} 
-R16TWAXSH02 N024 NC_04 {Rnull_TWAXSH02} 
+R16TWAXSH02 N023 NC_04 {Rnull_TWAXSH02} 
 R17TWAXSH02 NC_04 NC_06 {Rnull_TWAXSH02} 
 R18TWAXSH02 NC_06 NC_05 {Rnull_TWAXSH02} 
-R19TWAXSH02 NC_05 N029 {Rnull_TWAXSH02} 
-R20TWAXSH02 N033 N030 {Rnull_TWAXSH02} 
-R21TWAXSH02 0 N033 {Rnull_TWAXSH02} 
-R22TWAXSH02 N022 0 {Rnull_TWAXSH02} 
-R23TWAXSH02 N025 N022 {Rnull_TWAXSH02} 
+R19TWAXSH02 NC_05 N028 {Rnull_TWAXSH02} 
+R20TWAXSH02 N031 N029 {Rnull_TWAXSH02} 
+R21TWAXSH02 0 N031 {Rnull_TWAXSH02} 
+R22TWAXSH02 N021 0 {Rnull_TWAXSH02} 
+R23TWAXSH02 N024 N021 {Rnull_TWAXSH02} 
 KlaTWAXSH02 L5TWAXSH02 L6TWAXSH02 {k_lg_TWAXSH02} 
 KraTWAXSH02 L7TWAXSH02 L8TWAXSH02 {k_lg_TWAXSH02} 
 KlbTWAXSH02 L1TWAXSH02 L2TWAXSH02 {k_lg_TWAXSH02} 
@@ -187,9 +187,9 @@ KrllTWAXSH02 L7TWAXSH02 L4TWAXSH02 {k_ll_TWAXSH02}
 KrglTWAXSH02 L8TWAXSH02 L4TWAXSH02 {k_lg2_TWAXSH02} 
 Krgl2TWAXSH02 L7TWAXSH02 L3TWAXSH02 {k_lg2_TWAXSH02} 
 * <component=buf_hpot>CgA=CgA_buf_hpot RgA=RgA_buf_hpot CgB=CgB_buf_hpot RgB=RgB_buf_hpot LoA=LoA_buf_hpot RoA=RoA_buf_hpot LoB=LoB_buf_hpot RoB=RoB_buf_hpot </component>
-Xbuf_hpot N006 N001 N011 N014 N007 N002 N012 N015 0 DUAL_EPBUF CgA={CgA_buf_hpot} RgA={RgA_buf_hpot} CgB={CgB_buf_hpot} RgB={RgB_buf_hpot} LoA={LoA_buf_hpot} RoA={RoA_buf_hpot} LoB={LoB_buf_hpot} RoB={RoB_buf_hpot} 
+Xbuf_hpot N006 N001 N010 N013 N007 N002 N011 N014 0 DUAL_EPBUF CgA={CgA_buf_hpot} RgA={RgA_buf_hpot} CgB={CgB_buf_hpot} RgB={RgB_buf_hpot} LoA={LoA_buf_hpot} RoA={RoA_buf_hpot} LoB={LoB_buf_hpot} RoB={RoB_buf_hpot} 
 * <component=buf_lpot>CgA=CgA_buf_lpot RgA=RgA_buf_lpot CgB=CgB_buf_lpot RgB=RgB_buf_lpot LoA=LoA_buf_lpot RoA=RoA_buf_lpot LoB=LoB_buf_lpot RoB=RoB_buf_lpot </component>
-Xbuf_lpot N031 N034 N026 N019 N030 N033 N025 N022 0 DUAL_EPBUF CgA={CgA_buf_lpot} RgA={RgA_buf_lpot} CgB={CgB_buf_lpot} RgB={RgB_buf_lpot} LoA={LoA_buf_lpot} RoA={RoA_buf_lpot} LoB={LoB_buf_lpot} RoB={RoB_buf_lpot} 
+Xbuf_lpot N030 N032 N025 N018 N029 N031 N024 N021 0 DUAL_EPBUF CgA={CgA_buf_lpot} RgA={RgA_buf_lpot} CgB={CgB_buf_lpot} RgB={RgB_buf_lpot} LoA={LoA_buf_lpot} RoA={RoA_buf_lpot} LoB={LoB_buf_lpot} RoB={RoB_buf_lpot} 
 * <component=Hpot_B>Rs=RsHpot_B Ls=LsHpot_B RsG=RsGHpot_B LsG=LsGHpot_B Mlg=MlgHpot_B Cp=CpHpot_B Rp=RpHpot_B RsS=RsSHpot_B LsS=LsSHpot_B Mls=MlsHpot_B Mgs=MgsHpot_B CpS=CpSHpot_B RpS=RpSHpot_B Mll=MllHpot_B Mgg=MggHpot_B Mlg2=Mlg2Hpot_B CpGG=CpGGHpot_B RpGG=RpGGHpot_B </component>
 .param Rs2_TWAXSH03={0.5*RsHpot_B} Ls2_TWAXSH03={0.5*LsHpot_B} RsG2_TWAXSH03={0.5*RsGHpot_B} LsG2_TWAXSH03={0.5*LsGHpot_B} RsS2_TWAXSH03={0.5*RsSHpot_B} LsS2_TWAXSH03={0.5*LsSHpot_B} 
 .param Rnull_TWAXSH03=1e9 
@@ -201,7 +201,7 @@ L4TWAXSH03 P004TWAXSH03 N004TWAXSH03 {Ls2_TWAXSH03}
 C1TWAXSH03 N003TWAXSH03 N004TWAXSH03 {CpHpot_B} 
 R1TWAXSH03 N003TWAXSH03 N004TWAXSH03 {RpHpot_B} 
 R2TWAXSH03 P001TWAXSH03 NC_08 {RsG2_TWAXSH03} 
-R3TWAXSH03 P002TWAXSH03 N008 {Rs2_TWAXSH03} 
+R3TWAXSH03 P002TWAXSH03 U3 {Rs2_TWAXSH03} 
 R4TWAXSH03 N007 P004TWAXSH03 {Rs2_TWAXSH03} 
 R5TWAXSH03 N002 P003TWAXSH03 {RsG2_TWAXSH03} 
 L5TWAXSH03 N001TWAXSH03 P005TWAXSH03 {Ls2_TWAXSH03} 
@@ -210,10 +210,10 @@ L7TWAXSH03 P007TWAXSH03 N001TWAXSH03 {Ls2_TWAXSH03}
 L8TWAXSH03 P008TWAXSH03 N002TWAXSH03 {LsG2_TWAXSH03} 
 C2TWAXSH03 N001TWAXSH03 N002TWAXSH03 {CpHpot_B} 
 R6TWAXSH03 N001TWAXSH03 N002TWAXSH03 {RpHpot_B} 
-R7TWAXSH03 P005TWAXSH03 N013 {Rs2_TWAXSH03} 
+R7TWAXSH03 P005TWAXSH03 N012 {Rs2_TWAXSH03} 
 R8TWAXSH03 P006TWAXSH03 NC_07 {RsG2_TWAXSH03} 
-R9TWAXSH03 N015 P008TWAXSH03 {RsG2_TWAXSH03} 
-R10TWAXSH03 N012 P007TWAXSH03 {Rs2_TWAXSH03} 
+R9TWAXSH03 N014 P008TWAXSH03 {RsG2_TWAXSH03} 
+R10TWAXSH03 N011 P007TWAXSH03 {Rs2_TWAXSH03} 
 L9TWAXSH03 CAPTWAXSH03 P009TWAXSH03 {LsS2_TWAXSH03} 
 L10TWAXSH03 P010TWAXSH03 CAPTWAXSH03 {LsS2_TWAXSH03} 
 R11TWAXSH03 P009TWAXSH03 NC_09 {RsS2_TWAXSH03} 
@@ -224,14 +224,14 @@ R13TWAXSH03 CAPTWAXSH03 N003TWAXSH03 {RpSHpot_B}
 R14TWAXSH03 N002TWAXSH03 CAPTWAXSH03 {RpSHpot_B} 
 C5TWAXSH03 N002TWAXSH03 N003TWAXSH03 {CpGGHpot_B} 
 R15TWAXSH03 N002TWAXSH03 N003TWAXSH03 {RpGGHpot_B} 
-R16TWAXSH03 N013 NC_07 {Rnull_TWAXSH03} 
+R16TWAXSH03 N012 NC_07 {Rnull_TWAXSH03} 
 R17TWAXSH03 NC_07 NC_09 {Rnull_TWAXSH03} 
 R18TWAXSH03 NC_09 NC_08 {Rnull_TWAXSH03} 
-R19TWAXSH03 NC_08 N008 {Rnull_TWAXSH03} 
+R19TWAXSH03 NC_08 U3 {Rnull_TWAXSH03} 
 R20TWAXSH03 N002 N007 {Rnull_TWAXSH03} 
 R21TWAXSH03 0 N002 {Rnull_TWAXSH03} 
-R22TWAXSH03 N015 0 {Rnull_TWAXSH03} 
-R23TWAXSH03 N012 N015 {Rnull_TWAXSH03} 
+R22TWAXSH03 N014 0 {Rnull_TWAXSH03} 
+R23TWAXSH03 N011 N014 {Rnull_TWAXSH03} 
 KlaTWAXSH03 L5TWAXSH03 L6TWAXSH03 {k_lg_TWAXSH03} 
 KraTWAXSH03 L7TWAXSH03 L8TWAXSH03 {k_lg_TWAXSH03} 
 KlbTWAXSH03 L1TWAXSH03 L2TWAXSH03 {k_lg_TWAXSH03} 
@@ -262,9 +262,9 @@ L3TWAXSH04 P003TWAXSH04 N003TWAXSH04 {LsG2_TWAXSH04}
 L4TWAXSH04 P004TWAXSH04 N004TWAXSH04 {Ls2_TWAXSH04} 
 C1TWAXSH04 N003TWAXSH04 N004TWAXSH04 {CpLpot_B} 
 R1TWAXSH04 N003TWAXSH04 N004TWAXSH04 {RpLpot_B} 
-R2TWAXSH04 P001TWAXSH04 N034 {RsG2_TWAXSH04} 
-R3TWAXSH04 P002TWAXSH04 N031 {Rs2_TWAXSH04} 
-R4TWAXSH04 N032 P004TWAXSH04 {Rs2_TWAXSH04} 
+R2TWAXSH04 P001TWAXSH04 N032 {RsG2_TWAXSH04} 
+R3TWAXSH04 P002TWAXSH04 N030 {Rs2_TWAXSH04} 
+R4TWAXSH04 U2 P004TWAXSH04 {Rs2_TWAXSH04} 
 R5TWAXSH04 NC_11 P003TWAXSH04 {RsG2_TWAXSH04} 
 L5TWAXSH04 N001TWAXSH04 P005TWAXSH04 {Ls2_TWAXSH04} 
 L6TWAXSH04 N002TWAXSH04 P006TWAXSH04 {LsG2_TWAXSH04} 
@@ -272,10 +272,10 @@ L7TWAXSH04 P007TWAXSH04 N001TWAXSH04 {Ls2_TWAXSH04}
 L8TWAXSH04 P008TWAXSH04 N002TWAXSH04 {LsG2_TWAXSH04} 
 C2TWAXSH04 N001TWAXSH04 N002TWAXSH04 {CpLpot_B} 
 R6TWAXSH04 N001TWAXSH04 N002TWAXSH04 {RpLpot_B} 
-R7TWAXSH04 P005TWAXSH04 N026 {Rs2_TWAXSH04} 
-R8TWAXSH04 P006TWAXSH04 N019 {RsG2_TWAXSH04} 
+R7TWAXSH04 P005TWAXSH04 N025 {Rs2_TWAXSH04} 
+R8TWAXSH04 P006TWAXSH04 N018 {RsG2_TWAXSH04} 
 R9TWAXSH04 NC_10 P008TWAXSH04 {RsG2_TWAXSH04} 
-R10TWAXSH04 N027 P007TWAXSH04 {Rs2_TWAXSH04} 
+R10TWAXSH04 N026 P007TWAXSH04 {Rs2_TWAXSH04} 
 L9TWAXSH04 CAPTWAXSH04 P009TWAXSH04 {LsS2_TWAXSH04} 
 L10TWAXSH04 P010TWAXSH04 CAPTWAXSH04 {LsS2_TWAXSH04} 
 R11TWAXSH04 P009TWAXSH04 0 {RsS2_TWAXSH04} 
@@ -286,14 +286,14 @@ R13TWAXSH04 CAPTWAXSH04 N003TWAXSH04 {RpSLpot_B}
 R14TWAXSH04 N002TWAXSH04 CAPTWAXSH04 {RpSLpot_B} 
 C5TWAXSH04 N002TWAXSH04 N003TWAXSH04 {CpGGLpot_B} 
 R15TWAXSH04 N002TWAXSH04 N003TWAXSH04 {RpGGLpot_B} 
-R16TWAXSH04 N026 N019 {Rnull_TWAXSH04} 
-R17TWAXSH04 N019 0 {Rnull_TWAXSH04} 
-R18TWAXSH04 0 N034 {Rnull_TWAXSH04} 
-R19TWAXSH04 N034 N031 {Rnull_TWAXSH04} 
-R20TWAXSH04 NC_11 N032 {Rnull_TWAXSH04} 
+R16TWAXSH04 N025 N018 {Rnull_TWAXSH04} 
+R17TWAXSH04 N018 0 {Rnull_TWAXSH04} 
+R18TWAXSH04 0 N032 {Rnull_TWAXSH04} 
+R19TWAXSH04 N032 N030 {Rnull_TWAXSH04} 
+R20TWAXSH04 NC_11 U2 {Rnull_TWAXSH04} 
 R21TWAXSH04 NC_12 NC_11 {Rnull_TWAXSH04} 
 R22TWAXSH04 NC_10 NC_12 {Rnull_TWAXSH04} 
-R23TWAXSH04 N027 NC_10 {Rnull_TWAXSH04} 
+R23TWAXSH04 N026 NC_10 {Rnull_TWAXSH04} 
 KlaTWAXSH04 L5TWAXSH04 L6TWAXSH04 {k_lg_TWAXSH04} 
 KraTWAXSH04 L7TWAXSH04 L8TWAXSH04 {k_lg_TWAXSH04} 
 KlbTWAXSH04 L1TWAXSH04 L2TWAXSH04 {k_lg_TWAXSH04} 
@@ -314,16 +314,348 @@ KrggTWAXSH04 L8TWAXSH04 L3TWAXSH04 {k_gg_TWAXSH04}
 KrllTWAXSH04 L7TWAXSH04 L4TWAXSH04 {k_ll_TWAXSH04} 
 KrglTWAXSH04 L8TWAXSH04 L4TWAXSH04 {k_lg2_TWAXSH04} 
 Krgl2TWAXSH04 L7TWAXSH04 L3TWAXSH04 {k_lg2_TWAXSH04} 
-XADC3 N008 N013 N017 N016 U3_adc_high 0 DIG3458 Ci={C3in} Ri={R3in} Clg={C3sh} Rlg={R3sh} Cgs={C3gnd} Rgs={R3gnd}
-XADC2 N032 N027 N020 N021 U2_adc_high 0 DIG3458 Ci={C2in} Ri={R2in} Clg={C2sh} Rlg={R2sh} Cgs={C2gnd} Rgs={R2gnd}
-XADC1 N038 N041 N043 N042 U1_adc_high 0 DIG3458 Ci={C1in} Ri={R1in} Clg={C1sh} Rlg={R1sh} Cgs={C1gnd} Rgs={R1gnd}
-R1GNDLUG07 N039 n001GNDLUG07 {Rgrd2} 
-L1GNDLUG07 n001GNDLUG07 N043 {Lgrd2} 
+XADC3 U3 N012 N016 N015 U3_adc_high U3_adc_low DIG3458 Ci={C3in} Ri={R3in} Clg={C3sh} Rlg={R3sh} Cgs={C3gnd} Rgs={R3gnd}
+XADC2 U2 N026 N019 N020 U2_adc_high U2_adc_low DIG3458 Ci={C2in} Ri={R2in} Clg={C2sh} Rlg={R2sh} Cgs={C2gnd} Rgs={R2gnd}
+XADC1 N036 N039 N041 N040 U1_adc_high U1_adc_low DIG3458 Ci={C1in} Ri={R1in} Clg={C1sh} Rlg={R1sh} Cgs={C1gnd} Rgs={R1gnd}
+R1GNDLUG07 N037 n001GNDLUG07 {Rgrd2} 
+L1GNDLUG07 n001GNDLUG07 N041 {Lgrd2} 
 * <twax>\n  Rs={Rs%} Ls={Ls%} RsG={RsG%} LsG={LsG%} Mlg={Mlg%} Cp={Cp%} Rp={Rp%}\n  RsS={RsS%} LsS={LsS%} Mls={Mls%} Mgs={Mgs%} CpS={CpS%} RpS={RpS%}\n  Mll={Mll%} Mgg={Mgg%} Mlg2={Mlg2%} CpGG={CpGG%} RpGG={RpGG%}\n</twax>
 * <epbuf>\n  CgA={CgA_%} RgA={RgA_%} CgB={CgB_%} RgB={RgB_%}\n  LoA={LoA_%} RoA={RoA_%} LoB={LoB_%} RoB={RoB_%}\n</epbuf>
 .lib ZbrgLib.cir ZbrgLib
 
 * Automatically generated stray couplings
+.param k_stray001={max(min(M_stray001/sqrt(abs(LsG2_TWAXSH01*LsG2_TWAXSH02)),0.999),-0.999)} $ M#001=<M_stray001> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0001 L1TWAXSH01 L1TWAXSH02 {k_stray001}
+.param k_stray002={max(min(M_stray001/sqrt(abs(LsG2_TWAXSH01*Ls2_TWAXSH02)),0.999),-0.999)} $ M#001=<M_stray001> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0002 L1TWAXSH01 L2TWAXSH02 {k_stray002}
+.param k_stray003={max(min(M_stray001/sqrt(abs(LsG2_TWAXSH01*Ls2_TWAXSH02)),0.999),-0.999)} $ M#001=<M_stray001> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0003 L1TWAXSH01 L5TWAXSH02 {k_stray003}
+.param k_stray004={max(min(M_stray001/sqrt(abs(LsG2_TWAXSH01*LsG2_TWAXSH02)),0.999),-0.999)} $ M#001=<M_stray001> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0004 L1TWAXSH01 L6TWAXSH02 {k_stray004}
+.param k_stray005={max(min(M_stray001/sqrt(abs(LsG2_TWAXSH01*LsS2_TWAXSH02)),0.999),-0.999)} $ M#001=<M_stray001> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0005 L1TWAXSH01 L9TWAXSH02 {k_stray005}
+.param k_stray006={max(min(M_stray001/sqrt(abs(Ls2_TWAXSH01*LsG2_TWAXSH02)),0.999),-0.999)} $ M#001=<M_stray001> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0006 L2TWAXSH01 L1TWAXSH02 {k_stray006}
+.param k_stray007={max(min(M_stray001/sqrt(abs(Ls2_TWAXSH01*Ls2_TWAXSH02)),0.999),-0.999)} $ M#001=<M_stray001> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0007 L2TWAXSH01 L2TWAXSH02 {k_stray007}
+.param k_stray008={max(min(M_stray001/sqrt(abs(Ls2_TWAXSH01*Ls2_TWAXSH02)),0.999),-0.999)} $ M#001=<M_stray001> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0008 L2TWAXSH01 L5TWAXSH02 {k_stray008}
+.param k_stray009={max(min(M_stray001/sqrt(abs(Ls2_TWAXSH01*LsG2_TWAXSH02)),0.999),-0.999)} $ M#001=<M_stray001> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0009 L2TWAXSH01 L6TWAXSH02 {k_stray009}
+.param k_stray010={max(min(M_stray001/sqrt(abs(Ls2_TWAXSH01*LsS2_TWAXSH02)),0.999),-0.999)} $ M#001=<M_stray001> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0010 L2TWAXSH01 L9TWAXSH02 {k_stray010}
+.param k_stray011={max(min(M_stray001/sqrt(abs(Ls2_TWAXSH01*LsG2_TWAXSH02)),0.999),-0.999)} $ M#001=<M_stray001> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0011 L5TWAXSH01 L1TWAXSH02 {k_stray011}
+.param k_stray012={max(min(M_stray001/sqrt(abs(Ls2_TWAXSH01*Ls2_TWAXSH02)),0.999),-0.999)} $ M#001=<M_stray001> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0012 L5TWAXSH01 L2TWAXSH02 {k_stray012}
+.param k_stray013={max(min(M_stray001/sqrt(abs(Ls2_TWAXSH01*Ls2_TWAXSH02)),0.999),-0.999)} $ M#001=<M_stray001> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0013 L5TWAXSH01 L5TWAXSH02 {k_stray013}
+.param k_stray014={max(min(M_stray001/sqrt(abs(Ls2_TWAXSH01*LsG2_TWAXSH02)),0.999),-0.999)} $ M#001=<M_stray001> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0014 L5TWAXSH01 L6TWAXSH02 {k_stray014}
+.param k_stray015={max(min(M_stray001/sqrt(abs(Ls2_TWAXSH01*LsS2_TWAXSH02)),0.999),-0.999)} $ M#001=<M_stray001> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0015 L5TWAXSH01 L9TWAXSH02 {k_stray015}
+.param k_stray016={max(min(M_stray001/sqrt(abs(LsG2_TWAXSH01*LsG2_TWAXSH02)),0.999),-0.999)} $ M#001=<M_stray001> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0016 L6TWAXSH01 L1TWAXSH02 {k_stray016}
+.param k_stray017={max(min(M_stray001/sqrt(abs(LsG2_TWAXSH01*Ls2_TWAXSH02)),0.999),-0.999)} $ M#001=<M_stray001> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0017 L6TWAXSH01 L2TWAXSH02 {k_stray017}
+.param k_stray018={max(min(M_stray001/sqrt(abs(LsG2_TWAXSH01*Ls2_TWAXSH02)),0.999),-0.999)} $ M#001=<M_stray001> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0018 L6TWAXSH01 L5TWAXSH02 {k_stray018}
+.param k_stray019={max(min(M_stray001/sqrt(abs(LsG2_TWAXSH01*LsG2_TWAXSH02)),0.999),-0.999)} $ M#001=<M_stray001> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0019 L6TWAXSH01 L6TWAXSH02 {k_stray019}
+.param k_stray020={max(min(M_stray001/sqrt(abs(LsG2_TWAXSH01*LsS2_TWAXSH02)),0.999),-0.999)} $ M#001=<M_stray001> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0020 L6TWAXSH01 L9TWAXSH02 {k_stray020}
+.param k_stray021={max(min(M_stray001/sqrt(abs(LsS2_TWAXSH01*LsG2_TWAXSH02)),0.999),-0.999)} $ M#001=<M_stray001> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0021 L9TWAXSH01 L1TWAXSH02 {k_stray021}
+.param k_stray022={max(min(M_stray001/sqrt(abs(LsS2_TWAXSH01*Ls2_TWAXSH02)),0.999),-0.999)} $ M#001=<M_stray001> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0022 L9TWAXSH01 L2TWAXSH02 {k_stray022}
+.param k_stray023={max(min(M_stray001/sqrt(abs(LsS2_TWAXSH01*Ls2_TWAXSH02)),0.999),-0.999)} $ M#001=<M_stray001> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0023 L9TWAXSH01 L5TWAXSH02 {k_stray023}
+.param k_stray024={max(min(M_stray001/sqrt(abs(LsS2_TWAXSH01*LsG2_TWAXSH02)),0.999),-0.999)} $ M#001=<M_stray001> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0024 L9TWAXSH01 L6TWAXSH02 {k_stray024}
+.param k_stray025={max(min(M_stray001/sqrt(abs(LsS2_TWAXSH01*LsS2_TWAXSH02)),0.999),-0.999)} $ M#001=<M_stray001> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0025 L9TWAXSH01 L9TWAXSH02 {k_stray025}
+Cstray001 CAPTWAXSH01 CAPTWAXSH02 {C_stray001} $ C#001=<C_stray001> - C#stray_group_id=<stray_capacitance_parameter>
+
+.param k_stray026={max(min(M_stray002/sqrt(abs(LsG2_TWAXSH03*LsG2_TWAXSH04)),0.999),-0.999)} $ M#002=<M_stray002> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0026 L1TWAXSH03 L1TWAXSH04 {k_stray026}
+.param k_stray027={max(min(M_stray002/sqrt(abs(LsG2_TWAXSH03*Ls2_TWAXSH04)),0.999),-0.999)} $ M#002=<M_stray002> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0027 L1TWAXSH03 L2TWAXSH04 {k_stray027}
+.param k_stray028={max(min(M_stray002/sqrt(abs(LsG2_TWAXSH03*Ls2_TWAXSH04)),0.999),-0.999)} $ M#002=<M_stray002> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0028 L1TWAXSH03 L5TWAXSH04 {k_stray028}
+.param k_stray029={max(min(M_stray002/sqrt(abs(LsG2_TWAXSH03*LsG2_TWAXSH04)),0.999),-0.999)} $ M#002=<M_stray002> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0029 L1TWAXSH03 L6TWAXSH04 {k_stray029}
+.param k_stray030={max(min(M_stray002/sqrt(abs(LsG2_TWAXSH03*LsS2_TWAXSH04)),0.999),-0.999)} $ M#002=<M_stray002> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0030 L1TWAXSH03 L9TWAXSH04 {k_stray030}
+.param k_stray031={max(min(M_stray002/sqrt(abs(Ls2_TWAXSH03*LsG2_TWAXSH04)),0.999),-0.999)} $ M#002=<M_stray002> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0031 L2TWAXSH03 L1TWAXSH04 {k_stray031}
+.param k_stray032={max(min(M_stray002/sqrt(abs(Ls2_TWAXSH03*Ls2_TWAXSH04)),0.999),-0.999)} $ M#002=<M_stray002> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0032 L2TWAXSH03 L2TWAXSH04 {k_stray032}
+.param k_stray033={max(min(M_stray002/sqrt(abs(Ls2_TWAXSH03*Ls2_TWAXSH04)),0.999),-0.999)} $ M#002=<M_stray002> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0033 L2TWAXSH03 L5TWAXSH04 {k_stray033}
+.param k_stray034={max(min(M_stray002/sqrt(abs(Ls2_TWAXSH03*LsG2_TWAXSH04)),0.999),-0.999)} $ M#002=<M_stray002> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0034 L2TWAXSH03 L6TWAXSH04 {k_stray034}
+.param k_stray035={max(min(M_stray002/sqrt(abs(Ls2_TWAXSH03*LsS2_TWAXSH04)),0.999),-0.999)} $ M#002=<M_stray002> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0035 L2TWAXSH03 L9TWAXSH04 {k_stray035}
+.param k_stray036={max(min(M_stray002/sqrt(abs(Ls2_TWAXSH03*LsG2_TWAXSH04)),0.999),-0.999)} $ M#002=<M_stray002> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0036 L5TWAXSH03 L1TWAXSH04 {k_stray036}
+.param k_stray037={max(min(M_stray002/sqrt(abs(Ls2_TWAXSH03*Ls2_TWAXSH04)),0.999),-0.999)} $ M#002=<M_stray002> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0037 L5TWAXSH03 L2TWAXSH04 {k_stray037}
+.param k_stray038={max(min(M_stray002/sqrt(abs(Ls2_TWAXSH03*Ls2_TWAXSH04)),0.999),-0.999)} $ M#002=<M_stray002> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0038 L5TWAXSH03 L5TWAXSH04 {k_stray038}
+.param k_stray039={max(min(M_stray002/sqrt(abs(Ls2_TWAXSH03*LsG2_TWAXSH04)),0.999),-0.999)} $ M#002=<M_stray002> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0039 L5TWAXSH03 L6TWAXSH04 {k_stray039}
+.param k_stray040={max(min(M_stray002/sqrt(abs(Ls2_TWAXSH03*LsS2_TWAXSH04)),0.999),-0.999)} $ M#002=<M_stray002> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0040 L5TWAXSH03 L9TWAXSH04 {k_stray040}
+.param k_stray041={max(min(M_stray002/sqrt(abs(LsG2_TWAXSH03*LsG2_TWAXSH04)),0.999),-0.999)} $ M#002=<M_stray002> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0041 L6TWAXSH03 L1TWAXSH04 {k_stray041}
+.param k_stray042={max(min(M_stray002/sqrt(abs(LsG2_TWAXSH03*Ls2_TWAXSH04)),0.999),-0.999)} $ M#002=<M_stray002> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0042 L6TWAXSH03 L2TWAXSH04 {k_stray042}
+.param k_stray043={max(min(M_stray002/sqrt(abs(LsG2_TWAXSH03*Ls2_TWAXSH04)),0.999),-0.999)} $ M#002=<M_stray002> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0043 L6TWAXSH03 L5TWAXSH04 {k_stray043}
+.param k_stray044={max(min(M_stray002/sqrt(abs(LsG2_TWAXSH03*LsG2_TWAXSH04)),0.999),-0.999)} $ M#002=<M_stray002> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0044 L6TWAXSH03 L6TWAXSH04 {k_stray044}
+.param k_stray045={max(min(M_stray002/sqrt(abs(LsG2_TWAXSH03*LsS2_TWAXSH04)),0.999),-0.999)} $ M#002=<M_stray002> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0045 L6TWAXSH03 L9TWAXSH04 {k_stray045}
+.param k_stray046={max(min(M_stray002/sqrt(abs(LsS2_TWAXSH03*LsG2_TWAXSH04)),0.999),-0.999)} $ M#002=<M_stray002> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0046 L9TWAXSH03 L1TWAXSH04 {k_stray046}
+.param k_stray047={max(min(M_stray002/sqrt(abs(LsS2_TWAXSH03*Ls2_TWAXSH04)),0.999),-0.999)} $ M#002=<M_stray002> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0047 L9TWAXSH03 L2TWAXSH04 {k_stray047}
+.param k_stray048={max(min(M_stray002/sqrt(abs(LsS2_TWAXSH03*Ls2_TWAXSH04)),0.999),-0.999)} $ M#002=<M_stray002> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0048 L9TWAXSH03 L5TWAXSH04 {k_stray048}
+.param k_stray049={max(min(M_stray002/sqrt(abs(LsS2_TWAXSH03*LsG2_TWAXSH04)),0.999),-0.999)} $ M#002=<M_stray002> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0049 L9TWAXSH03 L6TWAXSH04 {k_stray049}
+.param k_stray050={max(min(M_stray002/sqrt(abs(LsS2_TWAXSH03*LsS2_TWAXSH04)),0.999),-0.999)} $ M#002=<M_stray002> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0050 L9TWAXSH03 L9TWAXSH04 {k_stray050}
+Cstray002 CAPTWAXSH03 CAPTWAXSH04 {C_stray002} $ C#002=<C_stray002> - C#stray_group_id=<stray_capacitance_parameter>
+
+.param k_stray051={max(min(M_stray003/sqrt(abs(LsG2_TWAXSH03*Lgrd3)),0.999),-0.999)} $ M#003=<M_stray003> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0051 L1TWAXSH03 L1GNDLUG01 {k_stray051}
+.param k_stray052={max(min(M_stray003/sqrt(abs(Ls2_TWAXSH03*Lgrd3)),0.999),-0.999)} $ M#003=<M_stray003> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0052 L2TWAXSH03 L1GNDLUG01 {k_stray052}
+.param k_stray053={max(min(M_stray003/sqrt(abs(Ls2_TWAXSH03*Lgrd3)),0.999),-0.999)} $ M#003=<M_stray003> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0053 L5TWAXSH03 L1GNDLUG01 {k_stray053}
+.param k_stray054={max(min(M_stray003/sqrt(abs(LsG2_TWAXSH03*Lgrd3)),0.999),-0.999)} $ M#003=<M_stray003> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0054 L6TWAXSH03 L1GNDLUG01 {k_stray054}
+.param k_stray055={max(min(M_stray003/sqrt(abs(LsS2_TWAXSH03*Lgrd3)),0.999),-0.999)} $ M#003=<M_stray003> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0055 L9TWAXSH03 L1GNDLUG01 {k_stray055}
+.param k_stray056={max(min(M_stray004/sqrt(abs(LsG2_TWAXSH03*Lgrd2)),0.999),-0.999)} $ M#004=<M_stray004> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0056 L1TWAXSH03 L1GNDLUG05 {k_stray056}
+.param k_stray057={max(min(M_stray004/sqrt(abs(Ls2_TWAXSH03*Lgrd2)),0.999),-0.999)} $ M#004=<M_stray004> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0057 L2TWAXSH03 L1GNDLUG05 {k_stray057}
+.param k_stray058={max(min(M_stray004/sqrt(abs(Ls2_TWAXSH03*Lgrd2)),0.999),-0.999)} $ M#004=<M_stray004> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0058 L5TWAXSH03 L1GNDLUG05 {k_stray058}
+.param k_stray059={max(min(M_stray004/sqrt(abs(LsG2_TWAXSH03*Lgrd2)),0.999),-0.999)} $ M#004=<M_stray004> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0059 L6TWAXSH03 L1GNDLUG05 {k_stray059}
+.param k_stray060={max(min(M_stray004/sqrt(abs(LsS2_TWAXSH03*Lgrd2)),0.999),-0.999)} $ M#004=<M_stray004> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0060 L9TWAXSH03 L1GNDLUG05 {k_stray060}
+.param k_stray061={max(min(M_stray005/sqrt(abs(LsG2_TWAXSH04*Lgrd3)),0.999),-0.999)} $ M#005=<M_stray005> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0061 L1TWAXSH04 L1GNDLUG01 {k_stray061}
+.param k_stray062={max(min(M_stray005/sqrt(abs(Ls2_TWAXSH04*Lgrd3)),0.999),-0.999)} $ M#005=<M_stray005> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0062 L2TWAXSH04 L1GNDLUG01 {k_stray062}
+.param k_stray063={max(min(M_stray005/sqrt(abs(Ls2_TWAXSH04*Lgrd3)),0.999),-0.999)} $ M#005=<M_stray005> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0063 L5TWAXSH04 L1GNDLUG01 {k_stray063}
+.param k_stray064={max(min(M_stray005/sqrt(abs(LsG2_TWAXSH04*Lgrd3)),0.999),-0.999)} $ M#005=<M_stray005> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0064 L6TWAXSH04 L1GNDLUG01 {k_stray064}
+.param k_stray065={max(min(M_stray005/sqrt(abs(LsS2_TWAXSH04*Lgrd3)),0.999),-0.999)} $ M#005=<M_stray005> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0065 L9TWAXSH04 L1GNDLUG01 {k_stray065}
+.param k_stray066={max(min(M_stray006/sqrt(abs(LsG2_TWAXSH04*Lgrd2)),0.999),-0.999)} $ M#006=<M_stray006> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0066 L1TWAXSH04 L1GNDLUG05 {k_stray066}
+.param k_stray067={max(min(M_stray006/sqrt(abs(Ls2_TWAXSH04*Lgrd2)),0.999),-0.999)} $ M#006=<M_stray006> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0067 L2TWAXSH04 L1GNDLUG05 {k_stray067}
+.param k_stray068={max(min(M_stray006/sqrt(abs(Ls2_TWAXSH04*Lgrd2)),0.999),-0.999)} $ M#006=<M_stray006> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0068 L5TWAXSH04 L1GNDLUG05 {k_stray068}
+.param k_stray069={max(min(M_stray006/sqrt(abs(LsG2_TWAXSH04*Lgrd2)),0.999),-0.999)} $ M#006=<M_stray006> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0069 L6TWAXSH04 L1GNDLUG05 {k_stray069}
+.param k_stray070={max(min(M_stray006/sqrt(abs(LsS2_TWAXSH04*Lgrd2)),0.999),-0.999)} $ M#006=<M_stray006> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0070 L9TWAXSH04 L1GNDLUG05 {k_stray070}
+.param k_stray071={max(min(M_stray007/sqrt(abs(LsG2_TWAXSH01*Lc4h)),0.999),-0.999)} $ M#007=<M_stray007> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0071 L1TWAXSH01 L1COAXCAB02 {k_stray071}
+.param k_stray072={max(min(M_stray007/sqrt(abs(LsG2_TWAXSH01*Lc4g)),0.999),-0.999)} $ M#007=<M_stray007> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0072 L1TWAXSH01 L3COAXCAB02 {k_stray072}
+.param k_stray073={max(min(M_stray007/sqrt(abs(Ls2_TWAXSH01*Lc4h)),0.999),-0.999)} $ M#007=<M_stray007> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0073 L2TWAXSH01 L1COAXCAB02 {k_stray073}
+.param k_stray074={max(min(M_stray007/sqrt(abs(Ls2_TWAXSH01*Lc4g)),0.999),-0.999)} $ M#007=<M_stray007> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0074 L2TWAXSH01 L3COAXCAB02 {k_stray074}
+.param k_stray075={max(min(M_stray007/sqrt(abs(Ls2_TWAXSH01*Lc4h)),0.999),-0.999)} $ M#007=<M_stray007> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0075 L5TWAXSH01 L1COAXCAB02 {k_stray075}
+.param k_stray076={max(min(M_stray007/sqrt(abs(Ls2_TWAXSH01*Lc4g)),0.999),-0.999)} $ M#007=<M_stray007> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0076 L5TWAXSH01 L3COAXCAB02 {k_stray076}
+.param k_stray077={max(min(M_stray007/sqrt(abs(LsG2_TWAXSH01*Lc4h)),0.999),-0.999)} $ M#007=<M_stray007> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0077 L6TWAXSH01 L1COAXCAB02 {k_stray077}
+.param k_stray078={max(min(M_stray007/sqrt(abs(LsG2_TWAXSH01*Lc4g)),0.999),-0.999)} $ M#007=<M_stray007> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0078 L6TWAXSH01 L3COAXCAB02 {k_stray078}
+.param k_stray079={max(min(M_stray007/sqrt(abs(LsS2_TWAXSH01*Lc4h)),0.999),-0.999)} $ M#007=<M_stray007> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0079 L9TWAXSH01 L1COAXCAB02 {k_stray079}
+.param k_stray080={max(min(M_stray007/sqrt(abs(LsS2_TWAXSH01*Lc4g)),0.999),-0.999)} $ M#007=<M_stray007> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0080 L9TWAXSH01 L3COAXCAB02 {k_stray080}
+Cstray003 CAPTWAXSH01 n002COAXCAB02 {C_stray007} $ C#007=<C_stray007> - C#stray_group_id=<stray_capacitance_parameter>
+
+.param k_stray081={max(min(M_stray008/sqrt(abs(LsG2_TWAXSH03*Lc4h)),0.999),-0.999)} $ M#008=<M_stray008> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0081 L1TWAXSH03 L1COAXCAB02 {k_stray081}
+.param k_stray082={max(min(M_stray008/sqrt(abs(LsG2_TWAXSH03*Lc4g)),0.999),-0.999)} $ M#008=<M_stray008> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0082 L1TWAXSH03 L3COAXCAB02 {k_stray082}
+.param k_stray083={max(min(M_stray008/sqrt(abs(Ls2_TWAXSH03*Lc4h)),0.999),-0.999)} $ M#008=<M_stray008> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0083 L2TWAXSH03 L1COAXCAB02 {k_stray083}
+.param k_stray084={max(min(M_stray008/sqrt(abs(Ls2_TWAXSH03*Lc4g)),0.999),-0.999)} $ M#008=<M_stray008> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0084 L2TWAXSH03 L3COAXCAB02 {k_stray084}
+.param k_stray085={max(min(M_stray008/sqrt(abs(Ls2_TWAXSH03*Lc4h)),0.999),-0.999)} $ M#008=<M_stray008> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0085 L5TWAXSH03 L1COAXCAB02 {k_stray085}
+.param k_stray086={max(min(M_stray008/sqrt(abs(Ls2_TWAXSH03*Lc4g)),0.999),-0.999)} $ M#008=<M_stray008> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0086 L5TWAXSH03 L3COAXCAB02 {k_stray086}
+.param k_stray087={max(min(M_stray008/sqrt(abs(LsG2_TWAXSH03*Lc4h)),0.999),-0.999)} $ M#008=<M_stray008> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0087 L6TWAXSH03 L1COAXCAB02 {k_stray087}
+.param k_stray088={max(min(M_stray008/sqrt(abs(LsG2_TWAXSH03*Lc4g)),0.999),-0.999)} $ M#008=<M_stray008> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0088 L6TWAXSH03 L3COAXCAB02 {k_stray088}
+.param k_stray089={max(min(M_stray008/sqrt(abs(LsS2_TWAXSH03*Lc4h)),0.999),-0.999)} $ M#008=<M_stray008> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0089 L9TWAXSH03 L1COAXCAB02 {k_stray089}
+.param k_stray090={max(min(M_stray008/sqrt(abs(LsS2_TWAXSH03*Lc4g)),0.999),-0.999)} $ M#008=<M_stray008> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0090 L9TWAXSH03 L3COAXCAB02 {k_stray090}
+Cstray004 CAPTWAXSH03 n002COAXCAB02 {C_stray008} $ C#008=<C_stray008> - C#stray_group_id=<stray_capacitance_parameter>
+
+.param k_stray091={max(min(M_stray009/sqrt(abs(LsG2_TWAXSH01*Lc3h)),0.999),-0.999)} $ M#009=<M_stray009> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0091 L1TWAXSH01 L1COAXCAB01 {k_stray091}
+.param k_stray092={max(min(M_stray009/sqrt(abs(LsG2_TWAXSH01*Lc3g)),0.999),-0.999)} $ M#009=<M_stray009> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0092 L1TWAXSH01 L3COAXCAB01 {k_stray092}
+.param k_stray093={max(min(M_stray009/sqrt(abs(Ls2_TWAXSH01*Lc3h)),0.999),-0.999)} $ M#009=<M_stray009> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0093 L2TWAXSH01 L1COAXCAB01 {k_stray093}
+.param k_stray094={max(min(M_stray009/sqrt(abs(Ls2_TWAXSH01*Lc3g)),0.999),-0.999)} $ M#009=<M_stray009> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0094 L2TWAXSH01 L3COAXCAB01 {k_stray094}
+.param k_stray095={max(min(M_stray009/sqrt(abs(Ls2_TWAXSH01*Lc3h)),0.999),-0.999)} $ M#009=<M_stray009> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0095 L5TWAXSH01 L1COAXCAB01 {k_stray095}
+.param k_stray096={max(min(M_stray009/sqrt(abs(Ls2_TWAXSH01*Lc3g)),0.999),-0.999)} $ M#009=<M_stray009> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0096 L5TWAXSH01 L3COAXCAB01 {k_stray096}
+.param k_stray097={max(min(M_stray009/sqrt(abs(LsG2_TWAXSH01*Lc3h)),0.999),-0.999)} $ M#009=<M_stray009> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0097 L6TWAXSH01 L1COAXCAB01 {k_stray097}
+.param k_stray098={max(min(M_stray009/sqrt(abs(LsG2_TWAXSH01*Lc3g)),0.999),-0.999)} $ M#009=<M_stray009> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0098 L6TWAXSH01 L3COAXCAB01 {k_stray098}
+.param k_stray099={max(min(M_stray009/sqrt(abs(LsS2_TWAXSH01*Lc3h)),0.999),-0.999)} $ M#009=<M_stray009> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0099 L9TWAXSH01 L1COAXCAB01 {k_stray099}
+.param k_stray100={max(min(M_stray009/sqrt(abs(LsS2_TWAXSH01*Lc3g)),0.999),-0.999)} $ M#009=<M_stray009> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0100 L9TWAXSH01 L3COAXCAB01 {k_stray100}
+Cstray005 CAPTWAXSH01 n002COAXCAB01 {C_stray009} $ C#009=<C_stray009> - C#stray_group_id=<stray_capacitance_parameter>
+
+.param k_stray101={max(min(M_stray010/sqrt(abs(LsG2_TWAXSH03*Lc3h)),0.999),-0.999)} $ M#010=<M_stray010> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0101 L1TWAXSH03 L1COAXCAB01 {k_stray101}
+.param k_stray102={max(min(M_stray010/sqrt(abs(LsG2_TWAXSH03*Lc3g)),0.999),-0.999)} $ M#010=<M_stray010> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0102 L1TWAXSH03 L3COAXCAB01 {k_stray102}
+.param k_stray103={max(min(M_stray010/sqrt(abs(Ls2_TWAXSH03*Lc3h)),0.999),-0.999)} $ M#010=<M_stray010> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0103 L2TWAXSH03 L1COAXCAB01 {k_stray103}
+.param k_stray104={max(min(M_stray010/sqrt(abs(Ls2_TWAXSH03*Lc3g)),0.999),-0.999)} $ M#010=<M_stray010> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0104 L2TWAXSH03 L3COAXCAB01 {k_stray104}
+.param k_stray105={max(min(M_stray010/sqrt(abs(Ls2_TWAXSH03*Lc3h)),0.999),-0.999)} $ M#010=<M_stray010> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0105 L5TWAXSH03 L1COAXCAB01 {k_stray105}
+.param k_stray106={max(min(M_stray010/sqrt(abs(Ls2_TWAXSH03*Lc3g)),0.999),-0.999)} $ M#010=<M_stray010> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0106 L5TWAXSH03 L3COAXCAB01 {k_stray106}
+.param k_stray107={max(min(M_stray010/sqrt(abs(LsG2_TWAXSH03*Lc3h)),0.999),-0.999)} $ M#010=<M_stray010> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0107 L6TWAXSH03 L1COAXCAB01 {k_stray107}
+.param k_stray108={max(min(M_stray010/sqrt(abs(LsG2_TWAXSH03*Lc3g)),0.999),-0.999)} $ M#010=<M_stray010> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0108 L6TWAXSH03 L3COAXCAB01 {k_stray108}
+.param k_stray109={max(min(M_stray010/sqrt(abs(LsS2_TWAXSH03*Lc3h)),0.999),-0.999)} $ M#010=<M_stray010> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0109 L9TWAXSH03 L1COAXCAB01 {k_stray109}
+.param k_stray110={max(min(M_stray010/sqrt(abs(LsS2_TWAXSH03*Lc3g)),0.999),-0.999)} $ M#010=<M_stray010> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0110 L9TWAXSH03 L3COAXCAB01 {k_stray110}
+Cstray006 CAPTWAXSH03 n002COAXCAB01 {C_stray010} $ C#010=<C_stray010> - C#stray_group_id=<stray_capacitance_parameter>
+
+.param k_stray111={max(min(M_stray011/sqrt(abs(LsG2_TWAXSH01*Lc1h)),0.999),-0.999)} $ M#011=<M_stray011> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0111 L1TWAXSH01 L1COAXCAB03 {k_stray111}
+.param k_stray112={max(min(M_stray011/sqrt(abs(LsG2_TWAXSH01*Lc1g)),0.999),-0.999)} $ M#011=<M_stray011> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0112 L1TWAXSH01 L3COAXCAB03 {k_stray112}
+.param k_stray113={max(min(M_stray011/sqrt(abs(Ls2_TWAXSH01*Lc1h)),0.999),-0.999)} $ M#011=<M_stray011> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0113 L2TWAXSH01 L1COAXCAB03 {k_stray113}
+.param k_stray114={max(min(M_stray011/sqrt(abs(Ls2_TWAXSH01*Lc1g)),0.999),-0.999)} $ M#011=<M_stray011> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0114 L2TWAXSH01 L3COAXCAB03 {k_stray114}
+.param k_stray115={max(min(M_stray011/sqrt(abs(Ls2_TWAXSH01*Lc1h)),0.999),-0.999)} $ M#011=<M_stray011> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0115 L5TWAXSH01 L1COAXCAB03 {k_stray115}
+.param k_stray116={max(min(M_stray011/sqrt(abs(Ls2_TWAXSH01*Lc1g)),0.999),-0.999)} $ M#011=<M_stray011> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0116 L5TWAXSH01 L3COAXCAB03 {k_stray116}
+.param k_stray117={max(min(M_stray011/sqrt(abs(LsG2_TWAXSH01*Lc1h)),0.999),-0.999)} $ M#011=<M_stray011> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0117 L6TWAXSH01 L1COAXCAB03 {k_stray117}
+.param k_stray118={max(min(M_stray011/sqrt(abs(LsG2_TWAXSH01*Lc1g)),0.999),-0.999)} $ M#011=<M_stray011> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0118 L6TWAXSH01 L3COAXCAB03 {k_stray118}
+.param k_stray119={max(min(M_stray011/sqrt(abs(LsS2_TWAXSH01*Lc1h)),0.999),-0.999)} $ M#011=<M_stray011> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0119 L9TWAXSH01 L1COAXCAB03 {k_stray119}
+.param k_stray120={max(min(M_stray011/sqrt(abs(LsS2_TWAXSH01*Lc1g)),0.999),-0.999)} $ M#011=<M_stray011> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0120 L9TWAXSH01 L3COAXCAB03 {k_stray120}
+Cstray007 CAPTWAXSH01 n002COAXCAB03 {C_stray011} $ C#011=<C_stray011> - C#stray_group_id=<stray_capacitance_parameter>
+
+.param k_stray121={max(min(M_stray012/sqrt(abs(LsG2_TWAXSH03*Lc1h)),0.999),-0.999)} $ M#012=<M_stray012> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0121 L1TWAXSH03 L1COAXCAB03 {k_stray121}
+.param k_stray122={max(min(M_stray012/sqrt(abs(LsG2_TWAXSH03*Lc1g)),0.999),-0.999)} $ M#012=<M_stray012> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0122 L1TWAXSH03 L3COAXCAB03 {k_stray122}
+.param k_stray123={max(min(M_stray012/sqrt(abs(Ls2_TWAXSH03*Lc1h)),0.999),-0.999)} $ M#012=<M_stray012> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0123 L2TWAXSH03 L1COAXCAB03 {k_stray123}
+.param k_stray124={max(min(M_stray012/sqrt(abs(Ls2_TWAXSH03*Lc1g)),0.999),-0.999)} $ M#012=<M_stray012> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0124 L2TWAXSH03 L3COAXCAB03 {k_stray124}
+.param k_stray125={max(min(M_stray012/sqrt(abs(Ls2_TWAXSH03*Lc1h)),0.999),-0.999)} $ M#012=<M_stray012> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0125 L5TWAXSH03 L1COAXCAB03 {k_stray125}
+.param k_stray126={max(min(M_stray012/sqrt(abs(Ls2_TWAXSH03*Lc1g)),0.999),-0.999)} $ M#012=<M_stray012> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0126 L5TWAXSH03 L3COAXCAB03 {k_stray126}
+.param k_stray127={max(min(M_stray012/sqrt(abs(LsG2_TWAXSH03*Lc1h)),0.999),-0.999)} $ M#012=<M_stray012> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0127 L6TWAXSH03 L1COAXCAB03 {k_stray127}
+.param k_stray128={max(min(M_stray012/sqrt(abs(LsG2_TWAXSH03*Lc1g)),0.999),-0.999)} $ M#012=<M_stray012> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0128 L6TWAXSH03 L3COAXCAB03 {k_stray128}
+.param k_stray129={max(min(M_stray012/sqrt(abs(LsS2_TWAXSH03*Lc1h)),0.999),-0.999)} $ M#012=<M_stray012> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0129 L9TWAXSH03 L1COAXCAB03 {k_stray129}
+.param k_stray130={max(min(M_stray012/sqrt(abs(LsS2_TWAXSH03*Lc1g)),0.999),-0.999)} $ M#012=<M_stray012> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0130 L9TWAXSH03 L3COAXCAB03 {k_stray130}
+Cstray008 CAPTWAXSH03 n002COAXCAB03 {C_stray012} $ C#012=<C_stray012> - C#stray_group_id=<stray_capacitance_parameter>
+
+.param k_stray131={max(min(M_stray013/sqrt(abs(LsG2_TWAXSH02*Lc1h)),0.999),-0.999)} $ M#013=<M_stray013> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0131 L1TWAXSH02 L1COAXCAB03 {k_stray131}
+.param k_stray132={max(min(M_stray013/sqrt(abs(LsG2_TWAXSH02*Lc1g)),0.999),-0.999)} $ M#013=<M_stray013> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0132 L1TWAXSH02 L3COAXCAB03 {k_stray132}
+.param k_stray133={max(min(M_stray013/sqrt(abs(Ls2_TWAXSH02*Lc1h)),0.999),-0.999)} $ M#013=<M_stray013> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0133 L2TWAXSH02 L1COAXCAB03 {k_stray133}
+.param k_stray134={max(min(M_stray013/sqrt(abs(Ls2_TWAXSH02*Lc1g)),0.999),-0.999)} $ M#013=<M_stray013> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0134 L2TWAXSH02 L3COAXCAB03 {k_stray134}
+.param k_stray135={max(min(M_stray013/sqrt(abs(Ls2_TWAXSH02*Lc1h)),0.999),-0.999)} $ M#013=<M_stray013> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0135 L5TWAXSH02 L1COAXCAB03 {k_stray135}
+.param k_stray136={max(min(M_stray013/sqrt(abs(Ls2_TWAXSH02*Lc1g)),0.999),-0.999)} $ M#013=<M_stray013> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0136 L5TWAXSH02 L3COAXCAB03 {k_stray136}
+.param k_stray137={max(min(M_stray013/sqrt(abs(LsG2_TWAXSH02*Lc1h)),0.999),-0.999)} $ M#013=<M_stray013> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0137 L6TWAXSH02 L1COAXCAB03 {k_stray137}
+.param k_stray138={max(min(M_stray013/sqrt(abs(LsG2_TWAXSH02*Lc1g)),0.999),-0.999)} $ M#013=<M_stray013> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0138 L6TWAXSH02 L3COAXCAB03 {k_stray138}
+.param k_stray139={max(min(M_stray013/sqrt(abs(LsS2_TWAXSH02*Lc1h)),0.999),-0.999)} $ M#013=<M_stray013> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0139 L9TWAXSH02 L1COAXCAB03 {k_stray139}
+.param k_stray140={max(min(M_stray013/sqrt(abs(LsS2_TWAXSH02*Lc1g)),0.999),-0.999)} $ M#013=<M_stray013> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0140 L9TWAXSH02 L3COAXCAB03 {k_stray140}
+Cstray009 CAPTWAXSH02 n002COAXCAB03 {C_stray013} $ C#013=<C_stray013> - C#stray_group_id=<stray_capacitance_parameter>
+
+.param k_stray141={max(min(M_stray014/sqrt(abs(LsG2_TWAXSH04*Lc1h)),0.999),-0.999)} $ M#014=<M_stray014> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0141 L1TWAXSH04 L1COAXCAB03 {k_stray141}
+.param k_stray142={max(min(M_stray014/sqrt(abs(LsG2_TWAXSH04*Lc1g)),0.999),-0.999)} $ M#014=<M_stray014> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0142 L1TWAXSH04 L3COAXCAB03 {k_stray142}
+.param k_stray143={max(min(M_stray014/sqrt(abs(Ls2_TWAXSH04*Lc1h)),0.999),-0.999)} $ M#014=<M_stray014> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0143 L2TWAXSH04 L1COAXCAB03 {k_stray143}
+.param k_stray144={max(min(M_stray014/sqrt(abs(Ls2_TWAXSH04*Lc1g)),0.999),-0.999)} $ M#014=<M_stray014> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0144 L2TWAXSH04 L3COAXCAB03 {k_stray144}
+.param k_stray145={max(min(M_stray014/sqrt(abs(Ls2_TWAXSH04*Lc1h)),0.999),-0.999)} $ M#014=<M_stray014> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0145 L5TWAXSH04 L1COAXCAB03 {k_stray145}
+.param k_stray146={max(min(M_stray014/sqrt(abs(Ls2_TWAXSH04*Lc1g)),0.999),-0.999)} $ M#014=<M_stray014> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0146 L5TWAXSH04 L3COAXCAB03 {k_stray146}
+.param k_stray147={max(min(M_stray014/sqrt(abs(LsG2_TWAXSH04*Lc1h)),0.999),-0.999)} $ M#014=<M_stray014> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0147 L6TWAXSH04 L1COAXCAB03 {k_stray147}
+.param k_stray148={max(min(M_stray014/sqrt(abs(LsG2_TWAXSH04*Lc1g)),0.999),-0.999)} $ M#014=<M_stray014> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0148 L6TWAXSH04 L3COAXCAB03 {k_stray148}
+.param k_stray149={max(min(M_stray014/sqrt(abs(LsS2_TWAXSH04*Lc1h)),0.999),-0.999)} $ M#014=<M_stray014> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0149 L9TWAXSH04 L1COAXCAB03 {k_stray149}
+.param k_stray150={max(min(M_stray014/sqrt(abs(LsS2_TWAXSH04*Lc1g)),0.999),-0.999)} $ M#014=<M_stray014> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0150 L9TWAXSH04 L3COAXCAB03 {k_stray150}
+Cstray010 CAPTWAXSH04 n002COAXCAB03 {C_stray014} $ C#014=<C_stray014> - C#stray_group_id=<stray_capacitance_parameter>
+
+.param k_stray151={max(min(M_stray015/sqrt(abs(Lgrd2*Lgnd2)),0.999),-0.999)} $ M#015=<M_stray015> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0151 L1GNDLUG05 L1GNDLUG06 {k_stray151}
+.param k_stray152={max(min(M_stray016/sqrt(abs(Lc4h*Lc3h)),0.999),-0.999)} $ M#016=<M_stray016> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0152 L1COAXCAB02 L1COAXCAB01 {k_stray152}
+.param k_stray153={max(min(M_stray016/sqrt(abs(Lc4h*Lc3g)),0.999),-0.999)} $ M#016=<M_stray016> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0153 L1COAXCAB02 L3COAXCAB01 {k_stray153}
+.param k_stray154={max(min(M_stray016/sqrt(abs(Lc4g*Lc3h)),0.999),-0.999)} $ M#016=<M_stray016> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0154 L3COAXCAB02 L1COAXCAB01 {k_stray154}
+.param k_stray155={max(min(M_stray016/sqrt(abs(Lc4g*Lc3g)),0.999),-0.999)} $ M#016=<M_stray016> - M#stray_group_id=<mutual_inductance_parameter>
+Kstray0155 L3COAXCAB02 L3COAXCAB01 {k_stray155}
+Cstray011 n002COAXCAB02 n002COAXCAB01 {C_stray016} $ C#016=<C_stray016> - C#stray_group_id=<stray_capacitance_parameter>
+
 
 .end
 

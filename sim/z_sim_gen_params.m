@@ -52,7 +52,7 @@ function [par] = z_sim_gen_params(f, Z1, Z2, is_mcc)
     % source cable
     ca_sup = z_sim_rand_cable(rg58, is_mcc);
     ca_sup.len = 0.5 + 0.1*randr*is_mcc;
-    ca_sup.ch_L = 0;
+    ca_sup.ch_L = 0e-3;
     ca_sup.ch_R = 1e-6;
     ca_sup.ch_len = 0;
     
@@ -78,7 +78,7 @@ function [par] = z_sim_gen_params(f, Z1, Z2, is_mcc)
     par.Rpc2 = 0.05   + 0.05*randn*is_mcc;
     par.Lpc2 = 0.1e-6 + 0.1e-6*randn*is_mcc;
     
-    % Z2 cable
+    % Z2 cable (diff mode)
     ca_Z2 = z_sim_rand_cable(rg58, is_mcc);
     ca_Z2.len = (1.0 + 0.2*randr*is_mcc);
     ca_Z2.ch_L = 0;
@@ -88,31 +88,31 @@ function [par] = z_sim_gen_params(f, Z1, Z2, is_mcc)
     % Z2 potential cables (4TP twinax mode) 
     ca_HpotA = z_sim_rand_twinax(twax, 0.5, f, is_mcc);    
     ca_HpotB = z_sim_rand_twinax(twax, 0.5, f, is_mcc);
-    ca_LpotA = z_sim_rand_twinax(twax, 0.3, f, is_mcc);    
-    ca_LpotB = z_sim_rand_twinax(twax, 0.3, f, is_mcc);  
+    ca_LpotA = z_sim_rand_twinax(twax, 0.5, f, is_mcc);    
+    ca_LpotB = z_sim_rand_twinax(twax, 0.5, f, is_mcc);  
     
     % Hpot buffer
-    buf_hpot.CgA = repmat(10e-12 + 10e-12*randn*is_mcc,[F 1]);
-    buf_hpot.CgB = repmat(10e-12 + 10e-12*randn*is_mcc,[F 1]);
+    buf_hpot.CgA = repmat(10e-12 + 3e-12*randn*is_mcc,[F 1]);
+    buf_hpot.CgB = repmat(10e-12 + 3e-12*randn*is_mcc,[F 1]);
     buf_hpot.RgA = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
     buf_hpot.RgB = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
-    buf_hpot.LoA = repmat(1e-6 + 1e6*randr*is_mcc,[F 1]);
-    buf_hpot.LoB = repmat(1e-6 + 1e6*randr*is_mcc,[F 1]);
+    buf_hpot.LoA = repmat(1e-6 + 0.5e-6*randr*is_mcc,[F 1]);
+    buf_hpot.LoB = repmat(1e-6 + 0.5e-6*randr*is_mcc,[F 1]);
     buf_hpot.RoA = repmat(0.01 + 0.005*randr*is_mcc,[F 1]);
     buf_hpot.RoB = repmat(0.01 + 0.005*randr*is_mcc,[F 1]);       
     
     % Lpot buffer
-    buf_lpot.CgA = repmat(10e-12 + 10e-12*randn*is_mcc,[F 1]);
-    buf_lpot.CgB = repmat(10e-12 + 10e-12*randn*is_mcc,[F 1]);
+    buf_lpot.CgA = repmat(10e-12 + 3e-12*randn*is_mcc,[F 1]);
+    buf_lpot.CgB = repmat(10e-12 + 3e-12*randn*is_mcc,[F 1]);
     buf_lpot.RgA = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
     buf_lpot.RgB = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
-    buf_lpot.LoA = repmat(1e-6 + 1e6*randr*is_mcc,[F 1]);
-    buf_lpot.LoB = repmat(1e-6 + 1e6*randr*is_mcc,[F 1]);
+    buf_lpot.LoA = repmat(1e-6 + 0.5e-6*randr*is_mcc,[F 1]);
+    buf_lpot.LoB = repmat(1e-6 + 0.5e-6*randr*is_mcc,[F 1]);
     buf_lpot.RoA = repmat(0.01 + 0.005*randr*is_mcc,[F 1]);
     buf_lpot.RoB = repmat(0.01 + 0.005*randr*is_mcc,[F 1]);
     
     % digitizer 1
-    adc1.Cin = repmat(270e-12 + 50e-12*randn*is_mcc,[F 1]); 
+    adc1.Cin = repmat(270e-12 + 10e-12*randn*is_mcc,[F 1]); 
     adc1.Rin = repmat(1e9     + 5e8*randr*is_mcc,[F 1]);
     adc1.Csh = repmat(1e-9 + 0.5e-9*randn*is_mcc,[F 1]); 
     adc1.Rsh = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
@@ -228,17 +228,26 @@ function [par] = z_sim_gen_params(f, Z1, Z2, is_mcc)
     
     
     % define stray groups
-     par.stray = {};
-     %par.stray{end+1} = z_sim_gen_stray({'coax_Z1','U7'}, 1e-9, 0, is_mcc);
-%     par.stray{end+1} = z_sim_gen_stray({'U3','U4'}, 100e-9, 0, is_mcc);
-%     par.stray{end+1} = z_sim_gen_stray({'coax_sup','coax_joint'}, 100e-9, 0, is_mcc);
-    %par.stray{end+1} = z_sim_gen_stray({'U2','coax_Z1'}, 100e-9, 0, is_mcc);
-    %par.stray{end+1} = z_sim_gen_stray({'U2','coax_sup'}, 50e-9, 0, is_mcc);
-    
-%     par.stray{end+1} = z_sim_gen_stray({'coax_joint','coax_Z1'}, 100e-9, 0, is_mcc);
-%     par.stray{end+1} = z_sim_gen_stray({'coax_joint','coax_Z2'}, 100e-9, 0, is_mcc);
-%     par.stray{end+1} = z_sim_gen_stray({'coax_sup','coax_Z1'}, 100e-9, 0, is_mcc);
-%     par.stray{end+1} = z_sim_gen_stray({'coax_sup','coax_Z2'}, 100e-9, 0, is_mcc);
+    par.stray = {};
+    par.stray{end+1} = z_sim_gen_stray({'Hpot_A','Lpot_A'}, 100e-9, 20e-12, is_mcc);
+    par.stray{end+1} = z_sim_gen_stray({'Hpot_B','Lpot_B'}, 100e-9, 20e-12, is_mcc);
+    par.stray{end+1} = z_sim_gen_stray({'Hpot_B','U2'}, 100e-9, 20e-12, is_mcc);
+    par.stray{end+1} = z_sim_gen_stray({'Hpot_B','U3'}, 100e-9, 20e-12, is_mcc);
+    par.stray{end+1} = z_sim_gen_stray({'Lpot_B','U2'}, 100e-9, 20e-12, is_mcc);
+    par.stray{end+1} = z_sim_gen_stray({'Lpot_B','U3'}, 100e-9, 20e-12, is_mcc);
+    par.stray{end+1} = z_sim_gen_stray({'Hpot_A','coax_sup'}, 100e-9, 20e-12, is_mcc);
+    par.stray{end+1} = z_sim_gen_stray({'Hpot_B','coax_sup'}, 100e-9, 20e-12, is_mcc);
+    par.stray{end+1} = z_sim_gen_stray({'Hpot_A','coax_joint'}, 100e-9, 20e-12, is_mcc);
+    par.stray{end+1} = z_sim_gen_stray({'Hpot_B','coax_joint'}, 100e-9, 20e-12, is_mcc);     
+    par.stray{end+1} = z_sim_gen_stray({'Hpot_A','coax_Z1'}, 100e-9, 20e-12, is_mcc);
+    par.stray{end+1} = z_sim_gen_stray({'Hpot_B','coax_Z1'}, 100e-9, 20e-12, is_mcc);
+    par.stray{end+1} = z_sim_gen_stray({'Lpot_A','coax_Z1'}, 100e-9, 20e-12, is_mcc);
+    par.stray{end+1} = z_sim_gen_stray({'Lpot_B','coax_Z1'}, 100e-9, 20e-12, is_mcc);
+    %par.stray{end+1} = z_sim_gen_stray({'coax_joint','coax_Z1'}, 100e-9, 20e-12, is_mcc);
+    %par.stray{end+1} = z_sim_gen_stray({'coax_sup','coax_Z1'}, 100e-9, 20e-12, is_mcc);
+     
+     par.stray{end+1} = z_sim_gen_stray({'U3','U4'}, 100e-9, 0, is_mcc);
+     par.stray{end+1} = z_sim_gen_stray({'coax_sup','coax_joint'}, 100e-9, 0, is_mcc);
                 
     
     % store simulation parameters
@@ -369,8 +378,9 @@ function [stray] = z_sim_gen_stray(names, u_M, u_C, is_mcc)
     stray.names = names;    
     M   = 1e-12;
     C   = 1e-15;
-    stray.M_names = {};
+    %stray.M_names = {};
     stray.M = M + u_M*randn(nchoosek(numel(stray.names),2),1)*is_mcc;
+    stray.C = C + u_C*randn(nchoosek(numel(stray.names),2),1)*is_mcc;
 endfunction
 
 

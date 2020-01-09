@@ -47,7 +47,7 @@ else
     mc_setup.max_chunk_count = 500;
 endif
 % multicore method {'for','cellfun','parcellfun','multicore'}:       
-mc_setup.method = 'for';
+mc_setup.method = 'multicore';
 
 
 
@@ -60,12 +60,12 @@ md.name = 'LiB_brg_4TP_twax';
 md.force_reload = 1;
 
 % frequency sweep 
-swp.f = logspaced(1,10e3,20, 2);
+swp.f(:,1) = logspaced(1,5e3,20, 2);
 swp.Iac = 1.0;
 swp.Idc = 0.0;
 
 % set non-zero to enable monte carlo with given cycles count
-mcc = 0;
+mcc = 100;
 
 % -- sensitivity analysis
 % enable sensitivity analysis
@@ -99,7 +99,7 @@ for rep = 1:RPC
     
     % generate Z1 
     Z1.mode = 'Rs-Ls';
-    Z1.Rs = 0.2;
+    Z1.Rs = 0.200;
     Z1.Ls = 0;
     % generate Z2
     Z2.mode = 'Z-phi';
@@ -129,11 +129,13 @@ for rep = 1:RPC
     % prepare Spice model
     if rep == 1
         [md, par.stray, par.templates] = z_sim_prep_spice(md, par.stray);
-        stray = par.stray;
     else
-        par.stray = stray;
-        par.templates = templates;
+        par.stray = jobz{1}.par.stray;
+        par.templates = jobz{1}.par.templates;
     endif
+    
+    %par.stray    
+    %error('stop')
     
     
     % make job file
@@ -146,6 +148,9 @@ endfor
 
 % --- execute simulation ---
 reps = runmulticore(mc_setup.method, @z_sim_cell, jobz, mc_setup.cores, mc_setup.share_fld, 2, mc_setup);
+% get rid of failed iterations
+reps = reps(~cellfun(@isempty,reps));
+% vectorize results
 r = vectorize_structs_elements(reps);
 
 % process results

@@ -82,6 +82,8 @@ function [net,templates] = spice_expand_templates(net, load_only=0)
         for t = 1:numel(e)
             % parse parameters
             
+            clear temp;
+            
             % extract component name 
             temp.component = e{t}{1};
             

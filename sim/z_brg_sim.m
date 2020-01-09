@@ -71,10 +71,10 @@ function [Z2,d_Z,d_ph,d_Rs,d_Xs] = z_brg_sim(model, par, f, swp)
     %[p.Rc2h,p.Rc2g,p.Lc2h,p.Lc2g,p.Cc2sh,p.Rc2sh,p.kc2,p.Rc2ch] = gen_cable(par.ca_Z2, f);
     
     % make Z2 potential cables (4TP twinax mode)
-    p = z_sim_template_assign(p, par.templates, 'Hpot_A', par.ca_HpotA);
-    p = z_sim_template_assign(p, par.templates, 'Hpot_B', par.ca_HpotB);
-    p = z_sim_template_assign(p, par.templates, 'Lpot_A', par.ca_LpotA);
-    p = z_sim_template_assign(p, par.templates, 'Lpot_B', par.ca_LpotB);
+    p = z_sim_template_assign(p, par.templates, 'Hpot_A', par.ca_HpotA, fid);
+    p = z_sim_template_assign(p, par.templates, 'Hpot_B', par.ca_HpotB, fid);
+    p = z_sim_template_assign(p, par.templates, 'Lpot_A', par.ca_LpotA, fid);
+    p = z_sim_template_assign(p, par.templates, 'Lpot_B', par.ca_LpotB, fid);
     
          
     % make buffer for Hpot
@@ -106,6 +106,8 @@ function [Z2,d_Z,d_ph,d_Rs,d_Xs] = z_brg_sim(model, par, f, swp)
     p.Lgnd2 = par.adc2.Lgnd;
     p.Rgrd2 = par.adc2.Rgrd;
     p.Lgrd2 = par.adc2.Lgrd;
+    % ADC 2 input impedance estimate
+    Zin2 = 1./(j*w*p.C2in + 1./p.R2in);
     
     % make ADC 3
     p.C3in = par.adc3.Cin(fid);
@@ -128,6 +130,9 @@ function [Z2,d_Z,d_ph,d_Rs,d_Xs] = z_brg_sim(model, par, f, swp)
         for k = 1:numel(par.stray{s}.M_names)
             p = setfield(p,par.stray{s}.M_names{k},par.stray{s}.M(k));
         endfor
+        for k = 1:numel(par.stray{s}.C_names)
+            p = setfield(p,par.stray{s}.C_names{k},par.stray{s}.C(k));
+        endfor
     endfor
         
     % source voltages:
@@ -142,11 +147,11 @@ function [Z2,d_Z,d_ph,d_Rs,d_Xs] = z_brg_sim(model, par, f, swp)
     spice_write_params(file,model.name,p,f,res_pth);
         
     % simulate:    
-    %cmd = ['cmd /Q /C "' model.spice_fld model.spice ' -b ' file '" 2> nul'];    
-    cmd = ['cmd /Q /C "' model.spice_fld model.spice ' -b ' file '" '];    
+    cmd = ['cmd /Q /C "' model.spice_fld model.spice ' -b ' file '" 2> nul'];    
+    %cmd = ['cmd /Q /C "' model.spice_fld model.spice ' -b ' file '" '];    
     [eid,str] = system(cmd,true);
     % remove parameters file       
-    unlink(file);
+    unlink(file);     
     
     % detect error
     if ~isempty(strfind(str,'Error'))
@@ -156,23 +161,36 @@ function [Z2,d_Z,d_ph,d_Rs,d_Xs] = z_brg_sim(model, par, f, swp)
     % try to read output and remove result file
     [data,names] = spice_readfile_fast(res_pth,'array');
     unlink(res_pth);
-            
-    % extract measured voltages       
-    U1 = get_var(data,names,'U1_adc_high') - get_var(data,names,'U1_adc_low');
-    U2 = get_var(data,names,'U2_adc_high') - get_var(data,names,'U2_adc_low');
-    if strcmpi(model.name,'LiB_brg2')
-        % differential mode - subtract U(Hpot) - U(Lpot)
-        U3 = get_var(data,names,'U3_adc_high') - get_var(data,names,'U3_adc_low');
-        U2 = -(U3 - U2);
-    endif
     
     
     % reference impedances
     Z1r = par.Z1.R(fid) + j*w*par.Z1.L(fid);
     Z2r = par.Z2.R(fid) + j*w*par.Z2.L(fid);
+                
+    % extract measured voltages       
+    U1 = get_var(data,names,'U1_adc_high') - get_var(data,names,'U1_adc_low');
+    U2 = get_var(data,names,'U2_adc_high') - get_var(data,names,'U2_adc_low');
+    if strcmpi(model.name,'LiB_brg_4TP_twax')
+        % 4TP mode 
         
+        % reference current corrected for leakage via ADC 2
+        Iref = U1/Z1r + U2/Zin2;
+        %Iref = U1/Z1r;
+        
+        % subtract U(Hpot) - U(Lpot) to get voltage drop across Z2
+        U3 = get_var(data,names,'U3_adc_high') - get_var(data,names,'U3_adc_low');
+        U2 = -(U3 - U2);
+    else
+        % differential mode
+                
+        Iref = U1/Z1r;
+            
+    endif
+    
+    %error('stop')
+           
     % measured Z2
-    Z2 = -U2/U1*Z1r;
+    Z2 = -U2/Iref;
     
     % reference Z2 value
     Z_ref  = abs(Z2r);

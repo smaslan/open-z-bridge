@@ -76,7 +76,7 @@ R4 AG2 ep_out_A 1e-3
 * buffer A
 R11 ep_in_A GND {RgA}
 C1 ep_in_A GND {CgA}
-E1 ep_in_A GND ep_A1 GND 1
+E1 ep_A1 GND ep_in_A GND 1
 R5 ep_A1 ep_A2 {RoA}
 L1 ep_A2 ep_out_A {LoA}
 * cable B
@@ -87,21 +87,22 @@ R9 BG2 ep_out_B 1e-3
 * buffer B
 R12 ep_in_B GND {RgB}
 C2 ep_in_B GND {CgB}
-E2 ep_in_B GND ep_B1 GND 1
+E2 ep_B1 GND ep_in_B GND 1
 R10 ep_B1 ep_B2 {RoB}
 L2 ep_B2 ep_out_B {LoB}
 .ENDS DUAL_EPBUF
 
-* digitizer 3458A with buffered isolated output and internal strays
+* digitizer 3458A with buffered 'isolated' output and internal strays
 .SUBCKT DIG3458 HI LO GRD GND OUTP OUTN Ci=270e-12 Ri=1e9 Clg=1e-9 Rlg=1e9 Cgs=1e-9 Rgs=1e9
 R1 HI LO {Ri}
 C1 HI LO {Ci}
-E1 HI LO OUTP OUTN 1
+E1 OUTP OUTN HI LO 1
 R4 LO GRD {Rlg}
 C2 LO GRD {Clg}
 R5 GRD GND {Rgs}
 C3 GRD GND {Cgs}
 R6 OUTP OUTN 1e6
+R7 OUTN GND 1e9
 .ENDS DIG3458
 
 * Coax cable with choke having real component

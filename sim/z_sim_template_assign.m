@@ -9,10 +9,10 @@ function [par] = z_sim_template_assign(par=[], templates, component_name, values
     
     % extract frequency from frequency dependent data
     values = cell2mat(struct2cell(values)(sid).');
-    values = num2cell(values(1,:)).';
+    values = num2cell(values(fid,:));
     
     % assign source to destinations
-    params = cell2struct(values,template.parameter_name(did));
+    params = cell2struct(values,template.parameter_name(did),2);
     
     % eventually merge with existing source struct
     if ~isempty(par)
