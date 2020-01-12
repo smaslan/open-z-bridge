@@ -65,7 +65,7 @@ swp.Iac = 1.0;
 swp.Idc = 0.0;
 
 % set non-zero to enable monte carlo with given cycles count
-mcc = 100;
+mcc = 200;
 
 % -- sensitivity analysis
 % enable sensitivity analysis
@@ -103,7 +103,7 @@ for rep = 1:RPC
     Z1.Ls = 0;
     % generate Z2
     Z2.mode = 'Z-phi';
-    Z2.Z   = 0.001;logrand(1,0.0001);
+    Z2.Z   = 0.1;logrand(1,0.0001);
     Z2.phi = linrand(0,2*pi);
     Z2.Cport.Rs   = 0.05;
     Z2.Cport.u_Rs = 0.03;

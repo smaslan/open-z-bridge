@@ -51,6 +51,13 @@ function [Z2,d_Z,d_ph,d_Rs,d_Xs] = z_brg_sim(model, par, f, swp)
     % source ground lug
     p.Rsrc = par.src.Rsrc;
     p.Lsrc = par.src.Lsrc;
+    % low-to-ground impedance
+    p.Rpsrc = par.src.Rpsrc;
+    p.Cpsrc = par.src.Cpsrc;
+    
+    % reference ground lug impedance
+    p.Rgref = par.src.Rgref;
+    p.Lgref = par.src.Lgref;
 
     % make supply cable
     [p.Rc4h,p.Rc4g,p.Lc4h,p.Lc4g,p.Cc4sh,p.Rc4sh,p.kc4,p.Rc4ch] = gen_cable(par.ca_sup, f);

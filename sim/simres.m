@@ -19,3 +19,9 @@ u_Rs
 u_Xs
 u_Z
 u_ph
+
+
+csv = [f_list, 1e6*u_Rs, 1e6*u_Xs, 1e6*u_Z, 1e6*u_ph];
+csv_head = {'f','uRs','uXs','uZ','uPh'};
+csv = cat(1,csv_head,num2cell(csv));
+cell2csv('unc_100m.csv',csv,';');
