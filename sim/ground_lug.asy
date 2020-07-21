@@ -9,7 +9,7 @@ LINE Normal 64 16 -64 16
 LINE Normal -64 0 -96 0
 CIRCLE Normal -48 16 -80 -16
 ARC Normal 48 -16 80 16 64 16 64 -16
-WINDOW 0 -27 -1 Left 2
+WINDOW 0 0 0 Center 2
 WINDOW 3 6 48 Center 2
 WINDOW 123 6 29 Center 2
 SYMATTR Value Rs=?

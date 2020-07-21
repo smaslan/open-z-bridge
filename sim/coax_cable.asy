@@ -4,31 +4,31 @@ LINE Normal -112 48 -112 48
 LINE Normal 80 -24 -80 -24
 LINE Normal -112 0 -112 0
 LINE Normal -112 0 -112 0
-LINE Normal 96 0 -112 0
-LINE Normal 96 0 96 0
-LINE Normal 112 0 96 0
+LINE Normal 104 0 104 0
+LINE Normal 112 0 104 0
 LINE Normal 88 24 112 48
 LINE Normal 97 17 97 17
 LINE Normal -112 48 -112 48
 LINE Normal -88 24 -112 48
 LINE Normal -88 24 -88 24
 LINE Normal 88 24 -88 24
+LINE Normal -80 0 -112 0
 RECTANGLE Normal 24 -46 -24 -32
 RECTANGLE Normal 24 32 -24 46
 CIRCLE Normal -56 24 -104 -24
-CIRCLE Normal 104 24 56 -24
+ARC Normal 56 -24 104 24 80 24 80 -24
 WINDOW 0 -1 -61 Center 2
 WINDOW 3 0 62 Center 2
 WINDOW 123 0 83 Center 2
 WINDOW 39 0 125 Center 2
 WINDOW 40 0 104 Center 2
-SYMATTR Prefix X
-SYMATTR ModelFile ZbrgLib.cir ZbrgLib
-SYMATTR SpiceModel COAXCAB
 SYMATTR Value Rs=? Ls=?
 SYMATTR Value2 RsG=? LsG=?
 SYMATTR SpiceLine k=?
 SYMATTR SpiceLine2 Cp=? Rp=?
+SYMATTR Prefix X
+SYMATTR ModelFile ZbrgLib.cir ZbrgLib
+SYMATTR SpiceModel COAXCAB
 PIN -112 0 NONE 8
 PINATTR PinName LA
 PINATTR SpiceOrder 1

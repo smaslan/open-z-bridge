@@ -2,27 +2,12 @@ clear all;
 close all;
 %clc;
 
-disp('------ NEW RUN ------')
-
-%% switch plot output to GNUplot - works a little better under Windoze
-if(sum((version-'3.4.3').*10.^(length(version):-1:1))>=0)
-  graphics_toolkit('gnuplot');
-end
-
 pkg load multicore;
+
+disp('------ NEW RUN ------')
 
 % this path
 mfld = fileparts(mfilename('fullpath'));
-
-% simulation data path
-%dpth = [mfld filesep '..' filesep '..' filesep 'temp'];
-
-% simulated corrections path
-%cpth = [mfld filesep '..' filesep '..' filesep 'temp' filesep 'corr' filesep 'sim_correction.info'];
-%mkdir(fileparts(cpth));
-
-% auxiliary data file
-%data_fld = [mfld filesep 'data'];
 
 
 
@@ -51,21 +36,59 @@ mc_setup.method = 'multicore';
 
 
 
-
 % Spice model config
 md.spice_fld = 'c:\sw\Spice64\bin\';
-md.spice = 'ngspice_con';
-md.mod_fld = mfld;
-md.name = 'LiB_brg_4TP_twax';
-md.force_reload = 1;
+md.mod_fld   = mfld; 
+if isunix
+    md.spice = 'ngspice';
+    md.spice_temp = '/dev/shm/';
+    md.paste_net = 0;1; % will paste NET file content into NGspice command file - should be faster on Cokl
+    md.ngspice.useraw = 0;
+else
+    md.spice = 'ngspice_con';
+    md.spice_temp = md.mod_fld;
+    md.paste_net = 0;
+    md.ngspice.useraw = 1;
+endif
+md.name_4TP = 'LiB_brg_4TP_twax';
+md.name_2x4T = 'LiB_brg_2x4T_twax';
+md.force_reload  = 1;
+
 
 % frequency sweep 
-swp.f(:,1) = logspaced(1,5e3,20, 2);
+swp.f(:,1) = logspaced(1,5e3,30, 2);
 swp.Iac = 1.0;
 swp.Idc = 0.0;
 
 % set non-zero to enable monte carlo with given cycles count
-mcc = 200;
+mcc = 100;
+
+% uncertainty simulation setup
+unc.is_mcc = (mcc > 1);
+% randomize stray couplings?
+unc.rnd_strays = 1;
+% randomize crosstalk?
+unc.rnd_ct = 0;
+% randomize linearity?
+unc.rnd_lin = 1;
+
+% measurement mode ('4TP'-ordinary two port mode, '2x4T'-emulate 4TP by dual 4T measurement, '4T'-four terminal connection)
+cfg.mode = '2x4T';
+% digitizer type ('3458'-HP3458A with guarding, '9238'-cDAQ NI9238)
+cfg.digitizer = '9238';
+
+
+
+
+
+if strcmpi(cfg.mode,'4TP')
+    md.name = md.name_4TP;
+elseif strcmpi(cfg.mode,'2x4T')
+    md.name = md.name_2x4T;
+else
+    error(sprintf('Measurement mode ''%s'' not supported yet!',cfg.mode));
+endif
+
 
 % -- sensitivity analysis
 % enable sensitivity analysis
@@ -90,6 +113,7 @@ else
 end
 
 
+
 % --- For each repetition ---
 jobz = {};
 for rep = 1:RPC
@@ -103,7 +127,7 @@ for rep = 1:RPC
     Z1.Ls = 0;
     % generate Z2
     Z2.mode = 'Z-phi';
-    Z2.Z   = 0.1;logrand(1,0.0001);
+    Z2.Z   = 0.001;logrand(1,0.0001);
     Z2.phi = linrand(0,2*pi);
     Z2.Cport.Rs   = 0.05;
     Z2.Cport.u_Rs = 0.03;
@@ -120,18 +144,40 @@ for rep = 1:RPC
     Z2.Pport = Z2.Cport;
     Z2.Pport.len   = 0.1;
     Z2.Pport.u_len = 0.02;
+    % ground impedance between Hpot-Lpot 
+    Z2.Rg = linrand(0,1e-6);
+    Z2.Lg = linrand(0,100e-9);
+    % ground mode (0-4TP mode with equal Zg between all ports, 1-isolated current and potential side)
+    Z2.gmode = 0;
+    
     
     
            
     % generate model parameters
-    par = z_sim_gen_params(swp.f, Z1, Z2, (mcc > 0));
+    par = z_sim_gen_params(swp.f, Z1, Z2, cfg, unc);
     
     % prepare Spice model
     if rep == 1
         [md, par.stray, par.templates] = z_sim_prep_spice(md, par.stray);
     else
-        par.stray = jobz{1}.par.stray;
+        % reasign stray parameters from previously loaded model
+        for k = 1:numel(par.stray)
+            temp = par.stray{k};
+            par.stray{k} = jobz{1}.par.stray{k};
+            par.stray{k}.M = temp.M; 
+            par.stray{k}.C = temp.C;                
+        endfor
         par.templates = jobz{1}.par.templates;
+        
+        % ###todo: fix - randomized data are overriden here!!! - done above?
+        %par.stray = jobz{1}.par.stray;
+        %par.templates = jobz{1}.par.templates;               
+    endif
+    
+    % override parameter by sensitivity parameter
+    if sens.enab
+        value = sens.values(rep);
+        eval(['par.' sens.parameter ' = value;']); 
     endif
     
     %par.stray    
@@ -139,6 +185,7 @@ for rep = 1:RPC
     
     
     % make job file
+    jobz{rep}.cfg = cfg;
     jobz{rep}.swp = swp;    
     jobz{rep}.par = par;
     jobz{rep}.md = md;

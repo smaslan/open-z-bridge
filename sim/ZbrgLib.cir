@@ -67,16 +67,16 @@ Krgl2 L7 L3 {k_lg2}
 .ENDS TWAXSH
 
 * Pair of guard buffers for coax-shields of two cables (twinax cable guard)
-.SUBCKT DUAL_EPBUF AL1 AG1 BL1 BG1 AL2 AG2 BL2 BG2 GND CgA=1e-15 RgA=1e9 CgB=1e-15 RgB=1e9 LoA=1e-12 RoA=1e-6 LoB=1e-12 RoB=1e-6
+.SUBCKT DUAL_EPBUF AL1 AG1 BL1 BG1 AL2 AG2 BL2 BG2 CASE CgA=1e-15 RgA=1e9 CgB=1e-15 RgB=1e9 LoA=1e-12 RoA=1e-6 LoB=1e-12 RoB=1e-6
 * cable A
 R1 AL1 ep_in_A 1e-3
 R2 AL2 ep_in_A 1e-3
 R3 AG1 ep_out_A 1e-3
 R4 AG2 ep_out_A 1e-3
 * buffer A
-R11 ep_in_A GND {RgA}
-C1 ep_in_A GND {CgA}
-E1 ep_A1 GND ep_in_A GND 1
+R11 ep_in_A CASE {RgA}
+C1 ep_in_A CASE {CgA}
+E1 ep_A1 CASE ep_in_A CASE 1
 R5 ep_A1 ep_A2 {RoA}
 L1 ep_A2 ep_out_A {LoA}
 * cable B
@@ -85,49 +85,97 @@ R7 BL2 ep_in_B 1e-3
 R8 BG1 ep_out_B 1e-3
 R9 BG2 ep_out_B 1e-3
 * buffer B
-R12 ep_in_B GND {RgB}
-C2 ep_in_B GND {CgB}
-E2 ep_B1 GND ep_in_B GND 1
+R12 ep_in_B CASE {RgB}
+C2 ep_in_B CASE {CgB}
+E2 ep_B1 CASE ep_in_B CASE 1
 R10 ep_B1 ep_B2 {RoB}
 L2 ep_B2 ep_out_B {LoB}
 .ENDS DUAL_EPBUF
 
 * digitizer 3458A with buffered 'isolated' output and internal strays
-.SUBCKT DIG3458 HI LO GRD GND OUTP OUTN Ci=270e-12 Ri=1e9 Clg=1e-9 Rlg=1e9 Cgs=1e-9 Rgs=1e9
+* optional guarding when 'guard=0' means Rgs||Cgs is ignored and external pin GRD is not connected
+.SUBCKT DIG3458 HI LO GRD CASE OUTP OUTN Ci=270e-12 Ri=1e9 Clg=1e-9 Rlg=1e9 Cgs=1e-9 Rgs=1e9 guard=0
+* external GRD pin connection only in guarding mode
+Rgrd GRD GRDint {(guard>0.5)?1e-6:1e9}
 R1 HI LO {Ri}
 C1 HI LO {Ci}
 E1 OUTP OUTN HI LO 1
-R4 LO GRD {Rlg}
-C2 LO GRD {Clg}
-R5 GRD GND {Rgs}
-C3 GRD GND {Cgs}
+R4 LO GRDint {Rlg}
+C2 LO GRDint {Clg}
+* internal GRD to CASE bridge only in non-guarding mode
+R5 GRDint CASE {(guard<0.5)?1e-6:Rgs}
+C3 GRDint CASE {Cgs}
 R6 OUTP OUTN 1e6
-R7 OUTN GND 1e9
+R7 OUTN CASE 1e9
 .ENDS DIG3458
 
 * Coax cable with choke having real component
 .SUBCKT COAXCAB LA LB RA RB Rs=0.05 Ls=250e-9 RsG=0.05 LsG=250e-9 k=0.9 Cp=105e-12 Rp=1e9 Rch=1e-9
+.param Rs2={0.5*Rs} Ls2={0.5*Ls} RsG2={0.5*RsG} LsG2={0.5*LsG}
 * high wire
-R1 LA n001 {Rs}
-L1 n001 n002 {Ls} $ <L> - high side tag for inductor for parasitic coupling simulation
-L2 n002 n003 {Ls} $ <L2> - high side tag for inductor for parasitic coupling simulation
-R2 n003 n007 {Rs}
+R1 LA n001 {Rs2}
+L1 n001 n002 {Ls2} $ <L> - high side tag for inductor for parasitic coupling simulation
+L2 n002 n003 {Ls2} $ <L2> - high side tag for inductor for parasitic coupling simulation
+R2 n003 n007 {Rs2}
 K1 L1 L3 {k}
 * low wire
-R3 RA n004 {RsG}
-L3 n004 n005 {LsG} $ <Lg> - low side tag for inductor for parasitic coupling simulation
-L4 n005 n006 {LsG} $ <Lg2> - low side tag for inductor for parasitic coupling simulation
-R4 n006 n009 {RsG}
+R3 RA n004 {RsG2}
+L3 n004 n005 {LsG2} $ <Lg> - low side tag for inductor for parasitic coupling simulation
+L4 n005 n006 {LsG2} $ <Lg2> - low side tag for inductor for parasitic coupling simulation
+R4 n006 n009 {RsG2}
 K2 L2 L4 {k}
 * shunting Y
-C1 n002 n005 {Cp} $ <C> - node tag for capacitor for parasitic coupling simulation
+C1 n002 n005 {Cp} $ <C:2> - node tag for capacitor for parasitic coupling simulation
 R5 n002 n005 {Rp}
 * choke real component simulated
 R6 n007 n008 {Rch}
 E1 n009 n010 n007 n008 1
-R7 n010 RB {Rch}
-E2 n008 LB n010 RB 1
+R7 n010 RBss {Rch}
+E2 n008 LBss n010 RBss 1
+R8 RBss RB 1e-3 $ <sense>
+R9 LBss LB 1e-3 $ <sense>
+* R10 n007 LB 1e-6
+* R11 n009 RB 1e-6
 .ENDS COAXCAB
+
+* Coax cable with choke having real component and wrapped around wire
+.SUBCKT COAXCABGL LA LB RA RB GA GB Rs=0.05 Ls=250e-9 RsR=0.05 LsR=250e-9 k=0.9 Cp=105e-12 Rp=1e9 Rch=1e-9 RsG=0.01 LsG=250e-9 CpG=105e-12 kG=0.9
+.param Rs2={0.5*Rs} Ls2={0.5*Ls} RsR2={0.5*RsR} LsR2={0.5*LsR} RsG2={0.5*RsG} LsG2={0.5*LsG}
+* high wire
+R1 LA n001 {Rs2}
+L1 n001 n002 {Ls2} $ <L> - high side tag for inductor for parasitic coupling simulation
+L2 n002 n003 {Ls2} $ <L2> - high side tag for inductor for parasitic coupling simulation
+R2 n003 n007 {Rs2}
+K1 L1 L3 {k}
+* low wire
+R3 RA n004 {RsR2}
+L3 n004 n005 {LsR2} $ <Lr> - low side tag for inductor for parasitic coupling simulation
+L4 n005 n006 {LsR2} $ <Lr2> - low side tag for inductor for parasitic coupling simulation
+R4 n006 n009 {RsR2}
+K2 L2 L4 {k}
+* shunting Y
+C1 n002 n005 {Cp} $ <C:2> - node tag for capacitor for parasitic coupling simulation
+R5 n002 n005 {Rp}
+* choke real component simulated
+R6 n007 n008 {Rch}
+E1 n009 n010 n007 n008 1
+R7 n010 RBss {Rch}
+E2 n008 LBss n010 RBss 1
+* auxiliary wire
+Rw1 GA w001 {RsG2}
+Lw1 w001 w002 {LsG2} $ <Lg> - gnd lug coupling
+Lw2 w002 w003 {LsG2} $ <Lg2> - gnd lug coupling
+Rw2 w003 GBss {RsG2}
+Cw w002 n005 {CpG} $ <C:1> - capacitive coupling to ground lug
+K3 L1 Lw1 {kG}
+K4 L3 Lw1 {kG}
+K5 L2 Lw2 {kG}
+K6 L4 Lw2 {kG}
+* current sensing
+R8 RBss RB 1e-3 $ <sense>
+R9 LBss LB 1e-3 $ <sense>
+R10 GBss GB 1e-3 $ <sense>
+.ENDS COAXCABGL
 
 * Coax cable
 .SUBCKT COAXCAB2 LA LB RA RB Rs=0.05 Ls=250e-9 RsG=0.05 LsG=250e-9 k=0.9 Cp=105e-12 Rp=1e9
@@ -147,36 +195,446 @@ K2 L2 L4 {k}
 
 * Ground lug
 .SUBCKT GNDLUG LA LB Rs=0.05 Ls=250e-9
-R1 LA n001 {Rs}
+R1 LA n001 {Rs} $ <C:2> - capacitance injection point
 L1 n001 LB {Ls} $ <L> - high side tag for inductor for parasitic coupling simulation
 .ENDS GNDLUG
 
 * 4TP standard
-.SUBCKT STD4TP Hp HpG Lp LpG Hc HcG Lc LcG GND Rp=0.01 Lp=20e-9 Rpg=0.005 Lpg=15e-9 kp=0.7 Cps=5e-12 Rps=1e9 Rc=0.01 Lc=20e-9 Rcg=0.005 Lcg=15e-9 kc=0.7 Ccs=5e-12 Rcs=1e9 Rs=100 Ls=0
+.SUBCKT STD4TP Hp HpG Lp LpG Hc HcG Lc LcG COM Rp=0.01 Lp=20e-9 Rpg=0.005 Lpg=15e-9 kp=0.7 Cps=5e-12 Rps=1e9 Rc=0.01 Lc=20e-9 Rcg=0.005 Lcg=15e-9 kc=0.7 Ccs=5e-12 Rcs=1e9 Rs=100 Ls=0
 R1 high n001 {Rs}
 L1 n001 low {Ls}
-Xhpot Hp high HpG GND COAXCAB Rs={Rp} Ls={Lp} RsG={Rpg} LsG={Lpg} k={kp} Cp={Cps} Rp={Rps}
-Xlpot Lp low LpG GND COAXCAB Rs={Rp} Ls={Lp} RsG={Rpg} LsG={Lpg} k={kp} Cp={Cps} Rp={Rps}
-Xhcur Hc high HcG GND COAXCAB Rs={Rc} Ls={Lc} RsG={Rcg} LsG={Lcg} k={kc} Cp={Ccs} Rp={Rcs}
-Xlcur Lc low LcG GND COAXCAB Rs={Rc} Ls={Lc} RsG={Rcg} LsG={Lcg} k={kc} Cp={Ccs} Rp={Rcs}
+Xhpot Hp high HpG COM COAXCAB2 Rs={Rp} Ls={Lp} RsG={Rpg} LsG={Lpg} k={kp} Cp={Cps} Rp={Rps}
+Xlpot Lp low LpG COM COAXCAB2 Rs={Rp} Ls={Lp} RsG={Rpg} LsG={Lpg} k={kp} Cp={Cps} Rp={Rps}
+Xhcur Hc high HcG COM COAXCAB2 Rs={Rc} Ls={Lc} RsG={Rcg} LsG={Lcg} k={kc} Cp={Ccs} Rp={Rcs}
+Xlcur Lc low LcG COM COAXCAB2 Rs={Rc} Ls={Lc} RsG={Rcg} LsG={Lcg} k={kc} Cp={Ccs} Rp={Rcs}
 .ENDS STD4TP
 
 * 4TP standard with split grounds
 .SUBCKT STD4TP2 Hp HpG Lp LpG Hc HcG Lc LcG Gp Gc Rp=0.01 Lp=20e-9 Rpg=0.005 Lpg=15e-9 kp=0.7 Cps=5e-12 Rps=1e9 Rc=0.01 Lc=20e-9 Rcg=0.005 Lcg=15e-9 kc=0.7 Ccs=5e-12 Rcs=1e9 Rs=100 Ls=0
 R1 high n001 {Rs}
 L1 n001 low {Ls}
-Xhpot Hp high HpG Gp COAXCAB Rs={Rp} Ls={Lp} RsG={Rpg} LsG={Lpg} k={kp} Cp={Cps} Rp={Rps}
-Xlpot Lp low LpG Gp COAXCAB Rs={Rp} Ls={Lp} RsG={Rpg} LsG={Lpg} k={kp} Cp={Cps} Rp={Rps}
-Xhcur Hc high HcG Gc COAXCAB Rs={Rc} Ls={Lc} RsG={Rcg} LsG={Lcg} k={kc} Cp={Ccs} Rp={Rcs}
-Xlcur Lc low LcG Gc COAXCAB Rs={Rc} Ls={Lc} RsG={Rcg} LsG={Lcg} k={kc} Cp={Ccs} Rp={Rcs}
+Xhpot Hp high HpG Gp COAXCAB2 Rs={Rp} Ls={Lp} RsG={Rpg} LsG={Lpg} k={kp} Cp={Cps} Rp={Rps}
+Xlpot Lp low LpG Gp COAXCAB2 Rs={Rp} Ls={Lp} RsG={Rpg} LsG={Lpg} k={kp} Cp={Cps} Rp={Rps}
+Xhcur Hc high HcG Gc COAXCAB2 Rs={Rc} Ls={Lc} RsG={Rcg} LsG={Lcg} k={kc} Cp={Ccs} Rp={Rcs}
+Xlcur Lc low LcG Gc COAXCAB2 Rs={Rc} Ls={Lc} RsG={Rcg} LsG={Lcg} k={kc} Cp={Ccs} Rp={Rcs}
 .ENDS STD4TP2
+
+* realistic 4TP standard with optional split grounds and optional return path impedance
+.SUBCKT STD4TP3 Hp HpG Lp LpG Hc HcG Lc LcG Gp Gc Rp=0.01 Lp=20e-9 Rpg=0.005 Lpg=15e-9 kp=0.7 Cps=5e-12 Rps=1e9 Rc=0.01 Lc=20e-9 Rcg=0.005 Lcg=15e-9 kc=0.7 Ccs=5e-12 Rcs=1e9 Rs=100 Ls=0 Rg=1e-11 Lg=1 Rb=1e-11 Lb=1
+.param Rgx={(abs(Rg)>5e-10)?Rg:1e-9} Lgx={(abs(Rg)>5e-10)?Lg:1e-12} Rpg1={(abs(Rg)>5e-10)?1e9:1e-9} Rpg2={(abs(Rg)>5e-10)?1e-9:1e9}
+.param Rcg1={(abs(Rg)>5e-10)?1e9:1e-9} Rcg2=1e-9 Rcg3={(abs(Rg)>5e-10)?1e9:1e-9}
+L1 N006 N010 {Ls}
+R1 N001 N006 {Rs}
+R2 N003 N002 {Rb}
+L2 N004 N003 {Lb}
+R3 N009 N008 {Rb}
+L3 N007 N009 {Lb}
+R4 P001 N002 {0.5*Rgx}
+L4 N005 P001 {0.5*Lgx}
+R5 P002 N008 {0.5*Rgx}
+L5 N005 P002 {0.5*Lgx}
+R6 N007 N004 {Rcg1}
+R7 N004 Gc {Rcg2}
+R8 N007 Gc {Rcg3}
+R9 Gp N005 {Rpg1}
+R10 Gp N002 {Rpg2}
+XHC Hc N001 HcG N004 COAXCAB2 Rs={Rc} Ls={Lc} RsG={Rcg} LsG={Lcg} k={kc} Cp={Ccs} Rp={Rcs}
+XLC N010 Lc N007 LcG COAXCAB2 Rs={Rc} Ls={Lc} RsG={Rcg} LsG={Lcg} k={kc} Cp={Ccs} Rp={Rcs}
+XHP Hp N001 HpG N002 COAXCAB2 Rs={Rp} Ls={Lp} RsG={Rpg} LsG={Lpg} k={kp} Cp={Cps} Rp={Rps}
+XLP Lp N010 LpG N008 COAXCAB2 Rs={Rp} Ls={Lp} RsG={Rpg} LsG={Lpg} k={kp} Cp={Cps} Rp={Rps}
+.ENDS STD4TP3
 
 * Coaxial standard
 .SUBCKT STDCOAX Ch Cl Ph Pl Rp=0.01 Lp=20e-9 Rpg=0.005 Lpg=15e-9 kp=0.7 Cps=5e-12 Rps=1e9 Rc=0.01 Lc=20e-9 Rcg=0.005 Lcg=15e-9 kc=0.7 Ccs=5e-12 Rcs=1e9 Rs=1 Ls=0
 R1 high n001 {Rs}
 L1 n001 low {Ls}
-Xcur Ch high Cl low COAXCAB Rs={Rc} Ls={Lc} RsG={Rcg} LsG={Lcg} k={kc} Cp={Ccs} Rp={Rcs}
-Xpot Ph high Pl low COAXCAB Rs={Rp} Ls={Lp} RsG={Rpg} LsG={Lpg} k={kp} Cp={Cps} Rp={Rps}
+Xcur Ch high Cl low COAXCAB2 Rs={Rc} Ls={Lc} RsG={Rcg} LsG={Lcg} k={kc} Cp={Ccs} Rp={Rcs}
+Xpot Ph high Pl low COAXCAB2 Rs={Rp} Ls={Lp} RsG={Rpg} LsG={Lpg} k={kp} Cp={Cps} Rp={Rps}
 .ENDS STDCOAX
+
+* Coaxial standard with 2x2TP adapters (4TP)
+.SUBCKT STDCOAX4TP Ch ChG Cl ClG Ph PhG Pl PlG Rp=0.01 Lp=20e-9 Rpg=0.005 Lpg=15e-9 kp=0.7 Cps=5e-12 Rps=1e9 Rc=0.01 Lc=20e-9 Rcg=0.005 Lcg=15e-9 kc=0.7 Ccs=5e-12 Rcs=1e9 Rs=1 Ls=0
+* shunt impedance
+R1 high n001 {Rs}
+L1 n001 low {Ls}
+* current ports
+XcurH Ch high ChG Cgnd1 COAXCAB2 Rs={Rc} Ls={Lc} RsG={Rcg} LsG={Lcg} k={kc} Cp={Ccs} Rp={Rcs}
+XcurL Cl low ClG Cgnd2 COAXCAB2 Rs={Rc} Ls={Lc} RsG={Rcg} LsG={Lcg} k={kc} Cp={Ccs} Rp={Rcs}
+R2 Cgnd1 Cgnd2 0.0001
+* potential ports
+XpotH Ph high PhG Pgnd1 COAXCAB2 Rs={Rp} Ls={Lp} RsG={Rpg} LsG={Lpg} k={kp} Cp={Cps} Rp={Rps}
+XpotL Pl low PlG Pgnd2 COAXCAB2 Rs={Rp} Ls={Lp} RsG={Rpg} LsG={Lpg} k={kp} Cp={Cps} Rp={Rps}
+R3 Pgnd1 Pgnd2 0.0001
+.ENDS STDCOAX4TP
+
+* Coaxial standard with 1P input and 2TP output
+.SUBCKT STDCOAX1P2TP Ch Cl Ph PhG Pl PlG Rp=0.01 Lp=20e-9 Rpg=0.005 Lpg=15e-9 kp=0.7 Cps=5e-12 Rps=1e9 Rc=0.01 Lc=20e-9 Rcg=0.005 Lcg=15e-9 kc=0.7 Ccs=5e-12 Rcs=1e9 Rs=1 Ls=0
+* shunt impedance
+R1 high n001 {Rs}
+L1 n001 low {Ls}
+* current ports
+XcurH Ch high Cl low COAXCAB2 Rs={Rc} Ls={Lc} RsG={Rcg} LsG={Lcg} k={kc} Cp={Ccs} Rp={Rcs}
+* potential ports
+XpotH Ph high PhG Pgnd1 COAXCAB2 Rs={Rp} Ls={Lp} RsG={Rpg} LsG={Lpg} k={kp} Cp={Cps} Rp={Rps}
+XpotL Pl low PlG Pgnd2 COAXCAB2 Rs={Rp} Ls={Lp} RsG={Rpg} LsG={Lpg} k={kp} Cp={Cps} Rp={Rps}
+R2 Pgnd1 Pgnd2 0.0001
+.ENDS STDCOAX1P2TP
+
+
+
+* LF 4TP Kelvin injection transformer
+* Lp-Rp-Cp: primary
+* Ls-Rs: secondary
+* k: coupling
+* ksh: shields half-turn coupling
+* Lsh-Rsh: shield half-loop impedance
+* Csl1, Csl2: shield 1 and 2 loop capacitance
+* C12a,b: primary to shield 1 capacitances (Z1-a, Z2-b)
+* C23a,b: shield 1 to shield 2 capacitances (Z1-a, Z2-b)
+* C34a,b: shield 2 to shield secondary capacitances (Z1-a, Z2-b)
+.SUBCKT LF4TPKETR Z1 Z1G Z2 Z2G IN1 IN2 SH1 SH2 Lp=1 Rp=1 Cp=100e-12 Ls=10e-6 Rs=0.001 k=0.999 ksh=0.999 Lsh=2.5e-6 Rsh=1 Csl1=5e-12 Csl2=5e-12 C12a=100e-12 C12b=100e-12 C23a=100e-12 C23b=100e-12 C34a=100e-12 C34b=100e-12
+L1 IN1 P001 {Lp}
+L2 Z1 P002 {Ls}
+L3 N001 N003 {Lsh}
+L4 N005 N007 {Lsh}
+C1 N003 N005 {Csl1}
+C2 IN1 IN2 {Cp}
+C3 N003 P003 {C12a}
+C4 N005 P004 {C12b}
+L5 N002 N004 {Lsh}
+L6 N006 N008 {Lsh}
+C5 N004 N006 {Csl2}
+C6 N004 P005 {C23a}
+C7 N006 P006 {C23b}
+C8 Z1 P007 {C34a}
+C9 Z2 P008 {C34b}
+R1 P002 Z2 {Rs}
+R2 P001 IN2 {Rp}
+R3 N001 SH1 {Rsh}
+R4 N007 SH1 {Rsh}
+R5 Z2G N008 {Rsh}
+R6 Z1G N002 {Rsh}
+R7 P005 N003 1
+R8 P006 N005 1
+R9 P003 IN1 1
+R10 P004 IN2 1
+R11 P007 N004 1
+R12 P008 N006 1
+R13 Z1G SH2 1e-3
+R14 SH2 Z2G 1e-3
+K1 L1 L2 {k}
+K2 L1 L3 {ksh}
+K3 L1 L4 {ksh}
+K6 L1 L5 {ksh}
+K7 L1 L6 {ksh}
+K4 L2 L3 {ksh}
+K5 L2 L4 {ksh}
+K8 L2 L5 {ksh}
+K9 L2 L6 {ksh}
+.ENDS LF4TPKETR
+
+
+* LF coaxial Kelvin injection transformer
+* Lp-Rp-Cp: primary
+* Ls-Rs: secondary
+* k: coupling
+* ksh: shields half-turn coupling
+* Lsh-Rsh: shield half-loop impedance
+* Csl1, Csl2: shield 1 and 2 loop capacitance
+* C12a,b: primary to shield 1 capacitances (Z1-a, Z2-b)
+* C23a,b: shield 1 to shield 2 capacitances (Z1-a, Z2-b)
+* C34a,b: shield 2 to shield secondary capacitances (Z1-a, Z2-b)
+* C45a,b: secondary to main supply capacitances (Z1-a, Z2-b)
+.SUBCKT LFCOAXKETR Z1 Z1G Z2 Z2G IN1 IN2 M1 M2 SH1 SH2 Lp=1 Rp=1 Cp=100e-12 Ls=10e-6 Rs=0.001 k=0.999 ksh=0.999 Lsh=2.5e-6 Rsh=1 Csl1=5e-12 Csl2=5e-12 C12a=100e-12 C12b=100e-12 C23a=100e-12 C23b=100e-12 C34a=100e-12 C34b=100e-12 C45a=100e-12 C45b=100e-12
+L1 IN1 P001 {Lp}
+L2 Z1G P002 {Ls}
+L3 N001 N003 {Lsh}
+L4 N005 N007 {Lsh}
+C1 N003 N005 {Csl1}
+C2 IN1 IN2 {Cp}
+C3 N003 P003 {C12a}
+C4 N005 P004 {C12b}
+L5 N002 N004 {Lsh}
+L6 N006 N008 {Lsh}
+C5 N004 N006 {Csl2}
+C6 N004 P005 {C23a}
+C7 N006 P006 {C23b}
+C8 Z1G P007 {C34a}
+C9 Z2G P008 {C34b}
+R1 P002 Z2G {Rs}
+C10 M1 SH2 {C45a}
+C11 M2 SH2 {C45b}
+R2 P001 IN2 {Rp}
+R3 N001 SH1 {Rsh}
+R4 N007 SH1 {Rsh}
+R5 SH2 N008 {Rsh}
+R6 SH2 N002 {Rsh}
+R7 P005 N003 1
+R8 P006 N005 1
+R9 P003 IN1 1
+R10 P004 IN2 1
+R11 P007 N004 1
+R12 P008 N006 1
+R13 Z1 M1 1e-6
+R14 M2 Z2 1e-6
+K1 L1 L2 {k}
+K2 L1 L3 {ksh}
+K3 L1 L4 {ksh}
+K6 L1 L5 {ksh}
+K7 L1 L6 {ksh}
+K4 L2 L3 {ksh}
+K5 L2 L4 {ksh}
+K8 L2 L5 {ksh}
+K9 L2 L6 {ksh}
+.ENDS LFCOAXKETR
+
+* LF main transformer
+*  Lp-Rp-Cp: primary
+*  Ls-Rs: secondary
+*  k: coupling
+*  ksh: shields half-turn coupling
+*  Lsh-Rsh: shield half-loop impedance
+*  Csl1, Csl2: shield 1 and 2 loop capacitance
+*  C12a,b: primary to shield 1 capacitances (Z1-a, Z2-b)
+*  C23a,b: shield 1 to shield 2 capacitances (Z1-a, Z2-b)
+*  C34a,b: shield 2 to shield secondary capacitances (Z1-a, Z2-b)
+.SUBCKT LFMAINTR IN1 IN2 SH1 OUT1 OUT2 SH2 Lp=1 Rp=1 Cp=100e-12 Ls=10e-6 Rs=0.001 k=0.999 ksh=0.999 Lsh=2.5e-6 Rsh=1 Csl1=5e-12 Csl2=5e-12 C12a=100e-12 C12b=100e-12 C23a=100e-12 C23b=100e-12 C34a=100e-12 C34b=100e-12
+L1 IN1 P001 {Lp}
+L2 OUT1 P002 {Ls}
+L3 N001 UR1 {Lsh}
+L4 UR2 N005 {Lsh}
+C1 UR1 UR2 {Csl1}
+C2 IN1 IN2 {Cp}
+C3 UR1 P003 {C12a}
+C4 UR2 P004 {C12b}
+L5 N002 N003 {Lsh}
+L6 N004 N006 {Lsh}
+C5 N003 N004 {Csl2}
+C6 N003 P005 {C23a}
+C7 N004 P006 {C23b}
+C8 OUT1 P007 {C34a}
+C9 OUT2 P008 {C34b}
+R1 P002 OUT2 {Rs}
+R2 P001 IN2 {Rp}
+R3 N001 SH1 {Rsh}
+R4 N005 SH1 {Rsh}
+R5 SH2 N006 {Rsh}
+R6 SH2 N002 {Rsh}
+R7 P005 UR1 1
+R8 P006 UR2 1
+R9 P003 IN1 1
+R10 P004 IN2 1
+R11 P007 N003 1
+R12 P008 N004 1
+K1 L1 L2 {k}
+K2 L1 L3 {ksh}
+K3 L1 L4 {ksh}
+K6 L1 L5 {ksh}
+K7 L1 L6 {ksh}
+K4 L2 L3 {ksh}
+K5 L2 L4 {ksh}
+K8 L2 L5 {ksh}
+K9 L2 L6 {ksh}
+.ENDS LFMAINTR
+
+* LF main transformer with 3 shields
+*  Lp-Rp-Cp: primary
+*  Ls-Rs: secondary
+*  k: coupling
+*  ksh: shields half-turn coupling (must be ksh<k to keep system positive definite)
+*  Lsh-Rsh: shield half-loop impedance
+*  Csl1, Csl2: shield 1 and 2 loop capacitance
+*  C12a,b: primary to shield 1 capacitances (Z1-a, Z2-b)
+*  C23a,b: shield 1 to shield 2 capacitances (Z1-a, Z2-b)
+*  C34a,b: shield 2 to shield 3 capacitances (Z1-a, Z2-b)
+*  C45a,b: shield 3 to shield secondary capacitances (Z1-a, Z2-b)
+.SUBCKT LFMAINTR3 IN1 IN2 SH1 OUT1 OUT2 SH2 SH3 Lp=1 Rp=1 Cp=100e-12 Ls=10e-6 Rs=0.001 k=0.999 ksh=0.999 Lsh=2.5e-6 Rsh=1 Csl1=5e-12 Csl2=5e-12 Csl3=5e-12 C12a=100e-12 C12b=100e-12 C23a=100e-12 C23b=100e-12 C34a=100e-12 C34b=100e-12 C45a=100e-12 C45b=100e-12
+L1 IN1 P001 {Lp}
+L2 OUT1 P002 {Ls}
+L3 N001 UR1 {Lsh}
+L4 UR2 N008 {Lsh}
+C1 UR1 UR2 {Csl1}
+C2 IN1 IN2 {Cp}
+C3 UR1 P003 {C12a}
+C4 UR2 P004 {C12b}
+L5 N002 N005 {Lsh}
+L6 N007 N010 {Lsh}
+C5 N005 N007 {Csl3}
+C6 N004 P005 {C23a}
+C7 N006 P006 {C23b}
+C8 OUT1 P007 {C45a}
+C9 OUT2 P008 {C45b}
+R1 P002 OUT2 {Rs}
+R2 P001 IN2 {Rp}
+R3 N001 SH1 {Rsh}
+R4 N008 SH1 {Rsh}
+R5 SH2 N010 {Rsh}
+R6 SH2 N002 {Rsh}
+R7 P005 UR1 1
+R8 P006 UR2 1
+R9 P003 IN1 1
+R10 P004 IN2 1
+R11 P007 N005 1
+R12 P008 N007 1
+L7 N003 N004 {Lsh}
+L8 N006 N009 {Lsh}
+C10 N005 P009 {C34a}
+C11 N007 P010 {C34b}
+R13 P009 N004 1
+R14 P010 N006 1
+C12 N004 N006 {Csl2}
+R15 N003 SH3 {Rsh}
+R16 SH3 N009 {Rsh}
+K1 L1 L2 {k}
+K2 L1 L3 {ksh}
+K3 L1 L4 {ksh}
+K9 L2 L3 {ksh}
+K10 L2 L4 {ksh}
+K4 L1 L5 {ksh}
+K5 L1 L6 {ksh}
+K11 L2 L5 {ksh}
+K12 L2 L6 {ksh}
+K7 L1 L7 {ksh}
+K8 L1 L8 {ksh}
+K13 L2 L7 {ksh}
+K14 L2 L8 {ksh}
+.ENDS LFMAINTR3
+
+* Twisted cable with shield
+.SUBCKT TWCABSH A1 B1 SH1 A2 B2 SH2 Rsa=0.001 Lsa=100e-9 Rsb=0.001 Lsb=100e-9 Cab=50e-12 Cag=20e-12 Cbg=20e-12 k=0.9
+.param Rsa2={0.5*Rsa} Rsb2={0.5*Rsb} Lsa2={0.5*Lsa} Lsb2={0.5*Lsb}
+R1 N001 A1 {Rsa2}
+R2 A2 N003 {Rsa2}
+R3 N005 B1 {Rsb2}
+R4 B2 N007 {Rsb2}
+L1 N001 N002 {Lsa2} $ <L1>
+L2 N002 N003 {Lsa2} $ <L2>
+L3 N005 N006 {Lsb2} $ <L3>
+L4 N006 N007 {Lsb2} $ <L4>
+C1 N002 N006 {Cab}
+C2 N002 N004 {Cag}
+C3 N004 N006 {Cbg}
+R5 N004 SH1 1e-3
+R6 SH2 N004 1e-3
+K1 L1 L3 {k}
+K2 L2 L4 {k}
+.ENDS TWCABSH
+
+* common mode detector for coaxial cable:
+*  Ld: detector inductance
+*  n: detector turns count
+*  k: coupling
+*  Cws: primary winding-shield capacitance (total from both winding ends)
+*  Csc: shield-coax capacitance (total to both ends of coax)
+.SUBCKT COMDET LA RA LB RB DA DB SH Ld=0.2 n=100 k=0.998 Cws=50e-12 Csc=5e-12
+.param Ls={Ld/n^2}
+L1 LA LB {Ls}
+L2 RA RB {Ls}
+L3 DA DB {Ld}
+K1 L1 L3 {k}
+K2 L2 L3 {k}
+K3 L1 L2 {k}
+* stray capacitances
+Rsh SH SHi 1e-4 $ isolation needed to prevent singular matrix errors
+Cws1 DA SHi {0.5*Cws}
+Cws2 DB SHi {0.5*Cws}
+Csc1 RA SHi {0.5*Csc}
+Csc2 RB SHi {0.5*Csc}
+.ENDS COMDET
+
+* common mode detector for two coaxial cables:
+*  Ld: detector inductance
+*  n: detector turns count
+*  k: coupling
+*  m: mode (0-disabled,1-only to coax 1,2-to both coaxes)
+*  Cws: primary winding-shield capacitance (total from both winding ends)
+*  Csc1: shield-coax 1 capacitance (total to both ends of coax)
+*  Csc2: shield-coax 2 capacitance (total to both ends of coax)
+.SUBCKT COMDET2 L1A R1A L1B R1B L2A R2A L2B R2B DA DB SH Ld=0.2 n=100 k=0.998 m=2 Cws=50e-12 Csc1=5e-12 Csc2=5e-12
+.param Ls={Ld/n^2}
+L1 L1A L1B {(m>0.01)?Ls:1e-9}
+L2 R1A R1B {(m>0.01)?Ls:1e-9}
+L3 L2A L2B {(m>1.99)?Ls:1e-9}
+L4 R2A R2B {(m>1.99)?Ls:1e-9}
+L5 DA DB {Ld}
+*
+K1 L1 L2 {(m>0.01)?k:0.99999}
+K2 L1 L3 {(m>1.99)?k:0}
+K3 L1 L4 {(m>1.99)?k:0}
+K4 L2 L3 {(m>1.99)?k:0}
+K5 L2 L4 {(m>1.99)?k:0}
+K6 L3 L4 {(m>1.99)?k:0.99999}
+*
+K7 L5 L1 {(m>0)?k:0}
+K8 L5 L2 {(m>0)?k:0}
+K9 L5 L3 {(m>1.99)?k:0}
+K10 L5 L4 {(m>1.99)?k:0}
+* strays
+Rsh SH SHi 1e-4 $ isolation needed to prevent singular matrix errors
+Cws1 DA SHi {0.5*Cws}
+Cws2 DB SHi {0.5*Cws}
+Csc1a R1A SHi {(m>0.01)?(0.5*Csc1):1e-15}
+Csc1b R1B SHi {(m>0.01)?(0.5*Csc1):1e-15}
+Csc2a R2A SHi {(m>1.99)?(0.5*Csc2):1e-15}
+Csc2b R2B SHi {(m>1.99)?(0.5*Csc2):1e-15}
+.ENDS COMDET2
+
+
+* buffer with phase shifting
+*  g: gain
+*  ph: phase shift in [rad] in range (-pi/2:+pi/2) only!
+*  Cp-Rp: input shunting
+*  Ls-Rs: output impedance
+.SUBCKT BUFPHI IN OUT REF g=1 ph=0 Cp=5e-12 Rp=1e6 Rs=0.001 Ls=100e-9
+* input shunting
+Rin IN REF {Rp}
+Cin IN REF {Cp}
+* phase shift +-90deg
+B90 V90 REF I=v(IN)*hertz*2*pi*((ph<0)?-1:1)
+C90 V90 REF 1
+R90 V90 REF 1e9
+* mix re/im to get desired phase angle
+Bout VOUT REF V=(v(IN)*cos(ph)+v(V90)*sin(abs(ph)))*g
+* output impedance
+Rout VOUT n001 {Rs}
+Lout n001 OUT {Ls}
+.ENDS BUFPHI
+
+* 4TP standard ground isolator (splits 1 and 2 side grounds, but keeps coaxial connection)
+*  Lsa-Rsa: 1-2 side live signal series impedance cable A
+*  Lsb-Rsb: 1-2 side live signal series impedance cable B
+*  Lg1-Rg1: side 1 A-B coax ground series impedance
+*  Lg2-Rg2: side 2 A-B coax ground series impedance
+*  Cab: coax A-B live capacitance
+*  C12: capacitance between 1-2 side grounds
+*  kab: coupling between A-B lives
+*  k12: coupling between side 1-2 grounds
+*  Rbyp: side 1-2 grounds bypass
+.SUBCKT ISOL4TP A2 A2g B2 B2g A1 A1g B1 B1g G1 G2 Lsa=10e-9 Rsa=2e-3 Lsb=10e-9 Rsb=2e-3 Lg1=10e-9 Rg1=0.5e-3 Lg2=15e-9 Rg2=2e-3 Cab=5e-12 C12=1e-15 kab=0.5 k12=0.5 Rbyp=1e9
+L1 N001 A2 {0.5*Lsa}
+R1 N002 N001 {0.5*Rsa}
+L2 N008 B2 {0.5*Lsb}
+R2 N009 N008 {0.5*Rsb}
+L3 N005 A1g {0.5*Lg1}
+R3 G1 N005 {0.5*Rg1}
+L4 N004 A2g {0.5*Lg2}
+R4 G2 N004 {0.5*Rg2}
+L5 N003 A1 {0.5*Lsa}
+R5 N002 N003 {0.5*Rsa}
+L6 N010 B1 {0.5*Lsb}
+R6 N009 N010 {0.5*Rsb}
+L7 N007 B1g {0.5*Lg1}
+R7 G1 N007 {0.5*Rg1}
+L8 N006 B2g {0.5*Lg2}
+R8 G2 N006 {0.5*Rg2}
+C1 G1 G2 {C12}
+C2 N009 N002 {Cab}
+R10 A1g A2g {Rbyp}
+R9 B1g B2g {Rbyp}
+Kab L1 L2 {kab}
+K12 L3 L4 {k12}
+K12b L7 L8 {k12}
+Kab2 L5 L6 {kab}
+.ENDS ISOL4TP
 
 .ENDL

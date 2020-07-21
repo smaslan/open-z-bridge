@@ -10,32 +10,36 @@ function [res] = z_sim_cell(job)
     dRs = [];
     dXs = [];
     
-    try
+
+    % --- for each sweep spot        
+    for k = 1:numel(f_list)
     
-        % --- for each sweep spot        
-        for k = 1:numel(f_list)
-        
+        % try to simulate measurement sequence
+        try
             % simulate
-            [Z2(k), dZ(k), dph(k), dRs(k), dXs(k)] = z_brg_sim(job.md, job.par, f_list(k), job.swp);
-        
-        endfor
-        
-        % return stuff
-        res.f = f_list;
-        res.Z2 = Z2;
-        res.dZ  = dZ;
-        res.dph = dph;
-        res.dRs = dRs;
-        res.dXs = dXs;
+            [md, Z2(k), dZ(k), dph(k), dRs(k), dXs(k)] = z_brg_sim(job.md, job.par, f_list(k), job.swp, job.cfg);
+            
+        catch err
+            % failed - terminate spice
+            try
+                md.ngspice = spice_terminate(md.ngspice);
+            end
+            rethrow(err);            
+        end 
     
-    catch err
-        
-        disp('--- Simulator error ---');
-        disp(err.message)
-        %warning(err.identifier, err.message);
-        
-        res = [];    
-        
-    end
+    endfor
+    
+    % return stuff
+    res.f = f_list;
+    res.Z2 = Z2;
+    res.dZ  = dZ;
+    res.dph = dph;
+    res.dRs = dRs;
+    res.dXs = dXs;
+      
+    % close of NGspice process
+    try
+        md.ngspice = spice_terminate(md.ngspice);
+    end  
         
 end

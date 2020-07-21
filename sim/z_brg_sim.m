@@ -1,4 +1,8 @@
-function [Z2,d_Z,d_ph,d_Rs,d_Xs] = z_brg_sim(model, par, f, swp)
+function [model, Z2,d_Z,d_ph,d_Rs,d_Xs] = z_brg_sim(model, par, f, swp, cfg)
+    
+    % double 4T mode?
+    is_4TP = strcmpi(cfg.mode,'4TP');
+    is_2x4T = strcmpi(cfg.mode,'2x4T');
     
     % get this frequency ID in the f_list
     %  ###note: 'fid' used to pick the right frequency of freq. dependent quantities
@@ -46,6 +50,11 @@ function [Z2,d_Z,d_ph,d_Rs,d_Xs] = z_brg_sim(model, par, f, swp)
     % impedance
     p.R2 = par.Z2.R(fid);
     p.L2 = par.Z2.L(fid);
+    % ground Z
+    p.R2g = par.Z2.Rg;
+    p.L2g = par.Z2.Lg;
+    p.R2b = par.Z2.Rb;
+    p.L2b = par.Z2.Lb;
         
 
     % source ground lug
@@ -77,127 +86,177 @@ function [Z2,d_Z,d_ph,d_Rs,d_Xs] = z_brg_sim(model, par, f, swp)
     % make Z2 cable
     %[p.Rc2h,p.Rc2g,p.Lc2h,p.Lc2g,p.Cc2sh,p.Rc2sh,p.kc2,p.Rc2ch] = gen_cable(par.ca_Z2, f);
     
+    % 4TP to 2x4T convertor
+    if is_2x4T
+        p = z_sim_template_assign(p, par.templates, 'coax_2hi', gen_cable(par.ca_2hi,f));
+        p = z_sim_template_assign(p, par.templates, 'coax_2lo', gen_cable(par.ca_2lo,f));
+        ca2live = gen_cable(par.ca_2live,f);
+        p = z_sim_template_assign(p, par.templates, 'coax_2live', ca2live);
+        p = z_sim_template_assign(p, par.templates, 'coax_2sh', gen_cable(par.ca_2sh,f));
+    endif
+        
     % make Z2 potential cables (4TP twinax mode)
     p = z_sim_template_assign(p, par.templates, 'Hpot_A', par.ca_HpotA, fid);
     p = z_sim_template_assign(p, par.templates, 'Hpot_B', par.ca_HpotB, fid);
     p = z_sim_template_assign(p, par.templates, 'Lpot_A', par.ca_LpotA, fid);
-    p = z_sim_template_assign(p, par.templates, 'Lpot_B', par.ca_LpotB, fid);
-    
+    p = z_sim_template_assign(p, par.templates, 'Lpot_B', par.ca_LpotB, fid); 
          
     % make buffer for Hpot
     p = z_sim_template_assign(p, par.templates, 'buf_hpot', par.buf_hpot);
     
     % make buffer for Lpot
     p = z_sim_template_assign(p, par.templates, 'buf_lpot', par.buf_lpot);
+    
+    % make ADC input wires (just for strays simulation)
+    adc_lug.Ls = 10e-9;
+    adc_lug.Rs = 1e-3;
+    p = z_sim_template_assign(p, par.templates, 'wa1lo', adc_lug);
+    p = z_sim_template_assign(p, par.templates, 'wa1hi', adc_lug);
+    p = z_sim_template_assign(p, par.templates, 'wa2lo', adc_lug);
+    p = z_sim_template_assign(p, par.templates, 'wa2hi', adc_lug);
+    p = z_sim_template_assign(p, par.templates, 'wa3lo', adc_lug);
+    p = z_sim_template_assign(p, par.templates, 'wa3hi', adc_lug);
         
     % make ADC 1
-    p.C1in = par.adc1.Cin(fid);
-    p.R1in = par.adc1.Rin(fid);
-    p.C1sh = par.adc1.Csh(fid);
-    p.R1sh = par.adc1.Rsh(fid);
-    p.C1gnd = par.adc1.Csg(fid);
-    p.R1gnd = par.adc1.Rsg(fid);
+    p.Ca1in = par.adc1.Cin(fid);
+    p.Ra1in = par.adc1.Rin(fid);
+    p.Ca1lg = par.adc1.Clg(fid);
+    p.Ra1lg = par.adc1.Rlg(fid);
+    p.Ca1gs = par.adc1.Cgs(fid);
+    p.Ra1gs = par.adc1.Rgs(fid);
+    p.grda1 = par.adc1.guard;
     p.Rgnd1 = par.adc1.Rgnd;
     p.Lgnd1 = par.adc1.Lgnd;
     p.Rgrd1 = par.adc1.Rgrd;
     p.Lgrd1 = par.adc1.Lgrd;
+    % ADC 1 input impedance estimate
+    Zin1 = 1./(j*w*p.Ca1in + 1./p.Ra1in);
+    Zin1 = 1/(1/Zin1 + j*w*p.Cc1sh + 1./p.Rc1sh);
     
     % make ADC 2
-    p.C2in = par.adc2.Cin(fid);
-    p.R2in = par.adc2.Rin(fid);
-    p.C2sh = par.adc2.Csh(fid);
-    p.R2sh = par.adc2.Rsh(fid);
-    p.C2gnd = par.adc2.Csg(fid);
-    p.R2gnd = par.adc2.Rsg(fid);
+    p.Ca2in = par.adc2.Cin(fid);
+    p.Ra2in = par.adc2.Rin(fid);
+    p.Ca2lg = par.adc2.Clg(fid);
+    p.Ra2lg = par.adc2.Rlg(fid);
+    p.Ca2gs = par.adc2.Cgs(fid);
+    p.Ra2gs = par.adc2.Rgs(fid);
+    p.grda2 = par.adc2.guard;
     p.Rgnd2 = par.adc2.Rgnd;
     p.Lgnd2 = par.adc2.Lgnd;
     p.Rgrd2 = par.adc2.Rgrd;
     p.Lgrd2 = par.adc2.Lgrd;
     % ADC 2 input impedance estimate
-    Zin2 = 1./(j*w*p.C2in + 1./p.R2in);
+    Zin2 = 1./(j*w*p.Ca2in + 1./p.Ra2in);
     
     % make ADC 3
-    p.C3in = par.adc3.Cin(fid);
-    p.R3in = par.adc3.Rin(fid);
-    p.C3sh = par.adc3.Csh(fid);
-    p.R3sh = par.adc3.Rsh(fid);
-    p.C3gnd = par.adc3.Csg(fid);
-    p.R3gnd = par.adc3.Rsg(fid);
+    p.Ca3in = par.adc3.Cin(fid);
+    p.Ra3in = par.adc3.Rin(fid);
+    p.Ca3lg = par.adc3.Clg(fid);
+    p.Ra3lg = par.adc3.Rlg(fid);
+    p.Ca3gs = par.adc3.Cgs(fid);
+    p.Ra3gs = par.adc3.Rgs(fid);
+    p.grda3 = par.adc3.guard;
     p.Rgnd3 = par.adc3.Rgnd;
     p.Lgnd3 = par.adc3.Lgnd;
     p.Rgrd3 = par.adc3.Rgrd;
     p.Lgrd3 = par.adc3.Lgrd;
+    % ADC 3 input impedance estimate
+    Zin3 = 1./(j*w*p.Ca3in + 1./p.Ra3in);    
+    if is_2x4T
+        % add 4TP-2x4T adapter impedance
+        Zin3 = 1/(1/Zin3 + j*w*ca2live.Cp + 1/ca2live.Rp);
+    endif
     
     
+    % -- generate stray coupling data    
+    % vectorize list of parameters
+    pname = fieldnames(p);
+    pcell = struct2cell(p);
     
-    
-    % generate stray coupling data
-    % ###todo: optimize
-    for s = 1:numel(par.stray)
-        for k = 1:numel(par.stray{s}.M_names)
-            p = setfield(p,par.stray{s}.M_names{k},par.stray{s}.M(k));
-        endfor
-        for k = 1:numel(par.stray{s}.C_names)
-            p = setfield(p,par.stray{s}.C_names{k},par.stray{s}.C(k));
-        endfor
+    % check if all parameters are scalars just in case someone screwed up their generation above...
+    pscal = cellfun(@isscalar,pcell);
+    if ~all(pscal)
+        error('Some of the Spice parameters is not scalar? Wtf.');
+    endif
+        
+    % generate stray coupling parameters (mutual inductances and capacitances)
+    for s = 1:numel(par.stray)        
+        pcell = cat(1,pcell,num2cell(par.stray{s}.M));
+        pname = cat(1,pname,par.stray{s}.M_names(:));                
+        pcell = cat(1,pcell,num2cell(par.stray{s}.C));
+        pname = cat(1,pname,par.stray{s}.C_names(:));
     endfor
+    
+    % convert vectorized parameters back to struct
+    p = cell2struct(pcell,pname);
         
     % source voltages:
     %  ###note: phase angle MUST BE IN DEGREES (shiiiiieeeeet!)
     p.Iac = swp.Iac;
     p.Idc = swp.Idc;
-            
-    % write parameters:
-    tag = int2str(rand*1e15);
-    file = [model.mod_fld filesep() 'param_' tag '.cir'];
-    res_pth = [model.mod_fld filesep() 'data_' tag '.out'];
-    spice_write_params(file,model.name,p,f,res_pth);
-        
-    % simulate:    
-    cmd = ['cmd /Q /C "' model.spice_fld model.spice ' -b ' file '" 2> nul'];    
-    %cmd = ['cmd /Q /C "' model.spice_fld model.spice ' -b ' file '" '];    
-    [eid,str] = system(cmd,true);
-    % remove parameters file       
-    unlink(file);     
     
-    % detect error
-    if ~isempty(strfind(str,'Error'))
-        error(sprintf('\nSPICE reports error:\n--------------------\n%s',str));                    
-    end
-        
-    % try to read output and remove result file
-    [data,names] = spice_readfile_fast(res_pth,'array');
-    unlink(res_pth);
+    % list of spice variables to extract
+    varlist = {'U1_adc_high','U1_adc_low', 'U2_adc_high','U2_adc_low', 'U3_adc_high','U3_adc_low'}(:);
     
+    % run simulation and extract result variables    
+    [model, vardata] = spice_run_sim(model, f, p, varlist);
     
-    % reference impedances
-    Z1r = par.Z1.R(fid) + j*w*par.Z1.L(fid);
-    Z2r = par.Z2.R(fid) + j*w*par.Z2.L(fid);
-                
+                   
+    % reference impedances (the ones that were simulated)
+    Z1r = 1/(1/(par.Z1.R(fid) + j*w*par.Z1.L(fid)) + 1/Zin1);
+    Z2r = par.Z2.R(fid)+par.Z2.Rg + j*w*(par.Z2.L(fid)+par.Z2.Lg);
+                   
     % extract measured voltages       
-    U1 = get_var(data,names,'U1_adc_high') - get_var(data,names,'U1_adc_low');
-    U2 = get_var(data,names,'U2_adc_high') - get_var(data,names,'U2_adc_low');
-    if strcmpi(model.name,'LiB_brg_4TP_twax')
-        % 4TP mode 
-        
+    U1 = vardata.U1_adc_high - vardata.U1_adc_low;
+    U2 = vardata.U2_adc_high - vardata.U2_adc_low;
+    U3 = vardata.U3_adc_high - vardata.U3_adc_low;
+    
+    % simulate non-linearities
+    U1 = U1*(1 + interp1(par.adc1.tf_U, par.adc1.tf_k(fid,:), abs(U1),'extrap'))*exp(j*interp1(par.adc1.tf_U, par.adc1.tf_phi(fid,:), abs(U1),'extrap'));
+    U2 = U2*(1 + interp1(par.adc2.tf_U, par.adc2.tf_k(fid,:), abs(U2),'extrap'))*exp(j*interp1(par.adc2.tf_U, par.adc2.tf_phi(fid,:), abs(U2),'extrap'));
+    U3 = U3*(1 + interp1(par.adc3.tf_U, par.adc3.tf_k(fid,:), abs(U3),'extrap'))*exp(j*interp1(par.adc3.tf_U, par.adc3.tf_phi(fid,:), abs(U3),'extrap'));    
+    
+    % add crosstalks
+    U1 = U1 + U2*(par.adc1.ct(fid)) + U3*(par.adc1.ct(fid));
+    U2 = U2 + U1*(par.adc2.ct(fid)) + U3*(par.adc2.ct(fid));
+    U3 = U3 + U1*(par.adc3.ct(fid)) + U2*(par.adc3.ct(fid));
+    
+    if is_4TP
+        % --- Typical 4TP mode 
+    
         % reference current corrected for leakage via ADC 2
         Iref = U1/Z1r + U2/Zin2;
-        %Iref = U1/Z1r;
         
         % subtract U(Hpot) - U(Lpot) to get voltage drop across Z2
-        U3 = get_var(data,names,'U3_adc_high') - get_var(data,names,'U3_adc_low');
+        %U3 = vardata.U3_adc_high - vardata.U3_adc_low;
         U2 = -(U3 - U2);
+        
+        % measured Z2
+        Z2 = -U2/Iref;
+    
+    elseif is_2x4T
+        % --- 2x 4T mode
+        
+        % subtract U(Hpot) - U(Lpot) to get voltage drop across Z2
+        %U3 = vardata.U3_adc_high - vardata.U3_adc_low;
+        
+        % measured Z2
+        Z2a = U3*Z1r*Zin3/(U1*Zin3 - U3*Z1r);
+        Z2b = U2*Z1r*Zin2/(U1*Zin2 - U2*Z1r);
+        Z2 = Z2a + Z2b;        
+        
     else
-        % differential mode
+        % --- differential mode
                 
         Iref = U1/Z1r;
+        
+        % measured Z2
+        Z2 = -U2/Iref;
             
     endif
     
     %error('stop')
-           
-    % measured Z2
-    Z2 = -U2/Iref;
+   
     
     % reference Z2 value
     Z_ref  = abs(Z2r);
@@ -262,6 +321,19 @@ function [Rh,Rl,Lh,Ll,Cs,Rs,k,Rch] = gen_cable(par,f)
     
     % choke real component
     Rch = par.ch_R(fid);
+    
+    if nargout == 1
+        % single argument output - pack parameters to structure
+        p.Rs = Rh;
+        p.Ls = Lh;
+        p.RsG = Rl;
+        p.Lsg = Ll;
+        p.Cp = Cs;
+        p.Rp = Rs;
+        p.k = k;
+        p.Rch = Rch;
+        Rh = p; % return
+    endif
     
 endfunction
 

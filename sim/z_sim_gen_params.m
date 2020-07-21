@@ -1,5 +1,24 @@
-function [par] = z_sim_gen_params(f, Z1, Z2, is_mcc)
+function [par] = z_sim_gen_params(f, Z1, Z2, cfg, unc)
 % This generates Spice model parameters for each frequency of the sweep
+
+    is_mcc = unc.is_mcc;
+    % randomize strays?
+    rnd_strays = is_mcc && unc.rnd_strays;
+    % randomize crosstalks?
+    rnd_ct = is_mcc && unc.rnd_ct;
+    % randomize linearity?
+    rnd_lin = is_mcc && unc.rnd_lin;
+    
+    % is HP3458A?
+    is_3458 = strcmpi(cfg.digitizer,'3458');
+    is_9238 = strcmpi(cfg.digitizer,'9238');
+    if ~any(strcmpi(cfg.digitizer,{'3458','9238'}))
+        error(sprintf('ADC type ''%s'' not supported!',cfg.digitizer));
+    endif
+    
+    % double 4T mode?
+    is_2x4T = strcmpi(cfg.mode,'2x4T');
+
 
     % sweep freq. count
     f = f(:);
@@ -65,8 +84,8 @@ function [par] = z_sim_gen_params(f, Z1, Z2, is_mcc)
     
     % joint cable
     ca_joint = z_sim_rand_cable(rg58, is_mcc);
-    ca_joint.len = 0.3 + 0.1*randr*is_mcc;
-    ca_joint.ch_L = 0;
+    ca_joint.len = 0.3 + 0.2*randr*is_mcc;
+    ca_joint.ch_L = 0e-6;
     ca_joint.ch_R = 1e-6;
     ca_joint.ch_len = 0;
         
@@ -74,7 +93,7 @@ function [par] = z_sim_gen_params(f, Z1, Z2, is_mcc)
     % Z1 cable
     ca_Z1 = z_sim_rand_cable(rg58, is_mcc);
     ca_Z1.len = (1.0 + 0.2*randr*is_mcc);
-    ca_Z1.ch_L = 0e-3;
+    ca_Z1.ch_L = 10e-3;
     ca_Z1.ch_R = 1e-6;
     ca_Z1.ch_len = 0;
     
@@ -91,6 +110,30 @@ function [par] = z_sim_gen_params(f, Z1, Z2, is_mcc)
     ca_Z2.ch_L = 0;
     ca_Z2.ch_R = 1e-6;
     ca_Z2.ch_len = 0;
+    
+    
+    % 4TP to 2x4T convertor
+    ca_2hi = z_sim_rand_cable(rg58, is_mcc);
+    ca_2hi.len = (0.07 + 0.03*randr*is_mcc);
+    ca_2hi.ch_L = 0.05e-3;
+    ca_2hi.ch_R = 1e-6;
+    ca_2hi.ch_len = 0;
+    ca_2lo = z_sim_rand_cable(rg58, is_mcc);
+    ca_2lo.len = (0.07 + 0.03*randr*is_mcc);
+    ca_2lo.ch_L = 0.05e-3;
+    ca_2lo.ch_R = 1e-6;
+    ca_2lo.ch_len = 0;
+    ca_2live = z_sim_rand_cable(rg58, is_mcc);
+    ca_2live.len = (0.03 + 0.02*randr*is_mcc);
+    ca_2live.ch_L = 0.05e-3;
+    ca_2live.ch_R = 1e-6;
+    ca_2live.ch_len = 0;
+    ca_2sh = z_sim_rand_cable(rg58, is_mcc);
+    ca_2sh.len = (0.03 + 0.02*randr*is_mcc);
+    ca_2sh.ch_L = 0.05e-3;
+    ca_2sh.ch_R = 1e-6;
+    ca_2sh.ch_len = 0;
+       
     
     % Z2 potential cables (4TP twinax mode) 
     ca_HpotA = z_sim_rand_twinax(twax, 0.5, 0.05, f, is_mcc);    
@@ -118,41 +161,85 @@ function [par] = z_sim_gen_params(f, Z1, Z2, is_mcc)
     buf_lpot.RoA = repmat(0.01 + 0.005*randr*is_mcc,[F 1]);
     buf_lpot.RoB = repmat(0.01 + 0.005*randr*is_mcc,[F 1]);
     
+    U_lin = logspace(log10(1e-7),log10(1),100);
+    
     % digitizer 1
-    adc1.Cin = repmat(270e-12 + 10e-12*randn*is_mcc,[F 1]); 
-    adc1.Rin = repmat(1e9     + 5e8*randr*is_mcc,[F 1]);
-    adc1.Csh = repmat(1e-9 + 0.1e-9*randn*is_mcc,[F 1]); 
-    adc1.Rsh = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
-    adc1.Csg = repmat(1e-9 + 0.1e-9*randn*is_mcc,[F 1]); 
-    adc1.Rsg = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
+    adc1.guard = is_3458;
+    if is_3458
+        adc1.Cin = repmat(270e-12 + 10e-12*randn*is_mcc,[F 1]); 
+        adc1.Rin = repmat(1e9     + 5e8*randr*is_mcc,[F 1]);
+        adc1.Clg = repmat(1e-9 + 0.1e-9*randn*is_mcc,[F 1]); 
+        adc1.Rlg = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
+        adc1.Cgs = repmat(1e-9 + 0.1e-9*randn*is_mcc,[F 1]); 
+        adc1.Rgs = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
+        adc1.ct = repmat(1e-8*(rand + j*rand)*rnd_ct,[F 1]);
+    else
+        adc1.Cin = repmat(5e-12 + 2e-12*randn*is_mcc,[F 1]); 
+        adc1.Rin = repmat(1e9     + 5e8*randr*is_mcc,[F 1]);
+        adc1.Clg = repmat(20e-12 + 10e-12*randn*is_mcc,[F 1]); 
+        adc1.Rlg = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
+        adc1.Cgs = repmat(1e-15,[F 1]); 
+        adc1.Rgs = repmat(1e9,[F 1]);
+        adc1.ct = z_sim_rand_ct(1e-7,7e-7,5000.0,2.0,f,1)*rnd_ct;        
+        [adc1.tf_k,adc1.tf_phi] = z_sim_rand_lin_9238(f,U_lin,rnd_lin);
+        adc1.tf_U = U_lin;
+    endif
     adc1.Rgnd = 0.5 + 0.5*randn*is_mcc;
     adc1.Lgnd = 1e-6 + 1e-6*randn*is_mcc;
     adc1.Rgrd = 0.01 + 0.01*randn*is_mcc;
     adc1.Lgrd = 0.1e-6 + 0.1e-6*randn*is_mcc;
-    
+        
     % digitizer 2
-    adc2.Cin = repmat(270e-12 + 10e-12*randn*is_mcc,[F 1]); 
-    adc2.Rin = repmat(1e9     + 5e8*randr*is_mcc,[F 1]);
-    adc2.Csh = repmat(1e-9 + 0.1e-9*randn*is_mcc,[F 1]); 
-    adc2.Rsh = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);    
-    adc2.Csg = repmat(1e-9 + 0.1e-9*randn*is_mcc,[F 1]); 
-    adc2.Rsg = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
+    if is_3458
+        adc2.Cin = repmat(270e-12 + 10e-12*randn*is_mcc,[F 1]); 
+        adc2.Rin = repmat(1e9     + 5e8*randr*is_mcc,[F 1]);
+        adc2.Clg = repmat(1e-9 + 0.1e-9*randn*is_mcc,[F 1]); 
+        adc2.Rlg = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
+        adc2.Cgs = repmat(1e-9 + 0.1e-9*randn*is_mcc,[F 1]); 
+        adc2.Rgs = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
+        adc2.ct = repmat(1e-8*(rand + j*rand)*rnd_ct,[F 1]);    
+    else
+        adc2.Cin = repmat(5e-12 + 2e-12*randn*is_mcc,[F 1]); 
+        adc2.Rin = repmat(1e9     + 5e8*randr*is_mcc,[F 1]);
+        adc2.Clg = repmat(20e-12 + 10e-12*randn*is_mcc,[F 1]); 
+        adc2.Rlg = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
+        adc2.Cgs = repmat(1e-15,[F 1]); 
+        adc2.Rgs = repmat(1e9,[F 1]);
+        adc2.ct = z_sim_rand_ct(1e-7,7e-7,5000.0,2.0,f,1)*rnd_ct;
+        [adc2.tf_k,adc2.tf_phi] = z_sim_rand_lin_9238(f,U_lin,rnd_lin);
+        adc2.tf_U = U_lin;      
+    endif
     adc2.Rgnd = 0.5 + 0.5*randn*is_mcc;
     adc2.Lgnd = 1e-6 + 1e-6*randn*is_mcc;
     adc2.Rgrd = 0.01 + 0.01*randn*is_mcc;
     adc2.Lgrd = 0.1e-6 + 0.1e-6*randn*is_mcc;
+    adc2.guard = is_3458;
     
     % digitizer 3
-    adc3.Cin = repmat(270e-12 + 10e-12*randn*is_mcc,[F 1]); 
-    adc3.Rin = repmat(1e9     + 5e8*randr*is_mcc,[F 1]);
-    adc3.Csh = repmat(1e-9 + 0.1e-9*randn*is_mcc,[F 1]); 
-    adc3.Rsh = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);    
-    adc3.Csg = repmat(1e-9 + 0.1e-9*randn*is_mcc,[F 1]); 
-    adc3.Rsg = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
+    if is_3458
+        adc3.Cin = repmat(270e-12 + 10e-12*randn*is_mcc,[F 1]); 
+        adc3.Rin = repmat(1e9     + 5e8*randr*is_mcc,[F 1]);
+        adc3.Clg = repmat(1e-9 + 0.1e-9*randn*is_mcc,[F 1]); 
+        adc3.Rlg = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
+        adc3.Cgs = repmat(1e-9 + 0.1e-9*randn*is_mcc,[F 1]); 
+        adc3.Rgs = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
+        adc3.ct = repmat(1e-8*(rand + j*rand)*rnd_ct,[F 1]);    
+    else
+        adc3.Cin = repmat(5e-12 + 2e-12*randn*is_mcc,[F 1]); 
+        adc3.Rin = repmat(1e9     + 5e8*randr*is_mcc,[F 1]);
+        adc3.Clg = repmat(20e-12 + 10e-12*randn*is_mcc,[F 1]); 
+        adc3.Rlg = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
+        adc3.Cgs = repmat(1e-15,[F 1]); 
+        adc3.Rgs = repmat(1e9,[F 1]);
+        adc3.ct = z_sim_rand_ct(1e-7,7e-7,5000.0,2.0,f,1)*rnd_ct;
+        [adc3.tf_k,adc3.tf_phi] = z_sim_rand_lin_9238(f,U_lin,rnd_lin);
+        adc3.tf_U = U_lin;        
+    endif
     adc3.Rgnd = 0.5 + 0.5*randn*is_mcc;
     adc3.Lgnd = 1e-6 + 1e-6*randn*is_mcc;
     adc3.Rgrd = 0.01 + 0.01*randn*is_mcc;
     adc3.Lgrd = 0.1e-6 + 0.1e-6*randn*is_mcc;
+    adc3.guard = is_3458;
     
     % --- Z1 standard
     % current lugs
@@ -229,28 +316,50 @@ function [par] = z_sim_gen_params(f, Z1, Z2, is_mcc)
     % impedance element
     Z2 = z_gen_imp_equ(Z2, f);
     
-    % define stray groups
-    M_pot_pot = 350e-9;
-    par.stray = {};
-    par.stray{end+1} = z_sim_gen_stray({'Hpot_A','Lpot_A'}, M_pot_pot, 20e-12, is_mcc);
-    par.stray{end+1} = z_sim_gen_stray({'Hpot_B','Lpot_B'}, M_pot_pot, 20e-12, is_mcc);
-    par.stray{end+1} = z_sim_gen_stray({'Hpot_B','U2'}, M_pot_pot, 20e-12, is_mcc);
-    par.stray{end+1} = z_sim_gen_stray({'Hpot_B','U3'}, M_pot_pot, 20e-12, is_mcc);
-    par.stray{end+1} = z_sim_gen_stray({'Lpot_B','U2'}, M_pot_pot, 20e-12, is_mcc);
-    par.stray{end+1} = z_sim_gen_stray({'Lpot_B','U3'}, M_pot_pot, 20e-12, is_mcc);
-    par.stray{end+1} = z_sim_gen_stray({'Hpot_A','coax_sup'}, 100e-9, 20e-12, is_mcc);
-    par.stray{end+1} = z_sim_gen_stray({'Hpot_B','coax_sup'}, 100e-9, 20e-12, is_mcc);
-    par.stray{end+1} = z_sim_gen_stray({'Hpot_A','coax_joint'}, 100e-9, 20e-12, is_mcc);
-    par.stray{end+1} = z_sim_gen_stray({'Hpot_B','coax_joint'}, 100e-9, 20e-12, is_mcc);     
-    par.stray{end+1} = z_sim_gen_stray({'Hpot_A','coax_Z1'}, 100e-9, 20e-12, is_mcc);
-    par.stray{end+1} = z_sim_gen_stray({'Hpot_B','coax_Z1'}, 100e-9, 20e-12, is_mcc);
-    par.stray{end+1} = z_sim_gen_stray({'Lpot_A','coax_Z1'}, 100e-9, 20e-12, is_mcc);
-    par.stray{end+1} = z_sim_gen_stray({'Lpot_B','coax_Z1'}, 100e-9, 20e-12, is_mcc);
-    par.stray{end+1} = z_sim_gen_stray({'coax_joint','coax_Z1'}, 50e-9, 10e-12, is_mcc);
-    par.stray{end+1} = z_sim_gen_stray({'coax_sup','coax_Z1'}, 20e-9, 10e-12, is_mcc);
-     
-    par.stray{end+1} = z_sim_gen_stray({'U3','U4'}, 100e-9, 0, is_mcc);
-    par.stray{end+1} = z_sim_gen_stray({'coax_sup','coax_joint'}, 100e-9, 0, is_mcc);
+        
+    % define stray groups    
+    par.stray = {};    
+    % buffer cables couplings
+    M_pot_pot = 50e-9;
+    C_pot_pot = 10e-12; 
+    par.stray{end+1} = z_sim_stray_values({'Hpot_A','Lpot_A'},{}, 0,M_pot_pot, 0,C_pot_pot, rnd_strays);
+    par.stray{end+1} = z_sim_stray_values({'Hpot_B','Lpot_B'},{}, 0,M_pot_pot, 0,C_pot_pot, rnd_strays);
+    par.stray{end+1} = z_sim_stray_values({'Hpot_A','Lpot_A'},{'Hpot_B','Lpot_B'}, 0,10e-9, 0,5e-12, rnd_strays);
+    % Z2 to Z1 couplings
+    M_Z12 = 30e-9;
+    C_Z12 = 10e-12;
+    par.stray{end+1} = z_sim_stray_values({'Hpot_A','Lpot_A','Hpot_B','Lpot_B'},{'coax_Z1'}, 0,M_Z12, 0,C_Z12, rnd_strays);
+    % to supply cables couplings
+    M_sup = 20e-9;
+    C_sup = 5e-12; 
+    par.stray{end+1} = z_sim_stray_values({'Hpot_A','Lpot_A','Hpot_B','Lpot_B','coax_Z1'},{'coax_sup','coax_joint'}, 0,M_sup, 0,C_sup, rnd_strays);    
+    par.stray{end+1} = z_sim_stray_values({'coax_sup','coax_joint'},{}, 0,M_sup, 0,C_sup, rnd_strays);
+        
+    if is_2x4T
+        % strays for 4TP to 2x4T convertor
+        par.stray{end+1} = z_sim_stray_values({'coax_2hi','coax_2lo'},{}, 0,10e-9, 0,5e-12, rnd_strays);
+        par.stray{end+1} = z_sim_stray_values({'coax_2live','coax_2sh'},{}, 0,10e-9, 0,5e-12, rnd_strays);
+        par.stray{end+1} = z_sim_stray_values({'coax_2live','coax_2sh'},{'coax_2hi','coax_2lo'}, 0,3e-9, 0,3e-12, rnd_strays);
+        % strays to other stuff
+        M_adA = 7e-9;
+        C_adA = 5e-12;
+        M_adB = 7e-9;
+        C_adB = 5e-12;
+        par.stray{end+1} = z_sim_stray_values({'coax_2hi','coax_2lo'},{'Hpot_A','Lpot_A','coax_Z1'}, 0,M_adA, 0,C_adA, rnd_strays);
+        par.stray{end+1} = z_sim_stray_values({'coax_2live','coax_2sh'},{'Hpot_A','Lpot_A','coax_Z1'}, 0,M_adB, 0,C_adB, rnd_strays);                                
+        M_adC = 10e-9;
+        C_adC = 5e-12;
+        M_adD = 10e-9;
+        C_adD = 5e-12;
+        par.stray{end+1} = z_sim_stray_values({'coax_2hi','coax_2lo'},{'coax_sup','coax_joint'}, 0,M_adC, 0,C_adC, rnd_strays);
+        par.stray{end+1} = z_sim_stray_values({'coax_2live','coax_2sh'},{'coax_sup','coax_joint'}, 0,M_adD, 0,C_adD, rnd_strays);
+    endif
+    
+    if is_9238
+        % stray capacitances between ADC channels
+        par.stray{end+1} = z_sim_stray_values({'wa1lo','wa2lo','wa3lo'},{}, 0,0, 0,10e-12, rnd_strays);        
+        par.stray{end+1} = z_sim_stray_values({'wa1lo','wa2lo','wa3lo'},{'wa1hi','wa2hi','wa3hi'}, 0,0, 0,1e-12, rnd_strays);
+    endif
     
     
                 
@@ -267,6 +376,10 @@ function [par] = z_sim_gen_params(f, Z1, Z2, is_mcc)
     par.ca_HpotB = ca_HpotB;
     par.ca_LpotA = ca_LpotA;
     par.ca_LpotB = ca_LpotB;
+    par.ca_2hi = ca_2hi;
+    par.ca_2lo = ca_2lo;
+    par.ca_2live = ca_2live;
+    par.ca_2sh = ca_2sh;
     par.adc1 = adc1;
     par.adc2 = adc2;
     par.adc3 = adc3;
@@ -275,6 +388,41 @@ function [par] = z_sim_gen_params(f, Z1, Z2, is_mcc)
     
 endfunction
 
+
+function [ct] = z_sim_rand_ct(ct_min,ct_max,f_max,f_power,f,is_rand)
+    % generate some crosstalk data, where ct_min is minimum crosstalk, ct_max is crosstalk at f_max and f_power is rise of ct. with freq (1-linear, 2-square of f) 
+    ct = (ct_min.^2 + (ct_max.*(f/f_max).^f_power).^2).^0.5;
+    if is_rand
+        ct = ct.*(randr(size(ct)) + j*randr(size(ct)));
+    endif        
+endfunction
+
+function [k,phi] = z_sim_rand_lin_9238(f,U,is_rand)
+    
+    phi_min = 0.5e-6;
+    phi_ref = 1e-6;
+    phi_fact = 2.0;    
+    phi_lev_ref = 0.01;
+    phi_lev_pow = 0.5;
+    
+    k_min = 15e-6;
+    k_ref = 10e-6;
+    k_fact = 1.5;    
+    k_lev_ref = 0.001;
+    k_lev_pow = 0.5;
+    
+    phi = (phi_min^2 + (phi_ref*(f/1000).^phi_fact).^2).^0.5.*max(1,(phi_lev_ref./U).^phi_lev_pow); 
+    k   = (k_min^2 + (k_ref*(f/1000).^k_fact).^2).^0.5.*max(1,(k_lev_ref./U).^k_lev_pow);
+    
+    if is_rand > 0
+        phi = phi.*randr(size(phi));
+        k   = k.*randr(size(k));
+    elseif is_rand == 0
+        phi = 0*phi;
+        k = 0*k;    
+    endif
+            
+endfunction
 
 function [cab] = z_sim_rand_twinax(twax, len, u_len, f, is_mcc)
 % randomize twinax cable parameters   
@@ -379,17 +527,24 @@ function [Z] = z_gen_imp_equ(Z,f)
     else
         error(sprintf('Impedance equivalent circuit ''%s'' not known!',Z.mode));
     endif
-endfunction
-
-
-function [stray] = z_sim_gen_stray(names, u_M, u_C, is_mcc)
-% make random strays
-    stray.names = names;    
-    M   = 1e-12;
-    C   = 1e-15;
-    %stray.M_names = {};
-    stray.M = M + u_M*randn(nchoosek(numel(stray.names),2),1)*is_mcc;
-    stray.C = C + u_C*randn(nchoosek(numel(stray.names),2),1)*is_mcc;
+    
+    % 4TP ground modes:
+    if isfield(Z,'gmode') && Z.gmode == 1
+        % isolate potential and current side
+        Z.Rb = 1e-6;
+        Z.Lb = 1e-9;
+    elseif isfield(Z,'gmode')
+        % regular 4TP mode with equal ground impedances between ports
+        Z.Rb = Z.Rg;
+        Z.Lb = Z.Lg;
+        % make correction so 4TP impedance matches desdired value
+        Z.R -= Z.Rg;
+        Z.L -= Z.Lg;
+    else
+        Z.Rg = 0;
+        Z.Lg = 0;
+    endif
+    
 endfunction
 
 

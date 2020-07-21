@@ -20,7 +20,7 @@ SET OCT_FLD=%1
 SET OCT_NAME=%2
 
 REM --- Job share folder ---
-SET SHARE_PATH=%4
+SET SHARE_PATH=%~4
 
 REM --- Options ---
 SET OPT=/BELOWNORMAL /B

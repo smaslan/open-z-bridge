@@ -41,7 +41,7 @@ CIRCLE Normal -80 16 -112 -16
 CIRCLE Normal 112 16 80 -16
 CIRCLE Normal 80 -64 112 -32
 CIRCLE Normal -112 -64 -80 -32
-TEXT -1 57 Center 0 GND
+TEXT -1 57 Center 0 CASE
 WINDOW 0 -1 -124 Center 2
 WINDOW 3 -6 -212 Center 2
 WINDOW 123 -5 -188 Center 2
@@ -49,11 +49,11 @@ WINDOW 39 -5 -167 Center 2
 WINDOW 40 -5 -147 Center 2
 SYMATTR Value CgA=? RgA=?
 SYMATTR Value2 CgB=? RgB=?
+SYMATTR SpiceLine LoA=? RoA=?
+SYMATTR SpiceLine2 LoB=? RoB=?
 SYMATTR Prefix X
 SYMATTR ModelFile ZbrgLib.cir ZbrgLib
 SYMATTR SpiceModel DUAL_EPBUF
-SYMATTR SpiceLine LoA=? RoA=?
-SYMATTR SpiceLine2 LoB=? RoB=?
 PIN -128 -48 NONE 8
 PINATTR PinName AL1
 PINATTR SpiceOrder 1
@@ -79,5 +79,5 @@ PIN 128 16 NONE 8
 PINATTR PinName BG2
 PINATTR SpiceOrder 8
 PIN 0 80 NONE 8
-PINATTR PinName GND
+PINATTR PinName CASE
 PINATTR SpiceOrder 9

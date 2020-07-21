@@ -1,0 +1,71 @@
+Version 4
+SymbolType CELL
+LINE Normal 272 -48 272 -48
+LINE Normal -56 -24 -56 -24
+LINE Normal 96 0 96 -48
+LINE Normal 109 0 96 0
+LINE Normal 109 64 109 0
+LINE Normal 83 64 109 64
+LINE Normal 83 0 83 64
+LINE Normal 96 0 83 0
+LINE Normal 96 0 96 0
+LINE Normal -24 -48 96 -48
+LINE Normal 272 -48 96 -48
+LINE Normal 96 88 96 64
+LINE Normal 32 -24 -21 -24
+LINE Normal 240 -72 160 -72
+LINE Normal -21 -24 -56 -24
+LINE Normal 160 88 32 88
+LINE Normal 160 -24 160 88
+LINE Normal 160 -24 160 -24
+LINE Normal 32 88 32 -24
+LINE Normal 83 -96 96 -96
+LINE Normal 83 -160 83 -96
+LINE Normal 109 -160 83 -160
+LINE Normal 109 -96 109 -160
+LINE Normal 96 -96 109 -96
+LINE Normal 96 -96 96 -96
+LINE Normal 96 -184 96 -160
+LINE Normal 96 -48 96 -96
+LINE Normal 160 -184 160 -72
+LINE Normal 32 -184 160 -184
+LINE Normal 32 -72 32 -184
+LINE Normal 248 -24 160 -24
+LINE Normal -48 -72 32 -72
+LINE Normal -48 -48 -24 -48
+LINE Normal -80 -48 -48 -48
+LINE Normal -80 0 -56 -24
+LINE Normal 248 -24 272 0
+RECTANGLE Normal 240 112 -48 -208
+CIRCLE Normal 56 -24 8 -72
+CIRCLE Normal 184 -24 136 -72
+CIRCLE Normal 98 90 94 86
+CIRCLE Normal 94 -186 98 -182
+CIRCLE Normal 98 -46 94 -50
+CIRCLE Normal 264 -24 216 -72
+CIRCLE Normal -24 -24 -72 -72
+TEXT 104 -68 Left 3 Z
+TEXT 193 -89 Center 2 POT
+TEXT 0 -88 Center 2 CUR
+WINDOW 0 96 -338 Center 4
+WINDOW 3 97 -302 Center 2
+WINDOW 123 97 -281 Center 2
+WINDOW 39 97 -261 Center 2
+SYMATTR Value Rp=? Lp=? Rpg=? Lpg=? kp=? Cp=? Rp=?
+SYMATTR Value2 Rc=? Lc=? Rcg=? Lcg=? kc=? Cc=? Rc=?
+SYMATTR SpiceLine Rs=? Ls=?
+SYMATTR Prefix X
+SYMATTR ModelFile ZbrgLib.cir ZbrgLib
+SYMATTR SpiceModel STDCOAX
+PIN -80 -48 NONE 8
+PINATTR PinName Ch
+PINATTR SpiceOrder 1
+PIN -80 0 NONE 8
+PINATTR PinName Cl
+PINATTR SpiceOrder 2
+PIN 272 0 NONE 8
+PINATTR PinName PhG
+PINATTR SpiceOrder 4
+PIN 272 -48 NONE 8
+PINATTR PinName Ph
+PINATTR SpiceOrder 3

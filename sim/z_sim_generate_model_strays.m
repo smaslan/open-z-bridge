@@ -69,10 +69,27 @@ function [net,strays] = z_sim_generate_model_strays(net, spec, strays);
                 endif
                 % add index to list
                 mid(k) = eid;            
+            endfor 
+            mid2 = [];
+            for k = 1:numel(stray.names2)               
+                % try to search element in model 
+                eid = find(strcmp(stray.names2(k), el_names));
+                if isempty(eid)
+                    error(sprintf('Generating stray couplings: cannot find element ''%s'' in model!',stray.names2{k}));
+                endif
+                % add index to list
+                mid2(k) = eid;            
             endfor
             
             % generate all combinations between elements in group 
-            comb = combnk(mid,2);
+            if isempty(stray.names2)
+                % single array combinations            
+                comb = combnk(mid,2);
+            else
+                % two combinations between two arrays                
+                [a,b] = meshgrid(mid,mid2);                               
+                comb = [a(:) b(:)];
+            endif
             
             % generete coupling for combinations
             for k = 1:size(comb,1)
@@ -88,14 +105,16 @@ function [net,strays] = z_sim_generate_model_strays(net, spec, strays);
                 %   note: it is later used to generate actual .param Mxxx=value
                 stray.M_names{end+1} = mut_name;
                 
-                % generate K commands for inductive couplings
-                k_templ = '.param %s={max(min(%s/sqrt(abs(%s*%s)),0.999),-0.999)} $ M#%03d=<%s> - M#stray_group_id=<mutual_inductance_parameter>\n';                        
+                % coupling tag
+                M_tag = sprintf(' $ M#%03d=<%s>',s,mut_name);
+                
+                % generate K commands for inductive couplings                                        
                 for m = 1:numel(ia.L_name)
                     for n = 1:numel(ib.L_name)
                         % -- for each combination of element A and B
-                        mut_param = sprintf('k_stray%03d',k_id);                        
-                        str = [str sprintf(k_templ, mut_param,mut_name,ia.L_val{m},ib.L_val{n},s,mut_name)];
-                        str = [str sprintf('Kstray%04d %s %s {%s}\n', k_id, ia.L_name{m},  ib.L_name{n},  mut_param)]; k_id++;                                            
+                        eqn = sprintf('{max(min(%s/sqrt(abs(%s*%s)),0.999),-0.999)}', mut_name,ia.L_val{m},ib.L_val{n});
+                        str = [str sprintf('Kstray%04d %s %s %s%s\n', k_id, ia.L_name{m}, ib.L_name{n}, eqn, M_tag)]; k_id++;
+                        M_tag = '';                                            
                     endfor
                 endfor
                 
@@ -104,11 +123,11 @@ function [net,strays] = z_sim_generate_model_strays(net, spec, strays);
                 cap_name = sprintf('C_stray%03d',Cval_id++);
                 
                 % add capacitor to stray list
-                %   note: it is later used to generate actual .param Mxxx=value
+                %   note: it is later used to generate actual .param Cxxx=value
                 stray.C_names{end+1} = cap_name;
                 
                 % generate C commands for capacitive couplings
-                C_tag = sprintf(' $ C#%03d=<%s> - C#stray_group_id=<stray_capacitance_parameter>\n',Cval_id-1,cap_name);                        
+                C_tag = sprintf(' $ C#%03d=<%s>',s,cap_name);                        
                 for m = 1:numel(ia.C_name)
                     for n = 1:numel(ib.C_name)
                         % -- for each combination of element A and B
@@ -120,13 +139,11 @@ function [net,strays] = z_sim_generate_model_strays(net, spec, strays);
             endfor
             
             strays{s} = stray;    
-        endfor % for each stray group
+        endfor % for each stray group               
         
         % append to NET
         net = strrep(net,'.end',[sprintf('* Automatically generated stray couplings\n%s\n.end\n',str)]);
     
     endif
-    
-    %strays
 
 endfunction
