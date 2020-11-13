@@ -1,3 +1,4 @@
 /temp
-/lvprog/TWM.aliases
+*.aliases
+*.lvlps
 /builds

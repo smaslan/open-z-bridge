@@ -73,6 +73,27 @@
 				<Item Name="cDAQ DDS Test Panel.vi" Type="VI" URL="../drivers/cDAQ DDS/cDAQ DDS Test Panel.vi"/>
 				<Item Name="cDAQ DDS To Idle.vi" Type="VI" URL="../drivers/cDAQ DDS/cDAQ DDS To Idle.vi"/>
 			</Item>
+			<Item Name="Fluke 5XXX" Type="Folder">
+				<Item Name="top_lev" Type="Folder">
+					<Item Name="F5xxx_get_scope_capabiilties.vi" Type="VI" URL="../drivers/Fluke 5XXX/top_lev/F5xxx_get_scope_capabiilties.vi"/>
+					<Item Name="F5xxx_get_scope_measZ_value.vi" Type="VI" URL="../drivers/Fluke 5XXX/top_lev/F5xxx_get_scope_measZ_value.vi"/>
+					<Item Name="F5xxx_pq_harmonic_def.ctl" Type="VI" URL="../drivers/Fluke 5XXX/top_lev/F5xxx_pq_harmonic_def.ctl"/>
+					<Item Name="F5xxx_pq_load_preset.vi" Type="VI" URL="../drivers/Fluke 5XXX/top_lev/F5xxx_pq_load_preset.vi"/>
+					<Item Name="F5xxx_pq_set_harmonics.vi" Type="VI" URL="../drivers/Fluke 5XXX/top_lev/F5xxx_pq_set_harmonics.vi"/>
+					<Item Name="F5xxx_pq_set_mode.vi" Type="VI" URL="../drivers/Fluke 5XXX/top_lev/F5xxx_pq_set_mode.vi"/>
+					<Item Name="F5xxx_scope_type.ctl" Type="VI" URL="../drivers/Fluke 5XXX/top_lev/F5xxx_scope_type.ctl"/>
+					<Item Name="F5xxx_set_pulse_timing.vi" Type="VI" URL="../drivers/Fluke 5XXX/top_lev/F5xxx_set_pulse_timing.vi"/>
+					<Item Name="F5xxx_set_waveform.vi" Type="VI" URL="../drivers/Fluke 5XXX/top_lev/F5xxx_set_waveform.vi"/>
+					<Item Name="F5xxx_wait_settle.vi" Type="VI" URL="../drivers/Fluke 5XXX/top_lev/F5xxx_wait_settle.vi"/>
+					<Item Name="F5xxx_session.ctl" Type="VI" URL="../drivers/Fluke 5XXX/top_lev/F5xxx_session.ctl"/>
+					<Item Name="F5xxx_output_mode.ctl" Type="VI" URL="../drivers/Fluke 5XXX/top_lev/F5xxx_output_mode.ctl"/>
+					<Item Name="F5xxx Config Panel.vi" Type="VI" URL="../drivers/Fluke 5XXX/top_lev/F5xxx Config Panel.vi"/>
+					<Item Name="F5xxx Initialize.vi" Type="VI" URL="../drivers/Fluke 5XXX/top_lev/F5xxx Initialize.vi"/>
+					<Item Name="F5xxx Close.vi" Type="VI" URL="../drivers/Fluke 5XXX/top_lev/F5xxx Close.vi"/>
+					<Item Name="F5xxx Set Level.vi" Type="VI" URL="../drivers/Fluke 5XXX/top_lev/F5xxx Set Level.vi"/>
+				</Item>
+				<Item Name="Fluke 5XXX Series Multicalibrators.lvlib" Type="Library" URL="../drivers/Fluke 5XXX/Fluke 5XXX Series Multicalibrators.lvlib"/>
+			</Item>
 			<Item Name="infolib.lvlibp" Type="LVLibp" URL="../drivers/infolib.lvlibp">
 				<Item Name="Private" Type="Folder">
 					<Item Name="Add key polymorph parts" Type="Folder">
@@ -629,6 +650,7 @@
 				<Item Name="DAQmx Timing (Burst Export Clock).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/configure/timing.llb/DAQmx Timing (Burst Export Clock).vi"/>
 				<Item Name="DAQmx Timing (Pipelined Sample Clock).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/configure/timing.llb/DAQmx Timing (Pipelined Sample Clock).vi"/>
 				<Item Name="DAQmx Wait Until Done.vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/configure/task.llb/DAQmx Wait Until Done.vi"/>
+				<Item Name="VISA GPIB Control REN Mode.ctl" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA GPIB Control REN Mode.ctl"/>
 			</Item>
 			<Item Name="Advapi32.dll" Type="Document" URL="Advapi32.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
@@ -647,6 +669,9 @@
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="control_enabled_state.vi" Type="VI" URL="../other/control_enabled_state.vi"/>
+			<Item Name="refs_write_status_3.vi" Type="VI" URL="../refs/refs_write_status_3.vi"/>
+			<Item Name="refs_get.vi" Type="VI" URL="../refs/refs_get.vi"/>
+			<Item Name="wait_with_status.vi" Type="VI" URL="../other/wait_with_status.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="Open_Z_bridge-full" Type="EXE">
@@ -659,20 +684,22 @@
 				<Property Name="Bld_excludeInlineSubVIs" Type="Bool">true</Property>
 				<Property Name="Bld_excludeLibraryItems" Type="Bool">true</Property>
 				<Property Name="Bld_excludePolymorphicVIs" Type="Bool">true</Property>
-				<Property Name="Bld_localDestDir" Type="Path">../NI_AB_PROJECTNAME/builds/[VersionNumber]/Open_Z_bridge-full</Property>
-				<Property Name="Bld_localDestDirType" Type="Str">relativeToCommon</Property>
+				<Property Name="Bld_localDestDir" Type="Path">../builds/Open_Z_bridge-[VersionNumber]-full</Property>
+				<Property Name="Bld_localDestDirType" Type="Str">relativeToProject</Property>
 				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
 				<Property Name="Bld_preActionVIID" Type="Ref">/My Computer/build/Pre-Build Action - visa,daqmx.vi</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{791F11D6-C97D-45C0-88CE-FB43FA74A516}</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Destination[0].destName" Type="Str">open_z_bridge.exe</Property>
-				<Property Name="Destination[0].path" Type="Path">../NI_AB_PROJECTNAME/builds/[VersionNumber]/Open_Z_bridge-full/Open_Z_bridge-full.exe</Property>
+				<Property Name="Destination[0].path" Type="Path">../builds/Open_Z_bridge-[VersionNumber]-full/Open_Z_bridge-full.exe</Property>
+				<Property Name="Destination[0].path.type" Type="Str">relativeToProject</Property>
 				<Property Name="Destination[0].preserveHierarchy" Type="Bool">true</Property>
 				<Property Name="Destination[0].type" Type="Str">App</Property>
 				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
-				<Property Name="Destination[1].path" Type="Path">../NI_AB_PROJECTNAME/builds/[VersionNumber]/Open_Z_bridge-full/data</Property>
+				<Property Name="Destination[1].path" Type="Path">../builds/Open_Z_bridge-[VersionNumber]-full/data</Property>
+				<Property Name="Destination[1].path.type" Type="Str">relativeToProject</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
-				<Property Name="Source[0].itemID" Type="Str">{59588035-053F-4264-907A-30B6B26C5012}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{26C39361-65D5-446A-A6A5-6AE163FDCF1C}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/main.vi</Property>
