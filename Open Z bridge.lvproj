@@ -218,19 +218,30 @@
 		</Item>
 		<Item Name="measure" Type="Folder">
 			<Property Name="NI.SortType" Type="Int">3</Property>
+			<Item Name="results" Type="Folder">
+				<Item Name="Meas Results.ctl" Type="VI" URL="../measure/Meas Results.ctl"/>
+				<Item Name="Meas Result GUI References.ctl" Type="VI" URL="../measure/Meas Result GUI References.ctl"/>
+				<Item Name="Meas Results Sweep Data.ctl" Type="VI" URL="../measure/Meas Results Sweep Data.ctl"/>
+				<Item Name="Meas Result Major Format.ctl" Type="VI" URL="../measure/Meas Result Major Format.ctl"/>
+				<Item Name="Meas Result Deviation Format.ctl" Type="VI" URL="../measure/Meas Result Deviation Format.ctl"/>
+				<Item Name="Meas Result Freq Format.ctl" Type="VI" URL="../measure/Meas Result Freq Format.ctl"/>
+				<Item Name="Meas Result 4TP Impedance Mode.ctl" Type="VI" URL="../measure/Meas Result 4TP Impedance Mode.ctl"/>
+				<Item Name="Meas Results Sweep Data Uncertainty Mode.ctl" Type="VI" URL="../measure/Meas Results Sweep Data Uncertainty Mode.ctl"/>
+				<Item Name="Meas Result Get Access.vi" Type="VI" URL="../measure/Meas Result Get Access.vi"/>
+				<Item Name="Meas Result Release Access.vi" Type="VI" URL="../measure/Meas Result Release Access.vi"/>
+				<Item Name="Meas Result Get Sweep Data.vi" Type="VI" URL="../measure/Meas Result Get Sweep Data.vi"/>
+				<Item Name="Meas Result Add Reading.vi" Type="VI" URL="../measure/Meas Result Add Reading.vi"/>
+				<Item Name="Meas Result Update View.vi" Type="VI" URL="../measure/Meas Result Update View.vi"/>
+				<Item Name="Meas Result Export.vi" Type="VI" URL="../measure/Meas Result Export.vi"/>
+				<Item Name="Meas Result Make Unc Bars to Graph.vi" Type="VI" URL="../measure/Meas Result Make Unc Bars to Graph.vi"/>
+			</Item>
 			<Item Name="meas session.ctl" Type="VI" URL="../measure/meas session.ctl"/>
 			<Item Name="Meas Freq Info.ctl" Type="VI" URL="../measure/Meas Freq Info.ctl"/>
 			<Item Name="Meas Sequence Item.ctl" Type="VI" URL="../measure/Meas Sequence Item.ctl"/>
 			<Item Name="Meas Sweep Config.ctl" Type="VI" URL="../measure/Meas Sweep Config.ctl"/>
 			<Item Name="meas_sweep_flist_mode.ctl" Type="VI" URL="../measure/meas_sweep_flist_mode.ctl"/>
 			<Item Name="meas_swp_mode.ctl" Type="VI" URL="../measure/meas_swp_mode.ctl"/>
-			<Item Name="Meas Results.ctl" Type="VI" URL="../measure/Meas Results.ctl"/>
-			<Item Name="Meas Result GUI References.ctl" Type="VI" URL="../measure/Meas Result GUI References.ctl"/>
-			<Item Name="Meas Results Sweep Data.ctl" Type="VI" URL="../measure/Meas Results Sweep Data.ctl"/>
-			<Item Name="Meas Result Major Format.ctl" Type="VI" URL="../measure/Meas Result Major Format.ctl"/>
-			<Item Name="Meas Result Deviation Format.ctl" Type="VI" URL="../measure/Meas Result Deviation Format.ctl"/>
 			<Item Name="Meas Quantity Names.ctl" Type="VI" URL="../measure/Meas Quantity Names.ctl"/>
-			<Item Name="Meas Result Freq Format.ctl" Type="VI" URL="../measure/Meas Result Freq Format.ctl"/>
 			<Item Name="Meas Panel.vi" Type="VI" URL="../measure/Meas Panel.vi"/>
 			<Item Name="Meas Gen Sequence.vi" Type="VI" URL="../measure/Meas Gen Sequence.vi"/>
 			<Item Name="Meas Gen Path.vi" Type="VI" URL="../measure/Meas Gen Path.vi"/>
@@ -238,12 +249,6 @@
 			<Item Name="Meas Asynchronous Wait.vi" Type="VI" URL="../measure/Meas Asynchronous Wait.vi"/>
 			<Item Name="Meas Main.vi" Type="VI" URL="../measure/Meas Main.vi"/>
 			<Item Name="Meas Loop.vi" Type="VI" URL="../measure/Meas Loop.vi"/>
-			<Item Name="Meas Result Get Access.vi" Type="VI" URL="../measure/Meas Result Get Access.vi"/>
-			<Item Name="Meas Result Release Access.vi" Type="VI" URL="../measure/Meas Result Release Access.vi"/>
-			<Item Name="Meas Result Get Sweep Data.vi" Type="VI" URL="../measure/Meas Result Get Sweep Data.vi"/>
-			<Item Name="Meas Result Add Reading.vi" Type="VI" URL="../measure/Meas Result Add Reading.vi"/>
-			<Item Name="Meas Result Update View.vi" Type="VI" URL="../measure/Meas Result Update View.vi"/>
-			<Item Name="Meas Result Export.vi" Type="VI" URL="../measure/Meas Result Export.vi"/>
 		</Item>
 		<Item Name="ini" Type="Folder">
 			<Item Name="ini_auto" Type="Folder">
