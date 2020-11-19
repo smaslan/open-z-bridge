@@ -20,6 +20,8 @@
 				<Item Name="TWM Mode.ctl" Type="VI" URL="../drivers/TWM client/TWM Mode.ctl"/>
 				<Item Name="TWM parameters.ctl" Type="VI" URL="../drivers/TWM client/TWM parameters.ctl"/>
 				<Item Name="TWM Session.ctl" Type="VI" URL="../drivers/TWM client/TWM Session.ctl"/>
+				<Item Name="Meas Proc QWTB Spectrum Data.ctl" Type="VI" URL="../drivers/TWM client/Meas Proc QWTB Spectrum Data.ctl"/>
+				<Item Name="Meas Proc QWTB Load Result Spectra.vi" Type="VI" URL="../drivers/TWM client/Meas Proc QWTB Load Result Spectra.vi"/>
 				<Item Name="TWM client.lvlibp" Type="LVLibp" URL="../drivers/TWM client.lvlibp">
 					<Item Name="TWM Client Processing Setup.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Processing Setup.ctl"/>
 					<Item Name="TWM Client Quantity Record.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Quantity Record.ctl"/>
@@ -27,6 +29,7 @@
 					<Item Name="TWM Client Result Max Dim.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Result Max Dim.ctl"/>
 					<Item Name="TWM Client Transducer Correction Item.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Transducer Correction Item.ctl"/>
 					<Item Name="TWM Client Algorithm Info.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Algorithm Info.ctl"/>
+					<Item Name="TWM Client Result Info.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Result Info.ctl"/>
 					<Item Name="TWM Client Cmd Get Result.vi" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Cmd Get Result.vi"/>
 					<Item Name="TWM Client Cmd Get Status.vi" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Cmd Get Status.vi"/>
 					<Item Name="TWM Client Cmd Get Algorithm Info.vi" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Cmd Get Algorithm Info.vi"/>
@@ -43,10 +46,10 @@
 					<Item Name="TWM Client Test.vi" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Test.vi"/>
 					<Item Name="TWM Client Open.vi" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Open.vi"/>
 					<Item Name="TWM Client Close.vi" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Close.vi"/>
+					<Item Name="Clear Errors.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/Clear Errors.vi"/>
 					<Item Name="whitespace.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/whitespace.ctl"/>
 					<Item Name="Trim Whitespace.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/Trim Whitespace.vi"/>
 					<Item Name="Error Cluster From Error Code.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/Error Cluster From Error Code.vi"/>
-					<Item Name="Clear Errors.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/Clear Errors.vi"/>
 					<Item Name="wa32 WaitNamedPipeA.vi" Type="VI" URL="../drivers/TWM client.lvlibp/WinAPI32/wa32 WaitNamedPipeA.vi"/>
 					<Item Name="wa32 CreateFileA.vi" Type="VI" URL="../drivers/TWM client.lvlibp/WinAPI32/wa32 CreateFileA.vi"/>
 					<Item Name="wa32 CloseHandle.vi" Type="VI" URL="../drivers/TWM client.lvlibp/WinAPI32/wa32 CloseHandle.vi"/>
@@ -232,6 +235,7 @@
 				<Item Name="Meas Result Get Sweep Data.vi" Type="VI" URL="../measure/Meas Result Get Sweep Data.vi"/>
 				<Item Name="Meas Result Add Reading.vi" Type="VI" URL="../measure/Meas Result Add Reading.vi"/>
 				<Item Name="Meas Result Update View.vi" Type="VI" URL="../measure/Meas Result Update View.vi"/>
+				<Item Name="Meas Result Update Reading Status.vi" Type="VI" URL="../measure/Meas Result Update Reading Status.vi"/>
 				<Item Name="Meas Result Export.vi" Type="VI" URL="../measure/Meas Result Export.vi"/>
 				<Item Name="Meas Result Make Unc Bars to Graph.vi" Type="VI" URL="../measure/Meas Result Make Unc Bars to Graph.vi"/>
 			</Item>
@@ -677,6 +681,10 @@
 			<Item Name="refs_write_status_3.vi" Type="VI" URL="../refs/refs_write_status_3.vi"/>
 			<Item Name="refs_get.vi" Type="VI" URL="../refs/refs_get.vi"/>
 			<Item Name="wait_with_status.vi" Type="VI" URL="../other/wait_with_status.vi"/>
+			<Item Name="MAT Search Matrix.vi" Type="VI" URL="../other/MAT/MAT Search Matrix.vi"/>
+			<Item Name="MAT Read Matrix.vi" Type="VI" URL="../other/MAT/MAT Read Matrix.vi"/>
+			<Item Name="MAT Read Matrix Header.vi" Type="VI" URL="../other/MAT/MAT Read Matrix Header.vi"/>
+			<Item Name="MAT Type Representation.ctl" Type="VI" URL="../other/MAT/MAT Type Representation.ctl"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="Open_Z_bridge-full" Type="EXE">
