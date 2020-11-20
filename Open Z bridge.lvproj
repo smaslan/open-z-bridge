@@ -21,6 +21,7 @@
 				<Item Name="TWM parameters.ctl" Type="VI" URL="../drivers/TWM client/TWM parameters.ctl"/>
 				<Item Name="TWM Session.ctl" Type="VI" URL="../drivers/TWM client/TWM Session.ctl"/>
 				<Item Name="Meas Proc QWTB Spectrum Data.ctl" Type="VI" URL="../drivers/TWM client/Meas Proc QWTB Spectrum Data.ctl"/>
+				<Item Name="Meas Proc QWTB Uncertainty Mode.ctl" Type="VI" URL="../drivers/TWM client/Meas Proc QWTB Uncertainty Mode.ctl"/>
 				<Item Name="Meas Proc QWTB Load Result Spectra.vi" Type="VI" URL="../drivers/TWM client/Meas Proc QWTB Load Result Spectra.vi"/>
 				<Item Name="TWM client.lvlibp" Type="LVLibp" URL="../drivers/TWM client.lvlibp">
 					<Item Name="TWM Client Processing Setup.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Processing Setup.ctl"/>
