@@ -98,6 +98,16 @@
 				</Item>
 				<Item Name="Fluke 5XXX Series Multicalibrators.lvlib" Type="Library" URL="../drivers/Fluke 5XXX/Fluke 5XXX Series Multicalibrators.lvlib"/>
 			</Item>
+			<Item Name="Agilent 33XXX Series" Type="Folder">
+				<Item Name="Agilent 33XXX Series.lvlib" Type="Library" URL="../drivers/Agilent 33XXX Series/Agilent 33XXX Series.lvlib"/>
+			</Item>
+			<Item Name="CMI LiBbias" Type="Folder">
+				<Item Name="CMI LiB Bias Open.vi" Type="VI" URL="../drivers/CMI LiBbias/CMI LiB Bias Open.vi"/>
+				<Item Name="CMI LiB Bias Close.vi" Type="VI" URL="../drivers/CMI LiBbias/CMI LiB Bias Close.vi"/>
+				<Item Name="CMI LiB Bias Read Error.vi" Type="VI" URL="../drivers/CMI LiBbias/CMI LiB Bias Read Error.vi"/>
+				<Item Name="CMI LiB Bias Flush Buffer.vi" Type="VI" URL="../drivers/CMI LiBbias/CMI LiB Bias Flush Buffer.vi"/>
+				<Item Name="CMI LiB Bias Set Bias.vi" Type="VI" URL="../drivers/CMI LiBbias/CMI LiB Bias Set Bias.vi"/>
+			</Item>
 			<Item Name="infolib.lvlibp" Type="LVLibp" URL="../drivers/infolib.lvlibp">
 				<Item Name="Private" Type="Folder">
 					<Item Name="Add key polymorph parts" Type="Folder">
@@ -212,6 +222,12 @@
 			<Item Name="Bridge Sampling Setup.ctl" Type="VI" URL="../bridge/Bridge Sampling Setup.ctl"/>
 			<Item Name="Bridge Reading Data.ctl" Type="VI" URL="../bridge/Bridge Reading Data.ctl"/>
 			<Item Name="Bridge Frequency Readings Data.ctl" Type="VI" URL="../bridge/Bridge Frequency Readings Data.ctl"/>
+			<Item Name="Bridge Bias Type.ctl" Type="VI" URL="../bridge/Bridge Bias Type.ctl"/>
+			<Item Name="Bridge Bias Session.ctl" Type="VI" URL="../bridge/Bridge Bias Session.ctl"/>
+			<Item Name="Bridge Bias Open.vi" Type="VI" URL="../bridge/Bridge Bias Open.vi"/>
+			<Item Name="Bridge Bias Close.vi" Type="VI" URL="../bridge/Bridge Bias Close.vi"/>
+			<Item Name="Bridge Bias Set.vi" Type="VI" URL="../bridge/Bridge Bias Set.vi"/>
+			<Item Name="Bridge Bias Set All.vi" Type="VI" URL="../bridge/Bridge Bias Set All.vi"/>
 			<Item Name="TWM Parse Parameters.vi" Type="VI" URL="../drivers/TWM client/TWM Parse Parameters.vi"/>
 			<Item Name="RLC_fake.vi" Type="VI" URL="../bridge/RLC_fake.vi"/>
 			<Item Name="Bridge Panel.vi" Type="VI" URL="../bridge/Bridge Panel.vi"/>
