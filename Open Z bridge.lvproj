@@ -224,6 +224,7 @@
 			<Item Name="Bridge Frequency Readings Data.ctl" Type="VI" URL="../bridge/Bridge Frequency Readings Data.ctl"/>
 			<Item Name="Bridge Bias Type.ctl" Type="VI" URL="../bridge/Bridge Bias Type.ctl"/>
 			<Item Name="Bridge Bias Session.ctl" Type="VI" URL="../bridge/Bridge Bias Session.ctl"/>
+			<Item Name="Bridge Bias Get Capabilities.vi" Type="VI" URL="../bridge/Bridge Bias Get Capabilities.vi"/>
 			<Item Name="Bridge Bias Open.vi" Type="VI" URL="../bridge/Bridge Bias Open.vi"/>
 			<Item Name="Bridge Bias Close.vi" Type="VI" URL="../bridge/Bridge Bias Close.vi"/>
 			<Item Name="Bridge Bias Set.vi" Type="VI" URL="../bridge/Bridge Bias Set.vi"/>
