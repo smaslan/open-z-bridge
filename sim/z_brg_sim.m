@@ -130,7 +130,7 @@ function [model, Z2,d_Z,d_ph,d_Rs,d_Xs] = z_brg_sim(model, par, f, swp, cfg)
     p.Rgrd1 = par.adc1.Rgrd;
     p.Lgrd1 = par.adc1.Lgrd;
     % ADC 1 input impedance estimate
-    Zin1 = 1./(j*w*p.Ca1in + 1./p.Ra1in);
+    Zin1 = 1./(j*w*par.adc1.m_Cin + 1./par.adc1.m_Rin);
     Zin1 = 1/(1/Zin1 + j*w*p.Cc1sh + 1./p.Rc1sh);
     
     % make ADC 2
@@ -146,7 +146,7 @@ function [model, Z2,d_Z,d_ph,d_Rs,d_Xs] = z_brg_sim(model, par, f, swp, cfg)
     p.Rgrd2 = par.adc2.Rgrd;
     p.Lgrd2 = par.adc2.Lgrd;
     % ADC 2 input impedance estimate
-    Zin2 = 1./(j*w*p.Ca2in + 1./p.Ra2in);
+    Zin2 = 1./(j*w*par.adc2.m_Cin + 1./par.adc2.m_Rin);
     
     % make ADC 3
     p.Ca3in = par.adc3.Cin(fid);
@@ -161,7 +161,7 @@ function [model, Z2,d_Z,d_ph,d_Rs,d_Xs] = z_brg_sim(model, par, f, swp, cfg)
     p.Rgrd3 = par.adc3.Rgrd;
     p.Lgrd3 = par.adc3.Lgrd;
     % ADC 3 input impedance estimate
-    Zin3 = 1./(j*w*p.Ca3in + 1./p.Ra3in);    
+    Zin3 = 1./(j*w*par.adc3.m_Cin + 1./par.adc3.m_Rin);    
     if is_2x4T
         % add 4TP-2x4T adapter impedance
         Zin3 = 1/(1/Zin3 + j*w*ca2live.Cp + 1/ca2live.Rp);

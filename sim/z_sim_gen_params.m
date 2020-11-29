@@ -22,6 +22,7 @@ function [par] = z_sim_gen_params(f, Z1, Z2, cfg, unc)
 
     % sweep freq. count
     f = f(:);
+    w = 2*pi*f;
     F = numel(f);
 
     % define nominal cable parameters:
@@ -115,12 +116,12 @@ function [par] = z_sim_gen_params(f, Z1, Z2, cfg, unc)
     % 4TP to 2x4T convertor
     ca_2hi = z_sim_rand_cable(rg58, is_mcc);
     ca_2hi.len = (0.07 + 0.03*randr*is_mcc);
-    ca_2hi.ch_L = 0.05e-3;
+    ca_2hi.ch_L = 0.0e-3;
     ca_2hi.ch_R = 1e-6;
     ca_2hi.ch_len = 0;
     ca_2lo = z_sim_rand_cable(rg58, is_mcc);
     ca_2lo.len = (0.07 + 0.03*randr*is_mcc);
-    ca_2lo.ch_L = 0.05e-3;
+    ca_2lo.ch_L = 0.0e-3;
     ca_2lo.ch_R = 1e-6;
     ca_2lo.ch_len = 0;
     ca_2live = z_sim_rand_cable(rg58, is_mcc);
@@ -163,25 +164,34 @@ function [par] = z_sim_gen_params(f, Z1, Z2, cfg, unc)
     
     U_lin = logspace(log10(1e-7),log10(1),100);
     
+    NI9238_ct_min = 10^(-140/20);
+    NI9238_ct_max = 10^(-130/20);
+    
     % digitizer 1
     adc1.guard = is_3458;
     if is_3458
-        adc1.Cin = repmat(270e-12 + 10e-12*randn*is_mcc,[F 1]); 
-        adc1.Rin = repmat(1e9     + 5e8*randr*is_mcc,[F 1]);
+        adc1.m_Cin = 270e-12;
+        adc1.m_Rin = 1e9;
+        adc1.Cin = repmat(adc1.m_Cin + 10e-12*randn*is_mcc,[F 1]); 
+        adc1.Rin = repmat(adc1.m_Rin + 5e8*randr*is_mcc,[F 1]);
         adc1.Clg = repmat(1e-9 + 0.1e-9*randn*is_mcc,[F 1]); 
         adc1.Rlg = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
         adc1.Cgs = repmat(1e-9 + 0.1e-9*randn*is_mcc,[F 1]); 
         adc1.Rgs = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
         adc1.ct = repmat(1e-8*(rand + j*rand)*rnd_ct,[F 1]);
+        [adc1.tf_k,adc1.tf_phi] = z_sim_rand_lin_9238(f,U_lin,~is_2x4T,rnd_lin);
+        adc1.tf_U = U_lin;
     else
-        adc1.Cin = repmat(5e-12 + 2e-12*randn*is_mcc,[F 1]); 
-        adc1.Rin = repmat(1e9     + 5e8*randr*is_mcc,[F 1]);
+        adc1.m_Cin = 10e-12;
+        adc1.m_Rin = 1e9;
+        adc1.Cin = repmat(adc1.m_Cin + 5e-12*randn*is_mcc,[F 1]); 
+        adc1.Rin = repmat(adc1.m_Rin + 5e8*randr*is_mcc,[F 1]);       
         adc1.Clg = repmat(20e-12 + 10e-12*randn*is_mcc,[F 1]); 
         adc1.Rlg = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
         adc1.Cgs = repmat(1e-15,[F 1]); 
         adc1.Rgs = repmat(1e9,[F 1]);
-        adc1.ct = z_sim_rand_ct(1e-7,7e-7,5000.0,2.0,f,1)*rnd_ct;        
-        [adc1.tf_k,adc1.tf_phi] = z_sim_rand_lin_9238(f,U_lin,rnd_lin);
+        adc1.ct = z_sim_rand_ct(NI9238_ct_min,NI9238_ct_max,5000.0,2.0,f,1)*rnd_ct;        
+        [adc1.tf_k,adc1.tf_phi] = z_sim_rand_lin_9238(f,U_lin,~is_2x4T,rnd_lin);
         adc1.tf_U = U_lin;
     endif
     adc1.Rgnd = 0.5 + 0.5*randn*is_mcc;
@@ -191,22 +201,28 @@ function [par] = z_sim_gen_params(f, Z1, Z2, cfg, unc)
         
     % digitizer 2
     if is_3458
-        adc2.Cin = repmat(270e-12 + 10e-12*randn*is_mcc,[F 1]); 
-        adc2.Rin = repmat(1e9     + 5e8*randr*is_mcc,[F 1]);
+        adc2.m_Cin = 270e-12;
+        adc2.m_Rin = 1e9;
+        adc2.Cin = repmat(adc2.m_Cin + 10e-12*randn*is_mcc,[F 1]); 
+        adc2.Rin = repmat(adc2.m_Rin + 5e8*randr*is_mcc,[F 1]);
         adc2.Clg = repmat(1e-9 + 0.1e-9*randn*is_mcc,[F 1]); 
         adc2.Rlg = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
         adc2.Cgs = repmat(1e-9 + 0.1e-9*randn*is_mcc,[F 1]); 
         adc2.Rgs = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
-        adc2.ct = repmat(1e-8*(rand + j*rand)*rnd_ct,[F 1]);    
+        adc2.ct = repmat(1e-8*(rand + j*rand)*rnd_ct,[F 1]);
+        [adc2.tf_k,adc2.tf_phi] = z_sim_rand_lin_9238(f,U_lin,~is_2x4T,rnd_lin);
+        adc2.tf_U = U_lin;    
     else
-        adc2.Cin = repmat(5e-12 + 2e-12*randn*is_mcc,[F 1]); 
-        adc2.Rin = repmat(1e9     + 5e8*randr*is_mcc,[F 1]);
+        adc2.m_Cin = 10e-12;
+        adc2.m_Rin = 1e9;
+        adc2.Cin = repmat(adc2.m_Cin + 5e-12*randn*is_mcc,[F 1]); 
+        adc2.Rin = repmat(adc2.m_Rin + 5e8*randr*is_mcc,[F 1]);
         adc2.Clg = repmat(20e-12 + 10e-12*randn*is_mcc,[F 1]); 
         adc2.Rlg = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
         adc2.Cgs = repmat(1e-15,[F 1]); 
         adc2.Rgs = repmat(1e9,[F 1]);
-        adc2.ct = z_sim_rand_ct(1e-7,7e-7,5000.0,2.0,f,1)*rnd_ct;
-        [adc2.tf_k,adc2.tf_phi] = z_sim_rand_lin_9238(f,U_lin,rnd_lin);
+        adc2.ct = z_sim_rand_ct(NI9238_ct_min,NI9238_ct_max,5000.0,2.0,f,1)*rnd_ct;
+        [adc2.tf_k,adc2.tf_phi] = z_sim_rand_lin_9238(f,U_lin,~is_2x4T,rnd_lin);
         adc2.tf_U = U_lin;      
     endif
     adc2.Rgnd = 0.5 + 0.5*randn*is_mcc;
@@ -217,22 +233,28 @@ function [par] = z_sim_gen_params(f, Z1, Z2, cfg, unc)
     
     % digitizer 3
     if is_3458
-        adc3.Cin = repmat(270e-12 + 10e-12*randn*is_mcc,[F 1]); 
-        adc3.Rin = repmat(1e9     + 5e8*randr*is_mcc,[F 1]);
+        adc3.m_Cin = 10e-12;
+        adc3.m_Rin = 1e9;
+        adc3.Cin = repmat(adc3.m_Cin + 5e-12*randn*is_mcc,[F 1]); 
+        adc3.Rin = repmat(adc3.m_Rin + 5e8*randr*is_mcc,[F 1]);
         adc3.Clg = repmat(1e-9 + 0.1e-9*randn*is_mcc,[F 1]); 
         adc3.Rlg = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
         adc3.Cgs = repmat(1e-9 + 0.1e-9*randn*is_mcc,[F 1]); 
         adc3.Rgs = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
-        adc3.ct = repmat(1e-8*(rand + j*rand)*rnd_ct,[F 1]);    
+        adc3.ct = repmat(1e-8*(rand + j*rand)*rnd_ct,[F 1]);
+        [adc3.tf_k,adc3.tf_phi] = z_sim_rand_lin_9238(f,U_lin,~is_2x4T,rnd_lin);
+        adc3.tf_U = U_lin;    
     else
-        adc3.Cin = repmat(5e-12 + 2e-12*randn*is_mcc,[F 1]); 
-        adc3.Rin = repmat(1e9     + 5e8*randr*is_mcc,[F 1]);
+        adc3.m_Cin = 10e-12;
+        adc3.m_Rin = 1e9;
+        adc3.Cin = repmat(adc3.m_Cin + 5e-12*randn*is_mcc,[F 1]); 
+        adc3.Rin = repmat(adc3.m_Rin + 5e8*randr*is_mcc,[F 1]);
         adc3.Clg = repmat(20e-12 + 10e-12*randn*is_mcc,[F 1]); 
         adc3.Rlg = repmat(1e9  + 5e8*randr*is_mcc,[F 1]);
         adc3.Cgs = repmat(1e-15,[F 1]); 
         adc3.Rgs = repmat(1e9,[F 1]);
-        adc3.ct = z_sim_rand_ct(1e-7,7e-7,5000.0,2.0,f,1)*rnd_ct;
-        [adc3.tf_k,adc3.tf_phi] = z_sim_rand_lin_9238(f,U_lin,rnd_lin);
+        adc3.ct = z_sim_rand_ct(NI9238_ct_min,NI9238_ct_max,5000.0,2.0,f,1)*rnd_ct;
+        [adc3.tf_k,adc3.tf_phi] = z_sim_rand_lin_9238(f,U_lin,~is_2x4T,rnd_lin);
         adc3.tf_U = U_lin;        
     endif
     adc3.Rgnd = 0.5 + 0.5*randn*is_mcc;
@@ -320,47 +342,49 @@ function [par] = z_sim_gen_params(f, Z1, Z2, cfg, unc)
     % define stray groups    
     par.stray = {};    
     % buffer cables couplings
-    M_pot_pot = 50e-9;
+    M_pot_pot = 100e-9;
     C_pot_pot = 10e-12; 
     par.stray{end+1} = z_sim_stray_values({'Hpot_A','Lpot_A'},{}, 0,M_pot_pot, 0,C_pot_pot, rnd_strays);
     par.stray{end+1} = z_sim_stray_values({'Hpot_B','Lpot_B'},{}, 0,M_pot_pot, 0,C_pot_pot, rnd_strays);
     par.stray{end+1} = z_sim_stray_values({'Hpot_A','Lpot_A'},{'Hpot_B','Lpot_B'}, 0,10e-9, 0,5e-12, rnd_strays);
     % Z2 to Z1 couplings
-    M_Z12 = 30e-9;
+    M_Z12 = 50e-9;
     C_Z12 = 10e-12;
     par.stray{end+1} = z_sim_stray_values({'Hpot_A','Lpot_A','Hpot_B','Lpot_B'},{'coax_Z1'}, 0,M_Z12, 0,C_Z12, rnd_strays);
     % to supply cables couplings
-    M_sup = 20e-9;
-    C_sup = 5e-12; 
+    M_sup = 30e-9;
+    C_sup = 10e-12; 
     par.stray{end+1} = z_sim_stray_values({'Hpot_A','Lpot_A','Hpot_B','Lpot_B','coax_Z1'},{'coax_sup','coax_joint'}, 0,M_sup, 0,C_sup, rnd_strays);    
     par.stray{end+1} = z_sim_stray_values({'coax_sup','coax_joint'},{}, 0,M_sup, 0,C_sup, rnd_strays);
         
     if is_2x4T
         % strays for 4TP to 2x4T convertor
-        par.stray{end+1} = z_sim_stray_values({'coax_2hi','coax_2lo'},{}, 0,10e-9, 0,5e-12, rnd_strays);
-        par.stray{end+1} = z_sim_stray_values({'coax_2live','coax_2sh'},{}, 0,10e-9, 0,5e-12, rnd_strays);
-        par.stray{end+1} = z_sim_stray_values({'coax_2live','coax_2sh'},{'coax_2hi','coax_2lo'}, 0,3e-9, 0,3e-12, rnd_strays);
+        par.stray{end+1} = z_sim_stray_values({'coax_2hi','coax_2lo'},{},   0,5e-9, 0,5e-12, rnd_strays);
+        par.stray{end+1} = z_sim_stray_values({'coax_2live','coax_2sh'},{}, 0,5e-9, 0,5e-12, rnd_strays);
+        par.stray{end+1} = z_sim_stray_values({'coax_2live','coax_2sh'},{'coax_2hi','coax_2lo'}, 0,5e-9, 0,5e-12, rnd_strays);
         % strays to other stuff
-        M_adA = 7e-9;
+        M_adA = 10e-9;
         C_adA = 5e-12;
-        M_adB = 7e-9;
+        M_adB = 10e-9;
         C_adB = 5e-12;
-        par.stray{end+1} = z_sim_stray_values({'coax_2hi','coax_2lo'},{'Hpot_A','Lpot_A','coax_Z1'}, 0,M_adA, 0,C_adA, rnd_strays);
+        par.stray{end+1} = z_sim_stray_values({'coax_2hi','coax_2lo'},{'Hpot_A','Lpot_A','coax_Z1'},   0,M_adA, 0,C_adA, rnd_strays);
         par.stray{end+1} = z_sim_stray_values({'coax_2live','coax_2sh'},{'Hpot_A','Lpot_A','coax_Z1'}, 0,M_adB, 0,C_adB, rnd_strays);                                
-        M_adC = 10e-9;
+        M_adC = 5e-9;
         C_adC = 5e-12;
-        M_adD = 10e-9;
+        M_adD = 5e-9;
         C_adD = 5e-12;
-        par.stray{end+1} = z_sim_stray_values({'coax_2hi','coax_2lo'},{'coax_sup','coax_joint'}, 0,M_adC, 0,C_adC, rnd_strays);
+        par.stray{end+1} = z_sim_stray_values({'coax_2hi','coax_2lo'},{'coax_sup','coax_joint'},   0,M_adC, 0,C_adC, rnd_strays);
         par.stray{end+1} = z_sim_stray_values({'coax_2live','coax_2sh'},{'coax_sup','coax_joint'}, 0,M_adD, 0,C_adD, rnd_strays);
     endif
     
     if is_9238
         % stray capacitances between ADC channels
         par.stray{end+1} = z_sim_stray_values({'wa1lo','wa2lo','wa3lo'},{}, 0,0, 0,10e-12, rnd_strays);        
-        par.stray{end+1} = z_sim_stray_values({'wa1lo','wa2lo','wa3lo'},{'wa1hi','wa2hi','wa3hi'}, 0,0, 0,1e-12, rnd_strays);
+        par.stray{end+1} = z_sim_stray_values({'wa1lo','wa2lo','wa3lo'},{'wa1hi','wa2hi','wa3hi'}, 0,0, 0,3e-12, rnd_strays);
     endif
     
+    % ground lugs coupling
+    par.stray{end+1} = z_sim_stray_values({'lug_refg','lug_gr1','lug_srcg'},{'coax_joint','coax_sup','coax_Z1','Lpot_A','Hpot_A','Lpot_B','Hpot_B'}, 0,0, 0,3e-12, rnd_strays);
     
                 
     
@@ -397,19 +421,33 @@ function [ct] = z_sim_rand_ct(ct_min,ct_max,f_max,f_power,f,is_rand)
     endif        
 endfunction
 
-function [k,phi] = z_sim_rand_lin_9238(f,U,is_rand)
+function [k,phi] = z_sim_rand_lin_9238(f,U,mode,is_rand)
     
-    phi_min = 0.5e-6;
-    phi_ref = 1e-6;
-    phi_fact = 2.0;    
-    phi_lev_ref = 0.01;
-    phi_lev_pow = 0.5;
-    
-    k_min = 15e-6;
-    k_ref = 10e-6;
-    k_fact = 1.5;    
-    k_lev_ref = 0.001;
-    k_lev_pow = 0.5;
+    if mode
+        phi_min = 0.5e-6;
+        phi_ref = 1e-6;
+        phi_fact = 2.0;    
+        phi_lev_ref = 0.01;
+        phi_lev_pow = 0.5;
+        
+        k_min = 3e-6;
+        k_ref = 5e-6;
+        k_fact = 1.5;    
+        k_lev_ref = 0.001;
+        k_lev_pow = 0.5;
+    else
+        phi_min = 0.5e-6;
+        phi_ref = 1e-6;
+        phi_fact = 2.0;    
+        phi_lev_ref = 0.01;
+        phi_lev_pow = 0.5;
+        
+        k_min = 15e-6;
+        k_ref = 10e-6;
+        k_fact = 1.5;    
+        k_lev_ref = 0.002;
+        k_lev_pow = 0.5;
+    endif
     
     phi = (phi_min^2 + (phi_ref*(f/1000).^phi_fact).^2).^0.5.*max(1,(phi_lev_ref./U).^phi_lev_pow); 
     k   = (k_min^2 + (k_ref*(f/1000).^k_fact).^2).^0.5.*max(1,(k_lev_ref./U).^k_lev_pow);
@@ -524,9 +562,14 @@ function [Z] = z_gen_imp_equ(Z,f)
     elseif strcmpi(Z.mode,'Rs-Ls')
         Z.R = Z.Rs*ones(size(w));
         Z.L = Z.Ls*ones(size(w));
+    elseif strcmpi(Z.mode,'Cp-D')
+        Zx = 1./(w*Z.Cp*(j + Z.D));
+        Z.R = real(Zx);
+        Z.L = imag(Zx)./w;
     else
         error(sprintf('Impedance equivalent circuit ''%s'' not known!',Z.mode));
     endif
+    
     
     % 4TP ground modes:
     if isfield(Z,'gmode') && Z.gmode == 1

@@ -56,21 +56,22 @@ md.force_reload  = 1;
 
 
 % frequency sweep 
-swp.f(:,1) = logspaced(1,5e3,30, 2);
+swp.f(:,1) = logspaced(1,5e3,50, 2);
+%swp.f(:,1) = [0.01 0.02 0.05 0.1 0.2 0.5 0.7 1 2];
 swp.Iac = 1.0;
 swp.Idc = 0.0;
 
 % set non-zero to enable monte carlo with given cycles count
-mcc = 100;
+mcc = 1000;
 
 % uncertainty simulation setup
 unc.is_mcc = (mcc > 1);
 % randomize stray couplings?
 unc.rnd_strays = 1;
 % randomize crosstalk?
-unc.rnd_ct = 0;
+unc.rnd_ct = 1;
 % randomize linearity?
-unc.rnd_lin = 1;
+unc.rnd_lin = 0;
 
 % measurement mode ('4TP'-ordinary two port mode, '2x4T'-emulate 4TP by dual 4T measurement, '4T'-four terminal connection)
 cfg.mode = '2x4T';
@@ -129,6 +130,9 @@ for rep = 1:RPC
     Z2.mode = 'Z-phi';
     Z2.Z   = 0.001;logrand(1,0.0001);
     Z2.phi = linrand(0,2*pi);
+    %Z2.mode = 'Cp-D';
+    %Z2.Cp   = 0.01;
+    %Z2.D    = 0.001;    
     Z2.Cport.Rs   = 0.05;
     Z2.Cport.u_Rs = 0.03;
     Z2.Cport.Ls   = 250e-9;
@@ -145,8 +149,8 @@ for rep = 1:RPC
     Z2.Pport.len   = 0.1;
     Z2.Pport.u_len = 0.02;
     % ground impedance between Hpot-Lpot 
-    Z2.Rg = linrand(0,1e-6);
-    Z2.Lg = linrand(0,100e-9);
+    Z2.Rg = linrand(0,100e-6);
+    Z2.Lg = linrand(0,10e-9);
     % ground mode (0-4TP mode with equal Zg between all ports, 1-isolated current and potential side)
     Z2.gmode = 0;
     

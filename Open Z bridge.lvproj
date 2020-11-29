@@ -251,8 +251,10 @@
 				<Item Name="Meas Result Get Access.vi" Type="VI" URL="../measure/Meas Result Get Access.vi"/>
 				<Item Name="Meas Result Release Access.vi" Type="VI" URL="../measure/Meas Result Release Access.vi"/>
 				<Item Name="Meas Result Get Sweep Data.vi" Type="VI" URL="../measure/Meas Result Get Sweep Data.vi"/>
+				<Item Name="Meas Result Add Readings To Data.vi" Type="VI" URL="../measure/Meas Result Add Readings To Data.vi"/>
 				<Item Name="Meas Result Add Reading.vi" Type="VI" URL="../measure/Meas Result Add Reading.vi"/>
 				<Item Name="Meas Result Update View.vi" Type="VI" URL="../measure/Meas Result Update View.vi"/>
+				<Item Name="Meas Result Fill Phase Selector.vi" Type="VI" URL="../measure/Meas Result Fill Phase Selector.vi"/>
 				<Item Name="Meas Result Update Reading Status.vi" Type="VI" URL="../measure/Meas Result Update Reading Status.vi"/>
 				<Item Name="Meas Result Export.vi" Type="VI" URL="../measure/Meas Result Export.vi"/>
 				<Item Name="Meas Result Make Unc Bars to Graph.vi" Type="VI" URL="../measure/Meas Result Make Unc Bars to Graph.vi"/>
@@ -264,6 +266,9 @@
 			<Item Name="meas_sweep_flist_mode.ctl" Type="VI" URL="../measure/meas_sweep_flist_mode.ctl"/>
 			<Item Name="meas_swp_mode.ctl" Type="VI" URL="../measure/meas_swp_mode.ctl"/>
 			<Item Name="Meas Quantity Names.ctl" Type="VI" URL="../measure/Meas Quantity Names.ctl"/>
+			<Item Name="Meas Sweep List Generator Config.ctl" Type="VI" URL="../measure/Meas Sweep List Generator Config.ctl"/>
+			<Item Name="Meas Generate Freq List.vi" Type="VI" URL="../measure/Meas Generate Freq List.vi"/>
+			<Item Name="Meas Panel Multi Freq Sweep.vi" Type="VI" URL="../measure/Meas Panel Multi Freq Sweep.vi"/>
 			<Item Name="Meas Panel.vi" Type="VI" URL="../measure/Meas Panel.vi"/>
 			<Item Name="Meas Gen Sequence.vi" Type="VI" URL="../measure/Meas Gen Sequence.vi"/>
 			<Item Name="Meas Gen Path.vi" Type="VI" URL="../measure/Meas Gen Path.vi"/>
@@ -703,6 +708,7 @@
 			<Item Name="MAT Read Matrix.vi" Type="VI" URL="../other/MAT/MAT Read Matrix.vi"/>
 			<Item Name="MAT Read Matrix Header.vi" Type="VI" URL="../other/MAT/MAT Read Matrix Header.vi"/>
 			<Item Name="MAT Type Representation.ctl" Type="VI" URL="../other/MAT/MAT Type Representation.ctl"/>
+			<Item Name="PLL Lock.vi" Type="VI" URL="../drivers/Agilent 33XXX Series/Public/Action-Status/PLL Lock.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="Open_Z_bridge-full" Type="EXE">
