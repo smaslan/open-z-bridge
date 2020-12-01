@@ -255,6 +255,7 @@
 				<Item Name="Meas Result Add Reading.vi" Type="VI" URL="../measure/Meas Result Add Reading.vi"/>
 				<Item Name="Meas Result Update View.vi" Type="VI" URL="../measure/Meas Result Update View.vi"/>
 				<Item Name="Meas Result Fill Phase Selector.vi" Type="VI" URL="../measure/Meas Result Fill Phase Selector.vi"/>
+				<Item Name="Meas Result Fill Freq Selector.vi" Type="VI" URL="../measure/Meas Result Fill Freq Selector.vi"/>
 				<Item Name="Meas Result Update Reading Status.vi" Type="VI" URL="../measure/Meas Result Update Reading Status.vi"/>
 				<Item Name="Meas Result Export.vi" Type="VI" URL="../measure/Meas Result Export.vi"/>
 				<Item Name="Meas Result Make Unc Bars to Graph.vi" Type="VI" URL="../measure/Meas Result Make Unc Bars to Graph.vi"/>
@@ -341,6 +342,11 @@
 			<Item Name="randperm.vi" Type="VI" URL="../other/randperm.vi"/>
 			<Item Name="GUI Set Error and Display Error Status.vi" Type="VI" URL="../other/GUI Set Error and Display Error Status.vi"/>
 			<Item Name="graph_redef_bounds.vi" Type="VI" URL="../other/graph_redef_bounds.vi"/>
+			<Item Name="MAT Search Matrix.vi" Type="VI" URL="../other/MAT/MAT Search Matrix.vi"/>
+			<Item Name="MAT Read Matrix.vi" Type="VI" URL="../other/MAT/MAT Read Matrix.vi"/>
+			<Item Name="MAT Read Matrix Header.vi" Type="VI" URL="../other/MAT/MAT Read Matrix Header.vi"/>
+			<Item Name="MAT Type Representation.ctl" Type="VI" URL="../other/MAT/MAT Type Representation.ctl"/>
+			<Item Name="control_enabled_state.vi" Type="VI" URL="../other/control_enabled_state.vi"/>
 		</Item>
 		<Item Name="varilib" Type="Folder">
 			<Item Name="lvanlys.dll" Type="Document" URL="../varilib/lvanlys.dll"/>
@@ -700,15 +706,9 @@
 			<Item Name="nilvaiu.dll" Type="Document" URL="nilvaiu.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
-			<Item Name="control_enabled_state.vi" Type="VI" URL="../other/control_enabled_state.vi"/>
 			<Item Name="refs_write_status_3.vi" Type="VI" URL="../refs/refs_write_status_3.vi"/>
 			<Item Name="refs_get.vi" Type="VI" URL="../refs/refs_get.vi"/>
 			<Item Name="wait_with_status.vi" Type="VI" URL="../other/wait_with_status.vi"/>
-			<Item Name="MAT Search Matrix.vi" Type="VI" URL="../other/MAT/MAT Search Matrix.vi"/>
-			<Item Name="MAT Read Matrix.vi" Type="VI" URL="../other/MAT/MAT Read Matrix.vi"/>
-			<Item Name="MAT Read Matrix Header.vi" Type="VI" URL="../other/MAT/MAT Read Matrix Header.vi"/>
-			<Item Name="MAT Type Representation.ctl" Type="VI" URL="../other/MAT/MAT Type Representation.ctl"/>
-			<Item Name="PLL Lock.vi" Type="VI" URL="../drivers/Agilent 33XXX Series/Public/Action-Status/PLL Lock.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="Open_Z_bridge-full" Type="EXE">
