@@ -251,7 +251,6 @@
 				<Item Name="Meas Result Get Access.vi" Type="VI" URL="../measure/Meas Result Get Access.vi"/>
 				<Item Name="Meas Result Release Access.vi" Type="VI" URL="../measure/Meas Result Release Access.vi"/>
 				<Item Name="Meas Result Get Sweep Data.vi" Type="VI" URL="../measure/Meas Result Get Sweep Data.vi"/>
-				<Item Name="Meas Result Add Readings To Data.vi" Type="VI" URL="../measure/Meas Result Add Readings To Data.vi"/>
 				<Item Name="Meas Result Add Reading.vi" Type="VI" URL="../measure/Meas Result Add Reading.vi"/>
 				<Item Name="Meas Result Update View.vi" Type="VI" URL="../measure/Meas Result Update View.vi"/>
 				<Item Name="Meas Result Fill Phase Selector.vi" Type="VI" URL="../measure/Meas Result Fill Phase Selector.vi"/>
