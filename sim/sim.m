@@ -56,13 +56,13 @@ md.force_reload  = 1;
 
 
 % frequency sweep 
-swp.f(:,1) = logspaced(1,5e3,50, 2);
+swp.f(:,1) = logspaced(1,5e3,10, 2);
 %swp.f(:,1) = [0.01 0.02 0.05 0.1 0.2 0.5 0.7 1 2];
 swp.Iac = 1.0;
 swp.Idc = 0.0;
 
 % set non-zero to enable monte carlo with given cycles count
-mcc = 1000;
+mcc = 0;
 
 % uncertainty simulation setup
 unc.is_mcc = (mcc > 1);
@@ -146,6 +146,7 @@ for rep = 1:RPC
     Z2.Cport.len   = 0.1;
     Z2.Cport.u_len = 0.02;
     Z2.Pport = Z2.Cport;
+    Z2.Pport.Rs    = 50.0;
     Z2.Pport.len   = 0.1;
     Z2.Pport.u_len = 0.02;
     % ground impedance between Hpot-Lpot 

@@ -20,9 +20,13 @@
 				<Item Name="TWM Mode.ctl" Type="VI" URL="../drivers/TWM client/TWM Mode.ctl"/>
 				<Item Name="TWM parameters.ctl" Type="VI" URL="../drivers/TWM client/TWM parameters.ctl"/>
 				<Item Name="TWM Session.ctl" Type="VI" URL="../drivers/TWM client/TWM Session.ctl"/>
+				<Item Name="TWM Session Data.ctl" Type="VI" URL="../drivers/TWM client/TWM Session Data.ctl"/>
 				<Item Name="Meas Proc QWTB Spectrum Data.ctl" Type="VI" URL="../drivers/TWM client/Meas Proc QWTB Spectrum Data.ctl"/>
 				<Item Name="Meas Proc QWTB Uncertainty Mode.ctl" Type="VI" URL="../drivers/TWM client/Meas Proc QWTB Uncertainty Mode.ctl"/>
+				<Item Name="TWM Phase Info.ctl" Type="VI" URL="../drivers/TWM client/TWM Phase Info.ctl"/>
+				<Item Name="TWM Parse Session Parameters for Phase.vi" Type="VI" URL="../drivers/TWM client/TWM Parse Session Parameters for Phase.vi"/>
 				<Item Name="Meas Proc QWTB Load Result Spectra.vi" Type="VI" URL="../drivers/TWM client/Meas Proc QWTB Load Result Spectra.vi"/>
+				<Item Name="TWM Get Session Parameters.vi" Type="VI" URL="../drivers/TWM client/TWM Get Session Parameters.vi"/>
 				<Item Name="TWM client.lvlibp" Type="LVLibp" URL="../drivers/TWM client.lvlibp">
 					<Item Name="TWM Client Processing Setup.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Processing Setup.ctl"/>
 					<Item Name="TWM Client Quantity Record.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Quantity Record.ctl"/>
@@ -230,12 +234,14 @@
 			<Item Name="Bridge Bias Set.vi" Type="VI" URL="../bridge/Bridge Bias Set.vi"/>
 			<Item Name="Bridge Bias Set All.vi" Type="VI" URL="../bridge/Bridge Bias Set All.vi"/>
 			<Item Name="TWM Parse Parameters.vi" Type="VI" URL="../drivers/TWM client/TWM Parse Parameters.vi"/>
-			<Item Name="RLC_fake.vi" Type="VI" URL="../bridge/RLC_fake.vi"/>
 			<Item Name="Bridge Panel.vi" Type="VI" URL="../bridge/Bridge Panel.vi"/>
 			<Item Name="Bridge Open.vi" Type="VI" URL="../bridge/Bridge Open.vi"/>
 			<Item Name="Bridge Close.vi" Type="VI" URL="../bridge/Bridge Close.vi"/>
 			<Item Name="Bridge Setup.vi" Type="VI" URL="../bridge/Bridge Setup.vi"/>
 			<Item Name="Bridge Measure Single.vi" Type="VI" URL="../bridge/Bridge Measure Single.vi"/>
+			<Item Name="Bridge Sim Mode.ctl" Type="VI" URL="../bridge/Bridge Sim Mode.ctl"/>
+			<Item Name="Bridge Sim Null Xfer.vi" Type="VI" URL="../bridge/Bridge Sim Null Xfer.vi"/>
+			<Item Name="RLC_fake.vi" Type="VI" URL="../bridge/RLC_fake.vi"/>
 		</Item>
 		<Item Name="measure" Type="Folder">
 			<Property Name="NI.SortType" Type="Int">3</Property>
@@ -248,6 +254,7 @@
 				<Item Name="Meas Result Freq Format.ctl" Type="VI" URL="../measure/Meas Result Freq Format.ctl"/>
 				<Item Name="Meas Result 4TP Impedance Mode.ctl" Type="VI" URL="../measure/Meas Result 4TP Impedance Mode.ctl"/>
 				<Item Name="Meas Results Sweep Data Uncertainty Mode.ctl" Type="VI" URL="../measure/Meas Results Sweep Data Uncertainty Mode.ctl"/>
+				<Item Name="Meas Results Ref.ctl" Type="VI" URL="../measure/Meas Results Ref.ctl"/>
 				<Item Name="Meas Result Get Access.vi" Type="VI" URL="../measure/Meas Result Get Access.vi"/>
 				<Item Name="Meas Result Release Access.vi" Type="VI" URL="../measure/Meas Result Release Access.vi"/>
 				<Item Name="Meas Result Get Sweep Data.vi" Type="VI" URL="../measure/Meas Result Get Sweep Data.vi"/>
@@ -261,6 +268,13 @@
 				<Item Name="Meas Result Get Readings.vi" Type="VI" URL="../measure/Meas Result Get Readings.vi"/>
 				<Item Name="Meas Result Remove Readings.vi" Type="VI" URL="../measure/Meas Result Remove Readings.vi"/>
 				<Item Name="Meas Result Readings Panel.vi" Type="VI" URL="../measure/Meas Result Readings Panel.vi"/>
+				<Item Name="Meas Results Correction Structuring Mode.ctl" Type="VI" URL="../measure/Meas Results Correction Structuring Mode.ctl"/>
+				<Item Name="Meas Results TWM Digitizer Correction Data.ctl" Type="VI" URL="../measure/Meas Results TWM Digitizer Correction Data.ctl"/>
+				<Item Name="Meas Result Generate TWM Digitizer Correction.vi" Type="VI" URL="../measure/Meas Result Generate TWM Digitizer Correction.vi"/>
+				<Item Name="Meas Result Generate TWM Digitizer Correction - Process Measurement.vi" Type="VI" URL="../measure/Meas Result Generate TWM Digitizer Correction - Process Measurement.vi"/>
+				<Item Name="Meas Result Generate TWM Digitizer Correction - fit Gain Phase.vi" Type="VI" URL="../measure/Meas Result Generate TWM Digitizer Correction - fit Gain Phase.vi"/>
+				<Item Name="Meas Result Generate TWM Digitizer Correction - Generate Files.vi" Type="VI" URL="../measure/Meas Result Generate TWM Digitizer Correction - Generate Files.vi"/>
+				<Item Name="Meas Result Generate TWM Digitizer Correction - Generate CSV Matrix.vi" Type="VI" URL="../measure/Meas Result Generate TWM Digitizer Correction - Generate CSV Matrix.vi"/>
 			</Item>
 			<Item Name="meas session.ctl" Type="VI" URL="../measure/meas session.ctl"/>
 			<Item Name="Meas Freq Info.ctl" Type="VI" URL="../measure/Meas Freq Info.ctl"/>
@@ -350,6 +364,7 @@
 			<Item Name="MAT Type Representation.ctl" Type="VI" URL="../other/MAT/MAT Type Representation.ctl"/>
 			<Item Name="control_enabled_state.vi" Type="VI" URL="../other/control_enabled_state.vi"/>
 			<Item Name="res_fix_selection.vi" Type="VI" URL="../other/res_fix_selection.vi"/>
+			<Item Name="Vector Unique Values.vi" Type="VI" URL="../other/Vector Unique Values.vi"/>
 		</Item>
 		<Item Name="varilib" Type="Folder">
 			<Item Name="lvanlys.dll" Type="Document" URL="../varilib/lvanlys.dll"/>
@@ -692,6 +707,8 @@
 				<Item Name="DAQmx Timing (Pipelined Sample Clock).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/configure/timing.llb/DAQmx Timing (Pipelined Sample Clock).vi"/>
 				<Item Name="DAQmx Wait Until Done.vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/configure/task.llb/DAQmx Wait Until Done.vi"/>
 				<Item Name="VISA GPIB Control REN Mode.ctl" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA GPIB Control REN Mode.ctl"/>
+				<Item Name="ex_CorrectErrorChain.vi" Type="VI" URL="/&lt;vilib&gt;/express/express shared/ex_CorrectErrorChain.vi"/>
+				<Item Name="subFile Dialog.vi" Type="VI" URL="/&lt;vilib&gt;/express/express input/FileDialogBlock.llb/subFile Dialog.vi"/>
 			</Item>
 			<Item Name="Advapi32.dll" Type="Document" URL="Advapi32.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
@@ -730,6 +747,7 @@
 				<Property Name="Bld_preActionVIID" Type="Ref">/My Computer/build/Pre-Build Action - visa,daqmx.vi</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{791F11D6-C97D-45C0-88CE-FB43FA74A516}</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
+				<Property Name="Bld_version.minor" Type="Int">1</Property>
 				<Property Name="Destination[0].destName" Type="Str">open_z_bridge.exe</Property>
 				<Property Name="Destination[0].path" Type="Path">../builds/Open_Z_bridge-[VersionNumber]-full/Open_Z_bridge-full.exe</Property>
 				<Property Name="Destination[0].path.type" Type="Str">relativeToProject</Property>
@@ -739,7 +757,7 @@
 				<Property Name="Destination[1].path" Type="Path">../builds/Open_Z_bridge-[VersionNumber]-full/data</Property>
 				<Property Name="Destination[1].path.type" Type="Str">relativeToProject</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
-				<Property Name="Source[0].itemID" Type="Str">{26C39361-65D5-446A-A6A5-6AE163FDCF1C}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{9C73AB14-DBF2-43E4-BB51-1CECF2FB6412}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/main.vi</Property>
@@ -748,7 +766,7 @@
 				<Property Name="SourceCount" Type="Int">2</Property>
 				<Property Name="TgtF_fileDescription" Type="Str">Open_Z_bridge-full</Property>
 				<Property Name="TgtF_internalName" Type="Str">Open_Z_bridge-full</Property>
-				<Property Name="TgtF_legalCopyright" Type="Str">Copyright © 2018-2019</Property>
+				<Property Name="TgtF_legalCopyright" Type="Str">Copyright © 2018-2021</Property>
 				<Property Name="TgtF_productName" Type="Str">Open_Z_bridge-full</Property>
 				<Property Name="TgtF_targetfileGUID" Type="Str">{1BD4261A-F818-4FD6-BD8B-813B9C3850C6}</Property>
 				<Property Name="TgtF_targetfileName" Type="Str">open_z_bridge.exe</Property>
