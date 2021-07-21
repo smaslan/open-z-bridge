@@ -238,6 +238,7 @@
 			<Item Name="Bridge Open.vi" Type="VI" URL="../bridge/Bridge Open.vi"/>
 			<Item Name="Bridge Close.vi" Type="VI" URL="../bridge/Bridge Close.vi"/>
 			<Item Name="Bridge Setup.vi" Type="VI" URL="../bridge/Bridge Setup.vi"/>
+			<Item Name="Bridge Setup Corrections.vi" Type="VI" URL="../bridge/Bridge Setup Corrections.vi"/>
 			<Item Name="Bridge Measure Single.vi" Type="VI" URL="../bridge/Bridge Measure Single.vi"/>
 			<Item Name="Bridge Sim Mode.ctl" Type="VI" URL="../bridge/Bridge Sim Mode.ctl"/>
 			<Item Name="Bridge Sim Null Xfer.vi" Type="VI" URL="../bridge/Bridge Sim Null Xfer.vi"/>
@@ -270,11 +271,13 @@
 				<Item Name="Meas Result Readings Panel.vi" Type="VI" URL="../measure/Meas Result Readings Panel.vi"/>
 				<Item Name="Meas Results Correction Structuring Mode.ctl" Type="VI" URL="../measure/Meas Results Correction Structuring Mode.ctl"/>
 				<Item Name="Meas Results TWM Digitizer Correction Data.ctl" Type="VI" URL="../measure/Meas Results TWM Digitizer Correction Data.ctl"/>
+				<Item Name="Meas Results TWM Correction Digitizer Type.ctl" Type="VI" URL="../measure/Meas Results TWM Correction Digitizer Type.ctl"/>
 				<Item Name="Meas Result Generate TWM Digitizer Correction.vi" Type="VI" URL="../measure/Meas Result Generate TWM Digitizer Correction.vi"/>
 				<Item Name="Meas Result Generate TWM Digitizer Correction - Process Measurement.vi" Type="VI" URL="../measure/Meas Result Generate TWM Digitizer Correction - Process Measurement.vi"/>
 				<Item Name="Meas Result Generate TWM Digitizer Correction - fit Gain Phase.vi" Type="VI" URL="../measure/Meas Result Generate TWM Digitizer Correction - fit Gain Phase.vi"/>
 				<Item Name="Meas Result Generate TWM Digitizer Correction - Generate Files.vi" Type="VI" URL="../measure/Meas Result Generate TWM Digitizer Correction - Generate Files.vi"/>
 				<Item Name="Meas Result Generate TWM Digitizer Correction - Generate CSV Matrix.vi" Type="VI" URL="../measure/Meas Result Generate TWM Digitizer Correction - Generate CSV Matrix.vi"/>
+				<Item Name="Meas Result Generate TWM Digitizer Correction - Estimate Digitizer Uncertainty.vi" Type="VI" URL="../measure/Meas Result Generate TWM Digitizer Correction - Estimate Digitizer Uncertainty.vi"/>
 			</Item>
 			<Item Name="meas session.ctl" Type="VI" URL="../measure/meas session.ctl"/>
 			<Item Name="Meas Freq Info.ctl" Type="VI" URL="../measure/Meas Freq Info.ctl"/>
@@ -365,6 +368,7 @@
 			<Item Name="control_enabled_state.vi" Type="VI" URL="../other/control_enabled_state.vi"/>
 			<Item Name="res_fix_selection.vi" Type="VI" URL="../other/res_fix_selection.vi"/>
 			<Item Name="Vector Unique Values.vi" Type="VI" URL="../other/Vector Unique Values.vi"/>
+			<Item Name="Log Space.vi" Type="VI" URL="../other/Log Space.vi"/>
 		</Item>
 		<Item Name="varilib" Type="Folder">
 			<Item Name="lvanlys.dll" Type="Document" URL="../varilib/lvanlys.dll"/>
