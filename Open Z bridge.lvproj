@@ -265,6 +265,7 @@
 				<Item Name="Meas Result Fill Freq Selector.vi" Type="VI" URL="../measure/Meas Result Fill Freq Selector.vi"/>
 				<Item Name="Meas Result Update Reading Status.vi" Type="VI" URL="../measure/Meas Result Update Reading Status.vi"/>
 				<Item Name="Meas Result Export.vi" Type="VI" URL="../measure/Meas Result Export.vi"/>
+				<Item Name="Meas Result Export - Build Report.vi" Type="VI" URL="../measure/Meas Result Export - Build Report.vi"/>
 				<Item Name="Meas Result Make Unc Bars to Graph.vi" Type="VI" URL="../measure/Meas Result Make Unc Bars to Graph.vi"/>
 				<Item Name="Meas Result Get Readings.vi" Type="VI" URL="../measure/Meas Result Get Readings.vi"/>
 				<Item Name="Meas Result Remove Readings.vi" Type="VI" URL="../measure/Meas Result Remove Readings.vi"/>
@@ -382,7 +383,6 @@
 			<Item Name="Set Conditional Symbols.vi" Type="VI" URL="../build/Set Conditional Symbols.vi"/>
 		</Item>
 		<Item Name="main.vi" Type="VI" URL="../main.vi"/>
-		<Item Name="Meas Result Export - Build Report.vi" Type="VI" URL="../measure/Meas Result Export - Build Report.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="instr.lib" Type="Folder">
 				<Item Name="niScope Acquisition Status.vi" Type="VI" URL="/&lt;instrlib&gt;/niScope/Acquire/Fetch/niScope Acquisition Status.vi"/>
