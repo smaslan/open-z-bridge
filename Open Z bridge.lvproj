@@ -370,6 +370,8 @@
 			<Item Name="res_fix_selection.vi" Type="VI" URL="../other/res_fix_selection.vi"/>
 			<Item Name="Vector Unique Values.vi" Type="VI" URL="../other/Vector Unique Values.vi"/>
 			<Item Name="Log Space.vi" Type="VI" URL="../other/Log Space.vi"/>
+			<Item Name="wait_with_status.vi" Type="VI" URL="../other/wait_with_status.vi"/>
+			<Item Name="clr_error.vi" Type="VI" URL="../other/clr_error.vi"/>
 		</Item>
 		<Item Name="varilib" Type="Folder">
 			<Item Name="lvanlys.dll" Type="Document" URL="../varilib/lvanlys.dll"/>
@@ -381,6 +383,12 @@
 			<Item Name="Pre-Build Action - visa,niscope.vi" Type="VI" URL="../build/Pre-Build Action - visa,niscope.vi"/>
 			<Item Name="Pre-Build Action - visa.vi" Type="VI" URL="../build/Pre-Build Action - visa.vi"/>
 			<Item Name="Set Conditional Symbols.vi" Type="VI" URL="../build/Set Conditional Symbols.vi"/>
+		</Item>
+		<Item Name="refs" Type="Folder">
+			<Item Name="refs_write_status_3.vi" Type="VI" URL="../refs/refs_write_status_3.vi"/>
+			<Item Name="refs_get.vi" Type="VI" URL="../refs/refs_get.vi"/>
+			<Item Name="refs_var.vi" Type="VI" URL="../refs/refs_var.vi"/>
+			<Item Name="refs_parse_format.vi" Type="VI" URL="../refs/refs_parse_format.vi"/>
 		</Item>
 		<Item Name="main.vi" Type="VI" URL="../main.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
@@ -731,9 +739,6 @@
 			<Item Name="nilvaiu.dll" Type="Document" URL="nilvaiu.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
-			<Item Name="refs_write_status_3.vi" Type="VI" URL="../refs/refs_write_status_3.vi"/>
-			<Item Name="refs_get.vi" Type="VI" URL="../refs/refs_get.vi"/>
-			<Item Name="wait_with_status.vi" Type="VI" URL="../other/wait_with_status.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="Open_Z_bridge-full" Type="EXE">
