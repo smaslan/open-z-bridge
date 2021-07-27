@@ -391,6 +391,7 @@
 			<Item Name="refs_parse_format.vi" Type="VI" URL="../refs/refs_parse_format.vi"/>
 		</Item>
 		<Item Name="main.vi" Type="VI" URL="../main.vi"/>
+		<Item Name="open_z_brg.ico" Type="Document" URL="../ico/open_z_brg.ico"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="instr.lib" Type="Folder">
 				<Item Name="niScope Acquisition Status.vi" Type="VI" URL="/&lt;instrlib&gt;/niScope/Acquire/Fetch/niScope Acquisition Status.vi"/>
@@ -767,7 +768,8 @@
 				<Property Name="Destination[1].path" Type="Path">../builds/Open_Z_bridge-[VersionNumber]-full/data</Property>
 				<Property Name="Destination[1].path.type" Type="Str">relativeToProject</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
-				<Property Name="Source[0].itemID" Type="Str">{9C73AB14-DBF2-43E4-BB51-1CECF2FB6412}</Property>
+				<Property Name="Exe_iconItemID" Type="Ref">/My Computer/open_z_brg.ico</Property>
+				<Property Name="Source[0].itemID" Type="Str">{AD998F17-8785-4625-8594-6AF55EEF4583}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/main.vi</Property>
