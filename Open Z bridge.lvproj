@@ -372,6 +372,7 @@
 			<Item Name="Log Space.vi" Type="VI" URL="../other/Log Space.vi"/>
 			<Item Name="wait_with_status.vi" Type="VI" URL="../other/wait_with_status.vi"/>
 			<Item Name="clr_error.vi" Type="VI" URL="../other/clr_error.vi"/>
+			<Item Name="Load CSV 1D data.vi" Type="VI" URL="../other/Load CSV 1D data.vi"/>
 		</Item>
 		<Item Name="varilib" Type="Folder">
 			<Item Name="lvanlys.dll" Type="Document" URL="../varilib/lvanlys.dll"/>
