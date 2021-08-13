@@ -72,6 +72,7 @@
 			<Item Name="cDAQ DDS" Type="Folder">
 				<Item Name="cDAQ DDS Session.ctl" Type="VI" URL="../drivers/cDAQ DDS/cDAQ DDS Session.ctl"/>
 				<Item Name="cDAQ DDS Setup.ctl" Type="VI" URL="../drivers/cDAQ DDS/cDAQ DDS Setup.ctl"/>
+				<Item Name="cDAQ DDS Timebase Mode.ctl" Type="VI" URL="../drivers/cDAQ DDS/cDAQ DDS Timebase Mode.ctl"/>
 				<Item Name="cDAQ DDS Close.vi" Type="VI" URL="../drivers/cDAQ DDS/cDAQ DDS Close.vi"/>
 				<Item Name="cDAQ DDS Config Panel.vi" Type="VI" URL="../drivers/cDAQ DDS/cDAQ DDS Config Panel.vi"/>
 				<Item Name="cDAQ DDS Open.vi" Type="VI" URL="../drivers/cDAQ DDS/cDAQ DDS Open.vi"/>
@@ -760,6 +761,7 @@
 				<Property Name="Bld_previewCacheID" Type="Str">{791F11D6-C97D-45C0-88CE-FB43FA74A516}</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Bld_version.minor" Type="Int">1</Property>
+				<Property Name="Bld_version.patch" Type="Int">1</Property>
 				<Property Name="Destination[0].destName" Type="Str">open_z_bridge.exe</Property>
 				<Property Name="Destination[0].path" Type="Path">../builds/Open_Z_bridge-[VersionNumber]-full/Open_Z_bridge-full.exe</Property>
 				<Property Name="Destination[0].path.type" Type="Str">relativeToProject</Property>
@@ -770,7 +772,7 @@
 				<Property Name="Destination[1].path.type" Type="Str">relativeToProject</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
 				<Property Name="Exe_iconItemID" Type="Ref">/My Computer/open_z_brg.ico</Property>
-				<Property Name="Source[0].itemID" Type="Str">{AD998F17-8785-4625-8594-6AF55EEF4583}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{5D00DE2A-651E-4B8B-8D33-D4481808BC8F}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/main.vi</Property>
