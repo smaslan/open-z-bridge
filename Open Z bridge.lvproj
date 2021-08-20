@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
-<Project Type="Project" LVVersion="13008000">
+<Project Type="Project" LVVersion="20008000">
 	<Property Name="CCSymbols" Type="Str">w_daqmx,1;w_visa,1;</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">false</Property>
 	<Property Name="NI.Project.Description" Type="Str"></Property>
@@ -28,41 +28,44 @@
 				<Item Name="Meas Proc QWTB Load Result Spectra.vi" Type="VI" URL="../drivers/TWM client/Meas Proc QWTB Load Result Spectra.vi"/>
 				<Item Name="TWM Get Session Parameters.vi" Type="VI" URL="../drivers/TWM client/TWM Get Session Parameters.vi"/>
 				<Item Name="TWM client.lvlibp" Type="LVLibp" URL="../drivers/TWM client.lvlibp">
-					<Item Name="TWM Client Processing Setup.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Processing Setup.ctl"/>
-					<Item Name="TWM Client Quantity Record.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Quantity Record.ctl"/>
-					<Item Name="TWM Client Meas Setup.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Meas Setup.ctl"/>
-					<Item Name="TWM Client Result Max Dim.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Result Max Dim.ctl"/>
-					<Item Name="TWM Client Transducer Correction Item.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Transducer Correction Item.ctl"/>
-					<Item Name="TWM Client Algorithm Info.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Algorithm Info.ctl"/>
-					<Item Name="TWM Client Result Info.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Result Info.ctl"/>
-					<Item Name="TWM Client Cmd Get Result.vi" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Cmd Get Result.vi"/>
-					<Item Name="TWM Client Cmd Get Status.vi" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Cmd Get Status.vi"/>
-					<Item Name="TWM Client Cmd Get Algorithm Info.vi" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Cmd Get Algorithm Info.vi"/>
-					<Item Name="TWM Client Cmd Identify.vi" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Cmd Identify.vi"/>
-					<Item Name="TWM Client Cmd Restart.vi" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Cmd Restart.vi"/>
-					<Item Name="TWM Client Cmd Set Corrections.vi" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Cmd Set Corrections.vi"/>
-					<Item Name="TWM Client Cmd Set Measurement.vi" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Cmd Set Measurement.vi"/>
-					<Item Name="TWM Client Cmd Start.vi" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Cmd Start.vi"/>
-					<Item Name="TWM Client Cmd Stop.vi" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Cmd Stop.vi"/>
-					<Item Name="TWM Client Measure and Get Result.vi" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Measure and Get Result.vi"/>
-					<Item Name="TWM Client Recieve Packet.vi" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Recieve Packet.vi"/>
-					<Item Name="TWM Client Send Packet.vi" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Send Packet.vi"/>
-					<Item Name="TWM Client Wait ACK.vi" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Wait ACK.vi"/>
-					<Item Name="TWM Client Test.vi" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Test.vi"/>
-					<Item Name="TWM Client Open.vi" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Open.vi"/>
-					<Item Name="TWM Client Close.vi" Type="VI" URL="../drivers/TWM client.lvlibp/TWM client/TWM Client Close.vi"/>
-					<Item Name="Clear Errors.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/Clear Errors.vi"/>
-					<Item Name="whitespace.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/whitespace.ctl"/>
+					<Item Name="TWM Client Processing Setup.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Processing Setup.ctl"/>
+					<Item Name="TWM Client Quantity Record.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Quantity Record.ctl"/>
+					<Item Name="TWM Client Meas Setup.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Meas Setup.ctl"/>
+					<Item Name="TWM Client Result Max Dim.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Result Max Dim.ctl"/>
+					<Item Name="TWM Client Transducer Correction Item.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Transducer Correction Item.ctl"/>
+					<Item Name="TWM Client Algorithm Info.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Algorithm Info.ctl"/>
+					<Item Name="TWM Client Result Info.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Result Info.ctl"/>
+					<Item Name="TWM Client Cmd Get Result.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Cmd Get Result.vi"/>
+					<Item Name="TWM Client Cmd Get Status.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Cmd Get Status.vi"/>
+					<Item Name="TWM Client Cmd Get Algorithm Info.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Cmd Get Algorithm Info.vi"/>
+					<Item Name="TWM Client Cmd Identify.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Cmd Identify.vi"/>
+					<Item Name="TWM Client Cmd Restart.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Cmd Restart.vi"/>
+					<Item Name="TWM Client Cmd Set Corrections.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Cmd Set Corrections.vi"/>
+					<Item Name="TWM Client Cmd Set Measurement.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Cmd Set Measurement.vi"/>
+					<Item Name="TWM Client Cmd Start.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Cmd Start.vi"/>
+					<Item Name="TWM Client Cmd Stop.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Cmd Stop.vi"/>
+					<Item Name="TWM Client Measure and Get Result.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Measure and Get Result.vi"/>
+					<Item Name="TWM Client Recieve Packet.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Recieve Packet.vi"/>
+					<Item Name="TWM Client Send Packet.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Send Packet.vi"/>
+					<Item Name="TWM Client Wait ACK.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Wait ACK.vi"/>
+					<Item Name="TWM Client Test.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Test.vi"/>
+					<Item Name="TWM Client Open.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Open.vi"/>
+					<Item Name="TWM Client Close.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Close.vi"/>
+					<Item Name="infolib.lvlib" Type="Library" URL="../drivers/TWM client.lvlibp/octave/infolib/infolib.lvlib"/>
 					<Item Name="Trim Whitespace.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/Trim Whitespace.vi"/>
+					<Item Name="whitespace.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/whitespace.ctl"/>
 					<Item Name="Error Cluster From Error Code.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/Error Cluster From Error Code.vi"/>
-					<Item Name="wa32 WaitNamedPipeA.vi" Type="VI" URL="../drivers/TWM client.lvlibp/WinAPI32/wa32 WaitNamedPipeA.vi"/>
-					<Item Name="wa32 CreateFileA.vi" Type="VI" URL="../drivers/TWM client.lvlibp/WinAPI32/wa32 CreateFileA.vi"/>
-					<Item Name="wa32 CloseHandle.vi" Type="VI" URL="../drivers/TWM client.lvlibp/WinAPI32/wa32 CloseHandle.vi"/>
-					<Item Name="wa32 WriteFile.vi" Type="VI" URL="../drivers/TWM client.lvlibp/WinAPI32/wa32 WriteFile.vi"/>
-					<Item Name="wa32 PeekNamedPipe.vi" Type="VI" URL="../drivers/TWM client.lvlibp/WinAPI32/wa32 PeekNamedPipe.vi"/>
-					<Item Name="wa32 ReadFile.vi" Type="VI" URL="../drivers/TWM client.lvlibp/WinAPI32/wa32 ReadFile.vi"/>
-					<Item Name="wa32 Flush Read.vi" Type="VI" URL="../drivers/TWM client.lvlibp/WinAPI32/high level/wa32 Flush Read.vi"/>
-					<Item Name="wa32 Read Till Key.vi" Type="VI" URL="../drivers/TWM client.lvlibp/WinAPI32/high level/wa32 Read Till Key.vi"/>
+					<Item Name="Space Constant.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/dlg_ctls.llb/Space Constant.vi"/>
+					<Item Name="Clear Errors.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/Clear Errors.vi"/>
+					<Item Name="Normalize End Of Line.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/AdvancedString/Normalize End Of Line.vi"/>
+					<Item Name="wa32 ReadFile.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/wa32 ReadFile.vi"/>
+					<Item Name="wa32 PeekNamedPipe.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/wa32 PeekNamedPipe.vi"/>
+					<Item Name="wa32 Read Till Key.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/high level/wa32 Read Till Key.vi"/>
+					<Item Name="wa32 WriteFile.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/wa32 WriteFile.vi"/>
+					<Item Name="wa32 CloseHandle.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/wa32 CloseHandle.vi"/>
+					<Item Name="wa32 Flush Read.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/high level/wa32 Flush Read.vi"/>
+					<Item Name="wa32 CreateFileA.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/wa32 CreateFileA.vi"/>
+					<Item Name="wa32 WaitNamedPipeA.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/wa32 WaitNamedPipeA.vi"/>
 				</Item>
 			</Item>
 			<Item Name="AFG3101C" Type="Folder">
@@ -112,104 +115,6 @@
 				<Item Name="CMI LiB Bias Read Error.vi" Type="VI" URL="../drivers/CMI LiBbias/CMI LiB Bias Read Error.vi"/>
 				<Item Name="CMI LiB Bias Flush Buffer.vi" Type="VI" URL="../drivers/CMI LiBbias/CMI LiB Bias Flush Buffer.vi"/>
 				<Item Name="CMI LiB Bias Set Bias.vi" Type="VI" URL="../drivers/CMI LiBbias/CMI LiB Bias Set Bias.vi"/>
-			</Item>
-			<Item Name="infolib.lvlibp" Type="LVLibp" URL="../drivers/infolib.lvlibp">
-				<Item Name="Private" Type="Folder">
-					<Item Name="Add key polymorph parts" Type="Folder">
-						<Item Name="Boolean.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Add key polymorph parts/Boolean.vi"/>
-						<Item Name="CXT.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Add key polymorph parts/CXT.vi"/>
-						<Item Name="EXT.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Add key polymorph parts/EXT.vi"/>
-						<Item Name="I64.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Add key polymorph parts/I64.vi"/>
-						<Item Name="String.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Add key polymorph parts/String.vi"/>
-						<Item Name="Time Stamp.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Add key polymorph parts/Time Stamp.vi"/>
-						<Item Name="U64.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Add key polymorph parts/U64.vi"/>
-					</Item>
-					<Item Name="Add matrix polymorph parts" Type="Folder">
-						<Item Name="1D CXT.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Add matrix polymorph parts/1D CXT.vi"/>
-						<Item Name="1D EXT.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Add matrix polymorph parts/1D EXT.vi"/>
-						<Item Name="1D I64.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Add matrix polymorph parts/1D I64.vi"/>
-						<Item Name="1D String.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Add matrix polymorph parts/1D String.vi"/>
-						<Item Name="1D Time Stamp.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Add matrix polymorph parts/1D Time Stamp.vi"/>
-						<Item Name="1D U64.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Add matrix polymorph parts/1D U64.vi"/>
-						<Item Name="2D CXT.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Add matrix polymorph parts/2D CXT.vi"/>
-						<Item Name="2D EXT.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Add matrix polymorph parts/2D EXT.vi"/>
-						<Item Name="2D I64.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Add matrix polymorph parts/2D I64.vi"/>
-						<Item Name="2D String.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Add matrix polymorph parts/2D String.vi"/>
-						<Item Name="2D Time Stamp.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Add matrix polymorph parts/2D Time Stamp.vi"/>
-						<Item Name="2D U64.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Add matrix polymorph parts/2D U64.vi"/>
-					</Item>
-					<Item Name="Get key polymorph parts" Type="Folder">
-						<Item Name="GetBoolean.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Get key polymorph parts/GetBoolean.vi"/>
-						<Item Name="GetCXT.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Get key polymorph parts/GetCXT.vi"/>
-						<Item Name="GetEXT.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Get key polymorph parts/GetEXT.vi"/>
-						<Item Name="GetI64.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Get key polymorph parts/GetI64.vi"/>
-						<Item Name="GetString.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Get key polymorph parts/GetString.vi"/>
-						<Item Name="GetTime Stamp.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Get key polymorph parts/GetTime Stamp.vi"/>
-						<Item Name="GetU64.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Get key polymorph parts/GetU64.vi"/>
-					</Item>
-					<Item Name="Get matrix polymorph parts" Type="Folder">
-						<Item Name="Get 1D CXT.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Get matrix polymorph parts/Get 1D CXT.vi"/>
-						<Item Name="Get 1D EXT.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Get matrix polymorph parts/Get 1D EXT.vi"/>
-						<Item Name="Get 1D I64.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Get matrix polymorph parts/Get 1D I64.vi"/>
-						<Item Name="Get 1D String.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Get matrix polymorph parts/Get 1D String.vi"/>
-						<Item Name="Get 1D Time Stamp.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Get matrix polymorph parts/Get 1D Time Stamp.vi"/>
-						<Item Name="Get 1D U64.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Get matrix polymorph parts/Get 1D U64.vi"/>
-						<Item Name="Get 2D CXT.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Get matrix polymorph parts/Get 2D CXT.vi"/>
-						<Item Name="Get 2D EXT.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Get matrix polymorph parts/Get 2D EXT.vi"/>
-						<Item Name="Get 2D I64.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Get matrix polymorph parts/Get 2D I64.vi"/>
-						<Item Name="Get 2D U64.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Get matrix polymorph parts/Get 2D U64.vi"/>
-						<Item Name="Get 2D String.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Get matrix polymorph parts/Get 2D String.vi"/>
-						<Item Name="Get 2D Time Stamp.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Get matrix polymorph parts/Get 2D Time Stamp.vi"/>
-					</Item>
-					<Item Name="Testing" Type="Folder">
-						<Item Name="test library.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Testing/test library.vi"/>
-						<Item Name="test simple.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Testing/test simple.vi"/>
-					</Item>
-					<Item Name="Utilities" Type="Folder">
-						<Item Name="Add spaces.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Utilities/Add spaces.vi"/>
-						<Item Name="Assure Newline at End.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Utilities/Assure Newline at End.vi"/>
-						<Item Name="Convert String to Time Stamp.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Utilities/Convert String to Time Stamp.vi"/>
-						<Item Name="Create 1D Table.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Utilities/Create 1D Table.vi"/>
-						<Item Name="Create 2D Table.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Utilities/Create 2D Table.vi"/>
-						<Item Name="Create key line.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Utilities/Create key line.vi"/>
-						<Item Name="Create Sections Headings.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Utilities/Create Sections Headings.vi"/>
-						<Item Name="Create Table Heading.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Utilities/Create Table Heading.vi"/>
-						<Item Name="EOL.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Utilities/EOL.vi"/>
-						<Item Name="Exist Section.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Utilities/Exist Section.vi"/>
-						<Item Name="Flatten to CSV Record.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Utilities/Flatten to CSV Record.vi"/>
-						<Item Name="Get Key Line.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Utilities/Get Key Line.vi"/>
-						<Item Name="Get Matrix String.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Utilities/Get Matrix String.vi"/>
-						<Item Name="Get Section Indentation Length.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Utilities/Get Section Indentation Length.vi"/>
-						<Item Name="Indent Size.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Utilities/Indent Size.vi"/>
-						<Item Name="Insert.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Utilities/Insert.vi"/>
-						<Item Name="Parse CSV String.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Utilities/Parse CSV String.vi"/>
-						<Item Name="RegExpTranslate.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Utilities/RegExpTranslate.vi"/>
-						<Item Name="Remove all sections.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Utilities/Remove all sections.vi"/>
-					</Item>
-				</Item>
-				<Item Name="Public" Type="Folder">
-					<Item Name="Add Key Or Table.vi" Type="VI" URL="../drivers/infolib.lvlibp/Public/Add Key Or Table.vi"/>
-					<Item Name="Get Key Or Table.vi" Type="VI" URL="../drivers/infolib.lvlibp/Public/Get Key Or Table.vi"/>
-					<Item Name="Get Section.vi" Type="VI" URL="../drivers/infolib.lvlibp/Private/Utilities/Get Section.vi"/>
-					<Item Name="Insert Info Data.vi" Type="VI" URL="../drivers/infolib.lvlibp/Public/Insert Info Data.vi"/>
-					<Item Name="Load Info.vi" Type="VI" URL="../drivers/infolib.lvlibp/Public/Load Info.vi"/>
-					<Item Name="Save Info.vi" Type="VI" URL="../drivers/infolib.lvlibp/Public/Save Info.vi"/>
-				</Item>
-				<Item Name="Bit-array To Byte-array.vi" Type="VI" URL="../drivers/infolib.lvlibp/1abvi3w/vi.lib/picture/pictutil.llb/Bit-array To Byte-array.vi"/>
-				<Item Name="Check if File or Folder Exists.vi" Type="VI" URL="../drivers/infolib.lvlibp/1abvi3w/vi.lib/Utility/libraryn.llb/Check if File or Folder Exists.vi"/>
-				<Item Name="Check Path.vi" Type="VI" URL="../drivers/infolib.lvlibp/1abvi3w/vi.lib/picture/jpeg.llb/Check Path.vi"/>
-				<Item Name="Clear Errors.vi" Type="VI" URL="../drivers/infolib.lvlibp/1abvi3w/vi.lib/Utility/error.llb/Clear Errors.vi"/>
-				<Item Name="Create Mask By Alpha.vi" Type="VI" URL="../drivers/infolib.lvlibp/1abvi3w/vi.lib/picture/picture.llb/Create Mask By Alpha.vi"/>
-				<Item Name="Directory of Top Level VI.vi" Type="VI" URL="../drivers/infolib.lvlibp/1abvi3w/vi.lib/picture/jpeg.llb/Directory of Top Level VI.vi"/>
-				<Item Name="Error Cluster From Error Code.vi" Type="VI" URL="../drivers/infolib.lvlibp/1abvi3w/vi.lib/Utility/error.llb/Error Cluster From Error Code.vi"/>
-				<Item Name="imagedata.ctl" Type="VI" URL="../drivers/infolib.lvlibp/1abvi3w/vi.lib/picture/picture.llb/imagedata.ctl"/>
-				<Item Name="LVDateTimeRec.ctl" Type="VI" URL="../drivers/infolib.lvlibp/1abvi3w/vi.lib/Utility/miscctls.llb/LVDateTimeRec.ctl"/>
-				<Item Name="NI_FileType.lvlib" Type="Library" URL="../drivers/infolib.lvlibp/1abvi3w/vi.lib/Utility/lvfile.llb/NI_FileType.lvlib"/>
-				<Item Name="NI_PackedLibraryUtility.lvlib" Type="Library" URL="../drivers/infolib.lvlibp/1abvi3w/vi.lib/Utility/LVLibp/NI_PackedLibraryUtility.lvlib"/>
-				<Item Name="Read PNG File.vi" Type="VI" URL="../drivers/infolib.lvlibp/1abvi3w/vi.lib/picture/png.llb/Read PNG File.vi"/>
-				<Item Name="Space Constant.vi" Type="VI" URL="../drivers/infolib.lvlibp/1abvi3w/vi.lib/dlg_ctls.llb/Space Constant.vi"/>
-				<Item Name="Trim Whitespace.vi" Type="VI" URL="../drivers/infolib.lvlibp/1abvi3w/vi.lib/Utility/error.llb/Trim Whitespace.vi"/>
-				<Item Name="whitespace.ctl" Type="VI" URL="../drivers/infolib.lvlibp/1abvi3w/vi.lib/Utility/error.llb/whitespace.ctl"/>
 			</Item>
 		</Item>
 		<Item Name="source" Type="Folder">
@@ -353,6 +258,11 @@
 		</Item>
 		<Item Name="other" Type="Folder">
 			<Property Name="NI.SortType" Type="Int">3</Property>
+			<Item Name="infolib" Type="Folder">
+				<Item Name="infolib.lvlib" Type="Library" URL="../other/infolib/infolib.lvlib"/>
+				<Item Name="README example get.vi" Type="VI" URL="../other/infolib/README example get.vi"/>
+				<Item Name="README example set.vi" Type="VI" URL="../other/infolib/README example set.vi"/>
+			</Item>
 			<Item Name="GUI Panel Control Action.ctl" Type="VI" URL="../other/GUI Panel Control Action.ctl"/>
 			<Item Name="GUI Panel Control.vi" Type="VI" URL="../other/GUI Panel Control.vi"/>
 			<Item Name="About Dialog.vi" Type="VI" URL="../other/About Dialog.vi"/>
@@ -448,6 +358,11 @@
 				<Item Name="niScope tv event.ctl" Type="VI" URL="/&lt;instrlib&gt;/niScope/Controls/niScope tv event.ctl"/>
 				<Item Name="niScope vertical coupling.ctl" Type="VI" URL="/&lt;instrlib&gt;/niScope/Controls/niScope vertical coupling.ctl"/>
 				<Item Name="niScope which signal.ctl" Type="VI" URL="/&lt;instrlib&gt;/niScope/Controls/niScope which signal.ctl"/>
+				<Item Name="niScope Configure Trigger Glitch.vi" Type="VI" URL="/&lt;instrlib&gt;/niScope/Configure/Trigger/niScope Configure Trigger Glitch.vi"/>
+				<Item Name="niScope trigger polarity.ctl" Type="VI" URL="/&lt;instrlib&gt;/niScope/Controls/niScope trigger polarity.ctl"/>
+				<Item Name="niScope glitch condition.ctl" Type="VI" URL="/&lt;instrlib&gt;/niScope/Controls/niScope glitch condition.ctl"/>
+				<Item Name="niScope Configure Trigger Runt.vi" Type="VI" URL="/&lt;instrlib&gt;/niScope/Configure/Trigger/niScope Configure Trigger Runt.vi"/>
+				<Item Name="niScope Configure Trigger Width.vi" Type="VI" URL="/&lt;instrlib&gt;/niScope/Configure/Trigger/niScope Configure Trigger Width.vi"/>
 			</Item>
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="8.6CompatibleGlobalVar.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/config.llb/8.6CompatibleGlobalVar.vi"/>
@@ -465,11 +380,9 @@
 				<Item Name="Check Special Tags.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Check Special Tags.vi"/>
 				<Item Name="Clear Errors.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Clear Errors.vi"/>
 				<Item Name="Close Registry Key.vi" Type="VI" URL="/&lt;vilib&gt;/registry/registry.llb/Close Registry Key.vi"/>
-				<Item Name="Color to RGB.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/colorconv.llb/Color to RGB.vi"/>
 				<Item Name="compatCalcOffset.vi" Type="VI" URL="/&lt;vilib&gt;/_oldvers/_oldvers.llb/compatCalcOffset.vi"/>
 				<Item Name="compatFileDialog.vi" Type="VI" URL="/&lt;vilib&gt;/_oldvers/_oldvers.llb/compatFileDialog.vi"/>
 				<Item Name="compatOpenFileOperation.vi" Type="VI" URL="/&lt;vilib&gt;/_oldvers/_oldvers.llb/compatOpenFileOperation.vi"/>
-				<Item Name="compatOverwrite.vi" Type="VI" URL="/&lt;vilib&gt;/_oldvers/_oldvers.llb/compatOverwrite.vi"/>
 				<Item Name="Convert property node font to graphics font.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Convert property node font to graphics font.vi"/>
 				<Item Name="Create ActiveX Event Queue.vi" Type="VI" URL="/&lt;vilib&gt;/Platform/ax-events.llb/Create ActiveX Event Queue.vi"/>
 				<Item Name="Create Error Clust.vi" Type="VI" URL="/&lt;vilib&gt;/Platform/ax-events.llb/Create Error Clust.vi"/>
@@ -494,7 +407,6 @@
 				<Item Name="FixedFileInfo_Struct.ctl" Type="VI" URL="/&lt;vilib&gt;/Platform/fileVersionInfo.llb/FixedFileInfo_Struct.ctl"/>
 				<Item Name="Flip and Pad for Picture Control.vi" Type="VI" URL="/&lt;vilib&gt;/picture/bmp.llb/Flip and Pad for Picture Control.vi"/>
 				<Item Name="Format Message String.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Format Message String.vi"/>
-				<Item Name="General Error Handler CORE.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/General Error Handler CORE.vi"/>
 				<Item Name="General Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/General Error Handler.vi"/>
 				<Item Name="Generate Temporary File Path.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/libraryn.llb/Generate Temporary File Path.vi"/>
 				<Item Name="Get File Extension.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/libraryn.llb/Get File Extension.vi"/>
@@ -584,24 +496,17 @@
 				<Item Name="DAQmx Flatten Channel String.vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/miscellaneous.llb/DAQmx Flatten Channel String.vi"/>
 				<Item Name="DAQmx Create Virtual Channel.vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Virtual Channel.vi"/>
 				<Item Name="DAQmx Create Channel (AI-Voltage-Basic).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (AI-Voltage-Basic).vi"/>
-				<Item Name="DAQmx Rollback Channel If Error.vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Rollback Channel If Error.vi"/>
-				<Item Name="DAQmx Create AI Channel (sub).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create AI Channel (sub).vi"/>
 				<Item Name="DAQmx Create Channel (AI-Voltage-Custom with Excitation).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (AI-Voltage-Custom with Excitation).vi"/>
 				<Item Name="DAQmx Create Channel (AI-Resistance).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (AI-Resistance).vi"/>
 				<Item Name="DAQmx Create Channel (AI-Temperature-Thermocouple).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (AI-Temperature-Thermocouple).vi"/>
-				<Item Name="DAQmx Set CJC Parameters (sub).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Set CJC Parameters (sub).vi"/>
 				<Item Name="DAQmx Create Channel (AI-Temperature-RTD).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (AI-Temperature-RTD).vi"/>
 				<Item Name="DAQmx Create Channel (AI-Temperature-Thermistor-Iex).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (AI-Temperature-Thermistor-Iex).vi"/>
 				<Item Name="DAQmx Create Channel (AI-Temperature-Thermistor-Vex).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (AI-Temperature-Thermistor-Vex).vi"/>
 				<Item Name="DAQmx Create Channel (AO-Voltage-Basic).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (AO-Voltage-Basic).vi"/>
-				<Item Name="DAQmx Create AO Channel (sub).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create AO Channel (sub).vi"/>
 				<Item Name="DAQmx Create Channel (AO-FuncGen).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (AO-FuncGen).vi"/>
 				<Item Name="DAQmx Create Channel (DI-Digital Input).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (DI-Digital Input).vi"/>
-				<Item Name="DAQmx Create DI Channel (sub).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create DI Channel (sub).vi"/>
 				<Item Name="DAQmx Create Channel (DO-Digital Output).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (DO-Digital Output).vi"/>
-				<Item Name="DAQmx Create DO Channel (sub).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create DO Channel (sub).vi"/>
 				<Item Name="DAQmx Create Channel (CI-Frequency).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (CI-Frequency).vi"/>
-				<Item Name="DAQmx Create CI Channel (sub).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create CI Channel (sub).vi"/>
 				<Item Name="DAQmx Create Channel (CI-Period).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (CI-Period).vi"/>
 				<Item Name="DAQmx Create Channel (CI-Count Edges).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (CI-Count Edges).vi"/>
 				<Item Name="DAQmx Create Channel (CI-Pulse Width).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (CI-Pulse Width).vi"/>
@@ -611,7 +516,6 @@
 				<Item Name="DAQmx Create Channel (AI-Temperature-Built-in Sensor).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (AI-Temperature-Built-in Sensor).vi"/>
 				<Item Name="DAQmx Create Channel (AI-Frequency-Voltage).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (AI-Frequency-Voltage).vi"/>
 				<Item Name="DAQmx Create Channel (CO-Pulse Generation-Frequency).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (CO-Pulse Generation-Frequency).vi"/>
-				<Item Name="DAQmx Create CO Channel (sub).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create CO Channel (sub).vi"/>
 				<Item Name="DAQmx Create Channel (CO-Pulse Generation-Time).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (CO-Pulse Generation-Time).vi"/>
 				<Item Name="DAQmx Create Channel (CO-Pulse Generation-Ticks).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (CO-Pulse Generation-Ticks).vi"/>
 				<Item Name="DAQmx Create Channel (AI-Position-LVDT).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (AI-Position-LVDT).vi"/>
@@ -621,7 +525,6 @@
 				<Item Name="DAQmx Create Channel (CI-Position-Angular Encoder).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (CI-Position-Angular Encoder).vi"/>
 				<Item Name="DAQmx Create Channel (CI-Position-Linear Encoder).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (CI-Position-Linear Encoder).vi"/>
 				<Item Name="DAQmx Create Channel (TEDS-AI-Acceleration-Accelerometer).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (TEDS-AI-Acceleration-Accelerometer).vi"/>
-				<Item Name="DAQmx Create AI Channel TEDS(sub).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create AI Channel TEDS(sub).vi"/>
 				<Item Name="DAQmx Create Channel (TEDS-AI-Current-Basic).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (TEDS-AI-Current-Basic).vi"/>
 				<Item Name="DAQmx Create Channel (TEDS-AI-Position-LVDT).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (TEDS-AI-Position-LVDT).vi"/>
 				<Item Name="DAQmx Create Channel (TEDS-AI-Position-RVDT).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (TEDS-AI-Position-RVDT).vi"/>
@@ -661,7 +564,6 @@
 				<Item Name="DAQmx Create Channel (TEDS-AI-Bridge).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (TEDS-AI-Bridge).vi"/>
 				<Item Name="DAQmx Create Channel (AI-Velocity-IEPE Sensor).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (AI-Velocity-IEPE Sensor).vi"/>
 				<Item Name="DAQmx Create Channel (AI-Strain-Rosette Strain Gage).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (AI-Strain-Rosette Strain Gage).vi"/>
-				<Item Name="DAQmx Create Strain Rosette AI Channels (sub).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Strain Rosette AI Channels (sub).vi"/>
 				<Item Name="DAQmx Write.vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/write.llb/DAQmx Write.vi"/>
 				<Item Name="DAQmx Write (Analog 1D DBL 1Chan NSamp).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/write.llb/DAQmx Write (Analog 1D DBL 1Chan NSamp).vi"/>
 				<Item Name="DAQmx Write (Analog 1D DBL NChan 1Samp).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/write.llb/DAQmx Write (Analog 1D DBL NChan 1Samp).vi"/>
@@ -725,6 +627,16 @@
 				<Item Name="VISA GPIB Control REN Mode.ctl" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA GPIB Control REN Mode.ctl"/>
 				<Item Name="ex_CorrectErrorChain.vi" Type="VI" URL="/&lt;vilib&gt;/express/express shared/ex_CorrectErrorChain.vi"/>
 				<Item Name="subFile Dialog.vi" Type="VI" URL="/&lt;vilib&gt;/express/express input/FileDialogBlock.llb/subFile Dialog.vi"/>
+				<Item Name="DAQmx Create Channel (CI-Duty Cycle).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (CI-Duty Cycle).vi"/>
+				<Item Name="DAQmx Create Channel (CI-Velocity-Angular).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (CI-Velocity-Angular).vi"/>
+				<Item Name="DAQmx Create Channel (CI-Velocity-Linear).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (CI-Velocity-Linear).vi"/>
+				<Item Name="DAQmx Create Channel (AI-Acceleration-4 Wire DC Voltage).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (AI-Acceleration-4 Wire DC Voltage).vi"/>
+				<Item Name="DAQmx Create Channel (AI-Acceleration-Charge).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (AI-Acceleration-Charge).vi"/>
+				<Item Name="DAQmx Create Channel (AI-Charge).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (AI-Charge).vi"/>
+				<Item Name="General Error Handler Core CORE.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/General Error Handler Core CORE.vi"/>
+				<Item Name="LVRectTypeDef.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVRectTypeDef.ctl"/>
+				<Item Name="Path to URL inner.vi" Type="VI" URL="/&lt;vilib&gt;/printing/PathToURL.llb/Path to URL inner.vi"/>
+				<Item Name="LVDateTimeRec.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVDateTimeRec.ctl"/>
 			</Item>
 			<Item Name="Advapi32.dll" Type="Document" URL="Advapi32.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
@@ -749,6 +661,7 @@
 				<Property Name="App_INI_aliasGUID" Type="Str">{E6121B1B-BB6C-4F34-856E-417487F35B0E}</Property>
 				<Property Name="App_INI_GUID" Type="Str">{FAFE1C7E-8F83-46A7-93AA-BD7B9AF8795C}</Property>
 				<Property Name="App_serverConfig.httpPort" Type="Int">8002</Property>
+				<Property Name="App_serverType" Type="Int">1</Property>
 				<Property Name="Bld_buildCacheID" Type="Str">{D87F0F8F-3530-4466-B299-51E2C5482411}</Property>
 				<Property Name="Bld_buildSpecName" Type="Str">Open_Z_bridge-full</Property>
 				<Property Name="Bld_excludeInlineSubVIs" Type="Bool">true</Property>
@@ -761,7 +674,7 @@
 				<Property Name="Bld_previewCacheID" Type="Str">{791F11D6-C97D-45C0-88CE-FB43FA74A516}</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Bld_version.minor" Type="Int">1</Property>
-				<Property Name="Bld_version.patch" Type="Int">1</Property>
+				<Property Name="Bld_version.patch" Type="Int">2</Property>
 				<Property Name="Destination[0].destName" Type="Str">open_z_bridge.exe</Property>
 				<Property Name="Destination[0].path" Type="Path">../builds/Open_Z_bridge-[VersionNumber]-full/Open_Z_bridge-full.exe</Property>
 				<Property Name="Destination[0].path.type" Type="Str">relativeToProject</Property>
@@ -772,7 +685,7 @@
 				<Property Name="Destination[1].path.type" Type="Str">relativeToProject</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
 				<Property Name="Exe_iconItemID" Type="Ref">/My Computer/open_z_brg.ico</Property>
-				<Property Name="Source[0].itemID" Type="Str">{5D00DE2A-651E-4B8B-8D33-D4481808BC8F}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{DF24E0FA-62BE-4E31-8232-F88B2CB2B75B}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/main.vi</Property>
