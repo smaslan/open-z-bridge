@@ -44,6 +44,8 @@
 					<Item Name="TWM Client Cmd Set Measurement.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Cmd Set Measurement.vi"/>
 					<Item Name="TWM Client Cmd Start.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Cmd Start.vi"/>
 					<Item Name="TWM Client Cmd Stop.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Cmd Stop.vi"/>
+					<Item Name="TWM Client Cmd Exec ADC Selfcalibration.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Cmd Exec ADC Selfcalibration.vi"/>
+					<Item Name="TWM Client Cmd Get Versions.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Cmd Get Versions.vi"/>
 					<Item Name="TWM Client Measure and Get Result.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Measure and Get Result.vi"/>
 					<Item Name="TWM Client Recieve Packet.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Recieve Packet.vi"/>
 					<Item Name="TWM Client Send Packet.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Send Packet.vi"/>
@@ -51,12 +53,14 @@
 					<Item Name="TWM Client Test.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Test.vi"/>
 					<Item Name="TWM Client Open.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Open.vi"/>
 					<Item Name="TWM Client Close.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Close.vi"/>
+					<Item Name="TWM Client Version.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Version.vi"/>
+					<Item Name="TWM Client Compare Version Strings.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Compare Version Strings.vi"/>
 					<Item Name="infolib.lvlib" Type="Library" URL="../drivers/TWM client.lvlibp/octave/infolib/infolib.lvlib"/>
+					<Item Name="Space Constant.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/dlg_ctls.llb/Space Constant.vi"/>
 					<Item Name="Trim Whitespace.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/Trim Whitespace.vi"/>
 					<Item Name="whitespace.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/whitespace.ctl"/>
-					<Item Name="Error Cluster From Error Code.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/Error Cluster From Error Code.vi"/>
-					<Item Name="Space Constant.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/dlg_ctls.llb/Space Constant.vi"/>
 					<Item Name="Clear Errors.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/Clear Errors.vi"/>
+					<Item Name="Error Cluster From Error Code.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/Error Cluster From Error Code.vi"/>
 					<Item Name="Normalize End Of Line.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/AdvancedString/Normalize End Of Line.vi"/>
 					<Item Name="wa32 ReadFile.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/wa32 ReadFile.vi"/>
 					<Item Name="wa32 PeekNamedPipe.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/wa32 PeekNamedPipe.vi"/>
