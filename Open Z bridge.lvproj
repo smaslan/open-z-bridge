@@ -150,6 +150,7 @@
 			<Item Name="Bridge Setup.vi" Type="VI" URL="../bridge/Bridge Setup.vi"/>
 			<Item Name="Bridge Setup Corrections.vi" Type="VI" URL="../bridge/Bridge Setup Corrections.vi"/>
 			<Item Name="Bridge Measure Single.vi" Type="VI" URL="../bridge/Bridge Measure Single.vi"/>
+			<Item Name="Bridge Perform Selfcal.vi" Type="VI" URL="../bridge/Bridge Perform Selfcal.vi"/>
 			<Item Name="Bridge Sim Mode.ctl" Type="VI" URL="../bridge/Bridge Sim Mode.ctl"/>
 			<Item Name="Bridge Sim Null Xfer.vi" Type="VI" URL="../bridge/Bridge Sim Null Xfer.vi"/>
 			<Item Name="RLC_fake.vi" Type="VI" URL="../bridge/RLC_fake.vi"/>
