@@ -80,6 +80,7 @@
 				<Item Name="cDAQ DDS Session.ctl" Type="VI" URL="../drivers/cDAQ DDS/cDAQ DDS Session.ctl"/>
 				<Item Name="cDAQ DDS Setup.ctl" Type="VI" URL="../drivers/cDAQ DDS/cDAQ DDS Setup.ctl"/>
 				<Item Name="cDAQ DDS Timebase Mode.ctl" Type="VI" URL="../drivers/cDAQ DDS/cDAQ DDS Timebase Mode.ctl"/>
+				<Item Name="cDAQ DDS Dither.ctl" Type="VI" URL="../drivers/cDAQ DDS/cDAQ DDS Dither.ctl"/>
 				<Item Name="cDAQ DDS Close.vi" Type="VI" URL="../drivers/cDAQ DDS/cDAQ DDS Close.vi"/>
 				<Item Name="cDAQ DDS Config Panel.vi" Type="VI" URL="../drivers/cDAQ DDS/cDAQ DDS Config Panel.vi"/>
 				<Item Name="cDAQ DDS Open.vi" Type="VI" URL="../drivers/cDAQ DDS/cDAQ DDS Open.vi"/>
@@ -136,6 +137,7 @@
 			<Item Name="Bridge Sampling Setup.ctl" Type="VI" URL="../bridge/Bridge Sampling Setup.ctl"/>
 			<Item Name="Bridge Reading Data.ctl" Type="VI" URL="../bridge/Bridge Reading Data.ctl"/>
 			<Item Name="Bridge Frequency Readings Data.ctl" Type="VI" URL="../bridge/Bridge Frequency Readings Data.ctl"/>
+			<Item Name="Bridge Algorithm.ctl" Type="VI" URL="../bridge/Bridge Algorithm.ctl"/>
 			<Item Name="Bridge Bias Type.ctl" Type="VI" URL="../bridge/Bridge Bias Type.ctl"/>
 			<Item Name="Bridge Bias Session.ctl" Type="VI" URL="../bridge/Bridge Bias Session.ctl"/>
 			<Item Name="Bridge Bias Get Capabilities.vi" Type="VI" URL="../bridge/Bridge Bias Get Capabilities.vi"/>
@@ -152,6 +154,7 @@
 			<Item Name="Bridge Measure Single.vi" Type="VI" URL="../bridge/Bridge Measure Single.vi"/>
 			<Item Name="Bridge Perform Selfcal.vi" Type="VI" URL="../bridge/Bridge Perform Selfcal.vi"/>
 			<Item Name="Bridge Sim Mode.ctl" Type="VI" URL="../bridge/Bridge Sim Mode.ctl"/>
+			<Item Name="Bridge Sim InpZ.vi" Type="VI" URL="../bridge/Bridge Sim InpZ.vi"/>
 			<Item Name="Bridge Sim Null Xfer.vi" Type="VI" URL="../bridge/Bridge Sim Null Xfer.vi"/>
 			<Item Name="RLC_fake.vi" Type="VI" URL="../bridge/RLC_fake.vi"/>
 		</Item>
@@ -190,6 +193,8 @@
 				<Item Name="Meas Result Generate TWM Digitizer Correction - Generate Files.vi" Type="VI" URL="../measure/Meas Result Generate TWM Digitizer Correction - Generate Files.vi"/>
 				<Item Name="Meas Result Generate TWM Digitizer Correction - Generate CSV Matrix.vi" Type="VI" URL="../measure/Meas Result Generate TWM Digitizer Correction - Generate CSV Matrix.vi"/>
 				<Item Name="Meas Result Generate TWM Digitizer Correction - Estimate Digitizer Uncertainty.vi" Type="VI" URL="../measure/Meas Result Generate TWM Digitizer Correction - Estimate Digitizer Uncertainty.vi"/>
+				<Item Name="Meas Result Generate TWM InpZ Correction - Process Measurement.vi" Type="VI" URL="../measure/Meas Result Generate TWM InpZ Correction - Process Measurement.vi"/>
+				<Item Name="Meas Result Generate TWM InpZ Correction - Generate Files.vi" Type="VI" URL="../measure/Meas Result Generate TWM InpZ Correction - Generate Files.vi"/>
 			</Item>
 			<Item Name="meas session.ctl" Type="VI" URL="../measure/meas session.ctl"/>
 			<Item Name="Meas Freq Info.ctl" Type="VI" URL="../measure/Meas Freq Info.ctl"/>
