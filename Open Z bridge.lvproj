@@ -187,6 +187,7 @@
 				<Item Name="Meas Results Correction Structuring Mode.ctl" Type="VI" URL="../measure/Meas Results Correction Structuring Mode.ctl"/>
 				<Item Name="Meas Results TWM Digitizer Correction Data.ctl" Type="VI" URL="../measure/Meas Results TWM Digitizer Correction Data.ctl"/>
 				<Item Name="Meas Results TWM Correction Digitizer Type.ctl" Type="VI" URL="../measure/Meas Results TWM Correction Digitizer Type.ctl"/>
+				<Item Name="Meas Results TWM InpZ Correction Uncertainty Config.ctl" Type="VI" URL="../measure/Meas Results TWM InpZ Correction Uncertainty Config.ctl"/>
 				<Item Name="Meas Result Generate TWM Digitizer Correction.vi" Type="VI" URL="../measure/Meas Result Generate TWM Digitizer Correction.vi"/>
 				<Item Name="Meas Result Generate TWM Digitizer Correction - Process Measurement.vi" Type="VI" URL="../measure/Meas Result Generate TWM Digitizer Correction - Process Measurement.vi"/>
 				<Item Name="Meas Result Generate TWM Digitizer Correction - fit Gain Phase.vi" Type="VI" URL="../measure/Meas Result Generate TWM Digitizer Correction - fit Gain Phase.vi"/>
