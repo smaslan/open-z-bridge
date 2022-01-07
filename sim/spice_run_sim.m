@@ -3,6 +3,9 @@ function [model, varstr, vardata] = spice_run_sim(model, f, p, varlist)
 % In pipe mode it will start NGspice process (if not running).
 % In that case do not forget to terminate it when job is done using spice_terminate().
 %
+% Usage:
+%   [model, varstr, vardata] = spice_run_sim(model, f, p, varlist)
+%
 % Params:
 %   model.spice_temp - folder to which this mfile generates temp file used by NGspice
 %   model.spice_fld - NGspice binary folder (Windoze only)
@@ -17,7 +20,11 @@ function [model, varstr, vardata] = spice_run_sim(model, f, p, varlist)
 %   model - modified 'model' input. Do not loose this for pipe mode!
 %   varstr - extracted variables in form of struct elements. Note brackets are removed from names!
 %   vardata - extracted variables array in order matching 'varlist'
-
+%
+% This is part of open-z-bridge project: https://github.com/smaslan/open-z-bridge
+% (c) 2021, Stanislav Maslan, smaslan@cmi.cz/s.maslan@seznam.cz
+% The script is distributed under MIT license, https://opensource.org/licenses/MIT.                
+% 
     % obtain NGspice handles
     if ~isfield(model.ngspice,'pid')        
         model.ngspice.pid = -1;

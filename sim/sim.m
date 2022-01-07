@@ -1,3 +1,29 @@
+% This is simulator of errors and uncertainty of impedance bridge developed in 
+% scope of LiBforSecUse EMPIR project:
+% https://www.ptb.de/empir2018/libforsecuse/project/overview/
+% It uses NG Spice to simulate coaxial circuit of the bridge. 
+% This script (and its subfunctions) can procedurally generate additional 
+% mutual couplings (capacitive and inductive) to the network to simulate 
+% interferences in the network. The parameters in the Spice model
+% are all blank and they are assigned by this simulator on the go 
+% so it can do simple error calculation, sensitivity analysis or 
+% monte carlo uncertainty calculation using randomization of parameters.
+% The injection points for the interference couplings are defined 
+% in these scripts and in Spice library 'ZbrgLib.cir'. 
+% It supports multicore processeing using multicore package and
+% it should work even on Linux.
+% For details try to follow dense comments in the scripts. There is no
+% particular manual as it is still in development. It was originaly made
+% for my Ph.D. theses focused in digital sampling impedance bridge, so
+% there may be some leftovers from the other project. 
+% For details regarding the circuit model itself follow the practice guide 
+% that should be distributed along with this project.  
+%
+% This is part of open-z-bridge project: https://github.com/smaslan/open-z-bridge
+% (c) 2021, Stanislav Maslan, smaslan@cmi.cz/s.maslan@seznam.cz
+% The script is distributed under MIT license, https://opensource.org/licenses/MIT.                
+%  
+
 clear all;
 close all;
 %clc;
@@ -31,7 +57,8 @@ else
     % use only small count of job files, coz windoze may get mad...    
     mc_setup.max_chunk_count = 500;
 endif
-% multicore method {'for','cellfun','parcellfun','multicore'}:       
+% multicore method {'for','cellfun','parcellfun','multicore'}:
+% use 'for' to check everything works!       
 mc_setup.method = 'multicore';
 
 
@@ -42,7 +69,7 @@ md.mod_fld   = mfld;
 if isunix
     md.spice = 'ngspice';
     md.spice_temp = '/dev/shm/';
-    md.paste_net = 0;1; % will paste NET file content into NGspice command file - should be faster on Cokl
+    md.paste_net = 0;1; % will paste NET file content into NGspice command file - should be faster on supercomp. 'Cokl'
     md.ngspice.useraw = 0;
 else
     md.spice = 'ngspice_con';
@@ -50,19 +77,22 @@ else
     md.paste_net = 0;
     md.ngspice.useraw = 1;
 endif
+% model NET list file name for 4TP configuration
 md.name_4TP = 'LiB_brg_4TP_twax';
+% model NET list file name for 2x4T configuration
 md.name_2x4T = 'LiB_brg_2x4T_twax';
 md.force_reload  = 1;
 
 
-% frequency sweep 
+% frequency sweep steps 
 swp.f(:,1) = logspaced(1,5e3,10, 2);
 %swp.f(:,1) = [0.01 0.02 0.05 0.1 0.2 0.5 0.7 1 2];
 swp.Iac = 1.0;
 swp.Idc = 0.0;
 
 % set non-zero to enable monte carlo with given cycles count
-mcc = 0;
+% otherwise it will just show deviation from expected results
+mcc = 100;
 
 % uncertainty simulation setup
 unc.is_mcc = (mcc > 1);
@@ -94,14 +124,14 @@ endif
 % -- sensitivity analysis
 % enable sensitivity analysis
 sens.enab = 0;
-% parameter name in the 'par' structure (can include sub-structures)
-sens.parameter = 'tr_w.C';
+% parameter name from the 'par' structure (can include sub-structures)
+sens.parameter = 'Z1.Rs';
 % values of parameter to variate
-sens.values = logspace(log10(1e-13),log10(100e-12),10); 
+sens.values = [0.2 0.3 0.5]; 
 
 
 
-% calculate repetition cycles (Monte Carlo or sensitivity analysis)
+% calculation repetition cycles (Monte Carlo or sensitivity analysis)
 if mcc && sens.enab
     error('Cannot do Monte Carlo and sensitivity analysis at the same time!');
 end
@@ -122,11 +152,11 @@ for rep = 1:RPC
     %  note: optionally generates multiple jobs for paralleling
     disp(sprintf('Preparing sweep parameters (run %d of %d) ...',rep,RPC));
     
-    % generate Z1 
+    % generate Z1 impedance (reference shunt) 
     Z1.mode = 'Rs-Ls';
     Z1.Rs = 0.200;
     Z1.Ls = 0;
-    % generate Z2
+    % generate Z2 impedance
     Z2.mode = 'Z-phi';
     Z2.Z   = 0.001;logrand(1,0.0001);
     Z2.phi = linrand(0,2*pi);
@@ -158,25 +188,21 @@ for rep = 1:RPC
     
     
            
-    % generate model parameters
+    % generate model parameters (with eventual monte-carlo randomization)
     par = z_sim_gen_params(swp.f, Z1, Z2, cfg, unc);
     
     % prepare Spice model
     if rep == 1
-        [md, par.stray, par.templates] = z_sim_prep_spice(md, par.stray);
+        [md, par.stray, par.templates, sense] = z_sim_prep_spice(md, par.stray);
     else
-        % reasign stray parameters from previously loaded model
+        % reassign stray parameters from previously loaded model
         for k = 1:numel(par.stray)
             temp = par.stray{k};
             par.stray{k} = jobz{1}.par.stray{k};
             par.stray{k}.M = temp.M; 
             par.stray{k}.C = temp.C;                
         endfor
-        par.templates = jobz{1}.par.templates;
-        
-        % ###todo: fix - randomized data are overriden here!!! - done above?
-        %par.stray = jobz{1}.par.stray;
-        %par.templates = jobz{1}.par.templates;               
+        par.templates = jobz{1}.par.templates;        
     endif
     
     % override parameter by sensitivity parameter
@@ -184,11 +210,7 @@ for rep = 1:RPC
         value = sens.values(rep);
         eval(['par.' sens.parameter ' = value;']); 
     endif
-    
-    %par.stray    
-    %error('stop')
-    
-    
+        
     % make job file
     jobz{rep}.cfg = cfg;
     jobz{rep}.swp = swp;    
@@ -205,6 +227,6 @@ reps = reps(~cellfun(@isempty,reps));
 % vectorize results
 r = vectorize_structs_elements(reps);
 
-% process results
+% process and show results
 simres; 
 

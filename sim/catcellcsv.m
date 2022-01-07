@@ -1,3 +1,13 @@
+% Concats cell array 'cc' to CSV string with given col/row separtors.
+%
+% Usage:
+%   [csv] = catcellcsv(cc)                   
+%   [csv] = catcellcsv(cc, colsep)
+%   [csv] = catcellcsv(cc, colsep, rowsep)
+%
+% (c) 2021, Stanislav Maslan, smaslan@cmi.cz/s.maslan@seznam.cz
+% The script is distributed under MIT license, https://opensource.org/licenses/MIT.                
+%     
 function [csv] = catcellcsv(cc,colsep,rowsep)
 
   % default separators

@@ -1,3 +1,9 @@
+% Terminates eventual ngspice processes in pipe mode. Refer to spice_run_sim().
+%
+% This is part of open-z-bridge project: https://github.com/smaslan/open-z-bridge
+% (c) 2021, Stanislav Maslan, smaslan@cmi.cz/s.maslan@seznam.cz
+% The script is distributed under MIT license, https://opensource.org/licenses/MIT.                
+% 
 function [ngspice] = spice_terminate(ngspice)
 % tries to terminate NG spice process
     

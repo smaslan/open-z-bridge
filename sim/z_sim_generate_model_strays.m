@@ -1,4 +1,12 @@
-function [net,strays] = z_sim_generate_model_strays(net, spec, strays);
+% This is subfunction of z_sim_prep_spice() for generation of stray inductive and capacitive
+% coupling to the NET list. It is kind of inseparable from the z_sim_prep_spice(), so 
+% check inputs/outputs there. 
+%
+% This is part of open-z-bridge project: https://github.com/smaslan/open-z-bridge
+% (c) 2021, Stanislav Maslan, smaslan@cmi.cz/s.maslan@seznam.cz
+% The script is distributed under MIT license, https://opensource.org/licenses/MIT.                
+% 
+function [net,strays] = z_sim_generate_model_strays(net, spec, strays)
 
     if isempty(spec)
         % --- reload already generated stray data from NET ---

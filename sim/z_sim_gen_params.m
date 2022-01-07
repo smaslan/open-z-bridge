@@ -1,5 +1,38 @@
+% This function assigns Spice model parameters from struct defined in 'sim.m'.
+% It also randomizes the parameters for monte-carlo simulation.
+% Only model parameters taken from outside are the impedances 'Z1' and 'Z2'.
+% The rest of Spice model parameters is defined here.
+% Some (not all) parameters generated here are frequency dependent, so
+% it will output vector of values, one for each speep spot 'f'.
+% This script also prepares the mutual couplings for simulation of interferences.
+% The model parameters generated here are taken by main simulation function
+% z_brg_sim().
+%
+% Usage:
+%   [par] = z_sim_gen_params(f, Z1, Z2, cfg, unc)
+%
+% Params:
+%   f - vector of sweep frequencies
+%   Z1 - model of reference impedance (see sim.m for content)
+%   Z2 - model of uut impedance (see sim.m for content)
+%   cfg - simulation configuration:
+%     cfg.digitizer - '3458' for HP3458 with guarding
+%                     '9238' for NI9238 cDAQ board
+%     cfg.mode - '4TP' or '2x4T' 
+%   unc - uncertainty calculation parems:
+%     unc.is_mcc - nonzero: monte carlo simulation
+%     unc.rnd_ct - simulate crosstalk errors?
+%     unc.rnd_lin - simulate nonlinarity?
+%
+% Returns:
+%   par - struct of Spice model parameters, some of them vectors 
+%          (one item for each freq spot).
+%
+% This is part of open-z-bridge project: https://github.com/smaslan/open-z-bridge
+% (c) 2021, Stanislav Maslan, smaslan@cmi.cz/s.maslan@seznam.cz
+% The script is distributed under MIT license, https://opensource.org/licenses/MIT.                
+% 
 function [par] = z_sim_gen_params(f, Z1, Z2, cfg, unc)
-% This generates Spice model parameters for each frequency of the sweep
 
     is_mcc = unc.is_mcc;
     % randomize strays?

@@ -1,11 +1,13 @@
+% Simple script for rough calculation of mutual inductances of certain twinax cable.
+% The output of this is MAT file that is being expected by open-z-bridge simulator.
+%
+% This is part of open-z-bridge project: https://github.com/smaslan/open-z-bridge
+% (c) 2021, Stanislav Maslan, smaslan@cmi.cz/s.maslan@seznam.cz
+% The script is distributed under MIT license, https://opensource.org/licenses/MIT.                
+%  
 clc;
 clear all;
 close all;
-
-%% switch plot output to GNUplot - works a little better under Windoze
-if(sum((version-'3.4.3').*10.^(length(version):-1:1))>=0)
-  graphics_toolkit('gnuplot');
-end
 
 % this script directory
 mfld = mfilename('fullpath'); mfld = mfld(1:strchr(mfld,filesep(),1,'last'));

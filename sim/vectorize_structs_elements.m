@@ -1,6 +1,10 @@
-%% Expects cells vector of structures. Combines element from every struct into vectors (for scalar elements) or into arrays (for vector elements).
-%% In another words: Cells vector of structs to struct of vectors (or arrays).
-%% First index of output struct vector/array elements indicates result id.  
+% Expects cells vector of structures. Combines element from every struct into vectors (for scalar elements) or into arrays (for vector elements).
+% In another words: Cells vector of structs to struct of vectors (or arrays).
+% First index of output struct vector/array elements indicates result id.
+%
+% (c) 2021, Stanislav Maslan, smaslan@cmi.cz/s.maslan@seznam.cz
+% The script is distributed under MIT license, https://opensource.org/licenses/MIT.                
+%   
 
 function [res] = vectorize_structs_elements(inp)
 

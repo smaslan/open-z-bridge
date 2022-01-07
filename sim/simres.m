@@ -1,12 +1,13 @@
 
-is_unc = size(r.f,1) > 1;
+% simulation was uncertainty?
+%is_unc = size(r.f,1) > 1;
+is_unc = unc.is_mcc;
 
 % list of frequencies
 f_list = r.f(1,:).';
 
-
 if is_unc
-
+    % --- Uncertainty mode ---
     u_Rs = [];
     u_Xs = [];
     u_Z = [];
@@ -31,10 +32,10 @@ if is_unc
     cell2csv('unc_1m_ct.csv',csv,';');
 
 else
-
-    DRs = r.dRs(:)    
-    DXs = r.dXs(:)
-    dZ = r.dZ(:)    
-    Dph = r.dph(:)
+    % --- Error mode: one column per sensitivity analysis step ---  
+    abs_dev_Rs = r.dRs.'    
+    abs_dev_Xs = r.dXs.'
+    rel_dev_Z = r.dZ.'    
+    abs_dev_phi = r.dph.'
     
 endif

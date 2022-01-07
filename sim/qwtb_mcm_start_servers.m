@@ -1,3 +1,19 @@
+% Schmutzig function that will try to find GNU Octave binary path and then 
+% launches another instance(s) of if using batch file 
+% 'qwtb_mcm_start_servers.bat'. The whole point is to proceduraly start 
+% servers (slaves) for the multicore package library.
+% The autodetection of Octave binary can be skiped by entering binary path
+% explicitly by 'oct_pth'. 
+% 'shr_fld' is folder where multicore job files will be shared.
+% 'cores' is number of instaces to run
+%
+% Usage:
+%   qwtb_mcm_start_servers(shr_fld, cores)
+%   qwtb_mcm_start_servers(shr_fld, cores, oct_pth)                
+%
+% (c) 2021, Stanislav Maslan, smaslan@cmi.cz/s.maslan@seznam.cz
+% The script is distributed under MIT license, https://opensource.org/licenses/MIT.                
+%
 function [] = qwtb_mcm_start_servers(shr_fld, cores, oct_pth)
 
     if ~isOctave

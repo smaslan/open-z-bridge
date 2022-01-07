@@ -1,4 +1,18 @@
-function [data,names] = spice_readfile_fast(filename, mode, list)
+% Faster version of spice_readfile(). And less functional version. :-)
+% But it can do the basic parsing. It expects binary format!
+% 'filename' is path to Spice AC analysis output. 
+% when 'mode' equals 'struct', it will return elements as struct items.
+% Otherwise it will output vector of element 'names' and vector of complex
+% numbers 'data'. 
+%
+% Usage:
+%   [data,names] = spice_readfile_fast(filename, mode)               
+%
+% This is part of open-z-bridge project: https://github.com/smaslan/open-z-bridge
+% (c) 2021, Stanislav Maslan, smaslan@cmi.cz/s.maslan@seznam.cz
+% The script is distributed under MIT license, https://opensource.org/licenses/MIT.                
+%  
+function [data,names] = spice_readfile_fast(filename, mode)
 
     % read data
     [fid,msg] = fopen(filename,'r');

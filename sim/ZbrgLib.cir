@@ -1,4 +1,9 @@
 * Z-bridge components library
+* Simple library of common coaxial network components.
+*
+* (c) 2021 Stanislav Maslan, s.maslan@senzam.cz
+* The library is distributed under MIT license, https://opensource.org/licenses/MIT.
+* 
 .LIB ZbrgLib
 
 * Twinax cable (two separately shielded cores and one shiled around both)
