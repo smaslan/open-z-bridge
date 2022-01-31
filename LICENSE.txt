@@ -2,9 +2,7 @@ The MIT License (MIT)
 
 Copyright (c) 2022 Stanislav Maslan, Czech metrology institute (www.cmi.cz)
 
-The lincese is relevant to the LabVIEW application and m-files that are part
-of the interface to the QWTB toolbox. Algorithms of the QWTB have their
-own licenses.
+The lincese is relevant to the LabVIEW application Open Z bridge.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
