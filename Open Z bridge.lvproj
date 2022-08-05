@@ -114,6 +114,31 @@
 				</Item>
 				<Item Name="Fluke 5XXX Series Multicalibrators.lvlib" Type="Library" URL="../drivers/Fluke 5XXX/Fluke 5XXX Series Multicalibrators.lvlib"/>
 			</Item>
+			<Item Name="Fluke 5790A" Type="Folder">
+				<Item Name="top_level" Type="Folder">
+					<Item Name="acv_get_multiple.vi" Type="VI" URL="../drivers/Fluke 5790A/top_level/acv_get_multiple.vi"/>
+					<Item Name="acv_get_single.vi" Type="VI" URL="../drivers/Fluke 5790A/top_level/acv_get_single.vi"/>
+					<Item Name="acv_open_inp1.vi" Type="VI" URL="../drivers/Fluke 5790A/top_level/acv_open_inp1.vi"/>
+					<Item Name="acv_open_mode.vi" Type="VI" URL="../drivers/Fluke 5790A/top_level/acv_open_mode.vi"/>
+					<Item Name="acv_open_wbnd.vi" Type="VI" URL="../drivers/Fluke 5790A/top_level/acv_open_wbnd.vi"/>
+					<Item Name="acv_set_from_string.vi" Type="VI" URL="../drivers/Fluke 5790A/top_level/acv_set_from_string.vi"/>
+					<Item Name="acv_var.vi" Type="VI" URL="../drivers/Fluke 5790A/top_level/acv_var.vi"/>
+					<Item Name="F5790 session.ctl" Type="VI" URL="../drivers/Fluke 5790A/top_level/F5790 session.ctl"/>
+					<Item Name="F5790 Config Panel.vi" Type="VI" URL="../drivers/Fluke 5790A/top_level/F5790 Config Panel.vi"/>
+					<Item Name="F5790 Initialize.vi" Type="VI" URL="../drivers/Fluke 5790A/top_level/F5790 Initialize.vi"/>
+					<Item Name="F5790 Close.vi" Type="VI" URL="../drivers/Fluke 5790A/top_level/F5790 Close.vi"/>
+				</Item>
+				<Item Name="5790A ac meas.vi" Type="VI" URL="../drivers/Fluke 5790A/5790A ac meas.vi"/>
+				<Item Name="5790A acdc meas.vi" Type="VI" URL="../drivers/Fluke 5790A/5790A acdc meas.vi"/>
+				<Item Name="5790A acdc unit.vi" Type="VI" URL="../drivers/Fluke 5790A/5790A acdc unit.vi"/>
+				<Item Name="5790A trig.vi" Type="VI" URL="../drivers/Fluke 5790A/5790A trig.vi"/>
+				<Item Name="5790A_config.vi" Type="VI" URL="../drivers/Fluke 5790A/5790A_config.vi"/>
+				<Item Name="5790A_guard.vi" Type="VI" URL="../drivers/Fluke 5790A/5790A_guard.vi"/>
+				<Item Name="5790A_init.vi" Type="VI" URL="../drivers/Fluke 5790A/5790A_init.vi"/>
+				<Item Name="5790A_input.vi" Type="VI" URL="../drivers/Fluke 5790A/5790A_input.vi"/>
+				<Item Name="5790A_range.vi" Type="VI" URL="../drivers/Fluke 5790A/5790A_range.vi"/>
+				<Item Name="5790A Get Spec.vi" Type="VI" URL="../drivers/Fluke 5790A/5790A Get Spec.vi"/>
+			</Item>
 			<Item Name="Agilent 33XXX Series" Type="Folder">
 				<Item Name="Agilent 33XXX Series.lvlib" Type="Library" URL="../drivers/Agilent 33XXX Series/Agilent 33XXX Series.lvlib"/>
 			</Item>
@@ -160,6 +185,15 @@
 			<Item Name="Bridge Sim InpZ.vi" Type="VI" URL="../bridge/Bridge Sim InpZ.vi"/>
 			<Item Name="Bridge Sim Null Xfer.vi" Type="VI" URL="../bridge/Bridge Sim Null Xfer.vi"/>
 			<Item Name="RLC_fake.vi" Type="VI" URL="../bridge/RLC_fake.vi"/>
+		</Item>
+		<Item Name="DVM" Type="Folder">
+			<Item Name="dvm type.ctl" Type="VI" URL="../dvm/dvm type.ctl"/>
+			<Item Name="dvm session.ctl" Type="VI" URL="../dvm/dvm session.ctl"/>
+			<Item Name="dvm Reading.ctl" Type="VI" URL="../dvm/dvm Reading.ctl"/>
+			<Item Name="dvm Open.vi" Type="VI" URL="../dvm/dvm Open.vi"/>
+			<Item Name="dvm Close.vi" Type="VI" URL="../dvm/dvm Close.vi"/>
+			<Item Name="dvm Get Single.vi" Type="VI" URL="../dvm/dvm Get Single.vi"/>
+			<Item Name="dvm Config Panel.vi" Type="VI" URL="../dvm/dvm Config Panel.vi"/>
 		</Item>
 		<Item Name="measure" Type="Folder">
 			<Property Name="NI.SortType" Type="Int">3</Property>
