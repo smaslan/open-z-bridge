@@ -35,6 +35,7 @@
 					<Item Name="TWM Client Transducer Correction Item.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Transducer Correction Item.ctl"/>
 					<Item Name="TWM Client Algorithm Info.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Algorithm Info.ctl"/>
 					<Item Name="TWM Client Result Info.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Result Info.ctl"/>
+					<Item Name="TWM Client Mux Path.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Mux Path.ctl"/>
 					<Item Name="TWM Client Cmd Get Result.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Cmd Get Result.vi"/>
 					<Item Name="TWM Client Cmd Get Status.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Cmd Get Status.vi"/>
 					<Item Name="TWM Client Cmd Get Algorithm Info.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Cmd Get Algorithm Info.vi"/>
@@ -55,21 +56,23 @@
 					<Item Name="TWM Client Close.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Close.vi"/>
 					<Item Name="TWM Client Version.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Version.vi"/>
 					<Item Name="TWM Client Compare Version Strings.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Compare Version Strings.vi"/>
+					<Item Name="TWM Client Cmd Define Multiplexer Paths.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Cmd Define Multiplexer Paths.vi"/>
+					<Item Name="TWM Client Cmd Define Multiplexer Sequence.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Cmd Define Multiplexer Sequence.vi"/>
 					<Item Name="infolib.lvlib" Type="Library" URL="../drivers/TWM client.lvlibp/octave/infolib/infolib.lvlib"/>
-					<Item Name="Space Constant.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/dlg_ctls.llb/Space Constant.vi"/>
 					<Item Name="Trim Whitespace.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/Trim Whitespace.vi"/>
 					<Item Name="whitespace.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/whitespace.ctl"/>
-					<Item Name="Clear Errors.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/Clear Errors.vi"/>
 					<Item Name="Error Cluster From Error Code.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/Error Cluster From Error Code.vi"/>
+					<Item Name="Space Constant.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/dlg_ctls.llb/Space Constant.vi"/>
+					<Item Name="Clear Errors.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/Clear Errors.vi"/>
 					<Item Name="Normalize End Of Line.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/AdvancedString/Normalize End Of Line.vi"/>
 					<Item Name="wa32 ReadFile.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/wa32 ReadFile.vi"/>
 					<Item Name="wa32 PeekNamedPipe.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/wa32 PeekNamedPipe.vi"/>
 					<Item Name="wa32 Read Till Key.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/high level/wa32 Read Till Key.vi"/>
 					<Item Name="wa32 WriteFile.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/wa32 WriteFile.vi"/>
-					<Item Name="wa32 CloseHandle.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/wa32 CloseHandle.vi"/>
 					<Item Name="wa32 Flush Read.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/high level/wa32 Flush Read.vi"/>
-					<Item Name="wa32 CreateFileA.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/wa32 CreateFileA.vi"/>
 					<Item Name="wa32 WaitNamedPipeA.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/wa32 WaitNamedPipeA.vi"/>
+					<Item Name="wa32 CloseHandle.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/wa32 CloseHandle.vi"/>
+					<Item Name="wa32 CreateFileA.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/wa32 CreateFileA.vi"/>
 				</Item>
 			</Item>
 			<Item Name="AFG3101C" Type="Folder">
@@ -181,6 +184,7 @@
 				<Item Name="Meas Result Export.vi" Type="VI" URL="../measure/Meas Result Export.vi"/>
 				<Item Name="Meas Result Export - Build Report.vi" Type="VI" URL="../measure/Meas Result Export - Build Report.vi"/>
 				<Item Name="Meas Result Make Unc Bars to Graph.vi" Type="VI" URL="../measure/Meas Result Make Unc Bars to Graph.vi"/>
+				<Item Name="Meas Result Make Cplx Unc Bars to Graph.vi" Type="VI" URL="../measure/Meas Result Make Cplx Unc Bars to Graph.vi"/>
 				<Item Name="Meas Result Get Readings.vi" Type="VI" URL="../measure/Meas Result Get Readings.vi"/>
 				<Item Name="Meas Result Remove Readings.vi" Type="VI" URL="../measure/Meas Result Remove Readings.vi"/>
 				<Item Name="Meas Result Readings Panel.vi" Type="VI" URL="../measure/Meas Result Readings Panel.vi"/>
