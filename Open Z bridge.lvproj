@@ -31,6 +31,7 @@
 					<Item Name="TWM Client Processing Setup.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Processing Setup.ctl"/>
 					<Item Name="TWM Client Quantity Record.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Quantity Record.ctl"/>
 					<Item Name="TWM Client Meas Setup.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Meas Setup.ctl"/>
+					<Item Name="TWM Client Meas Setup Trig.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Meas Setup Trig.ctl"/>
 					<Item Name="TWM Client Result Max Dim.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Result Max Dim.ctl"/>
 					<Item Name="TWM Client Transducer Correction Item.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Transducer Correction Item.ctl"/>
 					<Item Name="TWM Client Algorithm Info.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Algorithm Info.ctl"/>
@@ -58,12 +59,13 @@
 					<Item Name="TWM Client Compare Version Strings.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Compare Version Strings.vi"/>
 					<Item Name="TWM Client Cmd Define Multiplexer Paths.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Cmd Define Multiplexer Paths.vi"/>
 					<Item Name="TWM Client Cmd Define Multiplexer Sequence.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Cmd Define Multiplexer Sequence.vi"/>
+					<Item Name="TWM Client Cmd Define QPMX.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Cmd Define QPMX.vi"/>
 					<Item Name="infolib.lvlib" Type="Library" URL="../drivers/TWM client.lvlibp/octave/infolib/infolib.lvlib"/>
 					<Item Name="Trim Whitespace.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/Trim Whitespace.vi"/>
 					<Item Name="whitespace.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/whitespace.ctl"/>
+					<Item Name="Clear Errors.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/Clear Errors.vi"/>
 					<Item Name="Error Cluster From Error Code.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/Error Cluster From Error Code.vi"/>
 					<Item Name="Space Constant.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/dlg_ctls.llb/Space Constant.vi"/>
-					<Item Name="Clear Errors.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/Clear Errors.vi"/>
 					<Item Name="Normalize End Of Line.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/AdvancedString/Normalize End Of Line.vi"/>
 					<Item Name="wa32 ReadFile.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/wa32 ReadFile.vi"/>
 					<Item Name="wa32 PeekNamedPipe.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/wa32 PeekNamedPipe.vi"/>
@@ -792,7 +794,7 @@
 				<Property Name="Bld_previewCacheID" Type="Str">{791F11D6-C97D-45C0-88CE-FB43FA74A516}</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Bld_version.minor" Type="Int">1</Property>
-				<Property Name="Bld_version.patch" Type="Int">7</Property>
+				<Property Name="Bld_version.patch" Type="Int">8</Property>
 				<Property Name="Destination[0].destName" Type="Str">open_z_bridge-full.exe</Property>
 				<Property Name="Destination[0].path" Type="Path">../builds/Open_Z_bridge-[VersionNumber]-full/Open-Z-bridge-full.exe</Property>
 				<Property Name="Destination[0].path.type" Type="Str">relativeToProject</Property>
@@ -806,7 +808,7 @@
 				<Property Name="Destination[2].path.type" Type="Str">relativeToProject</Property>
 				<Property Name="DestinationCount" Type="Int">3</Property>
 				<Property Name="Exe_iconItemID" Type="Ref">/My Computer/open_z_brg.ico</Property>
-				<Property Name="Source[0].itemID" Type="Str">{C0ACB39F-9936-41C5-8801-EDB008993BBB}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{AD282BD1-67A0-4CB9-9BC6-8C6AD7B5198B}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/main.vi</Property>
@@ -845,7 +847,7 @@
 				<Property Name="Bld_previewCacheID" Type="Str">{E01B0F87-A895-4022-B8E1-CCC15900CD93}</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Bld_version.minor" Type="Int">1</Property>
-				<Property Name="Bld_version.patch" Type="Int">7</Property>
+				<Property Name="Bld_version.patch" Type="Int">8</Property>
 				<Property Name="Destination[0].destName" Type="Str">open_z_bridge-visa.exe</Property>
 				<Property Name="Destination[0].path" Type="Path">../builds/Open_Z_bridge-[VersionNumber]-visa/Open-Z-bridge-visa.exe</Property>
 				<Property Name="Destination[0].path.type" Type="Str">relativeToProject</Property>
