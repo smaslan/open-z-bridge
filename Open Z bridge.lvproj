@@ -118,13 +118,6 @@
 			</Item>
 			<Item Name="Fluke 5790A" Type="Folder">
 				<Item Name="top_level" Type="Folder">
-					<Item Name="acv_get_multiple.vi" Type="VI" URL="../drivers/Fluke 5790A/top_level/acv_get_multiple.vi"/>
-					<Item Name="acv_get_single.vi" Type="VI" URL="../drivers/Fluke 5790A/top_level/acv_get_single.vi"/>
-					<Item Name="acv_open_inp1.vi" Type="VI" URL="../drivers/Fluke 5790A/top_level/acv_open_inp1.vi"/>
-					<Item Name="acv_open_mode.vi" Type="VI" URL="../drivers/Fluke 5790A/top_level/acv_open_mode.vi"/>
-					<Item Name="acv_open_wbnd.vi" Type="VI" URL="../drivers/Fluke 5790A/top_level/acv_open_wbnd.vi"/>
-					<Item Name="acv_set_from_string.vi" Type="VI" URL="../drivers/Fluke 5790A/top_level/acv_set_from_string.vi"/>
-					<Item Name="acv_var.vi" Type="VI" URL="../drivers/Fluke 5790A/top_level/acv_var.vi"/>
 					<Item Name="F5790 session.ctl" Type="VI" URL="../drivers/Fluke 5790A/top_level/F5790 session.ctl"/>
 					<Item Name="F5790 Config Panel.vi" Type="VI" URL="../drivers/Fluke 5790A/top_level/F5790 Config Panel.vi"/>
 					<Item Name="F5790 Initialize.vi" Type="VI" URL="../drivers/Fluke 5790A/top_level/F5790 Initialize.vi"/>
@@ -366,6 +359,7 @@
 		<Item Name="open_z_brg.ico" Type="Document" URL="../ico/open_z_brg.ico"/>
 		<Item Name="README.md" Type="Document" URL="../README.md"/>
 		<Item Name="LICENSE.txt" Type="Document" URL="../LICENSE.txt"/>
+		<Item Name="Meas Result Formats.ctl" Type="VI" URL="../measure/Meas Result Formats.ctl"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="instr.lib" Type="Folder">
 				<Item Name="niScope Acquisition Status.vi" Type="VI" URL="/&lt;instrlib&gt;/niScope/Acquire/Fetch/niScope Acquisition Status.vi"/>
