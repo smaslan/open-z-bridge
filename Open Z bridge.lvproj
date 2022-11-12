@@ -202,6 +202,7 @@
 				<Item Name="Meas Result 4TP Impedance Mode.ctl" Type="VI" URL="../measure/Meas Result 4TP Impedance Mode.ctl"/>
 				<Item Name="Meas Results Sweep Data Uncertainty Mode.ctl" Type="VI" URL="../measure/Meas Results Sweep Data Uncertainty Mode.ctl"/>
 				<Item Name="Meas Results Ref.ctl" Type="VI" URL="../measure/Meas Results Ref.ctl"/>
+				<Item Name="Meas Result Formats.ctl" Type="VI" URL="../measure/Meas Result Formats.ctl"/>
 				<Item Name="Meas Result Get Access.vi" Type="VI" URL="../measure/Meas Result Get Access.vi"/>
 				<Item Name="Meas Result Release Access.vi" Type="VI" URL="../measure/Meas Result Release Access.vi"/>
 				<Item Name="Meas Result Get Sweep Data.vi" Type="VI" URL="../measure/Meas Result Get Sweep Data.vi"/>
@@ -329,6 +330,11 @@
 			<Item Name="clr_error.vi" Type="VI" URL="../other/clr_error.vi"/>
 			<Item Name="Load CSV 1D data.vi" Type="VI" URL="../other/Load CSV 1D data.vi"/>
 			<Item Name="Dir Folder With Attributes.vi" Type="VI" URL="../other/Dir Folder With Attributes.vi"/>
+			<Item Name="Scale Controls.vi" Type="VI" URL="../other/Scale Controls.vi"/>
+			<Item Name="Scale Controls Record.ctl" Type="VI" URL="../other/Scale Controls Record.ctl"/>
+			<Item Name="Scale Controls List.ctl" Type="VI" URL="../other/Scale Controls List.ctl"/>
+			<Item Name="Get Decoration Label.vi" Type="VI" URL="../other/Get Decoration Label.vi"/>
+			<Item Name="Set Decoration Label.vi" Type="VI" URL="../other/Set Decoration Label.vi"/>
 		</Item>
 		<Item Name="varilib" Type="Folder">
 			<Item Name="lvanlys.dll" Type="Document" URL="../varilib/lvanlys.dll"/>
@@ -359,7 +365,7 @@
 		<Item Name="open_z_brg.ico" Type="Document" URL="../ico/open_z_brg.ico"/>
 		<Item Name="README.md" Type="Document" URL="../README.md"/>
 		<Item Name="LICENSE.txt" Type="Document" URL="../LICENSE.txt"/>
-		<Item Name="Meas Result Formats.ctl" Type="VI" URL="../measure/Meas Result Formats.ctl"/>
+		<Item Name="test.vi" Type="VI" URL="../test.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="instr.lib" Type="Folder">
 				<Item Name="niScope Acquisition Status.vi" Type="VI" URL="/&lt;instrlib&gt;/niScope/Acquire/Fetch/niScope Acquisition Status.vi"/>
@@ -720,6 +726,8 @@
 				<Item Name="GetTargetBuildSpecs.vi" Type="VI" URL="/&lt;vilib&gt;/AppBuilder/GetTargetBuildSpecs.vi"/>
 				<Item Name="Invoke BuildTarget.vi" Type="VI" URL="/&lt;vilib&gt;/AppBuilder/Invoke BuildTarget.vi"/>
 				<Item Name="System Exec.vi" Type="VI" URL="/&lt;vilib&gt;/Platform/system.llb/System Exec.vi"/>
+				<Item Name="Delimited String to 1D String Array.vi" Type="VI" URL="/&lt;vilib&gt;/AdvancedString/Delimited String to 1D String Array.vi"/>
+				<Item Name="Normalize End Of Line.vi" Type="VI" URL="/&lt;vilib&gt;/AdvancedString/Normalize End Of Line.vi"/>
 			</Item>
 			<Item Name="Advapi32.dll" Type="Document" URL="Advapi32.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
@@ -786,6 +794,7 @@
 				<Property Name="Bld_postActionVIID" Type="Ref">/My Computer/build/Post-Build Action.vi</Property>
 				<Property Name="Bld_preActionVIID" Type="Ref">/My Computer/build/Pre-Build Action - visa,daqmx.vi</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{791F11D6-C97D-45C0-88CE-FB43FA74A516}</Property>
+				<Property Name="Bld_version.build" Type="Int">1</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Bld_version.minor" Type="Int">1</Property>
 				<Property Name="Bld_version.patch" Type="Int">8</Property>
@@ -802,7 +811,7 @@
 				<Property Name="Destination[2].path.type" Type="Str">relativeToProject</Property>
 				<Property Name="DestinationCount" Type="Int">3</Property>
 				<Property Name="Exe_iconItemID" Type="Ref">/My Computer/open_z_brg.ico</Property>
-				<Property Name="Source[0].itemID" Type="Str">{AD282BD1-67A0-4CB9-9BC6-8C6AD7B5198B}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{8698C40C-59DA-4FA7-A691-FC45CAF57089}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/main.vi</Property>
@@ -839,6 +848,7 @@
 				<Property Name="Bld_postActionVIID" Type="Ref">/My Computer/build/Post-Build Action.vi</Property>
 				<Property Name="Bld_preActionVIID" Type="Ref">/My Computer/build/Pre-Build Action - visa.vi</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{E01B0F87-A895-4022-B8E1-CCC15900CD93}</Property>
+				<Property Name="Bld_version.build" Type="Int">1</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Bld_version.minor" Type="Int">1</Property>
 				<Property Name="Bld_version.patch" Type="Int">8</Property>
