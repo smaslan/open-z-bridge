@@ -193,43 +193,50 @@
 		<Item Name="measure" Type="Folder">
 			<Property Name="NI.SortType" Type="Int">3</Property>
 			<Item Name="results" Type="Folder">
-				<Item Name="Meas Results.ctl" Type="VI" URL="../measure/Meas Results.ctl"/>
-				<Item Name="Meas Result GUI References.ctl" Type="VI" URL="../measure/Meas Result GUI References.ctl"/>
-				<Item Name="Meas Results Sweep Data.ctl" Type="VI" URL="../measure/Meas Results Sweep Data.ctl"/>
-				<Item Name="Meas Result Major Format.ctl" Type="VI" URL="../measure/Meas Result Major Format.ctl"/>
-				<Item Name="Meas Result Deviation Format.ctl" Type="VI" URL="../measure/Meas Result Deviation Format.ctl"/>
-				<Item Name="Meas Result Freq Format.ctl" Type="VI" URL="../measure/Meas Result Freq Format.ctl"/>
-				<Item Name="Meas Result 4TP Impedance Mode.ctl" Type="VI" URL="../measure/Meas Result 4TP Impedance Mode.ctl"/>
-				<Item Name="Meas Results Sweep Data Uncertainty Mode.ctl" Type="VI" URL="../measure/Meas Results Sweep Data Uncertainty Mode.ctl"/>
-				<Item Name="Meas Results Ref.ctl" Type="VI" URL="../measure/Meas Results Ref.ctl"/>
-				<Item Name="Meas Result Formats.ctl" Type="VI" URL="../measure/Meas Result Formats.ctl"/>
-				<Item Name="Meas Result Get Access.vi" Type="VI" URL="../measure/Meas Result Get Access.vi"/>
-				<Item Name="Meas Result Release Access.vi" Type="VI" URL="../measure/Meas Result Release Access.vi"/>
-				<Item Name="Meas Result Get Sweep Data.vi" Type="VI" URL="../measure/Meas Result Get Sweep Data.vi"/>
-				<Item Name="Meas Result Add Reading.vi" Type="VI" URL="../measure/Meas Result Add Reading.vi"/>
-				<Item Name="Meas Result Update View.vi" Type="VI" URL="../measure/Meas Result Update View.vi"/>
-				<Item Name="Meas Result Fill Phase Selector.vi" Type="VI" URL="../measure/Meas Result Fill Phase Selector.vi"/>
-				<Item Name="Meas Result Fill Freq Selector.vi" Type="VI" URL="../measure/Meas Result Fill Freq Selector.vi"/>
-				<Item Name="Meas Result Update Reading Status.vi" Type="VI" URL="../measure/Meas Result Update Reading Status.vi"/>
-				<Item Name="Meas Result Export.vi" Type="VI" URL="../measure/Meas Result Export.vi"/>
-				<Item Name="Meas Result Export - Build Report.vi" Type="VI" URL="../measure/Meas Result Export - Build Report.vi"/>
-				<Item Name="Meas Result Make Unc Bars to Graph.vi" Type="VI" URL="../measure/Meas Result Make Unc Bars to Graph.vi"/>
-				<Item Name="Meas Result Make Cplx Unc Bars to Graph.vi" Type="VI" URL="../measure/Meas Result Make Cplx Unc Bars to Graph.vi"/>
-				<Item Name="Meas Result Get Readings.vi" Type="VI" URL="../measure/Meas Result Get Readings.vi"/>
-				<Item Name="Meas Result Remove Readings.vi" Type="VI" URL="../measure/Meas Result Remove Readings.vi"/>
-				<Item Name="Meas Result Readings Panel.vi" Type="VI" URL="../measure/Meas Result Readings Panel.vi"/>
-				<Item Name="Meas Results Correction Structuring Mode.ctl" Type="VI" URL="../measure/Meas Results Correction Structuring Mode.ctl"/>
-				<Item Name="Meas Results TWM Digitizer Correction Data.ctl" Type="VI" URL="../measure/Meas Results TWM Digitizer Correction Data.ctl"/>
-				<Item Name="Meas Results TWM Correction Digitizer Type.ctl" Type="VI" URL="../measure/Meas Results TWM Correction Digitizer Type.ctl"/>
-				<Item Name="Meas Results TWM InpZ Correction Uncertainty Config.ctl" Type="VI" URL="../measure/Meas Results TWM InpZ Correction Uncertainty Config.ctl"/>
-				<Item Name="Meas Result Generate TWM Digitizer Correction.vi" Type="VI" URL="../measure/Meas Result Generate TWM Digitizer Correction.vi"/>
-				<Item Name="Meas Result Generate TWM Digitizer Correction - Process Measurement.vi" Type="VI" URL="../measure/Meas Result Generate TWM Digitizer Correction - Process Measurement.vi"/>
-				<Item Name="Meas Result Generate TWM Digitizer Correction - fit Gain Phase.vi" Type="VI" URL="../measure/Meas Result Generate TWM Digitizer Correction - fit Gain Phase.vi"/>
-				<Item Name="Meas Result Generate TWM Digitizer Correction - Generate Files.vi" Type="VI" URL="../measure/Meas Result Generate TWM Digitizer Correction - Generate Files.vi"/>
-				<Item Name="Meas Result Generate TWM Digitizer Correction - Generate CSV Matrix.vi" Type="VI" URL="../measure/Meas Result Generate TWM Digitizer Correction - Generate CSV Matrix.vi"/>
-				<Item Name="Meas Result Generate TWM Digitizer Correction - Estimate Digitizer Uncertainty.vi" Type="VI" URL="../measure/Meas Result Generate TWM Digitizer Correction - Estimate Digitizer Uncertainty.vi"/>
-				<Item Name="Meas Result Generate TWM InpZ Correction - Process Measurement.vi" Type="VI" URL="../measure/Meas Result Generate TWM InpZ Correction - Process Measurement.vi"/>
-				<Item Name="Meas Result Generate TWM InpZ Correction - Generate Files.vi" Type="VI" URL="../measure/Meas Result Generate TWM InpZ Correction - Generate Files.vi"/>
+				<Item Name="Meas Results.ctl" Type="VI" URL="../measure/results/Meas Results.ctl"/>
+				<Item Name="Meas Result GUI References.ctl" Type="VI" URL="../measure/results/Meas Result GUI References.ctl"/>
+				<Item Name="Meas Results Sweep Data.ctl" Type="VI" URL="../measure/results/Meas Results Sweep Data.ctl"/>
+				<Item Name="Meas Result Major Format.ctl" Type="VI" URL="../measure/results/Meas Result Major Format.ctl"/>
+				<Item Name="Meas Result Deviation Format.ctl" Type="VI" URL="../measure/results/Meas Result Deviation Format.ctl"/>
+				<Item Name="Meas Result Freq Format.ctl" Type="VI" URL="../measure/results/Meas Result Freq Format.ctl"/>
+				<Item Name="Meas Result 4TP Impedance Mode.ctl" Type="VI" URL="../measure/results/Meas Result 4TP Impedance Mode.ctl"/>
+				<Item Name="Meas Results Sweep Data Uncertainty Mode.ctl" Type="VI" URL="../measure/results/Meas Results Sweep Data Uncertainty Mode.ctl"/>
+				<Item Name="Meas Results Ref.ctl" Type="VI" URL="../measure/results/Meas Results Ref.ctl"/>
+				<Item Name="Meas Result Formats.ctl" Type="VI" URL="../measure/results/Meas Result Formats.ctl"/>
+				<Item Name="Meas Result Get Access.vi" Type="VI" URL="../measure/results/Meas Result Get Access.vi"/>
+				<Item Name="Meas Result Release Access.vi" Type="VI" URL="../measure/results/Meas Result Release Access.vi"/>
+				<Item Name="Meas Result Get Sweep Data.vi" Type="VI" URL="../measure/results/Meas Result Get Sweep Data.vi"/>
+				<Item Name="Meas Result Add Reading.vi" Type="VI" URL="../measure/results/Meas Result Add Reading.vi"/>
+				<Item Name="Meas Result Update View.vi" Type="VI" URL="../measure/results/Meas Result Update View.vi"/>
+				<Item Name="Meas Result Fill Phase Selector.vi" Type="VI" URL="../measure/results/Meas Result Fill Phase Selector.vi"/>
+				<Item Name="Meas Result Fill Freq Selector.vi" Type="VI" URL="../measure/results/Meas Result Fill Freq Selector.vi"/>
+				<Item Name="Meas Result Update Reading Status.vi" Type="VI" URL="../measure/results/Meas Result Update Reading Status.vi"/>
+				<Item Name="Meas Result Export.vi" Type="VI" URL="../measure/results/Meas Result Export.vi"/>
+				<Item Name="Meas Result Export - Build Report.vi" Type="VI" URL="../measure/results/Meas Result Export - Build Report.vi"/>
+				<Item Name="Meas Result Make Unc Bars to Graph.vi" Type="VI" URL="../measure/results/Meas Result Make Unc Bars to Graph.vi"/>
+				<Item Name="Meas Result Make Cplx Unc Bars to Graph.vi" Type="VI" URL="../measure/results/Meas Result Make Cplx Unc Bars to Graph.vi"/>
+				<Item Name="Meas Result Get Readings.vi" Type="VI" URL="../measure/results/Meas Result Get Readings.vi"/>
+				<Item Name="Meas Result Remove Readings.vi" Type="VI" URL="../measure/results/Meas Result Remove Readings.vi"/>
+				<Item Name="Meas Result Readings Panel.vi" Type="VI" URL="../measure/results/Meas Result Readings Panel.vi"/>
+				<Item Name="Meas Results Correction Structuring Mode.ctl" Type="VI" URL="../measure/results/Meas Results Correction Structuring Mode.ctl"/>
+				<Item Name="Impedance Equivalent Circuit.ctl" Type="VI" URL="../measure/results/Impedance Equivalent Circuit.ctl"/>
+				<Item Name="Impedance Equivalent Circuit Type Info.ctl" Type="VI" URL="../measure/results/Impedance Equivalent Circuit Type Info.ctl"/>
+				<Item Name="Impedance Equivalent Circuit Identifier.vi" Type="VI" URL="../measure/results/Impedance Equivalent Circuit Identifier.vi"/>
+				<Item Name="Impedance Equivalent Circuit Converter.vi" Type="VI" URL="../measure/results/Impedance Equivalent Circuit Converter.vi"/>
+				<Item Name="Impedance Equivalent Circuit Converter Vector.vi" Type="VI" URL="../measure/results/Impedance Equivalent Circuit Converter Vector.vi"/>
+			</Item>
+			<Item Name="twm" Type="Folder">
+				<Item Name="Meas Results TWM Digitizer Correction Data.ctl" Type="VI" URL="../measure/twm/Meas Results TWM Digitizer Correction Data.ctl"/>
+				<Item Name="Meas Results TWM Correction Digitizer Type.ctl" Type="VI" URL="../measure/twm/Meas Results TWM Correction Digitizer Type.ctl"/>
+				<Item Name="Meas Results TWM InpZ Correction Uncertainty Config.ctl" Type="VI" URL="../measure/twm/Meas Results TWM InpZ Correction Uncertainty Config.ctl"/>
+				<Item Name="Meas Result Generate TWM Digitizer Correction.vi" Type="VI" URL="../measure/twm/Meas Result Generate TWM Digitizer Correction.vi"/>
+				<Item Name="Meas Result Generate TWM Digitizer Correction - Process Measurement.vi" Type="VI" URL="../measure/twm/Meas Result Generate TWM Digitizer Correction - Process Measurement.vi"/>
+				<Item Name="Meas Result Generate TWM Digitizer Correction - fit Gain Phase.vi" Type="VI" URL="../measure/twm/Meas Result Generate TWM Digitizer Correction - fit Gain Phase.vi"/>
+				<Item Name="Meas Result Generate TWM Digitizer Correction - Generate Files.vi" Type="VI" URL="../measure/twm/Meas Result Generate TWM Digitizer Correction - Generate Files.vi"/>
+				<Item Name="Meas Result Generate TWM Digitizer Correction - Generate CSV Matrix.vi" Type="VI" URL="../measure/twm/Meas Result Generate TWM Digitizer Correction - Generate CSV Matrix.vi"/>
+				<Item Name="Meas Result Generate TWM Digitizer Correction - Estimate Digitizer Uncertainty.vi" Type="VI" URL="../measure/twm/Meas Result Generate TWM Digitizer Correction - Estimate Digitizer Uncertainty.vi"/>
+				<Item Name="Meas Result Generate TWM InpZ Correction - Process Measurement.vi" Type="VI" URL="../measure/twm/Meas Result Generate TWM InpZ Correction - Process Measurement.vi"/>
+				<Item Name="Meas Result Generate TWM InpZ Correction - Generate Files.vi" Type="VI" URL="../measure/twm/Meas Result Generate TWM InpZ Correction - Generate Files.vi"/>
 			</Item>
 			<Item Name="meas session.ctl" Type="VI" URL="../measure/meas session.ctl"/>
 			<Item Name="Meas Freq Info.ctl" Type="VI" URL="../measure/Meas Freq Info.ctl"/>
