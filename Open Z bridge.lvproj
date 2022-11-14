@@ -1,6 +1,6 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
 <Project Type="Project" LVVersion="20008000">
-	<Property Name="CCSymbols" Type="Str">w_daqmx,1;w_visa,1;</Property>
+	<Property Name="CCSymbols" Type="Str">w_daqmx,0;w_visa,1;</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">false</Property>
 	<Property Name="NI.Project.Description" Type="Str"></Property>
 	<Item Name="My Computer" Type="My Computer">
@@ -342,6 +342,7 @@
 			<Item Name="Scale Controls.vi" Type="VI" URL="../other/Scale Controls.vi"/>
 			<Item Name="Get Decoration Label.vi" Type="VI" URL="../other/Get Decoration Label.vi"/>
 			<Item Name="Set Decoration Label.vi" Type="VI" URL="../other/Set Decoration Label.vi"/>
+			<Item Name="Round Log.vi" Type="VI" URL="../other/Round Log.vi"/>
 		</Item>
 		<Item Name="varilib" Type="Folder">
 			<Item Name="lvanlys.dll" Type="Document" URL="../varilib/lvanlys.dll"/>
