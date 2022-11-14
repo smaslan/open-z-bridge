@@ -160,7 +160,7 @@
 			</Item>
 			<Item Name="KE2002.LLB" Type="Folder">
 				<Item Name="KE2002.LLB" Type="Folder"/>
-				<Item Name="Error Query Global.vi" Type="VI" URL="/M/pracovni/maslan/LV_prog/AH2xxx_sweep/drivers/KE2002/KE2002.LLB/Error Query Global.vi"/>
+				<Item Name="Error Query Global.vi" Type="VI" URL="../drivers/KE2002/Error Query Global.vi"/>
 				<Item Name="GPIB Receive Message.vi" Type="VI" URL="../drivers/KE2002/GPIB Receive Message.vi"/>
 				<Item Name="GPIB Send Message.vi" Type="VI" URL="../drivers/KE2002/GPIB Send Message.vi"/>
 				<Item Name="KE2002 VI tree.vi" Type="VI" URL="../drivers/KE2002/KE2002.LLB/KE2002 VI tree.vi"/>
@@ -179,7 +179,7 @@
 				<Item Name="Keithley 2002 DCV Config.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 DCV Config.vi"/>
 				<Item Name="Keithley 2002 Disp2 Config.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 Disp2 Config.vi"/>
 				<Item Name="Keithley 2002 Disp2 Read.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 Disp2 Read.vi"/>
-				<Item Name="Keithley 2002 Error Query.vi" Type="VI" URL="/M/pracovni/maslan/LV_prog/AH2xxx_sweep/drivers/KE2002/KE2002.LLB/Keithley 2002 Error Query.vi"/>
+				<Item Name="Keithley 2002 Error Query.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 Error Query.vi"/>
 				<Item Name="Keithley 2002 Error Reader.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 Error Reader.vi"/>
 				<Item Name="Keithley 2002 Freq Config.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 Freq Config.vi"/>
 				<Item Name="Keithley 2002 Multi Read.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 Multi Read.vi"/>
@@ -192,7 +192,7 @@
 				<Item Name="Keithley 2002 Syst Commands.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 Syst Commands.vi"/>
 				<Item Name="Keithley 2002 T-Coup Config.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 T-Coup Config.vi"/>
 				<Item Name="Keithley 2002 Trigger Config.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 Trigger Config.vi"/>
-				<Item Name="Read SCPI Error Queue (GPIB).vi" Type="VI" URL="/M/pracovni/maslan/LV_prog/AH2xxx_sweep/drivers/KE2002/KE2002.LLB/Read SCPI Error Queue (GPIB).vi"/>
+				<Item Name="Read SCPI Error Queue (GPIB).vi" Type="VI" URL="../drivers/KE2002/Read SCPI Error Queue (GPIB).vi"/>
 				<Item Name="Keithley 2002 Reset.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 Reset.vi"/>
 			</Item>
 		</Item>
