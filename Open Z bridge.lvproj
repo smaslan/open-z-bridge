@@ -1,6 +1,6 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
 <Project Type="Project" LVVersion="20008000">
-	<Property Name="CCSymbols" Type="Str">w_daqmx,0;w_visa,1;</Property>
+	<Property Name="CCSymbols" Type="Str">w_daqmx,1;w_visa,1;</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">false</Property>
 	<Property Name="NI.Project.Description" Type="Str"></Property>
 	<Item Name="My Computer" Type="My Computer">
@@ -144,6 +144,57 @@
 				<Item Name="CMI LiB Bias Flush Buffer.vi" Type="VI" URL="../drivers/CMI LiBbias/CMI LiB Bias Flush Buffer.vi"/>
 				<Item Name="CMI LiB Bias Set Bias.vi" Type="VI" URL="../drivers/CMI LiBbias/CMI LiB Bias Set Bias.vi"/>
 			</Item>
+			<Item Name="HP34401A" Type="Folder">
+				<Item Name="Private" Type="Folder"/>
+				<Item Name="Public" Type="Folder">
+					<Item Name="Configure" Type="Folder">
+						<Item Name="Low Level" Type="Folder"/>
+					</Item>
+					<Item Name="Data" Type="Folder">
+						<Item Name="Low Level" Type="Folder"/>
+					</Item>
+					<Item Name="Obsolete" Type="Folder"/>
+					<Item Name="Utility" Type="Folder"/>
+				</Item>
+				<Item Name="Agilent 34401.lvlib" Type="Library" URL="../drivers/HP34401A/Agilent 34401.lvlib"/>
+			</Item>
+			<Item Name="KE2002.LLB" Type="Folder">
+				<Item Name="KE2002.LLB" Type="Folder"/>
+				<Item Name="Error Query Global.vi" Type="VI" URL="/M/pracovni/maslan/LV_prog/AH2xxx_sweep/drivers/KE2002/KE2002.LLB/Error Query Global.vi"/>
+				<Item Name="GPIB Receive Message.vi" Type="VI" URL="../drivers/KE2002/GPIB Receive Message.vi"/>
+				<Item Name="GPIB Send Message.vi" Type="VI" URL="../drivers/KE2002/GPIB Send Message.vi"/>
+				<Item Name="KE2002 VI tree.vi" Type="VI" URL="../drivers/KE2002/KE2002.LLB/KE2002 VI tree.vi"/>
+				<Item Name="Keithley 2002 2-W Res Config.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 2-W Res Config.vi"/>
+				<Item Name="Keithley 2002 4-W Res Config.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 4-W Res Config.vi"/>
+				<Item Name="Keithley 2002 ACI Config.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 ACI Config.vi"/>
+				<Item Name="Keithley 2002 ACV Config.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 ACV Config.vi"/>
+				<Item Name="Keithley 2002 Arm Config.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 Arm Config.vi"/>
+				<Item Name="Keithley 2002 Arm2 Config.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 Arm2 Config.vi"/>
+				<Item Name="Keithley 2002 Burst Mode.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 Burst Mode.vi"/>
+				<Item Name="Keithley 2002 Calc Read.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 Calc Read.vi"/>
+				<Item Name="Keithley 2002 Calc1 Config.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 Calc1 Config.vi"/>
+				<Item Name="Keithley 2002 Calc2 Config.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 Calc2 Config.vi"/>
+				<Item Name="Keithley 2002 Calc3 Config.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 Calc3 Config.vi"/>
+				<Item Name="Keithley 2002 DCI Config.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 DCI Config.vi"/>
+				<Item Name="Keithley 2002 DCV Config.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 DCV Config.vi"/>
+				<Item Name="Keithley 2002 Disp2 Config.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 Disp2 Config.vi"/>
+				<Item Name="Keithley 2002 Disp2 Read.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 Disp2 Read.vi"/>
+				<Item Name="Keithley 2002 Error Query.vi" Type="VI" URL="/M/pracovni/maslan/LV_prog/AH2xxx_sweep/drivers/KE2002/KE2002.LLB/Keithley 2002 Error Query.vi"/>
+				<Item Name="Keithley 2002 Error Reader.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 Error Reader.vi"/>
+				<Item Name="Keithley 2002 Freq Config.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 Freq Config.vi"/>
+				<Item Name="Keithley 2002 Multi Read.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 Multi Read.vi"/>
+				<Item Name="Keithley 2002 Read Query.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 Read Query.vi"/>
+				<Item Name="Keithley 2002 RTD Config.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 RTD Config.vi"/>
+				<Item Name="Keithley 2002 Scan Config.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 Scan Config.vi"/>
+				<Item Name="Keithley 2002 Scan Read.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 Scan Read.vi"/>
+				<Item Name="Keithley 2002 Set Output.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 Set Output.vi"/>
+				<Item Name="Keithley 2002 Single Read.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 Single Read.vi"/>
+				<Item Name="Keithley 2002 Syst Commands.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 Syst Commands.vi"/>
+				<Item Name="Keithley 2002 T-Coup Config.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 T-Coup Config.vi"/>
+				<Item Name="Keithley 2002 Trigger Config.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 Trigger Config.vi"/>
+				<Item Name="Read SCPI Error Queue (GPIB).vi" Type="VI" URL="/M/pracovni/maslan/LV_prog/AH2xxx_sweep/drivers/KE2002/KE2002.LLB/Read SCPI Error Queue (GPIB).vi"/>
+				<Item Name="Keithley 2002 Reset.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 Reset.vi"/>
+			</Item>
 		</Item>
 		<Item Name="source" Type="Folder">
 			<Item Name="Source Type.ctl" Type="VI" URL="../source/Source Type.ctl"/>
@@ -211,6 +262,7 @@
 				<Item Name="Meas Result Fill Phase Selector.vi" Type="VI" URL="../measure/results/Meas Result Fill Phase Selector.vi"/>
 				<Item Name="Meas Result Fill Freq Selector.vi" Type="VI" URL="../measure/results/Meas Result Fill Freq Selector.vi"/>
 				<Item Name="Meas Result Update Reading Status.vi" Type="VI" URL="../measure/results/Meas Result Update Reading Status.vi"/>
+				<Item Name="Meas Result Update Thermometer Status.vi" Type="VI" URL="../measure/results/Meas Result Update Thermometer Status.vi"/>
 				<Item Name="Meas Result Export.vi" Type="VI" URL="../measure/results/Meas Result Export.vi"/>
 				<Item Name="Meas Result Export - Build Report.vi" Type="VI" URL="../measure/results/Meas Result Export - Build Report.vi"/>
 				<Item Name="Meas Result Make Unc Bars to Graph.vi" Type="VI" URL="../measure/results/Meas Result Make Unc Bars to Graph.vi"/>
@@ -343,6 +395,8 @@
 			<Item Name="Get Decoration Label.vi" Type="VI" URL="../other/Get Decoration Label.vi"/>
 			<Item Name="Set Decoration Label.vi" Type="VI" URL="../other/Set Decoration Label.vi"/>
 			<Item Name="Round Log.vi" Type="VI" URL="../other/Round Log.vi"/>
+			<Item Name="Sort 2D Array.vi" Type="VI" URL="../other/Sort 2D Array.vi"/>
+			<Item Name="mean_2D.vi" Type="VI" URL="../other/mean_2D.vi"/>
 		</Item>
 		<Item Name="varilib" Type="Folder">
 			<Item Name="lvanlys.dll" Type="Document" URL="../varilib/lvanlys.dll"/>
@@ -367,6 +421,170 @@
 			<Item Name="refs_get.vi" Type="VI" URL="../refs/refs_get.vi"/>
 			<Item Name="refs_var.vi" Type="VI" URL="../refs/refs_var.vi"/>
 			<Item Name="refs_parse_format.vi" Type="VI" URL="../refs/refs_parse_format.vi"/>
+		</Item>
+		<Item Name="thermo" Type="Folder">
+			<Item Name="COMET" Type="Folder">
+				<Item Name="NI Modbus.llb" Type="Folder">
+					<Item Name="MB CRC-16.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB CRC-16.vi"/>
+					<Item Name="MB Decode Data.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Decode Data.vi"/>
+					<Item Name="MB Embedded Modbus Demo Box Example (Legacy).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Embedded Modbus Demo Box Example (Legacy).vi"/>
+					<Item Name="MB Embedded Modbus Demo Box Example.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Embedded Modbus Demo Box Example.vi"/>
+					<Item Name="MB Ethernet Call Wait on Query.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Ethernet Call Wait on Query.vi"/>
+					<Item Name="MB Ethernet Check Client.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Ethernet Check Client.vi"/>
+					<Item Name="MB Ethernet Connection Function.ctl" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Ethernet Connection Function.ctl"/>
+					<Item Name="MB Ethernet Connection Manager.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Ethernet Connection Manager.vi"/>
+					<Item Name="MB Ethernet Example Master (Legacy).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Ethernet Example Master (Legacy).vi"/>
+					<Item Name="MB Ethernet Example Master.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Ethernet Example Master.vi"/>
+					<Item Name="MB Ethernet Example Slave (Legacy).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Ethernet Example Slave (Legacy).vi"/>
+					<Item Name="MB Ethernet Example Slave.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Ethernet Example Slave.vi"/>
+					<Item Name="MB Ethernet Is Address Valid.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Ethernet Is Address Valid.vi"/>
+					<Item Name="MB Ethernet Master Query (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Ethernet Master Query (poly).vi"/>
+					<Item Name="MB Ethernet Master Query Read Coils (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Ethernet Master Query Read Coils (poly).vi"/>
+					<Item Name="MB Ethernet Master Query Read Discrete Inputs (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Ethernet Master Query Read Discrete Inputs (poly).vi"/>
+					<Item Name="MB Ethernet Master Query Read Exception Status (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Ethernet Master Query Read Exception Status (poly).vi"/>
+					<Item Name="MB Ethernet Master Query Read Holding Registers (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Ethernet Master Query Read Holding Registers (poly).vi"/>
+					<Item Name="MB Ethernet Master Query Read Input Registers (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Ethernet Master Query Read Input Registers (poly).vi"/>
+					<Item Name="MB Ethernet Master Query Write Multiple Coils (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Ethernet Master Query Write Multiple Coils (poly).vi"/>
+					<Item Name="MB Ethernet Master Query Write Multiple Registers (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Ethernet Master Query Write Multiple Registers (poly).vi"/>
+					<Item Name="MB Ethernet Master Query Write Single Coil (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Ethernet Master Query Write Single Coil (poly).vi"/>
+					<Item Name="MB Ethernet Master Query Write Single Register (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Ethernet Master Query Write Single Register (poly).vi"/>
+					<Item Name="MB Ethernet Master Query.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Ethernet Master Query.vi"/>
+					<Item Name="MB Ethernet Receive.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Ethernet Receive.vi"/>
+					<Item Name="MB Ethernet RefCount.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Ethernet RefCount.vi"/>
+					<Item Name="MB Ethernet Slave Communication.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Ethernet Slave Communication.vi"/>
+					<Item Name="MB Ethernet Slave Demon - Single Port - Multiple Connections 2.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Ethernet Slave Demon - Single Port - Multiple Connections 2.vi"/>
+					<Item Name="MB Ethernet Slave Demon - Single Port - Multiple Connections.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Ethernet Slave Demon - Single Port - Multiple Connections.vi"/>
+					<Item Name="MB Ethernet Slave Demon - Single Port - Single Connection.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Ethernet Slave Demon - Single Port - Single Connection.vi"/>
+					<Item Name="MB Ethernet Slave Demon.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Ethernet Slave Demon.vi"/>
+					<Item Name="MB Ethernet String to Modbus Data Unit.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Ethernet String to Modbus Data Unit.vi"/>
+					<Item Name="MB Ethernet Transmit.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Ethernet Transmit.vi"/>
+					<Item Name="MB Ethernet Wait on Query.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Ethernet Wait on Query.vi"/>
+					<Item Name="MB Exception Code to Error Message.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Exception Code to Error Message.vi"/>
+					<Item Name="MB Globals.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Globals.vi"/>
+					<Item Name="MB LRC-8.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB LRC-8.vi"/>
+					<Item Name="MB Modbus Command to Data Unit.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Modbus Command to Data Unit.vi"/>
+					<Item Name="MB Modbus Command.ctl" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Modbus Command.ctl"/>
+					<Item Name="MB Modbus Data Unit.ctl" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Modbus Data Unit.ctl"/>
+					<Item Name="MB Modbus Demo Box Example (Legacy).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Modbus Demo Box Example (Legacy).vi"/>
+					<Item Name="MB Modbus Demo Box Example.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Modbus Demo Box Example.vi"/>
+					<Item Name="MB RefCount Function.ctl" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB RefCount Function.ctl"/>
+					<Item Name="MB Registers Manager.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Registers Manager.vi"/>
+					<Item Name="MB Serial Call Wait on Query.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Serial Call Wait on Query.vi"/>
+					<Item Name="MB Serial Example Master (Legacy).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Serial Example Master (Legacy).vi"/>
+					<Item Name="MB Serial Example Master.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Serial Example Master.vi"/>
+					<Item Name="MB Serial Example Slave (Legacy).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Serial Example Slave (Legacy).vi"/>
+					<Item Name="MB Serial Example Slave.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Serial Example Slave.vi"/>
+					<Item Name="MB Serial Init.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Serial Init.vi"/>
+					<Item Name="MB Serial Master Query (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Serial Master Query (poly).vi"/>
+					<Item Name="MB Serial Master Query Read Coils (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Serial Master Query Read Coils (poly).vi"/>
+					<Item Name="MB Serial Master Query Read Discrete Inputs (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Serial Master Query Read Discrete Inputs (poly).vi"/>
+					<Item Name="MB Serial Master Query Read Exception Status (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Serial Master Query Read Exception Status (poly).vi"/>
+					<Item Name="MB Serial Master Query Read Holding Registers (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Serial Master Query Read Holding Registers (poly).vi"/>
+					<Item Name="MB Serial Master Query Read Input Registers (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Serial Master Query Read Input Registers (poly).vi"/>
+					<Item Name="MB Serial Master Query Write Multiple Coils (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Serial Master Query Write Multiple Coils (poly).vi"/>
+					<Item Name="MB Serial Master Query Write Multiple Registers (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Serial Master Query Write Multiple Registers (poly).vi"/>
+					<Item Name="MB Serial Master Query Write Single Coil (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Serial Master Query Write Single Coil (poly).vi"/>
+					<Item Name="MB Serial Master Query Write Single Register (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Serial Master Query Write Single Register (poly).vi"/>
+					<Item Name="MB Serial Master Query.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Serial Master Query.vi"/>
+					<Item Name="MB Serial Modbus Data Unit to String.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Serial Modbus Data Unit to String.vi"/>
+					<Item Name="MB Serial Receive.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Serial Receive.vi"/>
+					<Item Name="MB Serial RefCount.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Serial RefCount.vi"/>
+					<Item Name="MB Serial Slave Communication.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Serial Slave Communication.vi"/>
+					<Item Name="MB Serial Slave Demon.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Serial Slave Demon.vi"/>
+					<Item Name="MB Serial Slave Init.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Serial Slave Init.vi"/>
+					<Item Name="MB Serial String to Modbus Data Unit.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Serial String to Modbus Data Unit.vi"/>
+					<Item Name="MB Serial Transmit.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Serial Transmit.vi"/>
+					<Item Name="MB Serial Wait on Query.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Serial Wait on Query.vi"/>
+					<Item Name="MB Slave Init (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Slave Init (poly).vi"/>
+					<Item Name="MB Slave Operations (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Slave Operations (poly).vi"/>
+					<Item Name="MB Slave Read All Coils (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Slave Read All Coils (poly).vi"/>
+					<Item Name="MB Slave Read All Discrete Inputs (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Slave Read All Discrete Inputs (poly).vi"/>
+					<Item Name="MB Slave Read All Holding Registers (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Slave Read All Holding Registers (poly).vi"/>
+					<Item Name="MB Slave Read All Input Registers (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Slave Read All Input Registers (poly).vi"/>
+					<Item Name="MB Slave Read Coils (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Slave Read Coils (poly).vi"/>
+					<Item Name="MB Slave Read Discrete Inputs (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Slave Read Discrete Inputs (poly).vi"/>
+					<Item Name="MB Slave Read Holding Registers (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Slave Read Holding Registers (poly).vi"/>
+					<Item Name="MB Slave Read Input Registers (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Slave Read Input Registers (poly).vi"/>
+					<Item Name="MB Slave Write Coils (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Slave Write Coils (poly).vi"/>
+					<Item Name="MB Slave Write Discrete Inputs (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Slave Write Discrete Inputs (poly).vi"/>
+					<Item Name="MB Slave Write Holding Registers (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Slave Write Holding Registers (poly).vi"/>
+					<Item Name="MB Slave Write Input Registers (poly).vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Slave Write Input Registers (poly).vi"/>
+					<Item Name="MB Update Registers.vi" Type="VI" URL="../thermo/COMET/NI Modbus.llb/MB Update Registers.vi"/>
+				</Item>
+				<Item Name="comet_thermo_get_idn_HTTP.vi" Type="VI" URL="../thermo/COMET/comet_thermo_get_idn_HTTP.vi"/>
+				<Item Name="comet_thermo_get_serial_MODBUS.vi" Type="VI" URL="../thermo/COMET/comet_thermo_get_serial_MODBUS.vi"/>
+				<Item Name="comet_thermo_get_value.vi" Type="VI" URL="../thermo/COMET/comet_thermo_get_value.vi"/>
+				<Item Name="comet_thermo_get_values_HTTP.vi" Type="VI" URL="../thermo/COMET/comet_thermo_get_values_HTTP.vi"/>
+				<Item Name="comet_thermo_get_values_MODBUS.vi" Type="VI" URL="../thermo/COMET/comet_thermo_get_values_MODBUS.vi"/>
+				<Item Name="comet_thermo_parse_value_html.vi" Type="VI" URL="../thermo/COMET/comet_thermo_parse_value_html.vi"/>
+				<Item Name="comet_try_open.vi" Type="VI" URL="../thermo/COMET/comet_try_open.vi"/>
+				<Item Name="Tx5xx-Ethernet.vi" Type="VI" URL="../thermo/COMET/Tx5xx-Ethernet.vi"/>
+			</Item>
+			<Item Name="HP34401" Type="Folder">
+				<Item Name="HP34401_close.vi" Type="VI" URL="../thermo/HP34401/HP34401_close.vi"/>
+				<Item Name="HP34401_config_4wR.vi" Type="VI" URL="../thermo/HP34401/HP34401_config_4wR.vi"/>
+				<Item Name="HP34401_display_value.vi" Type="VI" URL="../thermo/HP34401/HP34401_display_value.vi"/>
+				<Item Name="HP34401_get_4wR.vi" Type="VI" URL="../thermo/HP34401/HP34401_get_4wR.vi"/>
+			</Item>
+			<Item Name="KE2002" Type="Folder">
+				<Item Name="ke2002_close.vi" Type="VI" URL="../thermo/KE2002/ke2002_close.vi"/>
+				<Item Name="ke2002_config_4wR.vi" Type="VI" URL="../thermo/KE2002/ke2002_config_4wR.vi"/>
+				<Item Name="ke2002_conv_ABC_to_abd.vi" Type="VI" URL="../thermo/KE2002/ke2002_conv_ABC_to_abd.vi"/>
+				<Item Name="ke2002_display_value.vi" Type="VI" URL="../thermo/KE2002/ke2002_display_value.vi"/>
+				<Item Name="ke2002_get_4wR.vi" Type="VI" URL="../thermo/KE2002/ke2002_get_4wR.vi"/>
+				<Item Name="ke2002_init.vi" Type="VI" URL="../thermo/KE2002/ke2002_init.vi"/>
+				<Item Name="visa2gpib.vi" Type="VI" URL="../thermo/KE2002/visa2gpib.vi"/>
+			</Item>
+			<Item Name="poly" Type="Folder">
+				<Item Name="poly_eval.vi" Type="VI" URL="../thermo/poly/poly_eval.vi"/>
+				<Item Name="poly_eval_vector.vi" Type="VI" URL="../thermo/poly/poly_eval_vector.vi"/>
+				<Item Name="poly_fit.vi" Type="VI" URL="../thermo/poly/poly_fit.vi"/>
+			</Item>
+			<Item Name="RTD" Type="Folder">
+				<Item Name="RTD_close.vi" Type="VI" URL="../thermo/RTD/RTD_close.vi"/>
+				<Item Name="RTD_config_4wR.vi" Type="VI" URL="../thermo/RTD/RTD_config_4wR.vi"/>
+				<Item Name="RTD_display_value.vi" Type="VI" URL="../thermo/RTD/RTD_display_value.vi"/>
+				<Item Name="RTD_get_4wR.vi" Type="VI" URL="../thermo/RTD/RTD_get_4wR.vi"/>
+				<Item Name="RTD_init.vi" Type="VI" URL="../thermo/RTD/RTD_init.vi"/>
+				<Item Name="RTD_inverse_polynome.vi" Type="VI" URL="../thermo/RTD/RTD_inverse_polynome.vi"/>
+				<Item Name="RTD_load_preset.vi" Type="VI" URL="../thermo/RTD/RTD_load_preset.vi"/>
+				<Item Name="RTD_load_preset_dialog.vi" Type="VI" URL="../thermo/RTD/RTD_load_preset_dialog.vi"/>
+				<Item Name="RTD_load_preset_list.vi" Type="VI" URL="../thermo/RTD/RTD_load_preset_list.vi"/>
+				<Item Name="RTD_preset.ctl" Type="VI" URL="../thermo/RTD/RTD_preset.ctl"/>
+				<Item Name="RTD_save_preset_dialog.vi" Type="VI" URL="../thermo/RTD/RTD_save_preset_dialog.vi"/>
+				<Item Name="RTD_try_open.vi" Type="VI" URL="../thermo/RTD/RTD_try_open.vi"/>
+			</Item>
+			<Item Name="thermo.ctl" Type="VI" URL="../thermo/thermo.ctl"/>
+			<Item Name="thermo_read.ctl" Type="VI" URL="../thermo/thermo_read.ctl"/>
+			<Item Name="thermo_types.ctl" Type="VI" URL="../thermo/thermo_types.ctl"/>
+			<Item Name="Thermometer Config Tab Control.ctl" Type="VI" URL="../thermo/Thermometer Config Tab Control.ctl"/>
+			<Item Name="Thermometer Fail Action.ctl" Type="VI" URL="../thermo/Thermometer Fail Action.ctl"/>
+			<Item Name="thermo_config_dialog.vi" Type="VI" URL="../thermo/thermo_config_dialog.vi"/>
+			<Item Name="thermo_open.vi" Type="VI" URL="../thermo/thermo_open.vi"/>
+			<Item Name="thermo_reopen.vi" Type="VI" URL="../thermo/thermo_reopen.vi"/>
+			<Item Name="thermo_close.vi" Type="VI" URL="../thermo/thermo_close.vi"/>
+			<Item Name="thermo_clear.vi" Type="VI" URL="../thermo/thermo_clear.vi"/>
+			<Item Name="thermo_get_reading.vi" Type="VI" URL="../thermo/thermo_get_reading.vi"/>
+			<Item Name="thermo_check_retry.vi" Type="VI" URL="../thermo/thermo_check_retry.vi"/>
+			<Item Name="thermo_check_status.vi" Type="VI" URL="../thermo/thermo_check_status.vi"/>
+			<Item Name="RTD_R_to_temp.vi" Type="VI" URL="../thermo/RTD_R_to_temp.vi"/>
+			<Item Name="thermo_build_tag.vi" Type="VI" URL="../thermo/thermo_build_tag.vi"/>
+			<Item Name="thermo_check_valid_units_all.vi" Type="VI" URL="../thermo/thermo_check_valid_units_all.vi"/>
+			<Item Name="thermo_clusterize_single_channel.vi" Type="VI" URL="../thermo/thermo_clusterize_single_channel.vi"/>
+			<Item Name="thermo_concentrate_results.vi" Type="VI" URL="../thermo/thermo_concentrate_results.vi"/>
+			<Item Name="thermo_declusterize.vi" Type="VI" URL="../thermo/thermo_declusterize.vi"/>
+			<Item Name="thermo_declusterize_single_channel.vi" Type="VI" URL="../thermo/thermo_declusterize_single_channel.vi"/>
+			<Item Name="thermo_format_address_string.vi" Type="VI" URL="../thermo/thermo_format_address_string.vi"/>
+			<Item Name="thermo_format_custom_values.vi" Type="VI" URL="../thermo/thermo_format_custom_values.vi"/>
+			<Item Name="thermo_format_last_values.vi" Type="VI" URL="../thermo/thermo_format_last_values.vi"/>
+			<Item Name="thermo_format_units_all.vi" Type="VI" URL="../thermo/thermo_format_units_all.vi"/>
+			<Item Name="thermo_get_format_strings.vi" Type="VI" URL="../thermo/thermo_get_format_strings.vi"/>
+			<Item Name="thermo_get_result_means.vi" Type="VI" URL="../thermo/thermo_get_result_means.vi"/>
+			<Item Name="thermo_get_result_stats.vi" Type="VI" URL="../thermo/thermo_get_result_stats.vi"/>
+			<Item Name="thermo_init_retry.vi" Type="VI" URL="../thermo/thermo_init_retry.vi"/>
+			<Item Name="thermo_interpolate_correction.vi" Type="VI" URL="../thermo/thermo_interpolate_correction.vi"/>
+			<Item Name="thermo_status2string.vi" Type="VI" URL="../thermo/thermo_status2string.vi"/>
+			<Item Name="thermo_var.vi" Type="VI" URL="../thermo/thermo_var.vi"/>
 		</Item>
 		<Item Name="doc" Type="Folder"/>
 		<Item Name="main.vi" Type="VI" URL="../main.vi"/>
@@ -736,6 +954,34 @@
 				<Item Name="System Exec.vi" Type="VI" URL="/&lt;vilib&gt;/Platform/system.llb/System Exec.vi"/>
 				<Item Name="Delimited String to 1D String Array.vi" Type="VI" URL="/&lt;vilib&gt;/AdvancedString/Delimited String to 1D String Array.vi"/>
 				<Item Name="Normalize End Of Line.vi" Type="VI" URL="/&lt;vilib&gt;/AdvancedString/Normalize End Of Line.vi"/>
+				<Item Name="LabVIEWHTTPClient.lvlib" Type="Library" URL="/&lt;vilib&gt;/httpClient/LabVIEWHTTPClient.lvlib"/>
+				<Item Name="Path To Command Line String.vi" Type="VI" URL="/&lt;vilib&gt;/AdvancedString/Path To Command Line String.vi"/>
+				<Item Name="PathToUNIXPathString.vi" Type="VI" URL="/&lt;vilib&gt;/Platform/CFURL.llb/PathToUNIXPathString.vi"/>
+				<Item Name="Internecine Avoider.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tcp.llb/Internecine Avoider.vi"/>
+				<Item Name="TCP Listen List Operations.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/tcp.llb/TCP Listen List Operations.ctl"/>
+				<Item Name="TCP Listen Internal List.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tcp.llb/TCP Listen Internal List.vi"/>
+				<Item Name="TCP Listen.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tcp.llb/TCP Listen.vi"/>
+				<Item Name="VISA Open Access Mode.ctl" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA Open Access Mode.ctl"/>
+				<Item Name="VISA Configure Serial Port" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA Configure Serial Port"/>
+				<Item Name="VISA Configure Serial Port (Instr).vi" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA Configure Serial Port (Instr).vi"/>
+				<Item Name="VISA Configure Serial Port (Serial Instr).vi" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA Configure Serial Port (Serial Instr).vi"/>
+				<Item Name="subTimeDelay.vi" Type="VI" URL="/&lt;vilib&gt;/express/express execution control/TimeDelayBlock.llb/subTimeDelay.vi"/>
+				<Item Name="Waveform Array To Dynamic.vi" Type="VI" URL="/&lt;vilib&gt;/express/express shared/transition.llb/Waveform Array To Dynamic.vi"/>
+				<Item Name="Dynamic To Waveform Array.vi" Type="VI" URL="/&lt;vilib&gt;/express/express shared/transition.llb/Dynamic To Waveform Array.vi"/>
+				<Item Name="Read From Spreadsheet File.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Read From Spreadsheet File.vi"/>
+				<Item Name="Read From Spreadsheet File (DBL).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Read From Spreadsheet File (DBL).vi"/>
+				<Item Name="Read Lines From File.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Read Lines From File.vi"/>
+				<Item Name="Open File+.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Open File+.vi"/>
+				<Item Name="Read File+ (string).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Read File+ (string).vi"/>
+				<Item Name="compatReadText.vi" Type="VI" URL="/&lt;vilib&gt;/_oldvers/_oldvers.llb/compatReadText.vi"/>
+				<Item Name="Close File+.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Close File+.vi"/>
+				<Item Name="Find First Error.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Find First Error.vi"/>
+				<Item Name="Read From Spreadsheet File (I64).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Read From Spreadsheet File (I64).vi"/>
+				<Item Name="Read From Spreadsheet File (string).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Read From Spreadsheet File (string).vi"/>
+				<Item Name="Convert RTD Reading.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/TradDaqScaling.llb/Convert RTD Reading.vi"/>
+				<Item Name="Convert RTD Reading (waveform).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/TradDaqScaling.llb/Convert RTD Reading (waveform).vi"/>
+				<Item Name="Convert RTD Reading (scaler).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/TradDaqScaling.llb/Convert RTD Reading (scaler).vi"/>
+				<Item Name="Parse Address String.vi" Type="VI" URL="/&lt;vilib&gt;/Instr/_gpibsup.llb/Parse Address String.vi"/>
 			</Item>
 			<Item Name="Advapi32.dll" Type="Document" URL="Advapi32.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
@@ -783,6 +1029,8 @@
 			<Item Name="CDK_sTypeDef_ProductVersion.ctl" Type="VI" URL="/&lt;resource&gt;/Framework/Providers/Builds/Installer/CDK_sTypeDef_ProductVersion.ctl"/>
 			<Item Name="CDK_Utility_GetSetStringVersion.vi" Type="VI" URL="/&lt;resource&gt;/Framework/Providers/Builds/Installer/CDK_Utility_GetSetStringVersion.vi"/>
 			<Item Name="CDK_GLOBAL_STRINGS.vi" Type="VI" URL="/&lt;resource&gt;/Framework/Providers/Builds/Installer/CDK_GLOBAL_STRINGS.vi"/>
+			<Item Name="thermo_channels_count.vi" Type="VI" URL="../thermo/thermo_channels_count.vi"/>
+			<Item Name="thermo_get_channel.vi" Type="VI" URL="../thermo/thermo_get_channel.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="Open-Z-bridge-full" Type="EXE">
