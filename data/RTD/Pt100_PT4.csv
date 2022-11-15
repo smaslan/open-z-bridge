@@ -1,0 +1,9 @@
+decimal separator
+.
+
+parameter;value
+name;Pt100_PT4
+Rref;100.316
+tref;0.00000
+K^-1;3.90355E-3
+K^-2;-6.14248E-7

@@ -569,7 +569,6 @@
 			<Item Name="thermo_check_status.vi" Type="VI" URL="../thermo/thermo_check_status.vi"/>
 			<Item Name="RTD_R_to_temp.vi" Type="VI" URL="../thermo/RTD_R_to_temp.vi"/>
 			<Item Name="thermo_build_tag.vi" Type="VI" URL="../thermo/thermo_build_tag.vi"/>
-			<Item Name="thermo_check_valid_units_all.vi" Type="VI" URL="../thermo/thermo_check_valid_units_all.vi"/>
 			<Item Name="thermo_clusterize_single_channel.vi" Type="VI" URL="../thermo/thermo_clusterize_single_channel.vi"/>
 			<Item Name="thermo_concentrate_results.vi" Type="VI" URL="../thermo/thermo_concentrate_results.vi"/>
 			<Item Name="thermo_declusterize.vi" Type="VI" URL="../thermo/thermo_declusterize.vi"/>
@@ -577,14 +576,9 @@
 			<Item Name="thermo_format_address_string.vi" Type="VI" URL="../thermo/thermo_format_address_string.vi"/>
 			<Item Name="thermo_format_custom_values.vi" Type="VI" URL="../thermo/thermo_format_custom_values.vi"/>
 			<Item Name="thermo_format_last_values.vi" Type="VI" URL="../thermo/thermo_format_last_values.vi"/>
-			<Item Name="thermo_format_units_all.vi" Type="VI" URL="../thermo/thermo_format_units_all.vi"/>
 			<Item Name="thermo_get_format_strings.vi" Type="VI" URL="../thermo/thermo_get_format_strings.vi"/>
-			<Item Name="thermo_get_result_means.vi" Type="VI" URL="../thermo/thermo_get_result_means.vi"/>
-			<Item Name="thermo_get_result_stats.vi" Type="VI" URL="../thermo/thermo_get_result_stats.vi"/>
-			<Item Name="thermo_init_retry.vi" Type="VI" URL="../thermo/thermo_init_retry.vi"/>
 			<Item Name="thermo_interpolate_correction.vi" Type="VI" URL="../thermo/thermo_interpolate_correction.vi"/>
 			<Item Name="thermo_status2string.vi" Type="VI" URL="../thermo/thermo_status2string.vi"/>
-			<Item Name="thermo_var.vi" Type="VI" URL="../thermo/thermo_var.vi"/>
 		</Item>
 		<Item Name="doc" Type="Folder"/>
 		<Item Name="main.vi" Type="VI" URL="../main.vi"/>
@@ -982,6 +976,8 @@
 				<Item Name="Convert RTD Reading (waveform).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/TradDaqScaling.llb/Convert RTD Reading (waveform).vi"/>
 				<Item Name="Convert RTD Reading (scaler).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/TradDaqScaling.llb/Convert RTD Reading (scaler).vi"/>
 				<Item Name="Parse Address String.vi" Type="VI" URL="/&lt;vilib&gt;/Instr/_gpibsup.llb/Parse Address String.vi"/>
+				<Item Name="LVPositionTypeDef.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVPositionTypeDef.ctl"/>
+				<Item Name="1D String Array to Delimited String.vi" Type="VI" URL="/&lt;vilib&gt;/AdvancedString/1D String Array to Delimited String.vi"/>
 			</Item>
 			<Item Name="Advapi32.dll" Type="Document" URL="Advapi32.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
@@ -1029,8 +1025,6 @@
 			<Item Name="CDK_sTypeDef_ProductVersion.ctl" Type="VI" URL="/&lt;resource&gt;/Framework/Providers/Builds/Installer/CDK_sTypeDef_ProductVersion.ctl"/>
 			<Item Name="CDK_Utility_GetSetStringVersion.vi" Type="VI" URL="/&lt;resource&gt;/Framework/Providers/Builds/Installer/CDK_Utility_GetSetStringVersion.vi"/>
 			<Item Name="CDK_GLOBAL_STRINGS.vi" Type="VI" URL="/&lt;resource&gt;/Framework/Providers/Builds/Installer/CDK_GLOBAL_STRINGS.vi"/>
-			<Item Name="thermo_channels_count.vi" Type="VI" URL="../thermo/thermo_channels_count.vi"/>
-			<Item Name="thermo_get_channel.vi" Type="VI" URL="../thermo/thermo_get_channel.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="Open-Z-bridge-full" Type="EXE">
