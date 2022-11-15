@@ -391,6 +391,7 @@
 			<Item Name="Dir Folder With Attributes.vi" Type="VI" URL="../other/Dir Folder With Attributes.vi"/>
 			<Item Name="Scale Controls Record.ctl" Type="VI" URL="../other/Scale Controls Record.ctl"/>
 			<Item Name="Scale Controls List.ctl" Type="VI" URL="../other/Scale Controls List.ctl"/>
+			<Item Name="Scale Controls Helper.vi" Type="VI" URL="../other/Scale Controls Helper.vi"/>
 			<Item Name="Scale Controls.vi" Type="VI" URL="../other/Scale Controls.vi"/>
 			<Item Name="Get Decoration Label.vi" Type="VI" URL="../other/Get Decoration Label.vi"/>
 			<Item Name="Set Decoration Label.vi" Type="VI" URL="../other/Set Decoration Label.vi"/>
