@@ -61,14 +61,14 @@
 					<Item Name="TWM Client Cmd Define Multiplexer Sequence.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Cmd Define Multiplexer Sequence.vi"/>
 					<Item Name="TWM Client Cmd Define QPMX.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Cmd Define QPMX.vi"/>
 					<Item Name="infolib.lvlib" Type="Library" URL="../drivers/TWM client.lvlibp/octave/infolib/infolib.lvlib"/>
-					<Item Name="Trim Whitespace.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/Trim Whitespace.vi"/>
-					<Item Name="whitespace.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/whitespace.ctl"/>
-					<Item Name="Clear Errors.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/Clear Errors.vi"/>
 					<Item Name="Error Cluster From Error Code.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/Error Cluster From Error Code.vi"/>
-					<Item Name="Space Constant.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/dlg_ctls.llb/Space Constant.vi"/>
-					<Item Name="Normalize End Of Line.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/AdvancedString/Normalize End Of Line.vi"/>
-					<Item Name="wa32 ReadFile.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/wa32 ReadFile.vi"/>
+					<Item Name="Clear Errors.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/Clear Errors.vi"/>
 					<Item Name="wa32 PeekNamedPipe.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/wa32 PeekNamedPipe.vi"/>
+					<Item Name="wa32 ReadFile.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/wa32 ReadFile.vi"/>
+					<Item Name="Normalize End Of Line.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/AdvancedString/Normalize End Of Line.vi"/>
+					<Item Name="whitespace.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/whitespace.ctl"/>
+					<Item Name="Trim Whitespace.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/Trim Whitespace.vi"/>
+					<Item Name="Space Constant.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/dlg_ctls.llb/Space Constant.vi"/>
 					<Item Name="wa32 Read Till Key.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/high level/wa32 Read Till Key.vi"/>
 					<Item Name="wa32 WriteFile.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/wa32 WriteFile.vi"/>
 					<Item Name="wa32 Flush Read.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/high level/wa32 Flush Read.vi"/>
