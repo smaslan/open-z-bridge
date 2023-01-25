@@ -1047,6 +1047,7 @@
 				<Property Name="Bld_previewCacheID" Type="Str">{791F11D6-C97D-45C0-88CE-FB43FA74A516}</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Bld_version.minor" Type="Int">2</Property>
+				<Property Name="Bld_version.patch" Type="Int">1</Property>
 				<Property Name="Destination[0].destName" Type="Str">open_z_bridge-full.exe</Property>
 				<Property Name="Destination[0].path" Type="Path">../builds/Open_Z_bridge-[VersionNumber]-full/Open-Z-bridge-full.exe</Property>
 				<Property Name="Destination[0].path.type" Type="Str">relativeToProject</Property>
@@ -1060,7 +1061,7 @@
 				<Property Name="Destination[2].path.type" Type="Str">relativeToProject</Property>
 				<Property Name="DestinationCount" Type="Int">3</Property>
 				<Property Name="Exe_iconItemID" Type="Ref">/My Computer/open_z_brg.ico</Property>
-				<Property Name="Source[0].itemID" Type="Str">{B4117A33-BCEA-4269-B7ED-38A656384FC3}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{4D35B5E6-FC31-42BA-A529-2F4D889FDF21}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/main.vi</Property>
@@ -1075,7 +1076,7 @@
 				<Property Name="SourceCount" Type="Int">4</Property>
 				<Property Name="TgtF_fileDescription" Type="Str">Open source extension of TWM tool for measurement of low impedance.</Property>
 				<Property Name="TgtF_internalName" Type="Str">Open-Z-bridge-full</Property>
-				<Property Name="TgtF_legalCopyright" Type="Str">Copyright © 2018-2022</Property>
+				<Property Name="TgtF_legalCopyright" Type="Str">Copyright © 2018-2023</Property>
 				<Property Name="TgtF_productName" Type="Str">Open-Z-bridge-full</Property>
 				<Property Name="TgtF_targetfileGUID" Type="Str">{1BD4261A-F818-4FD6-BD8B-813B9C3850C6}</Property>
 				<Property Name="TgtF_targetfileName" Type="Str">open_z_bridge-full.exe</Property>
@@ -1099,6 +1100,7 @@
 				<Property Name="Bld_previewCacheID" Type="Str">{E01B0F87-A895-4022-B8E1-CCC15900CD93}</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Bld_version.minor" Type="Int">2</Property>
+				<Property Name="Bld_version.patch" Type="Int">1</Property>
 				<Property Name="Destination[0].destName" Type="Str">open_z_bridge-visa.exe</Property>
 				<Property Name="Destination[0].path" Type="Path">../builds/Open_Z_bridge-[VersionNumber]-visa/Open-Z-bridge-visa.exe</Property>
 				<Property Name="Destination[0].path.type" Type="Str">relativeToProject</Property>
