@@ -195,6 +195,72 @@
 				<Item Name="Read SCPI Error Queue (GPIB).vi" Type="VI" URL="../drivers/KE2002/Read SCPI Error Queue (GPIB).vi"/>
 				<Item Name="Keithley 2002 Reset.vi" Type="VI" URL="../drivers/KE2002/Keithley 2002 Reset.vi"/>
 			</Item>
+			<Item Name="RaS SMT" Type="Folder">
+				<Item Name="rssmt" Type="Folder">
+					<Item Name="RS SMT  Error Message.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT  Error Message.vi"/>
+					<Item Name="RS SMT Abort.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Abort.vi"/>
+					<Item Name="RS SMT ALC.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT ALC.vi"/>
+					<Item Name="RS SMT Amplitude Modulation.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Amplitude Modulation.vi"/>
+					<Item Name="RS SMT Auxiliary Outputs.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Auxiliary Outputs.vi"/>
+					<Item Name="RS SMT Beeper.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Beeper.vi"/>
+					<Item Name="RS SMT Close.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Close.vi"/>
+					<Item Name="RS SMT Create Memory Sequence.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Create Memory Sequence.vi"/>
+					<Item Name="RS SMT Edit Catalog.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Edit Catalog.vi"/>
+					<Item Name="RS SMT Error Query.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Error Query.vi"/>
+					<Item Name="RS SMT Example.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Example.vi"/>
+					<Item Name="RS SMT Frequency Sweep Markers.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Frequency Sweep Markers.vi"/>
+					<Item Name="RS SMT Frequency Sweep.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Frequency Sweep.vi"/>
+					<Item Name="RS SMT Frequency.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Frequency.vi"/>
+					<Item Name="RS SMT Frequency/Phase Modulation.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Frequency/Phase Modulation.vi"/>
+					<Item Name="RS SMT Getting Started.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Getting Started.vi"/>
+					<Item Name="RS SMT ILS-GS Modulation.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT ILS-GS Modulation.vi"/>
+					<Item Name="RS SMT ILS-LOC Modulation.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT ILS-LOC Modulation.vi"/>
+					<Item Name="RS SMT Initialize.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Initialize.vi"/>
+					<Item Name="RS SMT Instrument Options.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Instrument Options.vi"/>
+					<Item Name="RS SMT Level Sweep Markers.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Level Sweep Markers.vi"/>
+					<Item Name="RS SMT Level Sweep.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Level Sweep.vi"/>
+					<Item Name="RS SMT Level.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Level.vi"/>
+					<Item Name="RS SMT LF Output.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT LF Output.vi"/>
+					<Item Name="RS SMT LF Sweep Markers.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT LF Sweep Markers.vi"/>
+					<Item Name="RS SMT LF Sweep.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT LF Sweep.vi"/>
+					<Item Name="RS SMT MKR-BCN Modulation.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT MKR-BCN Modulation.vi"/>
+					<Item Name="RS SMT Operation Complete?.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Operation Complete?.vi"/>
+					<Item Name="RS SMT Outputs On/Off.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Outputs On/Off.vi"/>
+					<Item Name="RS SMT Pulse Modulation.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Pulse Modulation.vi"/>
+					<Item Name="RS SMT Quick AM Depth.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Quick AM Depth.vi"/>
+					<Item Name="RS SMT Quick FM Deviation.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Quick FM Deviation.vi"/>
+					<Item Name="RS SMT Quick Freq Sweep Center Span.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Quick Freq Sweep Center Span.vi"/>
+					<Item Name="RS SMT Quick Freq Sweep Start Stop.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Quick Freq Sweep Start Stop.vi"/>
+					<Item Name="RS SMT Quick Freq Sweep Step.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Quick Freq Sweep Step.vi"/>
+					<Item Name="RS SMT Quick Frequency.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Quick Frequency.vi"/>
+					<Item Name="RS SMT Quick Level Offset.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Quick Level Offset.vi"/>
+					<Item Name="RS SMT Quick Level.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Quick Level.vi"/>
+					<Item Name="RS SMT Quick LF Output Freq.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Quick LF Output Freq.vi"/>
+					<Item Name="RS SMT Quick LF Output Voltage.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Quick LF Output Voltage.vi"/>
+					<Item Name="RS SMT Quick Phase Mod Deviation.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Quick Phase Mod Deviation.vi"/>
+					<Item Name="RS SMT Quick Pulse Modulator Delay.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Quick Pulse Modulator Delay.vi"/>
+					<Item Name="RS SMT Quick Pulse Modulator Period.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Quick Pulse Modulator Period.vi"/>
+					<Item Name="RS SMT Quick Pulse Modulator Width.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Quick Pulse Modulator Width.vi"/>
+					<Item Name="RS SMT Quick Stereo Modulation Audio Freq.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Quick Stereo Modulation Audio Freq.vi"/>
+					<Item Name="RS SMT Quick Stereo Modulation Deviation.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Quick Stereo Modulation Deviation.vi"/>
+					<Item Name="RS SMT Reference Oscillator.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Reference Oscillator.vi"/>
+					<Item Name="RS SMT Reset.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Reset.vi"/>
+					<Item Name="RS SMT Revision Query.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Revision Query.vi"/>
+					<Item Name="RS SMT Save/Recall Setup.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Save/Recall Setup.vi"/>
+					<Item Name="RS SMT Self-Test.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Self-Test.vi"/>
+					<Item Name="RS SMT Send Trigger.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Send Trigger.vi"/>
+					<Item Name="RS SMT Step.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Step.vi"/>
+					<Item Name="RS SMT Stereo Modulation.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Stereo Modulation.vi"/>
+					<Item Name="RS SMT Trigger.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT Trigger.vi"/>
+					<Item Name="RS SMT User Correction.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT User Correction.vi"/>
+					<Item Name="RS SMT VI Tree.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT VI Tree.vi"/>
+					<Item Name="RS SMT VOR Modulation.vi" Type="VI" URL="../drivers/RaS SMT/rssmt.llb/RS SMT VOR Modulation.vi"/>
+				</Item>
+				<Item Name="rssmtu" Type="Folder">
+					<Item Name="RS SMT Utility Clean Up Initialize.vi" Type="VI" URL="../drivers/RaS SMT/rssmtu.llb/RS SMT Utility Clean Up Initialize.vi"/>
+					<Item Name="RS SMT Utility Default Instrument Setup.vi" Type="VI" URL="../drivers/RaS SMT/rssmtu.llb/RS SMT Utility Default Instrument Setup.vi"/>
+				</Item>
+			</Item>
 		</Item>
 		<Item Name="source" Type="Folder">
 			<Item Name="Source Type.ctl" Type="VI" URL="../source/Source Type.ctl"/>
@@ -1047,7 +1113,7 @@
 				<Property Name="Bld_previewCacheID" Type="Str">{791F11D6-C97D-45C0-88CE-FB43FA74A516}</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Bld_version.minor" Type="Int">2</Property>
-				<Property Name="Bld_version.patch" Type="Int">1</Property>
+				<Property Name="Bld_version.patch" Type="Int">3</Property>
 				<Property Name="Destination[0].destName" Type="Str">open_z_bridge-full.exe</Property>
 				<Property Name="Destination[0].path" Type="Path">../builds/Open_Z_bridge-[VersionNumber]-full/Open-Z-bridge-full.exe</Property>
 				<Property Name="Destination[0].path.type" Type="Str">relativeToProject</Property>
@@ -1061,7 +1127,7 @@
 				<Property Name="Destination[2].path.type" Type="Str">relativeToProject</Property>
 				<Property Name="DestinationCount" Type="Int">3</Property>
 				<Property Name="Exe_iconItemID" Type="Ref">/My Computer/open_z_brg.ico</Property>
-				<Property Name="Source[0].itemID" Type="Str">{4D35B5E6-FC31-42BA-A529-2F4D889FDF21}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{C5A8BB97-BEF1-4AF3-93D5-6CE2281DB145}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/main.vi</Property>
@@ -1100,7 +1166,7 @@
 				<Property Name="Bld_previewCacheID" Type="Str">{E01B0F87-A895-4022-B8E1-CCC15900CD93}</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Bld_version.minor" Type="Int">2</Property>
-				<Property Name="Bld_version.patch" Type="Int">1</Property>
+				<Property Name="Bld_version.patch" Type="Int">3</Property>
 				<Property Name="Destination[0].destName" Type="Str">open_z_bridge-visa.exe</Property>
 				<Property Name="Destination[0].path" Type="Path">../builds/Open_Z_bridge-[VersionNumber]-visa/Open-Z-bridge-visa.exe</Property>
 				<Property Name="Destination[0].path.type" Type="Str">relativeToProject</Property>
