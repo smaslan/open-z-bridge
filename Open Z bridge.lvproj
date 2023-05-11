@@ -469,20 +469,6 @@
 			<Item Name="lvanlys.dll" Type="Document" URL="../varilib/lvanlys.dll"/>
 			<Item Name="varilib.lvlib" Type="Library" URL="../varilib/varilib.lvlib"/>
 		</Item>
-		<Item Name="build" Type="Folder">
-			<Item Name="Build Setup.ctl" Type="VI" URL="../build/Build Setup.ctl"/>
-			<Item Name="Build All Versions.vi" Type="VI" URL="../build/Build All Versions.vi"/>
-			<Item Name="Pre-Build Action - none.vi" Type="VI" URL="../build/Pre-Build Action - none.vi"/>
-			<Item Name="Pre-Build Action - visa,daqmx.vi" Type="VI" URL="../build/Pre-Build Action - visa,daqmx.vi"/>
-			<Item Name="Pre-Build Action - visa.vi" Type="VI" URL="../build/Pre-Build Action - visa.vi"/>
-			<Item Name="Set Conditional Symbols.vi" Type="VI" URL="../build/Set Conditional Symbols.vi"/>
-			<Item Name="Build Async Wrapper.vi" Type="VI" URL="../build/Build Async Wrapper.vi"/>
-			<Item Name="Get Build Specification Names.vi" Type="VI" URL="../build/Get Build Specification Names.vi"/>
-			<Item Name="Merge Builds.vi" Type="VI" URL="../build/Merge Builds.vi"/>
-			<Item Name="Post-Build Action.vi" Type="VI" URL="../build/Post-Build Action.vi"/>
-			<Item Name="Pre-Build Action - visa,niscope.vi" Type="VI" URL="../build/Pre-Build Action - visa,niscope.vi"/>
-			<Item Name="Copy Auxiliary Stuff.vi" Type="VI" URL="../build/Copy Auxiliary Stuff.vi"/>
-		</Item>
 		<Item Name="refs" Type="Folder">
 			<Item Name="refs_write_status_3.vi" Type="VI" URL="../refs/refs_write_status_3.vi"/>
 			<Item Name="refs_get.vi" Type="VI" URL="../refs/refs_get.vi"/>
@@ -648,6 +634,20 @@
 			<Item Name="thermo_status2string.vi" Type="VI" URL="../thermo/thermo_status2string.vi"/>
 		</Item>
 		<Item Name="doc" Type="Folder"/>
+		<Item Name="build" Type="Folder">
+			<Item Name="Build Setup.ctl" Type="VI" URL="../build/Build Setup.ctl"/>
+			<Item Name="Build All Versions.vi" Type="VI" URL="../build/Build All Versions.vi"/>
+			<Item Name="Pre-Build Action - none.vi" Type="VI" URL="../build/Pre-Build Action - none.vi"/>
+			<Item Name="Pre-Build Action - visa,daqmx.vi" Type="VI" URL="../build/Pre-Build Action - visa,daqmx.vi"/>
+			<Item Name="Pre-Build Action - visa.vi" Type="VI" URL="../build/Pre-Build Action - visa.vi"/>
+			<Item Name="Pre-Build Action - visa,niscope.vi" Type="VI" URL="../build/Pre-Build Action - visa,niscope.vi"/>
+			<Item Name="Set Conditional Symbols.vi" Type="VI" URL="../build/Set Conditional Symbols.vi"/>
+			<Item Name="Build Async Wrapper.vi" Type="VI" URL="../build/Build Async Wrapper.vi"/>
+			<Item Name="Get Build Specification Names.vi" Type="VI" URL="../build/Get Build Specification Names.vi"/>
+			<Item Name="Merge Builds.vi" Type="VI" URL="../build/Merge Builds.vi"/>
+			<Item Name="Post-Build Action.vi" Type="VI" URL="../build/Post-Build Action.vi"/>
+			<Item Name="Copy Auxiliary Stuff.vi" Type="VI" URL="../build/Copy Auxiliary Stuff.vi"/>
+		</Item>
 		<Item Name="main.vi" Type="VI" URL="../main.vi"/>
 		<Item Name="open_z_brg.ico" Type="Document" URL="../ico/open_z_brg.ico"/>
 		<Item Name="README.md" Type="Document" URL="../README.md"/>
@@ -1113,7 +1113,7 @@
 				<Property Name="Bld_previewCacheID" Type="Str">{791F11D6-C97D-45C0-88CE-FB43FA74A516}</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Bld_version.minor" Type="Int">2</Property>
-				<Property Name="Bld_version.patch" Type="Int">3</Property>
+				<Property Name="Bld_version.patch" Type="Int">4</Property>
 				<Property Name="Destination[0].destName" Type="Str">open_z_bridge-full.exe</Property>
 				<Property Name="Destination[0].path" Type="Path">../builds/Open_Z_bridge-[VersionNumber]-full/Open-Z-bridge-full.exe</Property>
 				<Property Name="Destination[0].path.type" Type="Str">relativeToProject</Property>
@@ -1166,7 +1166,7 @@
 				<Property Name="Bld_previewCacheID" Type="Str">{E01B0F87-A895-4022-B8E1-CCC15900CD93}</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Bld_version.minor" Type="Int">2</Property>
-				<Property Name="Bld_version.patch" Type="Int">3</Property>
+				<Property Name="Bld_version.patch" Type="Int">4</Property>
 				<Property Name="Destination[0].destName" Type="Str">open_z_bridge-visa.exe</Property>
 				<Property Name="Destination[0].path" Type="Path">../builds/Open_Z_bridge-[VersionNumber]-visa/Open-Z-bridge-visa.exe</Property>
 				<Property Name="Destination[0].path.type" Type="Str">relativeToProject</Property>
