@@ -1,1 +1,3 @@
-User guide will be included soon.
+User guide:
+https://zenodo.org/records/5960848
+

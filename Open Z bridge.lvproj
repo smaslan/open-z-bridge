@@ -261,6 +261,9 @@
 					<Item Name="RS SMT Utility Default Instrument Setup.vi" Type="VI" URL="../drivers/RaS SMT/rssmtu.llb/RS SMT Utility Default Instrument Setup.vi"/>
 				</Item>
 			</Item>
+			<Item Name="T3AWG3K" Type="Folder">
+				<Item Name="Active Technologies AWG3000.lvlib" Type="Library" URL="../drivers/T3AWG3K/Active Technologies AWG3000.lvlib"/>
+			</Item>
 		</Item>
 		<Item Name="source" Type="Folder">
 			<Item Name="Source Type.ctl" Type="VI" URL="../source/Source Type.ctl"/>
@@ -633,7 +636,9 @@
 			<Item Name="thermo_interpolate_correction.vi" Type="VI" URL="../thermo/thermo_interpolate_correction.vi"/>
 			<Item Name="thermo_status2string.vi" Type="VI" URL="../thermo/thermo_status2string.vi"/>
 		</Item>
-		<Item Name="doc" Type="Folder"/>
+		<Item Name="doc" Type="Folder">
+			<Item Name="readme.txt" Type="Document" URL="../doc/readme.txt"/>
+		</Item>
 		<Item Name="build" Type="Folder">
 			<Item Name="Build Setup.ctl" Type="VI" URL="../build/Build Setup.ctl"/>
 			<Item Name="Build All Versions.vi" Type="VI" URL="../build/Build All Versions.vi"/>
@@ -1045,6 +1050,14 @@
 				<Item Name="Parse Address String.vi" Type="VI" URL="/&lt;vilib&gt;/Instr/_gpibsup.llb/Parse Address String.vi"/>
 				<Item Name="LVPositionTypeDef.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVPositionTypeDef.ctl"/>
 				<Item Name="1D String Array to Delimited String.vi" Type="VI" URL="/&lt;vilib&gt;/AdvancedString/1D String Array to Delimited String.vi"/>
+				<Item Name="Digital to Binary.vi" Type="VI" URL="/&lt;vilib&gt;/Waveform/DWDT.llb/Digital to Binary.vi"/>
+				<Item Name="DWDT Digital to Binary U32.vi" Type="VI" URL="/&lt;vilib&gt;/Waveform/DWDTOps.llb/DWDT Digital to Binary U32.vi"/>
+				<Item Name="DTbl Digital to Binary U32.vi" Type="VI" URL="/&lt;vilib&gt;/Waveform/DTblOps.llb/DTbl Digital to Binary U32.vi"/>
+				<Item Name="Digital Size.vi" Type="VI" URL="/&lt;vilib&gt;/Waveform/DWDT.llb/Digital Size.vi"/>
+				<Item Name="DWDT Digital to Binary U16.vi" Type="VI" URL="/&lt;vilib&gt;/Waveform/DWDTOps.llb/DWDT Digital to Binary U16.vi"/>
+				<Item Name="DTbl Digital to Binary U16.vi" Type="VI" URL="/&lt;vilib&gt;/Waveform/DTblOps.llb/DTbl Digital to Binary U16.vi"/>
+				<Item Name="DWDT Digital to Binary U8.vi" Type="VI" URL="/&lt;vilib&gt;/Waveform/DWDTOps.llb/DWDT Digital to Binary U8.vi"/>
+				<Item Name="DTbl Digital to Binary U8.vi" Type="VI" URL="/&lt;vilib&gt;/Waveform/DTblOps.llb/DTbl Digital to Binary U8.vi"/>
 			</Item>
 			<Item Name="Advapi32.dll" Type="Document" URL="Advapi32.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
@@ -1112,8 +1125,7 @@
 				<Property Name="Bld_preActionVIID" Type="Ref">/My Computer/build/Pre-Build Action - visa,daqmx.vi</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{791F11D6-C97D-45C0-88CE-FB43FA74A516}</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
-				<Property Name="Bld_version.minor" Type="Int">2</Property>
-				<Property Name="Bld_version.patch" Type="Int">4</Property>
+				<Property Name="Bld_version.minor" Type="Int">3</Property>
 				<Property Name="Destination[0].destName" Type="Str">open_z_bridge-full.exe</Property>
 				<Property Name="Destination[0].path" Type="Path">../builds/Open_Z_bridge-[VersionNumber]-full/Open-Z-bridge-full.exe</Property>
 				<Property Name="Destination[0].path.type" Type="Str">relativeToProject</Property>
@@ -1165,8 +1177,7 @@
 				<Property Name="Bld_preActionVIID" Type="Ref">/My Computer/build/Pre-Build Action - visa.vi</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{E01B0F87-A895-4022-B8E1-CCC15900CD93}</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
-				<Property Name="Bld_version.minor" Type="Int">2</Property>
-				<Property Name="Bld_version.patch" Type="Int">4</Property>
+				<Property Name="Bld_version.minor" Type="Int">3</Property>
 				<Property Name="Destination[0].destName" Type="Str">open_z_bridge-visa.exe</Property>
 				<Property Name="Destination[0].path" Type="Path">../builds/Open_Z_bridge-[VersionNumber]-visa/Open-Z-bridge-visa.exe</Property>
 				<Property Name="Destination[0].path.type" Type="Str">relativeToProject</Property>

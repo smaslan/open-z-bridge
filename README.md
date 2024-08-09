@@ -9,11 +9,11 @@ TWM tool itself was designed for digitizing voltage and current waveforms and ca
 Features:
 - Developed in LabVIEW 2020.
 - Automatic measurement of frequency sweep, current sweep, DC bias current sweep or combined frequency/current sweep.
-- Digitizing and signal processing via TWM tool using algorithms TWM-LowZ (low impedance )or TWM-InpZ (high impedance).
-- Support of several signal sources (NI9260, Tektronix 3100, Agilent 33120A, Fluke 5000 series calibrators).
+- Digitizing and signal processing via TWM tool using algorithms TWM-LowZ (low impedance) or TWM-InpZ (high impedance) or TWM-TIAZ (high impedance via transimpedance amplifier).
+- Support of several signal sources (NI9260, Tektronix 3100, Agilent 33120A, Fluke 5000 series calibrators, Datron 4000 series calibrators, Teledyne LeCroy T3AWG, R&S SMT).
 - Measurement of impedance or complex voltage ratio.
 - Exporting simple reports to XLS file.
-- Usable for measurement and direct generation of several correction file for TWM tool. 
+- Usable for measurement and direct generation of several correction files for TWM tool. 
 - Full documentation and practice guide available.
 
 <img src="./ico/openzbrg_main.png">
@@ -42,4 +42,4 @@ The `lvprog/Open Z bridge.lvproj` contains several build specifications:
 - Open-Z-bridge-full
 - Open-Z-bridge-visa
 
-"Open-Z-bridge - full" builds for all implemented hardware (VISA driver and DAQmx driver). To run it, user has to install both NI libraries for NI-DAQ, VISA, and of course run time libraries for LabVIEW. Because many users use digitizers not requiring NI-DAQ, other builds are generated. Running VI `build/Build All Versions.vi` will offer automatic build of all builds versions and copies all versions of EXE files of the other builds to "Open-Z-bridge - full" folder for convenience. 
+"Open-Z-bridge - full" builds for all implemented hardware (VISA driver and DAQmx driver). To run it, user has to install both NI libraries for NI-DAQ, VISA, and of course run time libraries for LabVIEW. Because many users use digitizers not requiring e.g. NI-DAQ, other build variants are generated. Running VI `build/Build All Versions.vi` will offer automatic build of all builds versions and copies all versions of EXE files of the other builds to "Open-Z-bridge - full" folder for convenience. 
