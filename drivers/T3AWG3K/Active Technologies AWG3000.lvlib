@@ -13,12 +13,15 @@
 		<Item Name="T3AWG Session.ctl" Type="VI" URL="../toplevel/T3AWG Session.ctl"/>
 		<Item Name="T3AWG Load Z.ctl" Type="VI" URL="../toplevel/T3AWG Load Z.ctl"/>
 		<Item Name="fgen_ramdac_fs_rules.ctl" Type="VI" URL="../toplevel/fgen_ramdac_fs_rules.ctl"/>
+		<Item Name="T3AWG Channel.ctl" Type="VI" URL="../toplevel/T3AWG Channel.ctl"/>
+		<Item Name="T3AWG Voltage Unit.ctl" Type="VI" URL="../toplevel/T3AWG Voltage Unit.ctl"/>
 		<Item Name="T3AWG Pick Rate.vi" Type="VI" URL="../toplevel/T3AWG Pick Rate.vi"/>
 		<Item Name="T3AWG Open.vi" Type="VI" URL="../toplevel/T3AWG Open.vi"/>
 		<Item Name="T3AWG Close.vi" Type="VI" URL="../toplevel/T3AWG Close.vi"/>
 		<Item Name="T3AWG Setup.vi" Type="VI" URL="../toplevel/T3AWG Setup.vi"/>
 		<Item Name="T3AWG Gen Wave.vi" Type="VI" URL="../toplevel/T3AWG Gen Wave.vi"/>
 		<Item Name="T3AWG Config Panel.vi" Type="VI" URL="../toplevel/T3AWG Config Panel.vi"/>
+		<Item Name="T3AWG Test Panel.vi" Type="VI" URL="../toplevel/T3AWG Test Panel.vi"/>
 	</Item>
 	<Item Name="Private" Type="Folder">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>

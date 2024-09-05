@@ -268,6 +268,8 @@
 		<Item Name="source" Type="Folder">
 			<Item Name="Source Type.ctl" Type="VI" URL="../source/Source Type.ctl"/>
 			<Item Name="Source Session.ctl" Type="VI" URL="../source/Source Session.ctl"/>
+			<Item Name="Source Info.ctl" Type="VI" URL="../source/Source Info.ctl"/>
+			<Item Name="Source Get Info.vi" Type="VI" URL="../source/Source Get Info.vi"/>
 			<Item Name="Source Panel.vi" Type="VI" URL="../source/Source Panel.vi"/>
 			<Item Name="Source Open.vi" Type="VI" URL="../source/Source Open.vi"/>
 			<Item Name="Source Close.vi" Type="VI" URL="../source/Source Close.vi"/>
@@ -323,6 +325,7 @@
 				<Item Name="Meas Results Sweep Data Uncertainty Mode.ctl" Type="VI" URL="../measure/results/Meas Results Sweep Data Uncertainty Mode.ctl"/>
 				<Item Name="Meas Results Ref.ctl" Type="VI" URL="../measure/results/Meas Results Ref.ctl"/>
 				<Item Name="Meas Result Formats.ctl" Type="VI" URL="../measure/results/Meas Result Formats.ctl"/>
+				<Item Name="Graph Level Sweep X Axis.ctl" Type="VI" URL="../measure/results/Graph Level Sweep X Axis.ctl"/>
 				<Item Name="Meas Result Get Access.vi" Type="VI" URL="../measure/results/Meas Result Get Access.vi"/>
 				<Item Name="Meas Result Release Access.vi" Type="VI" URL="../measure/results/Meas Result Release Access.vi"/>
 				<Item Name="Meas Result Get Sweep Data.vi" Type="VI" URL="../measure/results/Meas Result Get Sweep Data.vi"/>
@@ -367,6 +370,7 @@
 			<Item Name="meas_swp_mode.ctl" Type="VI" URL="../measure/meas_swp_mode.ctl"/>
 			<Item Name="Meas Quantity Names.ctl" Type="VI" URL="../measure/Meas Quantity Names.ctl"/>
 			<Item Name="Meas Sweep List Generator Config.ctl" Type="VI" URL="../measure/Meas Sweep List Generator Config.ctl"/>
+			<Item Name="Meas AC Level Unit.ctl" Type="VI" URL="../measure/Meas AC Level Unit.ctl"/>
 			<Item Name="Meas Generate Freq List.vi" Type="VI" URL="../measure/Meas Generate Freq List.vi"/>
 			<Item Name="Meas Panel Multi Freq Sweep.vi" Type="VI" URL="../measure/Meas Panel Multi Freq Sweep.vi"/>
 			<Item Name="Meas Panel.vi" Type="VI" URL="../measure/Meas Panel.vi"/>
@@ -437,6 +441,7 @@
 				<Item Name="README example set.vi" Type="VI" URL="../other/infolib/README example set.vi"/>
 			</Item>
 			<Item Name="GUI Panel Control Action.ctl" Type="VI" URL="../other/GUI Panel Control Action.ctl"/>
+			<Item Name="met_serial_setup.ctl" Type="VI" URL="../other/met_serial_setup.ctl"/>
 			<Item Name="GUI Panel Control.vi" Type="VI" URL="../other/GUI Panel Control.vi"/>
 			<Item Name="About Dialog.vi" Type="VI" URL="../other/About Dialog.vi"/>
 			<Item Name="Get Root Path.vi" Type="VI" URL="../other/Get Root Path.vi"/>
@@ -467,6 +472,7 @@
 			<Item Name="Round Log.vi" Type="VI" URL="../other/Round Log.vi"/>
 			<Item Name="Sort 2D Array.vi" Type="VI" URL="../other/Sort 2D Array.vi"/>
 			<Item Name="mean_2D.vi" Type="VI" URL="../other/mean_2D.vi"/>
+			<Item Name="VISA Make Info.vi" Type="VI" URL="../other/VISA Make Info.vi"/>
 		</Item>
 		<Item Name="varilib" Type="Folder">
 			<Item Name="lvanlys.dll" Type="Document" URL="../varilib/lvanlys.dll"/>
@@ -1126,6 +1132,7 @@
 				<Property Name="Bld_previewCacheID" Type="Str">{791F11D6-C97D-45C0-88CE-FB43FA74A516}</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Bld_version.minor" Type="Int">3</Property>
+				<Property Name="Bld_version.patch" Type="Int">2</Property>
 				<Property Name="Destination[0].destName" Type="Str">open_z_bridge-full.exe</Property>
 				<Property Name="Destination[0].path" Type="Path">../builds/Open_Z_bridge-[VersionNumber]-full/Open-Z-bridge-full.exe</Property>
 				<Property Name="Destination[0].path.type" Type="Str">relativeToProject</Property>
@@ -1178,6 +1185,7 @@
 				<Property Name="Bld_previewCacheID" Type="Str">{E01B0F87-A895-4022-B8E1-CCC15900CD93}</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Bld_version.minor" Type="Int">3</Property>
+				<Property Name="Bld_version.patch" Type="Int">2</Property>
 				<Property Name="Destination[0].destName" Type="Str">open_z_bridge-visa.exe</Property>
 				<Property Name="Destination[0].path" Type="Path">../builds/Open_Z_bridge-[VersionNumber]-visa/Open-Z-bridge-visa.exe</Property>
 				<Property Name="Destination[0].path.type" Type="Str">relativeToProject</Property>
