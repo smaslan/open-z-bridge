@@ -353,6 +353,12 @@
 				<Item Name="Meas Results TWM Digitizer Correction Data.ctl" Type="VI" URL="../measure/twm/Meas Results TWM Digitizer Correction Data.ctl"/>
 				<Item Name="Meas Results TWM Correction Digitizer Type.ctl" Type="VI" URL="../measure/twm/Meas Results TWM Correction Digitizer Type.ctl"/>
 				<Item Name="Meas Results TWM InpZ Correction Uncertainty Config.ctl" Type="VI" URL="../measure/twm/Meas Results TWM InpZ Correction Uncertainty Config.ctl"/>
+				<Item Name="Meas Results TWM Correction Uncertainty Parametric Generator Ctrls.ctl" Type="VI" URL="../measure/twm/Meas Results TWM Correction Uncertainty Parametric Generator Ctrls.ctl"/>
+				<Item Name="Meas Results TWM Correction Uncertainty Parametric Generator Type.ctl" Type="VI" URL="../measure/twm/Meas Results TWM Correction Uncertainty Parametric Generator Type.ctl"/>
+				<Item Name="Meas Result Generate TWM Correction - Parametric Uncertainty Set Captions.vi" Type="VI" URL="../measure/twm/Meas Result Generate TWM Correction - Parametric Uncertainty Set Captions.vi"/>
+				<Item Name="Meas Result Generate TWM Correction - Parametric Uncertainty Generate.vi" Type="VI" URL="../measure/twm/Meas Result Generate TWM Correction - Parametric Uncertainty Generate.vi"/>
+				<Item Name="Meas Results TWM InpZ Correction Mode.ctl" Type="VI" URL="../measure/twm/Meas Results TWM InpZ Correction Mode.ctl"/>
+				<Item Name="Meas Result Generate TWM Zbuf Correction - Generate Files.vi" Type="VI" URL="../measure/twm/Meas Result Generate TWM Zbuf Correction - Generate Files.vi"/>
 				<Item Name="Meas Result Generate TWM Digitizer Correction.vi" Type="VI" URL="../measure/twm/Meas Result Generate TWM Digitizer Correction.vi"/>
 				<Item Name="Meas Result Generate TWM Digitizer Correction - Process Measurement.vi" Type="VI" URL="../measure/twm/Meas Result Generate TWM Digitizer Correction - Process Measurement.vi"/>
 				<Item Name="Meas Result Generate TWM Digitizer Correction - fit Gain Phase.vi" Type="VI" URL="../measure/twm/Meas Result Generate TWM Digitizer Correction - fit Gain Phase.vi"/>
@@ -1132,7 +1138,7 @@
 				<Property Name="Bld_previewCacheID" Type="Str">{791F11D6-C97D-45C0-88CE-FB43FA74A516}</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Bld_version.minor" Type="Int">3</Property>
-				<Property Name="Bld_version.patch" Type="Int">2</Property>
+				<Property Name="Bld_version.patch" Type="Int">3</Property>
 				<Property Name="Destination[0].destName" Type="Str">open_z_bridge-full.exe</Property>
 				<Property Name="Destination[0].path" Type="Path">../builds/Open_Z_bridge-[VersionNumber]-full/Open-Z-bridge-full.exe</Property>
 				<Property Name="Destination[0].path.type" Type="Str">relativeToProject</Property>
@@ -1185,7 +1191,7 @@
 				<Property Name="Bld_previewCacheID" Type="Str">{E01B0F87-A895-4022-B8E1-CCC15900CD93}</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Bld_version.minor" Type="Int">3</Property>
-				<Property Name="Bld_version.patch" Type="Int">2</Property>
+				<Property Name="Bld_version.patch" Type="Int">3</Property>
 				<Property Name="Destination[0].destName" Type="Str">open_z_bridge-visa.exe</Property>
 				<Property Name="Destination[0].path" Type="Path">../builds/Open_Z_bridge-[VersionNumber]-visa/Open-Z-bridge-visa.exe</Property>
 				<Property Name="Destination[0].path.type" Type="Str">relativeToProject</Property>

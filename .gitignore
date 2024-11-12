@@ -1,4 +1,5 @@
 /temp
 *.aliases
 *.lvlps
-/builds
+/builds/Open*
+!/builds/*.zip
