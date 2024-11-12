@@ -264,6 +264,9 @@
 			<Item Name="T3AWG3K" Type="Folder">
 				<Item Name="Active Technologies AWG3000.lvlib" Type="Library" URL="../drivers/T3AWG3K/Active Technologies AWG3000.lvlib"/>
 			</Item>
+			<Item Name="D4xxx" Type="Folder">
+				<Item Name="Datron D4xxx.lvlib" Type="Library" URL="../drivers/D4xxx/Datron D4xxx.lvlib"/>
+			</Item>
 		</Item>
 		<Item Name="source" Type="Folder">
 			<Item Name="Source Type.ctl" Type="VI" URL="../source/Source Type.ctl"/>
@@ -670,6 +673,7 @@
 		<Item Name="README.md" Type="Document" URL="../README.md"/>
 		<Item Name="LICENSE.txt" Type="Document" URL="../LICENSE.txt"/>
 		<Item Name="test.vi" Type="VI" URL="../test.vi"/>
+		<Item Name="D4xxx Initialize.vi" Type="VI" URL="../drivers/D4xxx/D4xxx Initialize.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="instr.lib" Type="Folder">
 				<Item Name="niScope Acquisition Status.vi" Type="VI" URL="/&lt;instrlib&gt;/niScope/Acquire/Fetch/niScope Acquisition Status.vi"/>
@@ -1138,7 +1142,7 @@
 				<Property Name="Bld_previewCacheID" Type="Str">{791F11D6-C97D-45C0-88CE-FB43FA74A516}</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Bld_version.minor" Type="Int">3</Property>
-				<Property Name="Bld_version.patch" Type="Int">3</Property>
+				<Property Name="Bld_version.patch" Type="Int">4</Property>
 				<Property Name="Destination[0].destName" Type="Str">open_z_bridge-full.exe</Property>
 				<Property Name="Destination[0].path" Type="Path">../builds/Open_Z_bridge-[VersionNumber]-full/Open-Z-bridge-full.exe</Property>
 				<Property Name="Destination[0].path.type" Type="Str">relativeToProject</Property>
@@ -1191,7 +1195,7 @@
 				<Property Name="Bld_previewCacheID" Type="Str">{E01B0F87-A895-4022-B8E1-CCC15900CD93}</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Bld_version.minor" Type="Int">3</Property>
-				<Property Name="Bld_version.patch" Type="Int">3</Property>
+				<Property Name="Bld_version.patch" Type="Int">4</Property>
 				<Property Name="Destination[0].destName" Type="Str">open_z_bridge-visa.exe</Property>
 				<Property Name="Destination[0].path" Type="Path">../builds/Open_Z_bridge-[VersionNumber]-visa/Open-Z-bridge-visa.exe</Property>
 				<Property Name="Destination[0].path.type" Type="Str">relativeToProject</Property>
