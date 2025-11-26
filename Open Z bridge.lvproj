@@ -61,20 +61,20 @@
 					<Item Name="TWM Client Cmd Define Multiplexer Sequence.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Cmd Define Multiplexer Sequence.vi"/>
 					<Item Name="TWM Client Cmd Define QPMX.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/TWM client/TWM Client Cmd Define QPMX.vi"/>
 					<Item Name="infolib.lvlib" Type="Library" URL="../drivers/TWM client.lvlibp/octave/infolib/infolib.lvlib"/>
-					<Item Name="Error Cluster From Error Code.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/Error Cluster From Error Code.vi"/>
-					<Item Name="Clear Errors.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/Clear Errors.vi"/>
-					<Item Name="wa32 PeekNamedPipe.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/wa32 PeekNamedPipe.vi"/>
-					<Item Name="wa32 ReadFile.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/wa32 ReadFile.vi"/>
-					<Item Name="Normalize End Of Line.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/AdvancedString/Normalize End Of Line.vi"/>
-					<Item Name="whitespace.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/whitespace.ctl"/>
 					<Item Name="Trim Whitespace.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/Trim Whitespace.vi"/>
+					<Item Name="whitespace.ctl" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/whitespace.ctl"/>
+					<Item Name="Clear Errors.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/Clear Errors.vi"/>
+					<Item Name="Error Cluster From Error Code.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/Utility/error.llb/Error Cluster From Error Code.vi"/>
 					<Item Name="Space Constant.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/dlg_ctls.llb/Space Constant.vi"/>
+					<Item Name="Normalize End Of Line.vi" Type="VI" URL="../drivers/TWM client.lvlibp/1abvi3w/vi.lib/AdvancedString/Normalize End Of Line.vi"/>
+					<Item Name="wa32 ReadFile.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/wa32 ReadFile.vi"/>
+					<Item Name="wa32 PeekNamedPipe.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/wa32 PeekNamedPipe.vi"/>
 					<Item Name="wa32 Read Till Key.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/high level/wa32 Read Till Key.vi"/>
 					<Item Name="wa32 WriteFile.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/wa32 WriteFile.vi"/>
 					<Item Name="wa32 Flush Read.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/high level/wa32 Flush Read.vi"/>
-					<Item Name="wa32 WaitNamedPipeA.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/wa32 WaitNamedPipeA.vi"/>
 					<Item Name="wa32 CloseHandle.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/wa32 CloseHandle.vi"/>
 					<Item Name="wa32 CreateFileA.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/wa32 CreateFileA.vi"/>
+					<Item Name="wa32 WaitNamedPipeA.vi" Type="VI" URL="../drivers/TWM client.lvlibp/server/WinAPI32/wa32 WaitNamedPipeA.vi"/>
 				</Item>
 			</Item>
 			<Item Name="AFG3101C" Type="Folder">
@@ -266,6 +266,16 @@
 			</Item>
 			<Item Name="D4xxx" Type="Folder">
 				<Item Name="Datron D4xxx.lvlib" Type="Library" URL="../drivers/D4xxx/Datron D4xxx.lvlib"/>
+				<Item Name="D4xxx Initialize.vi" Type="VI" URL="../drivers/D4xxx/D4xxx Initialize.vi"/>
+			</Item>
+			<Item Name="Agilent 3458A" Type="Folder">
+				<Item Name="top level" Type="Folder">
+					<Item Name="HP3458A Session.ctl" Type="VI" URL="../drivers/Agilent 3458A/top level/HP3458A Session.ctl"/>
+					<Item Name="HP3458A Config Panel.vi" Type="VI" URL="../drivers/Agilent 3458A/top level/HP3458A Config Panel.vi"/>
+					<Item Name="HP3458A Open.vi" Type="VI" URL="../drivers/Agilent 3458A/top level/HP3458A Open.vi"/>
+					<Item Name="HP3458A Close.vi" Type="VI" URL="../drivers/Agilent 3458A/top level/HP3458A Close.vi"/>
+				</Item>
+				<Item Name="Agilent 3458.lvlib" Type="Library" URL="../drivers/Agilent 3458A/Agilent 3458.lvlib"/>
 			</Item>
 		</Item>
 		<Item Name="source" Type="Folder">
@@ -673,7 +683,6 @@
 		<Item Name="README.md" Type="Document" URL="../README.md"/>
 		<Item Name="LICENSE.txt" Type="Document" URL="../LICENSE.txt"/>
 		<Item Name="test.vi" Type="VI" URL="../test.vi"/>
-		<Item Name="D4xxx Initialize.vi" Type="VI" URL="../drivers/D4xxx/D4xxx Initialize.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="instr.lib" Type="Folder">
 				<Item Name="niScope Acquisition Status.vi" Type="VI" URL="/&lt;instrlib&gt;/niScope/Acquire/Fetch/niScope Acquisition Status.vi"/>
@@ -1141,8 +1150,8 @@
 				<Property Name="Bld_preActionVIID" Type="Ref">/My Computer/build/Pre-Build Action - visa,daqmx.vi</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{791F11D6-C97D-45C0-88CE-FB43FA74A516}</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
-				<Property Name="Bld_version.minor" Type="Int">3</Property>
-				<Property Name="Bld_version.patch" Type="Int">4</Property>
+				<Property Name="Bld_version.minor" Type="Int">4</Property>
+				<Property Name="Bld_version.patch" Type="Int">1</Property>
 				<Property Name="Destination[0].destName" Type="Str">open_z_bridge-full.exe</Property>
 				<Property Name="Destination[0].path" Type="Path">../builds/Open_Z_bridge-[VersionNumber]-full/Open-Z-bridge-full.exe</Property>
 				<Property Name="Destination[0].path.type" Type="Str">relativeToProject</Property>
@@ -1156,7 +1165,7 @@
 				<Property Name="Destination[2].path.type" Type="Str">relativeToProject</Property>
 				<Property Name="DestinationCount" Type="Int">3</Property>
 				<Property Name="Exe_iconItemID" Type="Ref">/My Computer/open_z_brg.ico</Property>
-				<Property Name="Source[0].itemID" Type="Str">{C5A8BB97-BEF1-4AF3-93D5-6CE2281DB145}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{A54E839C-E9B2-472A-B418-D1C3C0DCA492}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/main.vi</Property>
@@ -1171,7 +1180,7 @@
 				<Property Name="SourceCount" Type="Int">4</Property>
 				<Property Name="TgtF_fileDescription" Type="Str">Open source extension of TWM tool for measurement of low impedance.</Property>
 				<Property Name="TgtF_internalName" Type="Str">Open-Z-bridge-full</Property>
-				<Property Name="TgtF_legalCopyright" Type="Str">Copyright © 2018-2023</Property>
+				<Property Name="TgtF_legalCopyright" Type="Str">Copyright © 2018-2025</Property>
 				<Property Name="TgtF_productName" Type="Str">Open-Z-bridge-full</Property>
 				<Property Name="TgtF_targetfileGUID" Type="Str">{1BD4261A-F818-4FD6-BD8B-813B9C3850C6}</Property>
 				<Property Name="TgtF_targetfileName" Type="Str">open_z_bridge-full.exe</Property>
@@ -1194,8 +1203,8 @@
 				<Property Name="Bld_preActionVIID" Type="Ref">/My Computer/build/Pre-Build Action - visa.vi</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{E01B0F87-A895-4022-B8E1-CCC15900CD93}</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
-				<Property Name="Bld_version.minor" Type="Int">3</Property>
-				<Property Name="Bld_version.patch" Type="Int">4</Property>
+				<Property Name="Bld_version.minor" Type="Int">4</Property>
+				<Property Name="Bld_version.patch" Type="Int">1</Property>
 				<Property Name="Destination[0].destName" Type="Str">open_z_bridge-visa.exe</Property>
 				<Property Name="Destination[0].path" Type="Path">../builds/Open_Z_bridge-[VersionNumber]-visa/Open-Z-bridge-visa.exe</Property>
 				<Property Name="Destination[0].path.type" Type="Str">relativeToProject</Property>
@@ -1209,7 +1218,7 @@
 				<Property Name="Destination[2].path.type" Type="Str">relativeToProject</Property>
 				<Property Name="DestinationCount" Type="Int">3</Property>
 				<Property Name="Exe_iconItemID" Type="Ref">/My Computer/open_z_brg.ico</Property>
-				<Property Name="Source[0].itemID" Type="Str">{C0ACB39F-9936-41C5-8801-EDB008993BBB}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{A54E839C-E9B2-472A-B418-D1C3C0DCA492}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/main.vi</Property>
@@ -1225,7 +1234,7 @@
 				<Property Name="TgtF_fileDescription" Type="Str">Open source extension of TWM tool for measurement of low impedance.
 Version with VISA drivers only.</Property>
 				<Property Name="TgtF_internalName" Type="Str">Open-Z-bridge-full</Property>
-				<Property Name="TgtF_legalCopyright" Type="Str">Copyright © 2018-2022</Property>
+				<Property Name="TgtF_legalCopyright" Type="Str">Copyright © 2018-2025</Property>
 				<Property Name="TgtF_productName" Type="Str">Open-Z-bridge-full</Property>
 				<Property Name="TgtF_targetfileGUID" Type="Str">{4C5348CF-279B-410F-BC16-D3E421D9A99C}</Property>
 				<Property Name="TgtF_targetfileName" Type="Str">open_z_bridge-visa.exe</Property>
